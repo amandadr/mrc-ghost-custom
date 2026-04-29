@@ -1,0 +1,60 @@
+# Routes: custom homepage (/) + blog archive at /blog/ + resources collections + glossary
+#
+# Apply in Ghost Admin:
+# Settings → Labs → Routes → Upload this YAML
+#
+# Glossary model:
+# - Term detail pages are POSTS tagged with:
+#   - internal tag: #glossary-term (preferred, hidden in UI), OR
+#   - public tag: glossary-term (supported for convenience)
+#   - Their URL becomes /glossary/{slug}/
+# - Glossary index lives at /glossary/ and lists those posts
+# - Glossary collections are PAGES (one per collection) mounted at top-level routes (e.g. /core-web-vitals/)
+#   - Each collection route below maps to a page’s data (slug must match) and a dedicated template
+#
+# NOTE: Avoid slug collisions:
+# - A term post slug and a collection page slug cannot be the same in Ghost.
+# - Recommended: term post slug is the canonical term (e.g. core-web-vitals)
+#   and the collection page uses a distinct slug (e.g. core-web-vitals-collection),
+#   then routing maps the desired URL (/core-web-vitals/) to that page's data.
+#
+
+routes:
+  /: home
+
+  # Glossary collection pages (explicit, few + static)
+  #
+  # How to add another collection:
+  # 1) Create a Page with slug: <collection-page-slug> (e.g. "core-web-vitals-collection")
+  # 2) Add a route entry like the one below
+  # 3) Create a matching template: glossary-collection-<collection-route-slug>.hbs
+  /core-web-vitals/:
+    template: glossary-collection-core-web-vitals
+    data: page.core-web-vitals-collection
+
+collections:
+  /blog/:
+    permalink: /blog/{slug}/
+    template: index
+    filter: tag:-[case-study,whitepaper,glossary-term,hash-glossary-term]
+
+  /whitepapers/:
+    permalink: /whitepapers/{slug}/
+    template: whitepapers
+    filter: tag:whitepaper
+
+  /case-studies/:
+    permalink: /case-studies/{slug}/
+    template: case-studies
+    filter: tag:case-study
+
+  # Glossary terms index + term detail pages
+  /glossary/:
+    permalink: /glossary/{slug}/
+    template: glossary
+    filter: tag:[glossary-term,hash-glossary-term]
+
+taxonomies:
+  tag: /blog/tag/{slug}/
+  author: /blog/author/{slug}/
+

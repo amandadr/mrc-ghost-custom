@@ -9,7 +9,15 @@
             {{#has tag="case-study"}}
                 {{> "post-case-study"}}
             {{else}}
-                {{> "content" width="wide"}}
+                {{#has tag="glossary-term"}}
+                    {{> "post-glossary-term"}}
+                {{else}}
+                {{#has tag="#glossary-term"}}
+                    {{> "post-glossary-term"}}
+                {{else}}
+                    {{> "content" width="wide"}}
+                {{/has}}
+                {{/has}}
             {{/has}}
         {{/has}}
     {{/post}}

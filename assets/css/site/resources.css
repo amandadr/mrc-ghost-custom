@@ -109,3 +109,22 @@
     opacity: 0.9;
 }
 
+.mrc-glossary-term__kicker {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.mrc-glossary-term__kicker a {
+    text-decoration: none;
+}
+
+.mrc-glossary__term a {
+    text-decoration: none;
+}
+
+.mrc-glossary__term a:hover,
+.mrc-glossary-term__kicker a:hover {
+    text-decoration: underline;
+}
+

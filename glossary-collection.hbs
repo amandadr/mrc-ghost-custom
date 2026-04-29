@@ -1,0 +1,146 @@
+{{!< default}}
+
+{{!--
+  Generic glossary collection template.
+
+  Because Ghost routing can’t pass arbitrary variables into templates,
+  this file is intended to be COPIED into per-collection templates like:
+
+  - glossary-collection-core-web-vitals.hbs
+
+  ...where the `tag:COLLECTION_TAG` in the {{#get}} helper is replaced
+  with the collection’s public tag slug.
+--}}
+
+<main class="site-main">
+  {{#page}}
+    <section class="mrc-glossary mrc-glossary--collection gh-canvas" aria-labelledby="glossary-collection-title">
+      <header class="single-header">
+        <p class="mrc-glossary-term__kicker"><a href="/glossary/">Glossary</a></p>
+        <h1 id="glossary-collection-title" class="single-title">{{title}}</h1>
+        {{#if custom_excerpt}}
+          <div class="single-excerpt">{{custom_excerpt}}</div>
+        {{else}}
+          {{#if content}}
+            <div class="single-excerpt">{{content}}</div>
+          {{/if}}
+        {{/if}}
+      </header>
+
+      <h2 id="glossary-terms" class="mrc-glossary__title">Terms</h2>
+
+      <nav class="mrc-glossary__nav" aria-label="Glossary A to Z">
+        <a class="mrc-glossary__nav-item" href="#glossary-a">A</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-b">B</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-c">C</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-d">D</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-e">E</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-f">F</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-g">G</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-h">H</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-i">I</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-j">J</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-k">K</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-l">L</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-m">M</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-n">N</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-o">O</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-p">P</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-q">Q</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-r">R</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-s">S</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-t">T</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-u">U</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-v">V</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-w">W</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-x">X</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-y">Y</a>
+        <a class="mrc-glossary__nav-item" href="#glossary-z">Z</a>
+      </nav>
+
+      <div class="mrc-glossary__groups" data-glossary-groups></div>
+
+      {{#get "posts" filter="tag:[glossary-term,hash-glossary-term]+tag:COLLECTION_TAG" limit="all"}}
+        <template data-glossary-terms>
+          {{#foreach posts}}
+            <div
+              data-term
+              data-title="{{title}}"
+              data-url="{{url}}"
+              data-slug="{{slug}}"
+              data-def="{{custom_excerpt}}"
+            ></div>
+          {{/foreach}}
+        </template>
+      {{/get}}
+    </section>
+  {{/page}}
+</main>
+
+<script>
+  (function () {
+    const groupsRoot = document.querySelector('[data-glossary-groups]');
+    const termsTpl = document.querySelector('[data-glossary-terms]');
+    if (!groupsRoot || !termsTpl) return;
+
+    const termNodes = Array.from(termsTpl.content.querySelectorAll('[data-term]'));
+    const terms = termNodes
+      .map((node) => ({
+        title: node.getAttribute('data-title') || '',
+        url: node.getAttribute('data-url') || '',
+        slug: node.getAttribute('data-slug') || '',
+        def: node.getAttribute('data-def') || '',
+      }))
+      .filter((t) => t.title && t.url)
+      .sort((a, b) => a.title.localeCompare(b.title, undefined, {sensitivity: 'base'}));
+
+    const byLetter = new Map();
+    for (const term of terms) {
+      const first = (term.title.trim()[0] || '').toUpperCase();
+      const letter = first >= 'A' && first <= 'Z' ? first : '#';
+      if (!byLetter.has(letter)) byLetter.set(letter, []);
+      byLetter.get(letter).push(term);
+    }
+
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    for (const letter of letters) {
+      const items = byLetter.get(letter) || [];
+      if (!items.length) continue;
+
+      const section = document.createElement('section');
+      section.className = 'mrc-glossary__group';
+      section.setAttribute('aria-labelledby', `glossary-${letter.toLowerCase()}`);
+
+      const h3 = document.createElement('h3');
+      h3.id = `glossary-${letter.toLowerCase()}`;
+      h3.className = 'mrc-glossary__letter';
+      h3.textContent = letter;
+
+      const dl = document.createElement('dl');
+      dl.className = 'mrc-glossary__list';
+
+      for (const term of items) {
+        const dt = document.createElement('dt');
+        dt.id = term.slug ? `glossary-${term.slug}` : '';
+        dt.className = 'mrc-glossary__term';
+
+        const a = document.createElement('a');
+        a.href = term.url;
+        a.textContent = term.title;
+        dt.appendChild(a);
+
+        const dd = document.createElement('dd');
+        dd.className = 'mrc-glossary__def';
+        dd.textContent = term.def || '';
+
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      }
+
+      section.appendChild(h3);
+      section.appendChild(dl);
+      groupsRoot.appendChild(section);
+    }
+  })();
+</script>
+
