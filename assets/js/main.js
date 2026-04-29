@@ -7,7 +7,8 @@
         }
         // Hosted PDF.js viewer (CDN). The PDF URL must be publicly fetchable (CORS-compatible).
         // Using hash params keeps the viewer stable and avoids query encoding issues.
-        var viewerBase = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/web/viewer.html';
+        // Use the officially hosted PDF.js viewer. Some npm CDNs don't ship `web/viewer.html`.
+        var viewerBase = 'https://mozilla.github.io/pdf.js/web/viewer.html';
         return viewerBase + '?file=' + encodeURIComponent(pdfUrl);
     }
 
@@ -18,21 +19,15 @@
         }
 
         roots.forEach(function (root) {
-            // Convention: store a PDF link in the post body (hidden by the template).
-            // We’ll detect the first PDF link and render it in a PDF.js viewer iframe.
-            var article = root.closest('article');
-            var scope = article || document;
+            // Convention: include a PDF link in the post body.
+            // We’ll detect the first PDF link and upgrade it into a PDF.js viewer iframe,
+            // leaving the rest of the post content intact.
             var pdfLink =
-                scope.querySelector('a[href$=".pdf"]') ||
-                scope.querySelector('a[href*=".pdf"]');
+                root.querySelector('a[href$=".pdf"]') ||
+                root.querySelector('a[href*=".pdf"]');
 
             var pdfUrl = pdfLink && pdfLink.getAttribute('href');
             if (!pdfUrl) {
-                return;
-            }
-
-            var frame = root.querySelector('[data-pdf-frame]');
-            if (!frame) {
                 return;
             }
 
@@ -41,8 +36,22 @@
                 return;
             }
 
-            frame.hidden = false;
-            frame.innerHTML = '<iframe class="mrc-pdf-viewer__iframe" title="PDF viewer" loading="lazy" referrerpolicy="no-referrer" src="' + viewerUrl + '"></iframe>';
+            var iframeHtml = '<iframe class="mrc-pdf-viewer__iframe" title="PDF viewer" loading="lazy" referrerpolicy="no-referrer" src="' + viewerUrl + '"></iframe>';
+
+            var wrapper = document.createElement('div');
+            wrapper.className = 'mrc-pdf-viewer';
+            wrapper.innerHTML = iframeHtml;
+
+            // If the PDF link is on its own line/paragraph, replace that whole block.
+            // Otherwise insert the viewer right after the link and hide the link.
+            var p = pdfLink.closest && pdfLink.closest('p');
+            if (p && p.textContent && pdfLink.textContent && p.textContent.trim() === pdfLink.textContent.trim()) {
+                p.replaceWith(wrapper);
+                return;
+            }
+
+            pdfLink.insertAdjacentElement('afterend', wrapper);
+            pdfLink.style.display = 'none';
         });
     }
 

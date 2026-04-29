@@ -1,11 +1,9 @@
 {{!< default}}
-{{! Case study post template — assign in Post Settings when editing. Structure: Context, Problem, Approach, Outcome, Impact. }}
+{{! Case study post template — assign in Post Settings when editing. }}
 
 <main class="site-main mrc-case-study">
   {{#post}}
-    <article class="gh-content gh-canvas">
-      {{> "content" width="wide"}}
-    </article>
+    {{> "post-case-study"}}
   {{/post}}
   {{#if @custom.show_related_posts}}
     {{> "related-posts"}}

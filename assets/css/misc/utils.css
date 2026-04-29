@@ -28,7 +28,7 @@
 .u-placeholder {
     position: relative;
     z-index: 10;
-    background-color: var(--lighter-gray-color);
+    background-color: var(--mrc-paper);
 }
 
 .u-placeholder::before {

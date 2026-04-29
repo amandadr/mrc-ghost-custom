@@ -19,6 +19,7 @@ collections:
   /blog/:
     permalink: /blog/{slug}/
     template: index
+    filter: tag:-[case-study,whitepaper]
 
   /whitepapers/:
     permalink: /whitepapers/{slug}/
