@@ -23,7 +23,15 @@
     {{/post}}
 
     {{#if @custom.show_related_posts}}
-        {{> "related-posts"}}
+        {{#post}}
+            {{#has tag="glossary-term"}}
+            {{else}}
+                {{#has tag="#glossary-term"}}
+                {{else}}
+                    {{> "related-posts"}}
+                {{/has}}
+            {{/has}}
+        {{/post}}
     {{/if}}
 
     {{#post}}

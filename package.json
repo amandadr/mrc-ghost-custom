@@ -86,12 +86,12 @@
       },
       "hero_headline": {
         "type": "text",
-        "default": "Untangle complex technical and operational problems.",
+        "default": "Helping your business work better online.",
         "group": "homepage"
       },
       "hero_subtext": {
         "type": "text",
-        "default": "Sustainable systems rooted in data, collaboration, and measurable impact.",
+        "default": "Practical advice, thoughtful design, and dependable technical support for your business.",
         "group": "homepage"
       },
       "show_featured_posts": {

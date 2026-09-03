@@ -67,7 +67,7 @@
   min-width: 560px;
 }
 
-/* Always show nav links (theme hides until is-dropdown-loaded); no dropdown in header */
+/* Always show nav links (theme hides until is-dropdown-loaded). Keep overflow “More” hidden; Services uses .mrc-nav-services. */
 .mrc-head .gh-head-menu .nav > li {
   opacity: 1;
 }

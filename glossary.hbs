@@ -7,6 +7,25 @@
       <p class="single-excerpt">Short definitions with links to deeper explanations.</p>
     </header>
 
+    {{#get "pages" filter="tag:glossary-collection" limit="all" order="title asc"}}
+      {{#if pages}}
+        <section class="mrc-glossary__collections" aria-labelledby="glossary-collections">
+          <h2 id="glossary-collections" class="mrc-glossary__collections-title">Collections</h2>
+          <div class="mrc-glossary__collections-grid mrc-about-cards mrc-grid mrc-grid--auto mrc-grid--gap-l">
+            {{#foreach pages}}
+              <a class="mrc-about-card mrc-glossary__collections-card" href="{{url}}">
+                <h3 class="mrc-about-card-title">{{title}}</h3>
+                {{#if custom_excerpt}}
+                  <p class="mrc-about-card-intro">{{custom_excerpt}}</p>
+                {{/if}}
+              </a>
+            {{/foreach}}
+          </div>
+          <div class="mrc-glossary__divider" aria-hidden="true"></div>
+        </section>
+      {{/if}}
+    {{/get}}
+
     <nav class="mrc-glossary__nav" aria-label="Glossary A to Z">
       <a class="mrc-glossary__nav-item" href="#glossary-a">A</a>
       <a class="mrc-glossary__nav-item" href="#glossary-b">B</a>

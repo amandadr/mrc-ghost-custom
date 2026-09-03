@@ -1,16 +1,34 @@
 {{! Final CTA — Maroon bg, Cream text, Mustard button + Ink (colurs.md) }}
+{{! Optional: href (defaults to /contact/), ga_event, ga_label, ga_audience, ga_page_section, secondary_href, secondary_text }}
 <section class="mrc-cta-section section-cta gh-outer">
   <div class="mrc-cta-inner gh-inner mrc-stack mrc-stack--m">
     <h2 class="mrc-cta-headline">{{#if headline}}{{headline}}{{else}}Let's team up{{/if}}</h2>
     {{#if subtext}}
       <p class="mrc-cta-subtext">{{subtext}}</p>
     {{/if}}
-    <a
-      href="{{@site.url}}/contact/"
-      class="button mrc-cta-btn"
-      data-ga-event="cta_click"
-      data-ga-category="engagement"
-      data-ga-label="final_cta_get_in_touch"
-    >{{#if button_text}}{{button_text}}{{else}}Get in touch{{/if}}</a>
+    <div class="mrc-cta-actions">
+      <a
+        href="{{#if href}}{{href}}{{else}}{{@site.url}}/contact/{{/if}}"
+        class="button mrc-cta-btn"
+        data-ga-event="{{#if ga_event}}{{ga_event}}{{else}}cta_click{{/if}}"
+        data-ga-category="engagement"
+        data-ga-label="{{#if ga_label}}{{ga_label}}{{else}}final_cta_get_in_touch{{/if}}"
+        {{#if ga_audience}}data-ga-audience="{{ga_audience}}"{{/if}}
+        {{#if ga_page_section}}data-ga-page-section="{{ga_page_section}}"{{/if}}
+      >{{#if button_text}}{{button_text}}{{else}}Get in touch{{/if}}</a>
+      {{#if secondary_href}}
+        {{#if secondary_text}}
+          <a
+            href="{{secondary_href}}"
+            class="mrc-cta-secondary"
+            data-ga-event="{{#if secondary_ga_event}}{{secondary_ga_event}}{{else}}audience_related_page_click{{/if}}"
+            data-ga-category="engagement"
+            data-ga-label="{{secondary_text}}"
+            {{#if ga_audience}}data-ga-audience="{{ga_audience}}"{{/if}}
+            {{#if ga_page_section}}data-ga-page-section="{{ga_page_section}}"{{/if}}
+          >{{secondary_text}}</a>
+        {{/if}}
+      {{/if}}
+    </div>
   </div>
 </section>

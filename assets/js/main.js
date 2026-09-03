@@ -67,6 +67,15 @@
         window.gtag('event', eventName, params || {});
     }
 
+    function getAudienceFromUrl() {
+        try {
+            var params = new URLSearchParams(window.location.search);
+            return params.get('audience') || '';
+        } catch (e) {
+            return '';
+        }
+    }
+
     function initAnalytics() {
         // GA4 base tag is injected via `partials/ga4.hbs` when configured.
         // Here we only wire up low-noise interaction events.
@@ -84,12 +93,23 @@
 
             var category = el.getAttribute('data-ga-category') || 'engagement';
             var label = el.getAttribute('data-ga-label') || el.getAttribute('aria-label') || (el.textContent || '').trim().slice(0, 100);
+            var audience = el.getAttribute('data-ga-audience') || getAudienceFromUrl() || undefined;
+            var pageSection = el.getAttribute('data-ga-page-section') || undefined;
 
-            track(name, {
+            var params = {
                 event_category: category,
                 event_label: label,
                 page_path: window.location.pathname
-            });
+            };
+
+            if (audience) {
+                params.audience = audience;
+            }
+            if (pageSection) {
+                params.page_section = pageSection;
+            }
+
+            track(name, params);
         }, {capture: true});
 
         document.addEventListener('submit', function (event) {
@@ -102,16 +122,167 @@
                 return;
             }
 
-            track('generate_lead', {
+            var audienceInput = form.querySelector('[name="audience"]');
+            var audience = (audienceInput && audienceInput.value) || getAudienceFromUrl() || undefined;
+
+            var params = {
                 method: 'contact_form',
                 event_category: 'conversion',
-                event_label: 'contact_form'
-            });
+                event_label: 'contact_form_submit'
+            };
+
+            if (audience) {
+                params.audience = audience;
+            }
+
+            track('contact_form_submit', params);
+            track('generate_lead', params);
         }, {capture: true});
+    }
+
+    function initServicesNav() {
+        // Ghost shared dropdown.js resets nav.innerHTML on every resize, which
+        // destroys node-bound listeners. Use live queries + delegation instead.
+
+        function getParts() {
+            var root = document.querySelector('.mrc-nav-services');
+            if (!root) {
+                return null;
+            }
+            var toggle = root.querySelector('.mrc-nav-services__toggle');
+            var panel = root.querySelector('.mrc-nav-services__panel');
+            if (!toggle || !panel) {
+                return null;
+            }
+            return {root: root, toggle: toggle, panel: panel};
+        }
+
+        function setOpen(open) {
+            var parts = getParts();
+            if (!parts) {
+                return;
+            }
+            parts.root.classList.toggle('is-open', open);
+            parts.toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (open) {
+                parts.panel.removeAttribute('hidden');
+            } else {
+                parts.panel.setAttribute('hidden', '');
+            }
+        }
+
+        function markCurrent() {
+            var parts = getParts();
+            if (!parts) {
+                return;
+            }
+            var path = window.location.pathname.replace(/\/$/, '') + '/';
+            parts.panel.querySelectorAll('a').forEach(function (link) {
+                try {
+                    var linkPath = new URL(link.href, window.location.origin).pathname.replace(/\/$/, '') + '/';
+                    if (linkPath === path) {
+                        link.setAttribute('aria-current', 'page');
+                        parts.root.classList.add('nav-current');
+                    }
+                } catch (e) {
+                    // ignore bad hrefs
+                }
+            });
+        }
+
+        markCurrent();
+
+        document.addEventListener('click', function (event) {
+            var toggle = event.target && event.target.closest
+                ? event.target.closest('.mrc-nav-services__toggle')
+                : null;
+
+            if (toggle) {
+                event.preventDefault();
+                event.stopPropagation();
+                var parts = getParts();
+                if (!parts) {
+                    return;
+                }
+                setOpen(parts.toggle.getAttribute('aria-expanded') !== 'true');
+                return;
+            }
+
+            var parts = getParts();
+            if (parts && !parts.root.contains(event.target)) {
+                setOpen(false);
+            }
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key !== 'Escape') {
+                return;
+            }
+            var parts = getParts();
+            if (!parts) {
+                return;
+            }
+            setOpen(false);
+        });
+
+        // After Ghost rebuilds nav HTML on resize, re-apply current markers.
+        var resizeTimer;
+        window.addEventListener('resize', function () {
+            window.clearTimeout(resizeTimer);
+            resizeTimer = window.setTimeout(markCurrent, 50);
+        });
+    }
+
+    function initContactAudience() {
+        var form = document.querySelector('.mrc-contact-form');
+        if (!form) {
+            return;
+        }
+
+        var audience = getAudienceFromUrl();
+        if (!audience) {
+            return;
+        }
+
+        var hidden = form.querySelector('[name="audience"]');
+        if (!hidden) {
+            hidden = document.createElement('input');
+            hidden.type = 'hidden';
+            hidden.name = 'audience';
+            form.appendChild(hidden);
+        }
+        hidden.value = audience;
+
+        var note = document.getElementById('mrc-contact-audience-note');
+        if (note) {
+            var labels = {
+                'small-business': 'Small & Medium Businesses',
+                'tourism-hospitality': 'Tourism & Hospitality',
+                'arts-culture-community': 'Arts, Culture & Community',
+                'organizations-institutions': 'Organizations & Institutions',
+                'agencies-development-teams': 'Agencies & Development Teams'
+            };
+            note.hidden = false;
+            note.textContent = 'Inquiry context: ' + (labels[audience] || audience) + '.';
+        }
+
+        var help = document.getElementById('mrc-contact-help');
+        if (help && audience === 'small-business' && !help.value) {
+            help.value = 'General Inquiry';
+        }
+
+        track('contact_form_start', {
+            event_category: 'conversion',
+            event_label: 'contact_form_start',
+            audience: audience,
+            page_path: window.location.pathname
+        });
     }
 
     function init() {
         initAnalytics();
+        initServicesNav();
+        initContactAudience();
         initPdfViewers();
         pagination(false);
     }

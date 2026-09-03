@@ -1,7 +1,9 @@
-# Routes: custom homepage (/) + blog archive at /blog/ + resources collections + glossary
+# Routes: custom homepage (/) + blog archive at /blog/ + resources collections + glossary + audience services
 #
 # Apply in Ghost Admin:
 # Settings → Labs → Routes → Upload this YAML
+#
+# This is the consolidated routes file for production upload.
 #
 # Glossary model:
 # - Term detail pages are POSTS tagged with:
@@ -11,6 +13,10 @@
 # - Glossary index lives at /glossary/ and lists those posts
 # - Glossary collections are PAGES (one per collection) mounted at top-level routes (e.g. /core-web-vitals/)
 #   - Each collection route below maps to a page’s data (slug must match) and a dedicated template
+#
+# Audience service pages:
+# - Mounted as route → theme HBS only (no Ghost Page, no Admin template dropdown)
+# - Example: /services/small-businesses/ → services-small-business.hbs
 #
 # NOTE: Avoid slug collisions:
 # - A term post slug and a collection page slug cannot be the same in Ghost.
@@ -31,6 +37,18 @@ routes:
   /core-web-vitals/:
     template: glossary-collection-core-web-vitals
     data: page.core-web-vitals-collection
+
+  # Audience service pages — route → HBS only (no Ghost Page / Admin template)
+  /services/small-businesses/:
+    template: services-small-business
+  /services/tourism-hospitality/:
+    template: services-tourism-hospitality
+  /services/arts-culture-community/:
+    template: services-arts-culture-community
+  /services/organizations-institutions/:
+    template: services-organizations-institutions
+  /services/agencies-development-teams/:
+    template: services-agencies-development-teams
 
 collections:
   /blog/:

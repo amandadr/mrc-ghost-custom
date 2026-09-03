@@ -6,7 +6,7 @@
   <section class="mrc-services-hero section-light gh-outer">
     <div class="mrc-services-hero-inner gh-inner mrc-stack mrc-stack--m">
       <h1 class="mrc-services-hero-title">Technical systems built to last.</h1>
-      <p class="mrc-services-hero-subtext">Full-stack development, automation, and applied AI — grounded in data, collaboration, and measurable impact.</p>
+      <p class="mrc-services-hero-subtext">Technology should save time, not create more work. I help businesses build websites, systems, and workflows that support the people using them.</p>
     </div>
     <div class="mrc-services-hero-divider"></div>
   </section>
@@ -22,25 +22,42 @@
     </div>
   </section>
 
-  {{! 3. Engagement — Olive }}
-  <section class="mrc-engagement section-dark gh-outer" aria-labelledby="mrc-engagement-title">
-    <div class="mrc-engagement-inner gh-inner">
-      <h2 id="mrc-engagement-title" class="mrc-engagement-title">How engagement works</h2>
-      <p class="mrc-engagement-intro">Manny Roy Consulting operates as an independent technical partner. Engagements are typically project-based, with options for ongoing advisory or implementation support.</p>
-      <p class="mrc-engagement-intro">I work collaboratively with internal teams, contractors, and stakeholders to ensure clarity, documentation, and smooth handoffs.</p>
-      <ul class="mrc-engagement-list">
-        <li>Project-based engagements</li>
-        <li>Strategic advisory</li>
-        <li>Implementation & build</li>
-        <li>Optional retainer support</li>
-      </ul>
+  {{! 3. Common projects — Cream, paper cards }}
+  <section class="mrc-common-projects section-light gh-outer" aria-labelledby="mrc-common-projects-title">
+    <div class="mrc-common-projects-inner gh-inner">
+      <h2 id="mrc-common-projects-title" class="mrc-common-projects-title">Common projects</h2>
+      <p class="mrc-common-projects-intro">You don’t need to know which service category your project fits into. These are some of the practical ways I help businesses improve how they work online.</p>
+      <div class="mrc-common-projects-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "common-project-card" title="Websites and online presence" item1="New websites and rebuilds" item2="Seasonal content updates" item3="Online menus and visitor information" item4="Accessibility and performance improvements" item5="Hosting, domains, and website rescue"}}
+        {{> "common-project-card" title="Bookings, sales, and customer experience" item1="Booking and reservation improvements" item2="Ecommerce and online ordering" item3="Takeout and delivery integrations" item4="Forms and inquiry workflows" item5="Customer journeys that are easier to follow"}}
+        {{> "common-project-card" title="Day-to-day digital operations" item1="Connecting tools that do not work well together" item2="Automating repetitive tasks" item3="Reporting and dashboards" item4="Staff documentation and training" item5="Simplifying confusing processes"}}
+        {{> "common-project-card" title="Advice, audits, and workshops" item1="Website and systems audits" item2="Technical planning and prioritization" item3="SEO and analytics reviews" item4="Practical AI adoption" item5="Team workshops and one-on-one guidance"}}
+      </div>
+      <div class="mrc-common-projects-prompt">
+        <p class="mrc-common-projects-prompt-lead"><strong>Not sure where your project fits?</strong></p>
+        <p class="mrc-common-projects-prompt-body">Start with what is frustrating you or taking more time than it should.</p>
+        <a href="/contact/" class="mrc-common-projects-prompt-link">Tell me what’s going on →</a>
+      </div>
     </div>
   </section>
 
-  {{! 4. Process — Cream }}
+  {{! 4. Ways we can work together — Olive }}
+  <section class="mrc-engagement section-dark gh-outer" aria-labelledby="mrc-engagement-title">
+    <div class="mrc-engagement-inner gh-inner">
+      <h2 id="mrc-engagement-title" class="mrc-engagement-title">Ways we can work together</h2>
+      <div class="mrc-engagement-ways">
+        {{> "engagement-way" title="One-time projects" desc="Focused work with a clear scope, timeline, and outcome."}}
+        {{> "engagement-way" title="Advice and planning" desc="Audits, strategy, troubleshooting, and help deciding what comes next."}}
+        {{> "engagement-way" title="Implementation support" desc="Hands-on help building, fixing, connecting, or improving your systems."}}
+        {{> "engagement-way" title="Ongoing support" desc="Regular updates, maintenance, guidance, and technical help when needed."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 5. Process — Cream }}
   <section class="mrc-process section-light gh-outer" aria-labelledby="mrc-process-title">
     <div class="mrc-process-inner gh-inner">
-      <h2 id="mrc-process-title" class="mrc-process-title">Process</h2>
+      <h2 id="mrc-process-title" class="mrc-process-title">The process</h2>
       <div class="mrc-process-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
         {{> "process-step" title="Discovery" desc="Understand constraints, goals, and existing systems."}}
         {{> "process-step" title="Design" desc="Architect solutions grounded in sustainability and data."}}
@@ -50,6 +67,6 @@
     </div>
   </section>
 
-  {{! 5. CTA — Maroon }}
+  {{! 6. CTA — Maroon }}
   {{> "cta-section" headline="Let's build something sustainable." subtext="If you're navigating complexity or planning what's next, I'm happy to talk." button_text="Get in touch"}}
 </main>

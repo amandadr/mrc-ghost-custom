@@ -1,0 +1,48 @@
+{{! Override Ghost default navigation partial — invoked by the navigation helper. }}
+{{! url, slug, and current are only populated inside this foreach. }}
+<ul class="nav" role="list">
+  {{#foreach navigation}}
+    {{#match label "=" "Services"}}
+      <li class="nav-{{slug}} mrc-nav-services{{#if current}} nav-current{{/if}}">
+        <a
+          href="{{url}}"
+          class="mrc-nav-services__link"
+          {{#if current}}aria-current="page"{{/if}}
+        >{{label}}<span class="mrc-nav-services__chevron" aria-hidden="true"></span></a>
+        <button
+          type="button"
+          class="mrc-nav-services__toggle"
+          aria-expanded="false"
+          aria-controls="mrc-nav-services-panel"
+          id="mrc-nav-services-toggle"
+        >
+          <span class="mrc-nav-services__toggle-label">Services submenu</span>
+        </button>
+        <ul class="mrc-nav-services__panel" id="mrc-nav-services-panel" hidden>
+          <li>
+            <a href="{{@site.url}}/services/small-businesses/">Small &amp; Medium Businesses</a>
+          </li>
+          <li>
+            <a href="{{@site.url}}/services/tourism-hospitality/">Tourism &amp; Hospitality</a>
+          </li>
+          <li>
+            <a href="{{@site.url}}/services/arts-culture-community/">Arts, Culture &amp; Community</a>
+          </li>
+          <li>
+            <a href="{{@site.url}}/services/organizations-institutions/">Organizations &amp; Institutions</a>
+          </li>
+          <li>
+            <a href="{{@site.url}}/services/agencies-development-teams/">Agencies &amp; Development Teams</a>
+          </li>
+          <li class="mrc-nav-services__separator">
+            <a href="{{@site.url}}/services/">View All Services →</a>
+          </li>
+        </ul>
+      </li>
+    {{else}}
+      <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+        <a href="{{url}}"{{#if current}} aria-current="page"{{/if}}>{{label}}</a>
+      </li>
+    {{/match}}
+  {{/foreach}}
+</ul>

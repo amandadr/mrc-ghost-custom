@@ -1,0 +1,242 @@
+{{!< default}}
+{{! Organizations & Institutions — mounted at /services/organizations-institutions/ via routes.yaml (no Ghost Page). }}
+{{#contentFor "title"}}Digital Strategy & Systems for Organizations | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "body_class"}} mrc-route-services-organizations-institutions{{/contentFor}}
+{{#contentFor "head"}}
+    <meta name="description" content="Technical strategy, websites, dashboards, analytics, accessibility, automation, and implementation support for organizations and institutions.">
+    <meta property="og:title" content="Clear Technical Systems for Complex Organizations">
+    <meta property="og:description" content="Strategy and implementation for teams balancing public responsibility, internal operations, and long-term ownership.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{@site.url}}/services/organizations-institutions/">
+    <link rel="canonical" href="{{@site.url}}/services/organizations-institutions/">
+{{/contentFor}}
+
+<main class="site-main mrc-page mrc-page-audience mrc-page-audience--organizations-institutions">
+  <div class="mrc-audience-breadcrumb-wrap section-light gh-outer">
+    <div class="gh-inner">
+      {{> "audience-breadcrumb" current_label="Organizations & Institutions" path="/services/organizations-institutions/"}}
+    </div>
+  </div>
+
+  {{! 1. Audience hero — Cream }}
+  <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
+    <div class="mrc-audience-hero__inner gh-inner">
+      <div class="mrc-audience-hero__content">
+        <p class="mrc-audience-hero__eyebrow">For Organizations &amp; Institutions</p>
+        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Clear technical systems for complex organizations.</h1>
+        <p class="mrc-audience-hero__lead">Strategy, data, websites, and implementation support for teams balancing public responsibility, internal operations, and long-term ownership.</p>
+        <p class="mrc-audience-hero__support">I help organizations turn broad mandates, scattered requirements, and existing systems into practical digital plans and maintainable outcomes.</p>
+        <div class="mrc-audience-hero__actions mrc-cluster">
+          <a
+            href="{{@site.url}}/contact/?audience=organizations-institutions"
+            class="button mrc-btn-primary"
+            data-ga-event="audience_primary_cta_click"
+            data-ga-category="engagement"
+            data-ga-label="Discuss an organizational need"
+            data-ga-audience="organizations_institutions"
+            data-ga-page-section="hero"
+          >Discuss an organizational need</a>
+          <a
+            href="#common-projects"
+            class="button mrc-btn-secondary"
+            data-ga-event="audience_secondary_cta_click"
+            data-ga-category="engagement"
+            data-ga-label="See common projects"
+            data-ga-audience="organizations_institutions"
+            data-ga-page-section="hero"
+          >See common projects</a>
+        </div>
+      </div>
+      {{> "audience-fit-card"
+        heading="Good fit for"
+        item1="Municipal and regional organizations"
+        item2="Economic development and business groups"
+        item3="Colleges and training organizations"
+        item4="Larger nonprofits and associations"
+        item5="Internal teams managing public or operational systems"
+      }}
+    </div>
+  </section>
+
+  {{! 2. Recognizable problems — Paper }}
+  <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-audience-challenges-title">
+    <div class="mrc-audience-challenges__inner gh-inner">
+      <h2 id="mrc-audience-challenges-title" class="mrc-audience-section-title">You may be here because…</h2>
+      <p class="mrc-audience-section-intro">Organizational projects are rarely difficult because of one missing feature. They become difficult when goals, stakeholders, data, platforms, and ownership are not aligned.</p>
+      <div class="mrc-audience-challenge-grid">
+        {{> "audience-challenge" marker="01" title="Several teams influence the same system." copy="Leadership, communications, operations, technical staff, vendors, and public users all have different requirements and priorities."}}
+        {{> "audience-challenge" marker="02" title="The current tools grew without a shared plan." copy="Platforms, spreadsheets, integrations, and workarounds accumulated over time, making ownership and future decisions unclear."}}
+        {{> "audience-challenge" marker="03" title="Public information must be accurate and accessible." copy="The system needs to communicate clearly, meet accessibility responsibilities, and remain trustworthy as information changes."}}
+        {{> "audience-challenge" marker="04" title="A funded or approved initiative still needs implementation structure." copy="The mandate exists, but scope, platform choices, data sources, governance, and maintenance responsibilities remain unresolved."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 3. How I help — Cream }}
+  <section class="mrc-audience-introduction section-light gh-outer" aria-labelledby="mrc-audience-intro-title">
+    <div class="mrc-audience-introduction__inner gh-inner">
+      <div class="mrc-audience-introduction__content">
+        <h2 id="mrc-audience-intro-title" class="mrc-audience-section-title">Connect strategy to implementation</h2>
+        <p class="mrc-audience-section-body">I work between organizational goals and technical delivery. That may mean clarifying requirements, auditing an existing system, coordinating a public-facing build, designing a data product, or documenting how the finished system should be maintained.</p>
+        <p class="mrc-audience-section-body">My role is often to translate between technical and non-technical stakeholders so decisions remain understandable, realistic, and tied to the purpose of the project.</p>
+        <blockquote class="mrc-audience-callout">
+          <p>The finished system should make sense to the people approving it, building it, using it, and maintaining it.</p>
+        </blockquote>
+      </div>
+      <ol class="mrc-audience-stages">
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Clarify</h3>
+          <p class="mrc-audience-stages__copy">Define the problem, users, responsibilities, and constraints.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Plan</h3>
+          <p class="mrc-audience-stages__copy">Translate goals into a realistic technical path.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Deliver</h3>
+          <p class="mrc-audience-stages__copy">Build, coordinate, or quality-check the implementation.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Transfer</h3>
+          <p class="mrc-audience-stages__copy">Document the system so knowledge and ownership remain internal.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  {{! 4. Common projects — Paper }}
+  <section id="common-projects" class="mrc-audience-projects section-surface gh-outer" aria-labelledby="mrc-audience-projects-title">
+    <div class="mrc-audience-projects__inner gh-inner">
+      <h2 id="mrc-audience-projects-title" class="mrc-audience-section-title">Common projects</h2>
+      <p class="mrc-audience-section-intro">Engagements may focus on a public product, an internal system, a specific implementation, or the planning needed to move a larger initiative forward.</p>
+      <div class="mrc-audience-projects__grid">
+        {{> "common-project-card"
+          accent="olive"
+          title="Public websites and information systems"
+          intro="Make public information clear, accessible, and easier to maintain."
+          item1="Organizational website modernization"
+          item2="Public resource hubs and directories"
+          item3="Accessible digital services"
+          item4="Searchable information systems"
+          item5="Content and platform governance"
+        }}
+        {{> "common-project-card"
+          accent="maroon"
+          title="Data, dashboards, and reporting"
+          intro="Turn complex information into useful tools for decisions and public communication."
+          item1="Public-facing dashboards"
+          item2="Data visualization and reporting"
+          item3="Analytics strategy"
+          item4="Data-source planning"
+          item5="Repeatable update workflows"
+        }}
+        {{> "common-project-card"
+          accent="olive"
+          title="Strategy, audits, and planning"
+          intro="Understand the current state and define a practical path forward."
+          item1="Technical and systems audits"
+          item2="Platform and architecture planning"
+          item3="Workflow and process reviews"
+          item4="Vendor and proposal evaluation"
+          item5="Digital roadmaps and prioritization"
+        }}
+        {{> "common-project-card"
+          accent="maroon"
+          title="Implementation, training, and adoption"
+          intro="Support teams through change without losing clarity or internal ownership."
+          item1="Custom tools and integrations"
+          item2="AI adoption and workshops"
+          item3="Staff training"
+          item4="Documentation and handoff"
+          item5="Technical quality assurance"
+        }}
+      </div>
+      <div class="mrc-audience-projects__prompt">
+        <p class="mrc-audience-projects__prompt-body">Have a mandate but not yet a clear technical path? Start with the organizational need and the constraints around it.</p>
+        <a
+          href="{{@site.url}}/contact/?audience=organizations-institutions"
+          class="mrc-audience-projects__prompt-link"
+          data-ga-event="audience_project_link_click"
+          data-ga-category="engagement"
+          data-ga-label="Discuss the project"
+          data-ga-audience="organizations_institutions"
+          data-ga-page-section="common_projects"
+        >Discuss the project →</a>
+      </div>
+    </div>
+  </section>
+
+  {{! 5. What you can expect — Olive }}
+  <section class="mrc-audience-expectations section-dark gh-outer" aria-labelledby="mrc-audience-expectations-title">
+    <div class="mrc-audience-expectations__inner gh-inner">
+      <h2 id="mrc-audience-expectations-title" class="mrc-audience-expectations__title">What you can expect</h2>
+      <p class="mrc-audience-expectations__intro">Complex projects need enough structure to remain accountable without becoming slowed by unnecessary process.</p>
+      <div class="mrc-audience-expectation-grid">
+        {{> "audience-expectation" title="Stakeholder-aware discovery" copy="Requirements are gathered from the people responsible for the outcome, the implementation, and the ongoing work."}}
+        {{> "audience-expectation" title="Clear decision logic" copy="Recommendations explain the trade-offs, constraints, and reasons behind the proposed approach."}}
+        {{> "audience-expectation" title="Sustainable implementation" copy="Platform, data, and workflow decisions account for future staffing, maintenance, and organizational capacity."}}
+        {{> "audience-expectation" title="Documented ownership" copy="Access, update processes, source logic, and operational responsibilities are made explicit before handoff."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 6. Experience and proof — Cream }}
+  <section class="mrc-audience-proof section-light gh-outer" aria-labelledby="mrc-audience-proof-title">
+    <div class="mrc-audience-proof__inner gh-inner">
+      <div class="mrc-audience-proof__intro">
+        <h2 id="mrc-audience-proof-title" class="mrc-audience-section-title">Experience turning complex requirements into usable systems</h2>
+        <p class="mrc-audience-section-body">My work includes public-facing dashboards, accessible websites, analytics, education, technical planning, and systems designed for teams that need to maintain them after launch.</p>
+        <p class="mrc-audience-section-body">I am especially effective where data, public communication, internal workflows, and long-term ownership overlap.</p>
+        <a
+          href="{{@site.url}}/work/"
+          class="mrc-audience-proof__link"
+          data-ga-event="audience_case_study_click"
+          data-ga-category="engagement"
+          data-ga-label="View the economic dashboard case study"
+          data-ga-audience="organizations_institutions"
+          data-ga-page-section="proof"
+        >View the economic dashboard case study →</a>
+      </div>
+      <div class="mrc-audience-proof__grid">
+        {{> "audience-proof-card" title="Investor-facing economic dashboard — Pictou County Partnership" copy="Designed and delivered a regional economic dashboard using authoritative public data, documented calculated metrics, a maintainable spreadsheet structure, and a repeatable Tableau publishing workflow. The work gave investors and site selectors clear information, relied on a narrow and dependable data-source strategy, documented regional calculations, kept publishing low-overhead, and included a full source-file and administrative handoff with update instructions for future staff."}}
+        {{> "audience-proof-card" title="Training and technical translation" copy="Workshops, educational content, and practical guidance that help non-technical teams understand analytics, AI, accessibility, and digital-system decisions."}}
+        {{> "audience-proof-card" title="Cross-functional implementation" copy="Collaboration with leadership, communications teams, designers, developers, project managers, and external vendors across planning and delivery."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 7. Final CTA — Maroon }}
+  {{> "cta-section"
+    headline="Need a clearer path through a complex project?"
+    subtext="Bring the mandate, existing systems, stakeholder needs, and constraints. I can help turn them into a practical plan and a system your organization can confidently own."
+    button_text="Discuss your project"
+    href="/contact/?audience=organizations-institutions"
+    ga_event="audience_primary_cta_click"
+    ga_label="Discuss your project"
+    ga_audience="organizations_institutions"
+    ga_page_section="final_cta"
+  }}
+
+  {{! 8. Related audience navigation }}
+  <section class="mrc-audience-nav section-light gh-outer">
+    <div class="mrc-audience-nav__inner gh-inner">
+      {{> "audience-related-nav" omit="organizations-institutions" audience="organizations_institutions"}}
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Digital Strategy & Systems for Organizations",
+    "description": "Technical strategy, websites, dashboards, analytics, accessibility, automation, and implementation support for organizations and institutions.",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "{{@site.title}}",
+      "url": "{{@site.url}}"
+    },
+    "areaServed": ["PEI", "Atlantic Canada", "Canada", "United States"],
+    "url": "{{@site.url}}/services/organizations-institutions/"
+  }
+  </script>
+</main>

@@ -106,6 +106,17 @@
   margin-bottom: var(--space-6);
 }
 
+.mrc-contact-audience-note {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--mrc-text);
+  background: var(--mrc-surface);
+  border-left: 4px solid var(--mrc-olive);
+  border-radius: 0 4px 4px 0;
+}
+
 .mrc-contact-form .mrc-form-field {
   margin-bottom: var(--space-5);
 }

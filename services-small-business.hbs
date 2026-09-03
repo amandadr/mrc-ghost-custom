@@ -1,0 +1,242 @@
+{{!< default}}
+{{! Small & Medium Businesses — mounted at /services/small-businesses/ via routes.yaml (no Ghost Page). }}
+{{#contentFor "title"}}Websites & Digital Support for Small Businesses | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "body_class"}} mrc-route-services-small-business{{/contentFor}}
+{{#contentFor "head"}}
+    <meta name="description" content="Practical websites, digital systems, automation, and technical guidance for small and medium businesses in PEI, Atlantic Canada, and beyond.">
+    <meta property="og:title" content="Practical Digital Support for Small &amp; Medium Businesses">
+    <meta property="og:description" content="Websites, tools, and straightforward technical guidance designed around how your business actually works.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{@site.url}}/services/small-businesses/">
+    <link rel="canonical" href="{{@site.url}}/services/small-businesses/">
+{{/contentFor}}
+
+<main class="site-main mrc-page mrc-page-audience mrc-page-audience--small-business">
+  <div class="mrc-audience-breadcrumb-wrap section-light gh-outer">
+    <div class="gh-inner">
+      {{> "audience-breadcrumb" current_label="Small & Medium Businesses" path="/services/small-businesses/"}}
+    </div>
+  </div>
+
+  {{! 1. Audience hero — Cream }}
+  <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
+    <div class="mrc-audience-hero__inner gh-inner">
+      <div class="mrc-audience-hero__content">
+        <p class="mrc-audience-hero__eyebrow">For Small &amp; Medium Businesses</p>
+        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Practical digital support for growing businesses.</h1>
+        <p class="mrc-audience-hero__lead">Websites, tools, and straightforward technical guidance designed around how your business actually works.</p>
+        <p class="mrc-audience-hero__support">Whether something is outdated, disconnected, or simply taking too much time, I can help you understand the problem and choose a practical way forward.</p>
+        <div class="mrc-audience-hero__actions mrc-cluster">
+          <a
+            href="{{@site.url}}/contact/?audience=small-business"
+            class="button mrc-btn-primary"
+            data-ga-event="audience_primary_cta_click"
+            data-ga-category="engagement"
+            data-ga-label="Tell me what’s not working"
+            data-ga-audience="small_business"
+            data-ga-page-section="hero"
+          >Tell me what’s not working</a>
+          <a
+            href="#common-projects"
+            class="button mrc-btn-secondary"
+            data-ga-event="audience_secondary_cta_click"
+            data-ga-category="engagement"
+            data-ga-label="See common projects"
+            data-ga-audience="small_business"
+            data-ga-page-section="hero"
+          >See common projects</a>
+        </div>
+      </div>
+      {{> "audience-fit-card"
+        heading="Good fit for"
+        item1="Owner-operated and family businesses"
+        item2="Local shops and service providers"
+        item3="Trades and professional practices"
+        item4="Growing teams without a dedicated technical department"
+        item5="Businesses relying on several disconnected digital tools"
+      }}
+    </div>
+  </section>
+
+  {{! 2. Recognizable problems — Paper }}
+  <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-audience-challenges-title">
+    <div class="mrc-audience-challenges__inner gh-inner">
+      <h2 id="mrc-audience-challenges-title" class="mrc-audience-section-title">You may be here because…</h2>
+      <p class="mrc-audience-section-intro">You do not need to know the technical name for the problem. Most projects begin with something that feels outdated, confusing, repetitive, or harder than it should be.</p>
+      <div class="mrc-audience-challenge-grid">
+        {{> "audience-challenge" marker="01" title="Your website no longer reflects the business." copy="The services, team, location, or way customers work with you have changed—but the website has not kept up."}}
+        {{> "audience-challenge" marker="02" title="Customers struggle to take the next step." copy="Important information is difficult to find, forms are unclear, or booking, buying, and getting in touch require too much effort."}}
+        {{> "audience-challenge" marker="03" title="Routine work is spread across too many tools." copy="Email, forms, spreadsheets, software, and manual follow-up are creating duplicate work or allowing things to fall through the cracks."}}
+        {{> "audience-challenge" marker="04" title="You are not sure what to fix first." copy="Several things need attention, but the cost, impact, and right order of work are not obvious."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 3. How I help — Cream }}
+  <section class="mrc-audience-introduction section-light gh-outer" aria-labelledby="mrc-audience-intro-title">
+    <div class="mrc-audience-introduction__inner gh-inner">
+      <div class="mrc-audience-introduction__content">
+        <h2 id="mrc-audience-intro-title" class="mrc-audience-section-title">Start with the business problem</h2>
+        <p class="mrc-audience-section-body">You do not need an internal IT team or a finished technical brief. I help you understand what is causing friction, decide what matters most, and make practical improvements without adding unnecessary complexity.</p>
+        <p class="mrc-audience-section-body">Sometimes the answer is a better website. Sometimes it is a cleaner workflow, a repaired integration, clearer reporting, or simply knowing which problem is worth solving first.</p>
+        <blockquote class="mrc-audience-callout">
+          <p>The goal is not more technology. It is a business that works better with the technology it already depends on.</p>
+        </blockquote>
+      </div>
+      <ol class="mrc-audience-stages">
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Understand</h3>
+          <p class="mrc-audience-stages__copy">Clarify what is happening and why it matters.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Prioritize</h3>
+          <p class="mrc-audience-stages__copy">Focus on changes that will make a meaningful difference.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Improve</h3>
+          <p class="mrc-audience-stages__copy">Build or repair the right part of the system.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Hand off</h3>
+          <p class="mrc-audience-stages__copy">Leave you with access, documentation, and a clear way to manage what comes next.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  {{! 4. Common projects — Paper }}
+  <section id="common-projects" class="mrc-audience-projects section-surface gh-outer" aria-labelledby="mrc-audience-projects-title">
+    <div class="mrc-audience-projects__inner gh-inner">
+      <h2 id="mrc-audience-projects-title" class="mrc-audience-section-title">Common projects</h2>
+      <p class="mrc-audience-section-intro">You do not need to know which service category your project fits into. These are some of the practical ways I help businesses improve how they work online.</p>
+      <div class="mrc-audience-projects__grid">
+        {{> "common-project-card"
+          accent="olive"
+          title="Websites and online presence"
+          intro="Make it easier for customers to find, understand, and trust your business."
+          item1="New websites and focused rebuilds"
+          item2="Website rescue and maintenance"
+          item3="Hosting, domains, and business email"
+          item4="Mobile, accessibility, and performance improvements"
+          item5="Search visibility and analytics setup"
+        }}
+        {{> "common-project-card"
+          accent="maroon"
+          title="Bookings, sales, and customer experience"
+          intro="Reduce friction between customer interest and the next useful action."
+          item1="Booking and reservation improvements"
+          item2="Ecommerce and online payments"
+          item3="Forms, inquiries, and quote requests"
+          item4="Online ordering and third-party integrations"
+          item5="Clearer customer journeys and calls to action"
+        }}
+        {{> "common-project-card"
+          accent="olive"
+          title="Day-to-day digital operations"
+          intro="Simplify repetitive work and help your tools work together more effectively."
+          item1="Connecting disconnected systems"
+          item2="Forms, spreadsheets, and reporting"
+          item3="Workflow automation"
+          item4="Internal documentation"
+          item5="Practical AI for administrative work"
+        }}
+        {{> "common-project-card"
+          accent="maroon"
+          title="Advice, audits, and training"
+          intro="Understand what is happening before committing to a larger project."
+          item1="Website and digital-system reviews"
+          item2="Technical troubleshooting"
+          item3="Project planning and prioritization"
+          item4="Analytics and performance interpretation"
+          item5="Team training and practical workshops"
+        }}
+      </div>
+      <div class="mrc-audience-projects__prompt">
+        <p class="mrc-audience-projects__prompt-body">Not sure where your project fits? Start with what is frustrating you or taking more time than it should.</p>
+        <a
+          href="{{@site.url}}/contact/?audience=small-business"
+          class="mrc-audience-projects__prompt-link"
+          data-ga-event="audience_project_link_click"
+          data-ga-category="engagement"
+          data-ga-label="Tell me what’s going on"
+          data-ga-audience="small_business"
+          data-ga-page-section="common_projects"
+        >Tell me what’s going on →</a>
+      </div>
+    </div>
+  </section>
+
+  {{! 5. What working together looks like — Olive }}
+  <section class="mrc-audience-expectations section-dark gh-outer" aria-labelledby="mrc-audience-expectations-title">
+    <div class="mrc-audience-expectations__inner gh-inner">
+      <h2 id="mrc-audience-expectations-title" class="mrc-audience-expectations__title">What you can expect</h2>
+      <p class="mrc-audience-expectations__intro">Good technical work should leave you with more clarity and confidence—not a larger system you are afraid to touch.</p>
+      <div class="mrc-audience-expectation-grid">
+        {{> "audience-expectation" title="Plain-language decisions" copy="You will understand what is being recommended, why it matters, and what it will require."}}
+        {{> "audience-expectation" title="Right-sized scope" copy="The work will reflect your priorities, budget, timeline, and actual capacity to manage it."}}
+        {{> "audience-expectation" title="Practical implementation" copy="New tools and features must fit the way your business and team already operate."}}
+        {{> "audience-expectation" title="Ownership after launch" copy="You will receive the access, documentation, and guidance needed to confidently manage what comes next."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 6. Experience and proof — Cream }}
+  <section class="mrc-audience-proof section-light gh-outer" aria-labelledby="mrc-audience-proof-title">
+    <div class="mrc-audience-proof__inner gh-inner">
+      <div class="mrc-audience-proof__intro">
+        <h2 id="mrc-audience-proof-title" class="mrc-audience-section-title">Experience across the whole system</h2>
+        <p class="mrc-audience-section-body">My work spans websites, ecommerce, hosting, analytics, automation, accessibility, SEO, data, and applied AI. That breadth helps me understand how the customer-facing experience connects to the systems behind it.</p>
+        <p class="mrc-audience-section-body">Small-business support also means respecting time, margins, staff capacity, and the fact that every new tool creates something else someone has to manage.</p>
+        <a
+          href="{{@site.url}}/work/"
+          class="mrc-audience-proof__link"
+          data-ga-event="audience_case_study_click"
+          data-ga-category="engagement"
+          data-ga-label="See selected work"
+          data-ga-audience="small_business"
+          data-ga-page-section="proof"
+        >See selected work →</a>
+      </div>
+      <div class="mrc-audience-proof__grid">
+        {{> "audience-proof-card" title="Customer-facing systems" copy="Websites, ecommerce, ordering, booking, forms, customer journeys, and the information people need before they contact or visit a business."}}
+        {{> "audience-proof-card" title="Behind-the-scenes operations" copy="Hosting, integrations, analytics, workflows, reporting, technical troubleshooting, and the tools staff rely on during the workday."}}
+        {{> "audience-proof-card" title="Handoff and ongoing support" copy="Clear documentation, practical training, manageable systems, and support arrangements that fit the business rather than creating unnecessary dependence."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 7. Final CTA — Maroon }}
+  {{> "cta-section"
+    headline="Have something that could work better?"
+    subtext="Tell me what is frustrating, unclear, or taking more time than it should. You do not need to arrive with a solution—we can start with the problem."
+    button_text="Start a conversation"
+    href="/contact/?audience=small-business"
+    ga_event="audience_primary_cta_click"
+    ga_label="Start a conversation"
+    ga_audience="small_business"
+    ga_page_section="final_cta"
+  }}
+
+  {{! 8. Related audience navigation }}
+  <section class="mrc-audience-nav section-light gh-outer">
+    <div class="mrc-audience-nav__inner gh-inner">
+      {{> "audience-related-nav" omit="small-business" audience="small_business"}}
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Websites & Digital Support for Small Businesses",
+    "description": "Practical websites, digital systems, automation, and technical guidance for small and medium businesses in PEI, Atlantic Canada, and beyond.",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "{{@site.title}}",
+      "url": "{{@site.url}}"
+    },
+    "areaServed": ["PEI", "Atlantic Canada", "Canada", "United States"],
+    "url": "{{@site.url}}/services/small-businesses/"
+  }
+  </script>
+</main>

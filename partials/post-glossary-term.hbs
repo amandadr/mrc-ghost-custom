@@ -1,6 +1,22 @@
 <article class="single single--glossary-term {{post_class}}">
   <header class="single-header gh-canvas">
-    <p class="mrc-glossary-term__kicker"><a href="/glossary/">Glossary</a></p>
+    {{!--
+      Show collection tag(s) as the kicker when present.
+      Collection pages live at top-level routes like /core-web-vitals/,
+      so we link to "/{tag-slug}/" instead of /blog/tag/{slug}/.
+    --}}
+    <p class="mrc-glossary-term__kicker" data-glossary-kicker>
+      {{#if tags}}
+        {{#foreach tags}}
+          {{#match slug "glossary-term"}}
+          {{else match slug "hash-glossary-term"}}
+          {{else}}
+            <a data-collection-tag href="/{{slug}}/">{{name}}</a>
+          {{/match}}
+        {{/foreach}}
+      {{/if}}
+      <a data-glossary-fallback href="/glossary/" hidden>Glossary</a>
+    </p>
     <h1 class="single-title">{{title}}</h1>
     {{#if custom_excerpt}}
       <div class="single-excerpt">{{custom_excerpt}}</div>
@@ -11,4 +27,24 @@
     {{content}}
   </div>
 </article>
+
+<script>
+  (function () {
+    const root = document.querySelector('[data-glossary-kicker]');
+    if (!root) return;
+    const links = root.querySelectorAll('[data-collection-tag]');
+    const fallback = root.querySelector('[data-glossary-fallback]');
+
+    if (!links.length) {
+      if (fallback) fallback.hidden = false;
+      return;
+    }
+
+    // Separate multiple links with commas (without needing complex Handlebars logic).
+    links.forEach((a, idx) => {
+      if (idx === 0) return;
+      a.insertAdjacentText('beforebegin', ', ');
+    });
+  })();
+</script>
 

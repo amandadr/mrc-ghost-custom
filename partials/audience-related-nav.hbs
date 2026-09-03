@@ -1,0 +1,23 @@
+{{! Modest related-audience links — not a sales section }}
+{{! Pass omit="small-business" (or other slug) to skip the current audience. }}
+<nav class="mrc-audience-related-nav" aria-labelledby="{{#if heading_id}}{{heading_id}}{{else}}mrc-audience-related-heading{{/if}}">
+  <h2 id="{{#if heading_id}}{{heading_id}}{{else}}mrc-audience-related-heading{{/if}}" class="mrc-audience-related-nav__heading">{{#if heading}}{{heading}}{{else}}Explore services by audience{{/if}}</h2>
+  <ul class="mrc-audience-related-nav__list">
+    {{#match omit "!=" "small-business"}}
+      <li><a href="{{@site.url}}/services/small-businesses/" class="mrc-audience-related-nav__link" data-ga-event="audience_related_page_click" data-ga-category="engagement" data-ga-label="Small & Medium Businesses" data-ga-audience="{{audience}}" data-ga-page-section="related_nav">Small &amp; Medium Businesses</a></li>
+    {{/match}}
+    {{#match omit "!=" "tourism-hospitality"}}
+      <li><a href="{{@site.url}}/services/tourism-hospitality/" class="mrc-audience-related-nav__link" data-ga-event="audience_related_page_click" data-ga-category="engagement" data-ga-label="Tourism & Hospitality" data-ga-audience="{{audience}}" data-ga-page-section="related_nav">Tourism &amp; Hospitality</a></li>
+    {{/match}}
+    {{#match omit "!=" "arts-culture-community"}}
+      <li><a href="{{@site.url}}/services/arts-culture-community/" class="mrc-audience-related-nav__link" data-ga-event="audience_related_page_click" data-ga-category="engagement" data-ga-label="Arts, Culture & Community" data-ga-audience="{{audience}}" data-ga-page-section="related_nav">Arts, Culture &amp; Community</a></li>
+    {{/match}}
+    {{#match omit "!=" "organizations-institutions"}}
+      <li><a href="{{@site.url}}/services/organizations-institutions/" class="mrc-audience-related-nav__link" data-ga-event="audience_related_page_click" data-ga-category="engagement" data-ga-label="Organizations & Institutions" data-ga-audience="{{audience}}" data-ga-page-section="related_nav">Organizations &amp; Institutions</a></li>
+    {{/match}}
+    {{#match omit "!=" "agencies-development-teams"}}
+      <li><a href="{{@site.url}}/services/agencies-development-teams/" class="mrc-audience-related-nav__link" data-ga-event="audience_related_page_click" data-ga-category="engagement" data-ga-label="Agencies & Development Teams" data-ga-audience="{{audience}}" data-ga-page-section="related_nav">Agencies &amp; Development Teams</a></li>
+    {{/match}}
+    <li><a href="{{@site.url}}/services/" class="mrc-audience-related-nav__link" data-ga-event="audience_related_page_click" data-ga-category="engagement" data-ga-label="All Services" data-ga-audience="{{audience}}" data-ga-page-section="related_nav">All Services</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,18 @@
+{{! Compact project group card — Common projects on services / audience pages }}
+{{! Optional: intro, accent ("olive" | "maroon") }}
+<article class="mrc-common-project-card{{#match accent "=" "maroon"}} mrc-common-project-card--maroon{{/match}}{{#match accent "=" "olive"}} mrc-common-project-card--olive{{/match}}">
+  {{#if title}}
+    <h3 class="mrc-common-project-card-title">{{title}}</h3>
+  {{/if}}
+  {{#if intro}}
+    <p class="mrc-common-project-card-intro">{{intro}}</p>
+  {{/if}}
+  <ul class="mrc-common-project-card-list">
+    {{#if item1}}<li>{{item1}}</li>{{/if}}
+    {{#if item2}}<li>{{item2}}</li>{{/if}}
+    {{#if item3}}<li>{{item3}}</li>{{/if}}
+    {{#if item4}}<li>{{item4}}</li>{{/if}}
+    {{#if item5}}<li>{{item5}}</li>{{/if}}
+    {{#if item6}}<li>{{item6}}</li>{{/if}}
+  </ul>
+</article>

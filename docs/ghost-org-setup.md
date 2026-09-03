@@ -35,7 +35,7 @@ Create the following pages in Ghost Admin (**Pages** → **New page**). For each
 
 - **About**: Uses the About template with two-column layout. Add your content via the page editor; the template handles structure.
 - **Services**: Pre-built structure (hero, service sections, engagement model, process). Little to no content editing needed.
-- **Contact**: Contact form and details. Requires Formspree setup (step 5).
+- **Contact**: Contact form and details. Requires Formspree setup (step 5). Supports `?audience=small-business` to attribute inquiries.
 - **Thanks**: Shown after the contact form is submitted. Keep it simple — e.g. “Thanks for reaching out.” — or leave the default. **Important**: The form redirects to `/thanks/`; this page must exist.
 
 ### Optional: Work / portfolio page
@@ -45,18 +45,43 @@ If you want a portfolio page, create a page with:
 - **URL**: `work`
 - **Template**: **Work**
 
+### Audience service URLs (routes → HBS, no Ghost Page)
+
+Audience pages are **not** Ghost Pages and do **not** use the Admin template dropdown. They are theme HBS files mounted by Labs routes:
+
+| Public URL | Theme file |
+|------------|------------|
+| `/services/small-businesses/` | `services-small-business.hbs` |
+| `/services/tourism-hospitality/` | `services-tourism-hospitality.hbs` |
+| `/services/arts-culture-community/` | `services-arts-culture-community.hbs` |
+| `/services/organizations-institutions/` | `services-organizations-institutions.hbs` |
+| `/services/agencies-development-teams/` | `services-agencies-development-teams.hbs` |
+
+SEO title, description, and Open Graph tags live in the HBS `{{#contentFor}}` blocks. Upload the consolidated routes file ([routes-glossary.yaml](routes-glossary.yaml)) in **Settings → Labs → Routes**.
+
 ---
 
 ## 3. Configure navigation
 
 1. Go to **Settings** → **Navigation**
-2. Add links in this order:
+2. Add top-level links in this order (Ghost Admin is flat — the Services audience submenu is built by the theme):
    - **Label**: Home → **URL**: `/`
    - **Label**: About → **URL**: `/about/`
    - **Label**: Services → **URL**: `/services/`
    - **Label**: Contact → **URL**: `/contact/`
 
-The header and footer both use this navigation.
+Services submenu is theme-built under the Services nav item (via `partials/navigation.hbs`). Ghost Admin stays flat — keep a top-level **Services** → `/services/` link. After theme template changes, restart local Ghost so nav markup reloads.
+
+1. Small & Medium Businesses → `/services/small-businesses/`
+2. Tourism & Hospitality → `/services/tourism-hospitality/`
+3. Arts, Culture & Community → `/services/arts-culture-community/`
+4. Organizations & Institutions → `/services/organizations-institutions/`
+5. Agencies & Development Teams → `/services/agencies-development-teams/`
+6. All Services → `/services/`
+
+Parent “Services” remains a direct link to `/services/`. Audience URLs other than Small & Medium Businesses will 404 until those pages are built.
+
+The header and footer both use this navigation (footer remains flat via `{{navigation}}`).
 
 ---
 
@@ -90,6 +115,7 @@ The theme form sends these fields to Formspree:
 | `email`        | Sender email       |
 | `organization` | (optional)         |
 | `how_can_i_help` | Dropdown: Systems & Strategy, Custom Software, Automation & AI, General Inquiry |
+| `audience`       | (optional) From `?audience=` query, e.g. `small-business` |
 | `message`      | Message body       |
 
 Hidden fields:

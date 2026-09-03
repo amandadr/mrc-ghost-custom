@@ -1,0 +1,242 @@
+{{!< default}}
+{{! Arts, Culture & Community — mounted at /services/arts-culture-community/ via routes.yaml (no Ghost Page). }}
+{{#contentFor "title"}}Websites & Digital Systems for Arts and Community Organizations | MRC{{/contentFor}}
+{{#contentFor "body_class"}} mrc-route-services-arts-culture-community{{/contentFor}}
+{{#contentFor "head"}}
+    <meta name="description" content="Accessible websites, directories, forms, event systems, and practical digital support for artists, cultural organizations, nonprofits, and community groups.">
+    <meta property="og:title" content="Digital Support for Arts, Culture &amp; Community">
+    <meta property="og:description" content="Thoughtful websites and practical systems for creative, cultural, nonprofit, and community-led work.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{@site.url}}/services/arts-culture-community/">
+    <link rel="canonical" href="{{@site.url}}/services/arts-culture-community/">
+{{/contentFor}}
+
+<main class="site-main mrc-page mrc-page-audience mrc-page-audience--arts-culture-community">
+  <div class="mrc-audience-breadcrumb-wrap section-light gh-outer">
+    <div class="gh-inner">
+      {{> "audience-breadcrumb" current_label="Arts, Culture & Community" path="/services/arts-culture-community/"}}
+    </div>
+  </div>
+
+  {{! 1. Audience hero — Cream }}
+  <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
+    <div class="mrc-audience-hero__inner gh-inner">
+      <div class="mrc-audience-hero__content">
+        <p class="mrc-audience-hero__eyebrow">For Arts, Culture &amp; Community</p>
+        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Digital systems that support creative and community work.</h1>
+        <p class="mrc-audience-hero__lead">Websites, platforms, and practical tools for organizations built around people, participation, and shared purpose.</p>
+        <p class="mrc-audience-hero__support">I help artists, cultural groups, nonprofits, and community organizations create digital systems that are accessible, manageable, and able to survive changes in staff, boards, and volunteers.</p>
+        <div class="mrc-audience-hero__actions mrc-cluster">
+          <a
+            href="{{@site.url}}/contact/?audience=arts-culture-community"
+            class="button mrc-btn-primary"
+            data-ga-event="audience_primary_cta_click"
+            data-ga-category="engagement"
+            data-ga-label="Tell me what you’re building"
+            data-ga-audience="arts_culture_community"
+            data-ga-page-section="hero"
+          >Tell me what you’re building</a>
+          <a
+            href="#common-projects"
+            class="button mrc-btn-secondary"
+            data-ga-event="audience_secondary_cta_click"
+            data-ga-category="engagement"
+            data-ga-label="See common projects"
+            data-ga-audience="arts_culture_community"
+            data-ga-page-section="hero"
+          >See common projects</a>
+        </div>
+      </div>
+      {{> "audience-fit-card"
+        heading="Good fit for"
+        item1="Artists, studios, and collectives"
+        item2="Festivals and cultural events"
+        item3="Galleries, museums, and heritage groups"
+        item4="Nonprofits and community organizations"
+        item5="Volunteer-led and grant-funded initiatives"
+      }}
+    </div>
+  </section>
+
+  {{! 2. Recognizable problems — Paper }}
+  <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-audience-challenges-title">
+    <div class="mrc-audience-challenges__inner gh-inner">
+      <h2 id="mrc-audience-challenges-title" class="mrc-audience-section-title">You may be here because…</h2>
+      <p class="mrc-audience-section-intro">Creative and community projects often involve many contributors, limited resources, and knowledge spread across several people. The technology needs to make participation easier—not become another barrier.</p>
+      <div class="mrc-audience-challenge-grid">
+        {{> "audience-challenge" marker="01" title="One person knows how everything works." copy="The website, passwords, forms, and processes depend on a staff member or volunteer who may not always be available."}}
+        {{> "audience-challenge" marker="02" title="Information is scattered across too many places." copy="Event details, applications, artist information, memberships, files, and public updates live in separate tools with no clear source of truth."}}
+        {{> "audience-challenge" marker="03" title="A funded project needs a realistic digital plan." copy="The idea is strong, but the platform, scope, ongoing ownership, and technical requirements still need to be defined."}}
+        {{> "audience-challenge" marker="04" title="The system has to work for many different people." copy="Staff, volunteers, artists, participants, visitors, and board members may all interact with the same information in different ways."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 3. How I help — Cream }}
+  <section class="mrc-audience-introduction section-light gh-outer" aria-labelledby="mrc-audience-intro-title">
+    <div class="mrc-audience-introduction__inner gh-inner">
+      <div class="mrc-audience-introduction__content">
+        <h2 id="mrc-audience-intro-title" class="mrc-audience-section-title">Build something people can carry forward</h2>
+        <p class="mrc-audience-section-body">Creative and community work changes as programs evolve, funding shifts, and new people step into leadership. That makes clear ownership, documentation, accessibility, and flexible systems especially important.</p>
+        <p class="mrc-audience-section-body">I help shape websites and workflows that support participation without burying the organization in unnecessary technology or ongoing dependence on one specialist.</p>
+        <blockquote class="mrc-audience-callout">
+          <p>A useful system should strengthen the work and leave the knowledge with the community that owns it.</p>
+        </blockquote>
+      </div>
+      <ol class="mrc-audience-stages">
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Listen</h3>
+          <p class="mrc-audience-stages__copy">Understand the people, programs, and constraints shaping the project.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Structure</h3>
+          <p class="mrc-audience-stages__copy">Turn scattered needs into a clear and manageable system.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Build</h3>
+          <p class="mrc-audience-stages__copy">Use accessible tools that match available capacity.</p>
+        </li>
+        <li class="mrc-audience-stages__item">
+          <h3 class="mrc-audience-stages__title">Share</h3>
+          <p class="mrc-audience-stages__copy">Document the work so staff, boards, and volunteers can continue it.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  {{! 4. Common projects — Paper }}
+  <section id="common-projects" class="mrc-audience-projects section-surface gh-outer" aria-labelledby="mrc-audience-projects-title">
+    <div class="mrc-audience-projects__inner gh-inner">
+      <h2 id="mrc-audience-projects-title" class="mrc-audience-section-title">Common projects</h2>
+      <p class="mrc-audience-section-intro">These projects often combine public communication, participant information, internal coordination, and long-term ownership.</p>
+      <div class="mrc-audience-projects__grid">
+        {{> "common-project-card"
+          accent="olive"
+          title="Websites and public information"
+          intro="Make programs, events, and opportunities easier to understand and access."
+          item1="Organization and artist websites"
+          item2="Festival and event websites"
+          item3="Program and exhibition information"
+          item4="Accessible public resources"
+          item5="Heritage and cultural storytelling"
+        }}
+        {{> "common-project-card"
+          accent="maroon"
+          title="Artists, members, and participants"
+          intro="Create clearer ways to gather, organize, and publish information."
+          item1="Artist directories and online galleries"
+          item2="Applications and submission forms"
+          item3="Membership and registration workflows"
+          item4="Participant intake systems"
+          item5="Profiles, bios, and media collection"
+        }}
+        {{> "common-project-card"
+          accent="olive"
+          title="Events, sales, and engagement"
+          intro="Support the practical systems behind public participation."
+          item1="Event calendars and schedules"
+          item2="Ticketing and registration"
+          item3="Donations and memberships"
+          item4="External shop and ecommerce integrations"
+          item5="Email and audience signup workflows"
+        }}
+        {{> "common-project-card"
+          accent="maroon"
+          title="Planning, access, and continuity"
+          intro="Make the work easier to maintain as people and programs change."
+          item1="Digital project planning"
+          item2="Accessibility reviews"
+          item3="Staff and volunteer documentation"
+          item4="Platform and tool selection"
+          item5="Training and handoff"
+        }}
+      </div>
+      <div class="mrc-audience-projects__prompt">
+        <p class="mrc-audience-projects__prompt-body">Have an idea but not a technical plan? Start with the people, purpose, and constraints.</p>
+        <a
+          href="{{@site.url}}/contact/?audience=arts-culture-community"
+          class="mrc-audience-projects__prompt-link"
+          data-ga-event="audience_project_link_click"
+          data-ga-category="engagement"
+          data-ga-label="Tell me what you’re building"
+          data-ga-audience="arts_culture_community"
+          data-ga-page-section="common_projects"
+        >Tell me what you’re building →</a>
+      </div>
+    </div>
+  </section>
+
+  {{! 5. What you can expect — Olive }}
+  <section class="mrc-audience-expectations section-dark gh-outer" aria-labelledby="mrc-audience-expectations-title">
+    <div class="mrc-audience-expectations__inner gh-inner">
+      <h2 id="mrc-audience-expectations-title" class="mrc-audience-expectations__title">What you can expect</h2>
+      <p class="mrc-audience-expectations__intro">Good systems should respect the organization’s mission, budget, contributors, and responsibility to the people it serves.</p>
+      <div class="mrc-audience-expectation-grid">
+        {{> "audience-expectation" title="Collaborative planning" copy="The work includes the people who understand the programs, participants, and community—not just the technical requirements."}}
+        {{> "audience-expectation" title="Accessibility from the start" copy="Public information and digital participation should work for as many people as possible."}}
+        {{> "audience-expectation" title="Respect for capacity" copy="The solution should fit available staff time, volunteer effort, funding, and long-term maintenance."}}
+        {{> "audience-expectation" title="Shared ownership" copy="Access, documentation, and decision-making remain with the organization rather than one technical gatekeeper."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 6. Experience and proof — Cream }}
+  <section class="mrc-audience-proof section-light gh-outer" aria-labelledby="mrc-audience-proof-title">
+    <div class="mrc-audience-proof__inner gh-inner">
+      <div class="mrc-audience-proof__intro">
+        <h2 id="mrc-audience-proof-title" class="mrc-audience-section-title">Experience with collaborative and community-led work</h2>
+        <p class="mrc-audience-section-body">My work includes artist platforms, intake systems, accessible web planning, educational programs, public information, and projects shaped by multiple contributors.</p>
+        <p class="mrc-audience-section-body">I am comfortable working with writers, designers, artists, board members, staff, volunteers, and funders to turn a shared idea into something practical.</p>
+        <a
+          href="{{@site.url}}/work/"
+          class="mrc-audience-proof__link"
+          data-ga-event="audience_case_study_click"
+          data-ga-category="engagement"
+          data-ga-label="See selected work"
+          data-ga-audience="arts_culture_community"
+          data-ga-page-section="proof"
+        >See selected work →</a>
+      </div>
+      <div class="mrc-audience-proof__grid">
+        {{> "audience-proof-card" title="Artist and cultural platforms" copy="Website architecture, artist profiles, gallery planning, external shop integrations, and intake systems designed for a growing artist-led initiative."}}
+        {{> "audience-proof-card" title="Accessible public communication" copy="Readable content structures, accessible interfaces, forms, event information, and systems designed for non-technical audiences."}}
+        {{> "audience-proof-card" title="Documentation and continuity" copy="Clear workflows, role ownership, platform guidance, and handoff materials that reduce reliance on institutional memory."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 7. Final CTA — Maroon }}
+  {{> "cta-section"
+    headline="Build something your community can carry forward."
+    subtext="Bring the idea, the existing platform, the funding requirements, or the messy collection of notes. We can shape a practical and sustainable way forward."
+    button_text="Tell me what you’re building"
+    href="/contact/?audience=arts-culture-community"
+    ga_event="audience_primary_cta_click"
+    ga_label="Tell me what you’re building"
+    ga_audience="arts_culture_community"
+    ga_page_section="final_cta"
+  }}
+
+  {{! 8. Related audience navigation }}
+  <section class="mrc-audience-nav section-light gh-outer">
+    <div class="mrc-audience-nav__inner gh-inner">
+      {{> "audience-related-nav" omit="arts-culture-community" audience="arts_culture_community"}}
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Websites & Digital Systems for Arts and Community Organizations",
+    "description": "Accessible websites, directories, forms, event systems, and practical digital support for artists, cultural organizations, nonprofits, and community groups.",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "{{@site.title}}",
+      "url": "{{@site.url}}"
+    },
+    "areaServed": ["PEI", "Atlantic Canada", "Canada", "United States"],
+    "url": "{{@site.url}}/services/arts-culture-community/"
+  }
+  </script>
+</main>

@@ -289,7 +289,7 @@
 }
 
 .mrc-about-card-list li:last-child {
-  margin-bottom: 0;
+  margin-bottom: var(--space-4);
 }
 
 /* ---------- Outside of Work (Paper, 65ch, two short paragraphs) ---------- */

@@ -1,0 +1,20 @@
+# Routes: audience service pages under /services/{audience}/
+#
+# These mount theme HBS files directly — no Ghost Page and no Admin template dropdown.
+# Merge into the consolidated upload file: docs/routes-glossary.yaml
+#
+# Apply in Ghost Admin:
+# Settings → Labs → Routes → Upload the consolidated YAML
+#
+
+routes:
+  /services/small-businesses/:
+    template: services-small-business
+  /services/tourism-hospitality/:
+    template: services-tourism-hospitality
+  /services/arts-culture-community/:
+    template: services-arts-culture-community
+  /services/organizations-institutions/:
+    template: services-organizations-institutions
+  /services/agencies-development-teams/:
+    template: services-agencies-development-teams

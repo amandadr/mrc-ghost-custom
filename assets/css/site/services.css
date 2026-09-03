@@ -1,6 +1,6 @@
 /**
  * Services page — structure and rhythm per plan
- * Cream (Hero) → Paper (Services) → Olive (Engagement) → Cream (Process) → Maroon (CTA)
+ * Cream (Hero) → Paper (Services) → Cream (Common projects) → Olive (Engagement) → Cream (Process) → Maroon (CTA)
  */
 
 /* ---------- Services hero (Cream, 72ch, no buttons) ---------- */
@@ -127,7 +127,114 @@
   }
 }
 
-/* ---------- Engagement model (Olive, Cream, mustard dividers) ---------- */
+/* ---------- Common projects (Cream, paper cards, 2×2) ---------- */
+.mrc-common-projects {
+  padding-block: var(--mrc-section-padding-block);
+  background-color: var(--mrc-bg);
+}
+
+.mrc-common-projects-inner {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mrc-common-projects-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 var(--space-4);
+  text-align: center;
+}
+
+.mrc-common-projects-intro {
+  max-width: 65ch;
+  margin: 0 auto var(--space-7);
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-muted);
+  text-align: center;
+}
+
+.mrc-common-projects-grid {
+  --mrc-grid-min: 280px;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .mrc-common-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.mrc-common-project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: var(--space-6);
+  background-color: var(--mrc-surface);
+  border-radius: 4px;
+  border-left: 4px solid var(--mrc-olive);
+}
+
+.mrc-common-project-card-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h3-size);
+  font-weight: 600;
+  color: var(--mrc-text);
+  margin: 0 0 var(--space-4);
+}
+
+.mrc-common-project-card-list {
+  list-style: disc;
+  padding-left: var(--space-5);
+  margin: 0;
+}
+
+.mrc-common-project-card-list li {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--mrc-text);
+  margin-bottom: var(--space-2);
+}
+
+.mrc-common-project-card-list li:last-child {
+  margin-bottom: 0;
+}
+
+.mrc-common-projects-prompt {
+  max-width: 40rem;
+  margin: var(--space-8) auto 0;
+  text-align: center;
+}
+
+.mrc-common-projects-prompt-lead {
+  font-size: 1.05rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text);
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-common-projects-prompt-body {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-muted);
+  margin: 0 0 var(--space-4);
+}
+
+.mrc-common-projects-prompt-link {
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.mrc-common-projects-prompt-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Ways we can work together (Olive, cream text, mustard dividers) ---------- */
 .mrc-engagement {
   padding-block: var(--mrc-section-padding-block);
   background-color: var(--mrc-olive);
@@ -145,31 +252,41 @@
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   color: var(--mrc-surface);
-  margin: 0 0 var(--space-5);
+  margin: 0 0 var(--space-6);
 }
 
-.mrc-engagement-intro {
+.mrc-engagement-ways {
+  display: flex;
+  flex-direction: column;
+}
+
+.mrc-engagement-way {
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--mrc-mustard);
+}
+
+.mrc-engagement-way:first-child {
+  padding-top: 0;
+}
+
+.mrc-engagement-way:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.mrc-engagement-way-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--mrc-surface);
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-engagement-way-desc {
   font-size: 1rem;
   line-height: var(--mrc-body-line);
-  margin: 0 0 var(--space-4);
+  margin: 0;
   opacity: 0.95;
-}
-
-.mrc-engagement-list {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-6) 0 0;
-}
-
-.mrc-engagement-list li {
-  padding: var(--space-3) 0;
-  border-bottom: 1px solid var(--mrc-mustard);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.mrc-engagement-list li:last-child {
-  border-bottom: 0;
 }
 
 /* ---------- Process (Cream, 4-step grid) ---------- */
