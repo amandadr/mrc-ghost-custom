@@ -3,21 +3,35 @@
  * Boundaries: desktop fold ends at #mrc-pillars-title; mobile fold includes first .mrc-service-card.
  */
 
-/* ---------- Section utility classes (colurs.md) ---------- */
+/* ---------- Section utility classes (colurs.md) ----------
+   Each tone sets a foreground as well as a background, so components can style
+   themselves with `currentcolor` and work on any ground without a per-section
+   override. Tone-dependent accents come from the tokens in brand.css. */
 .section-light {
   background-color: var(--mrc-bg);
+  color: var(--mrc-text);
 }
 
 .section-surface {
   background-color: var(--mrc-surface);
+  color: var(--mrc-text);
 }
 
 .section-dark {
   background-color: var(--mrc-olive);
+  color: var(--mrc-surface);
 }
 
 .section-cta {
   background-color: var(--mrc-maroon);
+  color: var(--mrc-surface);
+}
+
+/* brand.css pins h1–h6 to --mrc-text, which is unreadable on olive and maroon.
+   Let headings inherit the section foreground instead. */
+.section-dark :is(h1, h2, h3, h4, h5, h6),
+.section-cta :is(h1, h2, h3, h4, h5, h6) {
+  color: inherit;
 }
 
 /* ---------- Header: 2-zone grid, Olive, mustard divider, refined states ---------- */
@@ -95,8 +109,8 @@
   letter-spacing: 0.03em;
   text-decoration: none;
   padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.15s ease, color 0.15s ease, letter-spacing 0.15s ease, transform 0.15s ease;
+  border-bottom: var(--border-width-thick) solid transparent;
+  transition: border-color var(--duration-fast) ease, color var(--duration-fast) ease, letter-spacing var(--duration-fast) ease, transform var(--duration-fast) ease;
 }
 
 .mrc-head .gh-head-menu a:hover {
@@ -110,7 +124,7 @@
 /* Active: persistent mustard bar (no weight change to avoid jitter) */
 .mrc-head .gh-head-menu .nav-current a {
   border-bottom-color: var(--mrc-mustard);
-  border-bottom-width: 2px;
+  border-bottom-width: var(--border-width-thick);
   text-decoration: none;
 }
 
@@ -127,8 +141,8 @@
 /* Contact CTA: outlined, calmer padding, hover fill mustard + ink, focus ring */
 .mrc-head .gh-head-menu a[href*="/contact/"] {
   padding: var(--space-1) var(--space-3);
-  border: 1.5px solid var(--mrc-mustard);
-  border-radius: 3px;
+  border: var(--border-width-thick) var(--border-style) var(--mrc-mustard);
+  border-radius: var(--radius-s);
   margin-bottom: 0;
 }
 
@@ -140,12 +154,12 @@
 }
 
 .mrc-head .gh-head-menu a[href*="/contact/"]:focus-visible {
-  outline: 2px solid var(--mrc-mustard);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-mustard);
+  outline-offset: var(--focus-ring-offset);
 }
 
 .mrc-head .gh-head-menu .nav-current a[href*="/contact/"] {
-  border: 1.5px solid var(--mrc-mustard);
+  border: var(--border-width-thick) var(--border-style) var(--mrc-mustard);
   background-color: rgba(232, 200, 104, 0.12);
 }
 
@@ -206,7 +220,7 @@
 
   .is-head-open #gh-head.mrc-head .nav li {
     opacity: 1;
-    transition: transform 0.2s, opacity 0.2s;
+    transition: transform var(--duration-base), opacity var(--duration-base);
     transform: translateY(0);
   }
 
@@ -303,8 +317,8 @@
   /* Contact stays prominent in mobile menu */
   .is-head-open #gh-head .nav a[href*="/contact/"] {
     padding: 0.4rem 0.75rem;
-    border: 1.5px solid var(--mrc-mustard);
-    border-radius: 3px;
+    border: var(--border-width-thick) var(--border-style) var(--mrc-mustard);
+    border-radius: var(--radius-s);
   }
 }
 
@@ -328,6 +342,27 @@
   }
 }
 
+/* Split hero — only when the partial was given media. Keying off :has() means the
+   text-only hero (the default, and most of the site) needs no extra class. */
+.mrc-hero-layout:has(.mrc-hero-media) .mrc-hero-inner {
+  text-align: left;
+  max-width: none;
+  margin-inline: 0;
+}
+
+.mrc-hero-layout:has(.mrc-hero-media) .mrc-hero-cta {
+  justify-content: flex-start;
+}
+
+@media (min-width: 900px) {
+  .mrc-hero-layout:has(.mrc-hero-media) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+}
+
 .mrc-hero-badge {
   margin-bottom: var(--space-5);
 }
@@ -335,7 +370,7 @@
 .mrc-hero-badge-img {
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   object-fit: cover;
 }
 
@@ -370,7 +405,7 @@
 .mrc-hero .mrc-btn-primary {
   background-color: var(--mrc-maroon);
   color: var(--mrc-surface) !important;
-  border: 2px solid var(--mrc-maroon);
+  border: var(--border-width-thick) var(--border-style) var(--mrc-maroon);
 }
 
 .mrc-hero .mrc-btn-primary:hover {
@@ -381,7 +416,7 @@
 .mrc-hero .mrc-btn-secondary {
   background-color: transparent;
   color: var(--mrc-olive);
-  border: 2px solid var(--mrc-olive);
+  border: var(--border-width-thick) var(--border-style) var(--mrc-olive);
 }
 
 .mrc-hero .mrc-btn-secondary:hover {
@@ -429,7 +464,7 @@
 .mrc-service-card {
   padding: 0;
   padding-left: var(--space-4);
-  border-left: 4px solid var(--mrc-olive);
+  border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
   border-radius: 0;
   background: transparent;
   box-shadow: none;

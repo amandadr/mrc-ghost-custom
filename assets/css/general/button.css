@@ -11,14 +11,70 @@
     letter-spacing: 0.5px;
     cursor: pointer;
     background-color: var(--white-color);
-    border: 1px solid var(--light-gray-color);
-    border-radius: 3px;
+    border: var(--border-width) var(--border-style) var(--border-color);
+    border-radius: var(--radius-s);
     outline: none;
 }
 
 .button:hover {
-    border-color: var(--mid-gray-color);
+    border-color: var(--border-color-strong);
     opacity: 1;
+}
+
+/* Brand primary / secondary — shared across heroes, audience, library */
+a.button.mrc-btn-primary,
+.button.mrc-btn-primary {
+    background-color: var(--mrc-maroon);
+    color: var(--mrc-surface) !important;
+    border: var(--border-width-thick) var(--border-style) var(--mrc-maroon);
+    text-decoration: none;
+    text-transform: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    height: auto;
+    min-height: 2.5rem;
+    padding: 0.7em var(--space-5);
+    line-height: 1;
+}
+
+a.button.mrc-btn-primary:hover,
+.button.mrc-btn-primary:hover {
+    opacity: 0.95;
+    color: var(--mrc-text) !important;
+}
+
+a.button.mrc-btn-secondary,
+.button.mrc-btn-secondary {
+    background-color: transparent;
+    color: var(--mrc-olive);
+    border: var(--border-width-thick) var(--border-style) var(--mrc-olive);
+    text-decoration: none;
+    text-transform: none;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    height: auto;
+    min-height: 2.5rem;
+    padding: 0.7em var(--space-5);
+    line-height: 1;
+}
+
+a.button.mrc-btn-secondary:hover,
+.button.mrc-btn-secondary:hover {
+    background-color: rgba(112, 104, 48, 0.08);
+}
+
+/* Olive on olive is invisible: switch the outline button to Paper on dark grounds. */
+.section-dark .button.mrc-btn-secondary,
+.section-cta .button.mrc-btn-secondary,
+.mrc-foot .button.mrc-btn-secondary {
+    color: var(--mrc-surface);
+    border-color: var(--mrc-surface);
+}
+
+.section-dark .button.mrc-btn-secondary:hover,
+.section-cta .button.mrc-btn-secondary:hover,
+.mrc-foot .button.mrc-btn-secondary:hover {
+    background-color: rgb(250 246 240 / 12%);
 }
 
 .button .icon-loading {

@@ -1,80 +1,144 @@
 {{!< default}}
-{{! About page — slug "about". Section layout with copy in template (editing = edit this file). Ghost allows only 20 theme settings total, so section-level Settings editing was removed. }}
+{{! About page — slug "about".
+    Copy: assets/wireframes/raw copy/about.md + About PNGs.
+    Keep PEI voice (two-column intro, Why This Work Exists, Outside of Work). Skip testimonials. }}
 
 <main class="site-main mrc-page mrc-page-about">
-  {{! 1. Hero — Cream, 70ch }}
-  <section class="mrc-about-hero section-light gh-outer" aria-labelledby="mrc-about-hero-title">
-    <div class="mrc-about-hero-inner gh-inner mrc-stack mrc-stack--m">
-      <h1 id="mrc-about-hero-title" class="mrc-about-hero-title">About Manny Roy Consulting</h1>
-      <p class="mrc-about-hero-subtext">Technical systems are the backbone of operations. They shape how teams work, make decisions, and get things done.</p>
+  {{> "hero"
+    headline="Hi, I'm Manny"
+    subtext="An independent technical partner for Atlantic Canadian businesses, community organizations, and creative agencies."
+    primary_href="/contact/"
+    primary_text="Contact"
+    secondary_href="/services/"
+    secondary_text="Services"
+    ga_label_prefix="about_hero"
+  }}
+
+  {{> "two-column-section"
+    section_class="surface"
+    heading_id="mrc-about-intro-title"
+    heading="Rooted in practicality."
+    right_theme_headshot=true
+    right_img_alt="Portrait of Manny Roy"
+    p1="I'm Manny Roy (they/them), a web developer and technical consultant based in Souris, PEI."
+    p2="Atlantic-knit, I've always felt at home around people who are self-reliant and skilled at making things work with what they have. That same resourcefulness shapes how I approach technology."
+    p3="I help businesses and organizations untangle their digital systems. My background spans full-stack development, ecommerce, analytics, and automation, but the goal is always the same: build systems that actually make your day easier."
+    p4="Whether I'm helping a local brewery streamline orders, training a non-profit's volunteers on a new CMS, or providing technical depth for a Halifax creative agency, I focus on clear communication and maintainable code."
+  }}
+
+  {{> "anchor-section"
+    section_class="dark"
+    heading_id="mrc-about-why-title"
+    heading="Why This Work Exists"
+    p1="I've always believed technology should make life easier—not create another job for someone already wearing ten hats."
+    p2="Around PEI, I meet people running restaurants, studios, nonprofits, and family businesses. They are experts at what they do."
+    p3="They shouldn't have to be web developers, IT managers, and database architects, too."
+    accent_1="That's where I come in."
+    divider=true
+    after_1="Before tech, I worked in kitchens, taprooms, and wood shops. Those environments taught me that any system will break under pressure if it isn't built thoughtfully."
+    accent_2="Good service is invisible when it works well. So are good systems."
+  }}
+
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-about-approach">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Approach"
+        heading_id="mrc-about-approach"
+        heading="Independent by choice, practical by nature"
+        intro="My work is built on a simple idea: you should understand and control the systems that run your business."
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" icon="document" title="Plain language" body="No jargon and no mystery. You will understand what I recommend and why it matters to your business."}}
+        {{> "feature-item" icon="key" title="True ownership" body="I build websites you can update yourself. You won't need a developer on retainer to change a photo or fix a typo."}}
+        {{> "feature-item" icon="accessibility" title="Accessible by default" body="Every site I build works for people with disabilities. This is not an add-on, it is the standard."}}
+        {{> "feature-item" icon="gear" title="Architectural rigor" body="I plan before I build. The structure of your site should be scalable, secure, and logically sound."}}
+      </div>
     </div>
-    <div class="mrc-about-hero-divider"></div>
   </section>
 
-  {{! 2. Intro — Paper, 60/40 split (headshot is a theme setting so prod can update it in Admin) }}
-  {{> "two-column-section" section_class="surface" heading_id="mrc-about-intro-title" heading="Hi, I'm Manny." right_img=@custom.about_headshot right_img_alt="Portrait of Manny Roy" right_placeholder="true" p1="I'm Amanda \"Manny\" Roy (they/them), a web developer and technical consultant based in Souris, PEI." p2="Growing up Atlantic-knit, I've always felt at home around people who are practical, self-reliant, and skilled at making things work with what they have; which shapes how I approach technology, too!" p3="MRC helps businesses and organizations improve their websites, digital tools, and everyday systems without burying them in jargon or unnecessary complexity. My background spans web development, ecommerce, analytics, data, automation, and AI, but the goal is usually the same: make the tech work for you." p4="I love PEI for its creativity, goodwill, strength of character, and the fact that people here tend to care deeply about what they are building." p5="I'm honoured to be building here too."}}
-
-  {{! 3. Why This Work Exists — Olive anchor }}
-  <section class="mrc-about-why-anchor section-dark gh-outer" aria-labelledby="mrc-about-why-title">
-    <div class="mrc-about-why-inner gh-inner">
-      <h2 id="mrc-about-why-title" class="mrc-about-why-title">Why This Work Exists</h2>
-      <p class="mrc-about-statement">I've always believed technology should make life easier—not create another job for someone already wearing ten hats.</p>
-      <p class="mrc-about-statement">Around PEI, I meet people running restaurants, campgrounds, shops, studios, farms, nonprofits, and family businesses. They're experts at what they do.</p>
-      <p class="mrc-about-statement">They're not expected to be web developers, marketers, photographers, IT managers, and AI experts, too!</p>
-      <p class="mrc-about-statement mrc-about-statement-accent">That's where I come in.</p>
-      <div class="mrc-about-why-divider" aria-hidden="true"></div>
-      <p class="mrc-about-statement">Before tech, I worked in kitchens, beer bars, taprooms, and wood shops. These environments taught me something useful: any system can break under pressure if it isn't built thoughtfully.</p>
-      <p class="mrc-about-statement mrc-about-statement-accent">Good service is invisible when it works well. So are good systems.</p>
-    </div>
-  </section>
-
-  {{! 4. Experience — Cream, two cards }}
-  <section class="mrc-about-experience section-light gh-outer" aria-labelledby="mrc-about-experience-title">
-    <div class="mrc-about-experience-inner gh-inner">
-      <h2 id="mrc-about-experience-title" class="mrc-about-section-title">Experience</h2>
-      <div class="mrc-about-cards mrc-grid mrc-grid--auto mrc-grid--gap-l">
-        <div class="mrc-about-card">
-          <h3 class="mrc-about-card-title">Technical Experience</h3>
-          <p class="mrc-about-card-intro">A keen sense for operational efficiency partners with technical prowess to establish a simple methodology.</p>
-          <p class="mrc-about-card-intro">I work across the digital systems businesses rely on every day:</p>
-          <ul class="mrc-about-card-list">
-            <li>Websites and ecommerce</li>
-            <li>Analytics and SEO</li>
-            <li>Hosting and infrastructure</li>
-            <li>Automation and integrations</li>
-            <li>Accessibility and applied AI</li>
-          </ul>
-          <p class="mrc-about-card-intro">That can mean rebuilding a website, fixing a booking process, connecting tools, or documenting a system so it stays manageable.</p>
-          <p class="mrc-about-card-outro">The technology should make the work easier.</p>
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-about-tech">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Toolkit"
+        heading_id="mrc-about-tech"
+        heading="Technologies I work with"
+        intro="I don't force a single platform on everyone. I bring deep experience across modern stacks and legacy systems to choose the right tool for the job."
+      }}
+      <div class="mrc-carousel-wrap" data-mrc-carousel>
+        <div class="mrc-carousel">
+          {{> "tech-card" simple_icon="wordpress" title="WordPress"}}
+          {{> "tech-card" simple_icon="react" simple_icon_2="nextdotjs" title="React / Next.js"}}
+          {{> "tech-card" simple_icon="cloudflare" title="Cloudflare"}}
+          {{> "tech-card" simple_icon="godaddy" title="GoDaddy"}}
+          {{> "tech-card" simple_icon="shopify" title="Shopify"}}
+          {{> "tech-card" simple_icon="gitlab" title="GitLab"}}
+          {{> "tech-card" simple_icon="webflow" title="Webflow"}}
+          {{> "tech-card" simple_icon="googleanalytics" title="Google Analytics 4"}}
+          {{> "tech-card" simple_icon="looker" title="Looker Studio"}}
+          {{> "tech-card" simple_icon="ghost" title="Ghost CMS"}}
+          {{> "tech-card" simple_icon="googlebigquery" title="BigQuery"}}
+          {{> "tech-card" simple_icon="supabase" title="Supabase"}}
         </div>
-        <div class="mrc-about-card">
-          <h3 class="mrc-about-card-title">Tourism Experience</h3>
-          <p class="mrc-about-card-intro">I've worked around seasonal and customer-facing businesses since my teenage years, beginning with my Nan's fish & chip truck at local music festivals.</p>
-          <p class="mrc-about-card-subhead">Since then, I've supported:</p>
-          <ul class="mrc-about-card-list">
-            <li>Restaurants and seasonal operators</li>
-            <li>Festival and event marketing</li>
-            <li>Ecommerce, takeout, and delivery systems</li>
-            <li>Workshops and webinars</li>
-            <li>Community organizations and small business operations</li>
-          </ul>
-          <p class="mrc-about-card-intro">Understanding busy seasons, tight margins, small teams, and the pressure of solving problems while serving customers grounds my work.</p>
-          <p class="mrc-about-card-outro">I know the work behind the website.</p>
+        <div class="mrc-carousel__controls">
+          <button type="button" class="mrc-carousel__btn" data-carousel-prev aria-label="Previous">{{> "icon" name="arrow-left"}}</button>
+          <button type="button" class="mrc-carousel__btn" data-carousel-next aria-label="Next">{{> "icon" name="arrow-right"}}</button>
         </div>
       </div>
     </div>
   </section>
 
-  {{! 5. Outside of Work — Paper }}
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-about-process">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Process"
+        heading_id="mrc-about-process"
+        heading="How we work together, step by step"
+      }}
+      <div class="mrc-process-grid mrc-process-grid--numbered mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "process-step" title="Discovery" desc="We start with a conversation about your business, your users, and what isn't working today. No technical talk, just honest questions."}}
+        {{> "process-step" title="Recommendations" desc="I give you a clear plan with options and trade-offs. You decide what fits your budget, timeline, and goals."}}
+        {{> "process-step" title="Implementation" desc="I build or fix what we agreed on. You see progress along the way, not a big reveal at the end."}}
+        {{> "process-step" title="Knowledge transfer" desc="I show you how to use what we built. You leave with documentation, training, and a system you control."}}
+      </div>
+    </div>
+  </section>
+
+  {{> "cta-section"
+    bg_class="section-dark"
+    headline="Ready to untangle your digital systems?"
+    subtext="Let's have a conversation about what's working, what's not, and what we can do about it."
+    button_text="Get in touch"
+    href="/contact/"
+    ga_event="about_mid_cta_click"
+    ga_label="Get in touch"
+    ga_page_section="mid_cta"
+  }}
+
   <section class="mrc-about-beyond section-surface gh-outer" aria-labelledby="mrc-about-beyond-title">
     <div class="mrc-about-prose-inner gh-inner">
       <h2 id="mrc-about-beyond-title" class="mrc-about-section-title">Outside of Work</h2>
       <p class="mrc-about-prose-p">Home is a 150-year-old farmhouse lovingly known as 'The Dynamite House' in Bear River, PEI. Here, we tell the time by the sun and the seasons by the potato fields, and holistic thinking comes naturally to most.</p>
       <p class="mrc-about-prose-p">I spend my days outside of work tending to the homestead with my fiancee, exploring this beautiful island with our golden retrievers, and picking up new hobbies like they're lucky pennies.</p>
+      <p class="mrc-about-prose-p">When I am not at the desk, I am outside with the dogs or fixing something in the farmhouse. The same patience I bring to a slow-cooked meal goes into the systems I build for you.</p>
       <p class="mrc-about-prose-p">Community, nature, and delicious food keep my head out of the web!</p>
     </div>
   </section>
 
-  {{! 6. CTA — Maroon }}
-  {{> "cta-section" headline="You don’t need to have it all figured out." subtext="Bring me the problem, the half-formed idea, or the thing you’ve been putting off. We can start there." button_text="Let’s talk"}}
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-about-resources">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Resources" heading_id="mrc-about-resources" heading="Notes from the field" link_href="/resources/" link_text="View all"}}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  {{> "cta-section"
+    headline="Have a problem worth solving? Let us talk it through."
+    subtext="No pressure and no jargon. Just a clear conversation about what your business needs to work better online."
+    button_text="Contact"
+    href="/contact/"
+  }}
 </main>

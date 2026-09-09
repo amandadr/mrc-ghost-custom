@@ -1,0 +1,90 @@
+/**
+ * FAQ accordion (partials/faq-item.hbs) — <details> based, no JavaScript.
+ *
+ * Styled as a list of rules rather than cards: on a text-driven site the questions
+ * should read as a table of contents, not as a stack of boxes.
+ */
+
+.mrc-faq {
+  max-width: min(75ch, 100%);
+  border-top: var(--border-width) var(--border-style) var(--border-color-subtle);
+}
+
+.mrc-faq__item {
+  border-bottom: var(--border-width) var(--border-style) var(--border-color-subtle);
+}
+
+.mrc-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  cursor: pointer;
+  list-style: none; /* hide the default disclosure triangle */
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: currentcolor;
+}
+
+.mrc-faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.mrc-faq__question:focus-visible {
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-focus);
+  outline-offset: calc(var(--focus-ring-offset) * -1);
+}
+
+/* Marker: a plus that becomes a minus. Drawn in CSS so it inherits colour. */
+.mrc-faq__marker {
+  position: relative;
+  flex: 0 0 auto;
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.mrc-faq__marker::before,
+.mrc-faq__marker::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 2px;
+  background: var(--mrc-eyebrow);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.mrc-faq__marker::after {
+  transform: rotate(90deg);
+}
+
+.mrc-faq__item[open] .mrc-faq__marker::after {
+  transform: rotate(0deg);
+}
+
+.mrc-faq__answer {
+  padding-block-end: var(--space-5);
+  max-width: 65ch;
+}
+
+.mrc-faq__answer p {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-soft);
+  margin: 0;
+}
+
+.section-dark .mrc-faq,
+.section-cta .mrc-faq,
+.section-dark .mrc-faq__item,
+.section-cta .mrc-faq__item {
+  border-color: var(--border-color-on-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mrc-faq__marker::before,
+  .mrc-faq__marker::after {
+    transition: none;
+  }
+}

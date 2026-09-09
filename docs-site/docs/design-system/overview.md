@@ -25,9 +25,10 @@ The theme uses a **design system** so layout, colour, typography, and spacing st
 | --- | --- |
 | [Colours](./colours) | Palette, safe pairings, section rhythm, CSS variables. |
 | [Typography](./typography) | Fonts, sizes, line-height, max width, heading scale. |
-| [Spacing](./spacing) | Scale (4–96px), section padding, vertical rhythm. |
+| [Spacing](./spacing) | Scale (4–96px), containers, section padding, borders, radius, motion, focus. |
 | [Composition](./composition) | Layout primitives: container, stack, cluster, grid, split, switcher. |
 | [Responsiveness](./responsiveness) | Breakpoints, mobile-first, fluid sizing, testing. |
 | [Accessibility](./accessibility) | Contrast, focus rings, reduced motion, tap targets. |
+| [Component library](./component-library) | Live `/component-library/` harness for partials and edge-case fixtures. |
 
 These docs describe how UI stays coherent and accessible as the theme evolves. For **tone and copy** (brand voice, messaging, do's and don'ts), see the repo `docs/brand-voice.md`.

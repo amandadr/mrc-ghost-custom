@@ -1,0 +1,327 @@
+/**
+ * Component library — chrome only (TOC, frames, swatches).
+ * Component visuals come from existing site CSS.
+ */
+
+.mrc-page-component-library {
+  --mrc-cl-meta-bg: var(--mrc-text);
+  --mrc-cl-meta-fg: var(--mrc-surface);
+  /* Clears the sticky TOC bar when jumping to a #cl-* anchor */
+  --mrc-cl-nav-offset: 4.5rem;
+}
+
+.mrc-cl-intro {
+  padding-block: var(--mrc-section-padding-tight-block);
+}
+
+.mrc-cl-intro__inner {
+  max-width: min(var(--mrc-container-wide), 100%);
+}
+
+.mrc-cl-intro__title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h1-size);
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 var(--mrc-heading-margin-below);
+  color: var(--mrc-text);
+}
+
+.mrc-cl-intro__lede {
+  font-size: var(--mrc-lede-size);
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-muted);
+  max-width: min(var(--mrc-content-width), 100%);
+  margin: 0 0 var(--space-5);
+}
+
+.mrc-cl-intro__meta {
+  font-size: var(--mrc-small-size);
+  color: var(--mrc-text-muted);
+  margin: 0;
+}
+
+.mrc-cl-intro__meta code {
+  overflow-wrap: break-word;
+}
+
+/* Single column at every width: demos must render at true page width, so the
+   TOC never takes a side column that would inset them from one edge only. */
+.mrc-cl-layout,
+.mrc-cl-main {
+  min-width: 0;
+}
+
+/* layout.css guards overflow with `overflow-x: hidden` on body/.site, which makes
+   them scroll containers and stops the TOC below from sticking. `clip` guards the
+   same way without creating one. Scoped to this route so other pages keep the guard. */
+body.mrc-route-component-library,
+.mrc-route-component-library .site {
+  overflow-x: clip;
+}
+
+/* TOC: sticky single-row bar. Links scroll horizontally inside the bar so its
+   height stays constant (--mrc-cl-nav-offset) and anchors land predictably. */
+.mrc-cl-nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--mrc-page-gutter);
+  background: var(--mrc-surface);
+  border-bottom: var(--border-width) var(--border-style) var(--border-color-subtle);
+}
+
+.mrc-cl-nav__label {
+  flex: 0 0 auto;
+  font-size: var(--mrc-small-size);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mrc-text-muted);
+  white-space: nowrap;
+  margin: 0;
+}
+
+@media (max-width: 560px) {
+  .mrc-cl-nav__label {
+    display: none;
+  }
+}
+
+.mrc-cl-nav__list {
+  flex: 1 1 auto;
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding-block: var(--space-1);
+  padding-inline: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-4);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  /* Fades the trailing edge so a clipped link reads as scrollable, not cut off.
+     Self-hiding: with no link under the fade there is nothing to soften. */
+  mask-image: linear-gradient(to right, #000 calc(100% - var(--space-5)), transparent);
+}
+
+.mrc-cl-nav__list li {
+  flex: 0 0 auto;
+}
+
+.mrc-cl-nav__list a {
+  color: var(--mrc-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.mrc-cl-nav__list a:hover {
+  color: var(--mrc-maroon);
+  text-decoration: underline;
+}
+
+/* ---------- Demo frames ---------- */
+.mrc-cl-frame {
+  scroll-margin-top: var(--mrc-cl-nav-offset);
+  border-top: var(--border-width) var(--border-style) var(--border-color-subtle);
+  min-width: 0;
+}
+
+.mrc-cl-frame__meta {
+  background: var(--mrc-cl-meta-bg);
+  color: var(--mrc-cl-meta-fg);
+  padding-block: var(--space-4);
+}
+
+.mrc-cl-frame__heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.mrc-cl-frame__title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h3-size);
+  font-weight: 600;
+  margin: 0;
+  color: var(--mrc-cl-meta-fg);
+}
+
+.mrc-cl-frame__status {
+  font-size: var(--mrc-small-size);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.15em 0.55em;
+  border-radius: var(--radius-s);
+  border: var(--border-width) var(--border-style) var(--border-color-on-dark);
+}
+
+.mrc-cl-frame__status--stable {
+  background: rgba(232, 200, 104, 0.2);
+  color: var(--mrc-mustard);
+}
+
+.mrc-cl-frame__status--draft {
+  color: var(--mrc-surface);
+  opacity: 0.85;
+}
+
+.mrc-cl-frame__status--experimental {
+  color: var(--mrc-mustard);
+}
+
+.mrc-cl-frame__partial {
+  margin: 0 0 var(--space-2);
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.mrc-cl-frame__partial code {
+  overflow-wrap: break-word;
+}
+
+.mrc-cl-frame__notes {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: min(var(--mrc-content-width), 100%);
+  opacity: 0.9;
+}
+
+.mrc-cl-variant {
+  border-top: var(--border-width) dashed rgb(250 246 240 / 25%);
+}
+
+.mrc-cl-variant__label {
+  margin: 0;
+  padding: var(--space-2) var(--mrc-page-gutter);
+  font-size: var(--mrc-small-size);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: var(--mrc-text);
+  color: var(--mrc-mustard);
+}
+
+/* Explanatory aside inside a demo frame, for behaviour a render can't show. */
+.mrc-cl-note {
+  max-width: 65ch;
+  margin: 0 0 var(--space-5);
+  font-size: 1rem;
+  color: var(--mrc-text-soft);
+}
+
+/* Icon sheet */
+.mrc-cl-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  gap: var(--space-4);
+}
+
+.mrc-cl-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-2);
+  border: var(--border-width) var(--border-style) var(--border-color-subtle);
+  border-radius: var(--radius-m);
+  background: var(--mrc-surface);
+}
+
+.mrc-cl-icon span {
+  font-family: var(--font-mono);
+  font-size: var(--mrc-small-size);
+  color: var(--mrc-text-soft);
+}
+
+/* Foundations demos */
+.mrc-cl-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: var(--space-4);
+}
+
+.mrc-cl-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mrc-cl-swatch__chip {
+  aspect-ratio: var(--aspect-square);
+  border-radius: var(--radius-m);
+  border: var(--border-width) var(--border-style) var(--border-color-subtle);
+}
+
+.mrc-cl-swatch__name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.mrc-cl-swatch__token {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mrc-text-muted);
+  margin: 0;
+  word-break: break-all;
+}
+
+.mrc-cl-type-sample {
+  margin: 0 0 var(--space-5);
+}
+
+.mrc-cl-type-sample__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--mrc-text-muted);
+  margin: 0 0 var(--space-1);
+}
+
+.mrc-cl-space-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.mrc-cl-space-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.mrc-cl-space-bar__block {
+  width: 2rem;
+  background: var(--mrc-maroon);
+  border-radius: var(--radius-s);
+}
+
+.mrc-cl-space-bar__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--mrc-text-muted);
+}
+
+.mrc-cl-pad {
+  padding: var(--space-6) var(--mrc-page-gutter);
+}
+
+.mrc-cl-pad--narrow {
+  max-width: min(var(--mrc-container-wide), 100%);
+  margin-inline: auto;
+  padding-inline: var(--mrc-page-gutter);
+  padding-block: var(--space-6);
+  box-sizing: border-box;
+  width: 100%;
+}

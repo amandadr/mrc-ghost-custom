@@ -1,0 +1,29 @@
+{{!-- Article table of contents.
+
+      Without JavaScript this is a static list of links you pass in. assets/js/lib/toc.js
+      highlights the current heading as you scroll, and — if the list is empty — builds
+      it from h2/h3 inside `[data-mrc-toc-source]` (defaults to `.gh-content`).
+
+      On small screens it is a <details> drawer. From 900px up the summary is hidden and
+      the list stays visible, sticky beside the article.
+
+      Params:
+        label      heading for the list (defaults to "On this page")
+        item1–8_href / item1–8_text   static entries for the library and for pages
+                                      that want an authored TOC rather than a generated one
+        source     CSS selector for the article to scan when the list is empty --}}
+<nav class="mrc-toc" data-mrc-toc{{#if source}} data-mrc-toc-source="{{source}}"{{/if}} aria-label="{{#if label}}{{label}}{{else}}On this page{{/if}}">
+  <details class="mrc-toc__drawer" open>
+    <summary class="mrc-toc__summary">{{#if label}}{{label}}{{else}}On this page{{/if}}</summary>
+    <ol class="mrc-toc__list">
+      {{#if item1_href}}{{#if item1_text}}<li><a href="{{item1_href}}">{{item1_text}}</a></li>{{/if}}{{/if}}
+      {{#if item2_href}}{{#if item2_text}}<li><a href="{{item2_href}}">{{item2_text}}</a></li>{{/if}}{{/if}}
+      {{#if item3_href}}{{#if item3_text}}<li><a href="{{item3_href}}">{{item3_text}}</a></li>{{/if}}{{/if}}
+      {{#if item4_href}}{{#if item4_text}}<li><a href="{{item4_href}}">{{item4_text}}</a></li>{{/if}}{{/if}}
+      {{#if item5_href}}{{#if item5_text}}<li><a href="{{item5_href}}">{{item5_text}}</a></li>{{/if}}{{/if}}
+      {{#if item6_href}}{{#if item6_text}}<li><a href="{{item6_href}}">{{item6_text}}</a></li>{{/if}}{{/if}}
+      {{#if item7_href}}{{#if item7_text}}<li><a href="{{item7_href}}">{{item7_text}}</a></li>{{/if}}{{/if}}
+      {{#if item8_href}}{{#if item8_text}}<li><a href="{{item8_href}}">{{item8_text}}</a></li>{{/if}}{{/if}}
+    </ol>
+  </details>
+</nav>

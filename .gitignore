@@ -21,6 +21,9 @@ yarn-error.log*
 ## Theme build outputs / archives
 dist/
 
+## Local visual-QA harness (headless Chrome screenshots)
+tmp-verify/
+
 ## Local env / secrets
 .env
 .env.*

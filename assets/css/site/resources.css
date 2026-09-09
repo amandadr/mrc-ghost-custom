@@ -55,8 +55,8 @@
 .mrc-pdf-viewer__iframe {
     width: 100%;
     height: min(85vh, 900px);
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 12px;
+    border: var(--border-width) var(--border-style) var(--border-color-subtle);
+    border-radius: var(--radius-l);
     background: rgba(0, 0, 0, 0.02);
 }
 
@@ -109,7 +109,7 @@
     display: block;
     color: inherit;
     text-decoration: none;
-    transition: transform 160ms ease, box-shadow 160ms ease;
+    transition: transform var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
 }
 
 .mrc-glossary__collections-card:hover {
@@ -123,8 +123,8 @@
     justify-content: center;
     min-width: 34px;
     height: 34px;
-    border-radius: 999px;
-    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: var(--radius-full);
+    border: var(--border-width) var(--border-style) var(--border-color-subtle);
     text-decoration: none;
 }
 

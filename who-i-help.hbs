@@ -1,0 +1,148 @@
+{{!< default}}
+{{! Who I Help — /who-i-help/ via routes.yaml (no Ghost Page).
+    Copy: assets/wireframes/raw copy/who-i-help.md + Who I Help PNGs. }}
+{{#contentFor "title"}}Who I Help | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "body_class"}} mrc-route-who-i-help{{/contentFor}}
+{{#contentFor "head"}}
+    <meta name="description" content="Find where you fit — practical digital systems for small businesses, tourism, arts and community, institutions, and agencies.">
+    <meta property="og:title" content="Who I help">
+    <meta property="og:description" content="I work with organizations that need practical digital systems, clearer online experiences, and technology that fits how they actually work.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{@site.url}}/who-i-help/">
+    <link rel="canonical" href="{{@site.url}}/who-i-help/">
+{{/contentFor}}
+
+<main class="site-main mrc-page mrc-page-who-i-help">
+  {{> "hero"
+    eyebrow="Who I help"
+    headline="Who do you work with?"
+    subtext="I work with organizations that need practical digital systems, clearer online experiences, and technology that fits how they actually work."
+    primary_href="/who-i-help/#audiences"
+    primary_text="Explore"
+    secondary_href="/contact/"
+    secondary_text="Contact"
+  }}
+
+  <section id="audiences" class="mrc-section section-surface gh-outer" aria-labelledby="mrc-who-tabs">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Audience"
+        heading_id="mrc-who-tabs"
+        heading="Find where you fit"
+        intro="A small inn and a government agency seem different. But they share the same need for a website that works without constant fighting."
+      }}
+      <div class="mrc-tabs" data-mrc-tabs data-mrc-tabs-label="Audiences">
+        <div class="mrc-tabs__panels">
+          {{> "tab-panel"
+            id="who-tab-smb"
+            label="Small business"
+            title="Small & medium businesses"
+            body="Shops, clinics, trades, professional services, and growing teams that need better digital tools. Outdated sites and confusing platforms create more work than they bring in. A clear, maintainable site helps customers find and trust you."
+            href="/services/small-businesses/"
+            link_text="Explore small business"
+          }}
+          {{> "tab-panel"
+            id="who-tab-tourism"
+            label="Tourism"
+            title="Tourism and hospitality"
+            body="Inns, restaurants, tour operators, and destinations face seasonal pressure and booking complexity. Your website must handle traffic spikes and clear paths to book without breaking."
+            href="/services/tourism-hospitality/"
+            link_text="Explore tourism"
+          }}
+          {{> "tab-panel"
+            id="who-tab-arts"
+            label="Arts & culture"
+            title="Arts, culture and community"
+            body="Museums, festivals, libraries, and community groups do mission-driven work with limited technical capacity. Everyone should be able to use your site, and you should update events without calling a developer."
+            href="/services/arts-culture-community/"
+            link_text="Explore arts & community"
+          }}
+          {{> "tab-panel"
+            id="who-tab-orgs"
+            label="Organizations"
+            title="Organizations and institutions"
+            body="Education, healthcare, government, and non-profits need trustworthy, accessible, well-architected digital systems. The stakes are higher, and so is the need for clarity."
+            href="/services/organizations-institutions/"
+            link_text="Explore organizations"
+          }}
+          {{> "tab-panel"
+            id="who-tab-agencies"
+            label="Agencies"
+            title="Agencies and development teams"
+            body="You need a collaborative partner for specialized expertise, quality assurance, or overflow capacity. I work alongside your team, not in competition with it."
+            href="/services/agencies-development-teams/"
+            link_text="Explore agencies"
+          }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-who-thread">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Common"
+        heading_id="mrc-who-thread"
+        heading="The common thread"
+        intro="Different sectors. The same need for digital systems, public information, and online experiences that fit how people actually work."
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" title="Small & medium businesses" body="Your website should bring in work, not create more." href="/services/small-businesses/" link_text="Learn more"}}
+        {{> "feature-item" title="Tourism & hospitality" body="Seasonal traffic and bookings that have to work when every hour counts." href="/services/tourism-hospitality/" link_text="Learn more"}}
+        {{> "feature-item" title="Arts, culture & community" body="Accessible and maintainable for teams without technical staff." href="/services/arts-culture-community/" link_text="Learn more"}}
+        {{> "feature-item" title="Organizations & institutions" body="Trustworthy systems with clear architecture and content people can find." href="/services/organizations-institutions/" link_text="Learn more"}}
+        {{> "feature-item" title="Agencies & development teams" body="Deep expertise and overflow capacity that fits your process." href="/services/agencies-development-teams/" link_text="Learn more"}}
+      </div>
+    </div>
+  </section>
+
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-who-work">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-who-work" heading="Selected work" intro="Real projects, real outcomes, across different kinds of organizations." link_href="/case-studies/" link_text="View all"}}
+      {{#get "posts" filter="tag:case-study" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-who-approach">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Approach"
+        heading_id="mrc-who-approach"
+        heading="How I work"
+        intro="The same principles guide every project, whether it is a small shop or a large institution. You stay in control of what gets built."
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" title="Listen" body="I start by understanding how you actually work. No assumptions — questions about your operations, customers, and constraints first."}}
+        {{> "feature-item" title="Practical advice" body="Recommendations that fit capacity and constraints, not a wishlist of tools."}}
+        {{> "feature-item" title="Maintainable systems" body="Built so your team can keep running them after I leave."}}
+        {{> "feature-item" title="Accessibility" body="Everyone who needs to use the site should be able to."}}
+        {{> "feature-item" title="Collaboration" body="Clear communication, shared ownership of decisions."}}
+        {{> "feature-item" title="Ownership" body="You keep control of what gets built and how it is run."}}
+      </div>
+    </div>
+  </section>
+
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-who-resources">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Resources" heading_id="mrc-who-resources" heading="Useful reading" intro="Practical guides and checklists that answer common questions without jargon." link_href="/resources/" link_text="View all"}}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  {{> "cta-section"
+    headline="Not sure where to start?"
+    subtext="Explore a relevant audience page, read a useful resource, see selected work, or start a conversation with a specific question."
+    button_text="Explore"
+    href="/who-i-help/#audiences"
+    secondary_href="/contact/"
+    secondary_text="Contact"
+  }}
+</main>

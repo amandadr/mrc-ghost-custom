@@ -1,0 +1,22 @@
+{{!-- Tab panel — one option in a tab selector ("Find where you fit").
+
+      Without JavaScript these render as a plain stack of headed sections, so every
+      panel is readable, linkable, and printable. assets/js/lib/tabs.js upgrades the
+      stack into an ARIA tablist. Author them as real content, not as tab guts.
+
+      Place inside `<div class="mrc-tabs" data-mrc-tabs><div class="mrc-tabs__panels">`.
+
+      Params:
+        id         required — anchor target, also used to wire aria-controls
+        label      short tab label (defaults to title)
+        title      panel heading
+        body       panel copy
+        href       optional call to action
+        link_text  link label --}}
+<section class="mrc-tabs__panel" id="{{id}}" data-tab-label="{{#if label}}{{label}}{{else}}{{title}}{{/if}}">
+  <h3 class="mrc-tabs__panel-title">{{title}}</h3>
+  {{#if body}}<p class="mrc-tabs__panel-body">{{body}}</p>{{/if}}
+  {{#if href}}
+    <a class="mrc-tabs__panel-link" href="{{href}}">{{#if link_text}}{{link_text}}{{else}}Learn more{{/if}}</a>
+  {{/if}}
+</section>

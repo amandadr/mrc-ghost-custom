@@ -1,0 +1,38 @@
+{{!-- Case-study row — compact linked item: optional thumb, tag, title, excerpt.
+
+      Text-first: the thumb is opt-in and only renders when there is an image (or a
+      library placeholder). Reads the current post context inside {{#foreach posts}},
+      or takes explicit params for a hand-authored list.
+
+      Place inside a `.mrc-case-list`.
+
+      Params:
+        title / href     required when not in a post loop (href, not url — Ghost
+                         would otherwise resolve url to the current page)
+        tag              category label; falls back to primary_tag.name
+        excerpt          optional supporting line
+        show_image       true → use the post feature image when present
+        img / img_alt    explicit image (overrides the post image)
+        placeholder      library-only empty slot --}}
+<article class="mrc-case-row">
+  {{#if img}}
+    <div class="mrc-case-row__media">{{> "media-frame" img=img img_alt=img_alt shape="square"}}</div>
+  {{else if placeholder}}
+    <div class="mrc-case-row__media">{{> "media-frame" placeholder=true shape="square"}}</div>
+  {{else if show_image}}
+    {{#if feature_image}}
+      <div class="mrc-case-row__media">{{> "media-frame" img=feature_image img_alt=feature_image_alt shape="square"}}</div>
+    {{/if}}
+  {{/if}}
+  <div class="mrc-case-row__body">
+    {{#if tag}}
+      <p class="mrc-case-row__tag">{{tag}}</p>
+    {{else if primary_tag}}
+      <p class="mrc-case-row__tag">{{primary_tag.name}}</p>
+    {{/if}}
+    <h3 class="mrc-case-row__title">
+      <a href="{{#if href}}{{href}}{{else}}{{url}}{{/if}}">{{title}}</a>
+    </h3>
+    {{#if excerpt}}<p class="mrc-case-row__excerpt">{{excerpt}}</p>{{/if}}
+  </div>
+</article>

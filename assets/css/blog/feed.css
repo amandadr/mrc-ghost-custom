@@ -69,7 +69,7 @@
 .feed-right {
     display: flex;
     align-items: center;
-    transition: margin 0.2s var(--animation-base);
+    transition: margin var(--duration-base) var(--animation-base);
 }
 
 .icon-star {
@@ -95,6 +95,6 @@
     width: 16px;
     height: 16px;
     color: var(--secondary-text-color);
-    transition: transform 0.2s var(--animation-base);
+    transition: transform var(--duration-base) var(--animation-base);
     transform: translateX(2rem);
 }

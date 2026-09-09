@@ -23,12 +23,12 @@ Vertical rhythm with consistent gap between children.
 
 | Class | Gap |
 |-------|-----|
-| `.mrc-stack` | Default `--space-4` |
+| `.mrc-stack` | Default `--space-2` |
 | `.mrc-stack--s` | `--space-2` |
-| `.mrc-stack--m` | `--space-4` |
-| `.mrc-stack--l` | `--space-6` |
-| `.mrc-stack--xl` | `--space-8` |
-| `.mrc-stack--section` | `--space-9` |
+| `.mrc-stack--m` | `--space-3` |
+| `.mrc-stack--l` | `--space-4` |
+| `.mrc-stack--xl` | `--space-6` |
+| `.mrc-stack--section` | `--space-8` |
 
 ## Cluster
 

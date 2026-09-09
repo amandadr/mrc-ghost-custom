@@ -1,0 +1,101 @@
+/**
+ * Media frame — the theme-wide photo ⇄ text-only switch (partials/media-frame.hbs).
+ *
+ * The site is text-first, so the absence of an image is the normal case and is
+ * handled by the calling component collapsing to one column. Everything here only
+ * describes how a photo looks when there is one.
+ */
+
+.mrc-media-frame {
+  margin: 0;
+  max-width: 100%;
+}
+
+.mrc-media-frame__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-m);
+}
+
+/* Shapes — crop to a predictable ratio so mixed source images stay on a grid. */
+.mrc-media-frame--square .mrc-media-frame__img,
+.mrc-media-frame--portrait .mrc-media-frame__img,
+.mrc-media-frame--landscape .mrc-media-frame__img,
+.mrc-media-frame--round .mrc-media-frame__img {
+  object-fit: cover;
+}
+
+.mrc-media-frame--square .mrc-media-frame__img {
+  aspect-ratio: var(--aspect-square);
+}
+
+.mrc-media-frame--portrait .mrc-media-frame__img {
+  aspect-ratio: var(--aspect-portrait);
+}
+
+.mrc-media-frame--landscape .mrc-media-frame__img {
+  aspect-ratio: var(--aspect-landscape);
+}
+
+/* Round — portraits and headshots. */
+.mrc-media-frame--round {
+  display: flex;
+  justify-content: center;
+}
+
+.mrc-media-frame--round .mrc-media-frame__img {
+  width: min(240px, 100%);
+  aspect-ratio: var(--aspect-square);
+  border-radius: var(--radius-full);
+  box-shadow: 0 12px 28px rgb(21 23 26 / 12%);
+}
+
+/* Placeholder — component library only, so the photo slot is visible while the
+   live site stays text-only. Dashed to read as scaffolding, never as a design. */
+.mrc-media-frame--placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  border: var(--border-width) dashed var(--border-color-strong);
+  border-radius: var(--radius-m);
+  background-color: rgb(42 38 26 / 3%);
+}
+
+/* Shape modifiers apply to the img, so the empty placeholder needs them too —
+   otherwise every slot demos as a square. */
+.mrc-media-frame--placeholder.mrc-media-frame--square {
+  min-height: 0;
+  aspect-ratio: var(--aspect-square);
+}
+
+.mrc-media-frame--placeholder.mrc-media-frame--portrait {
+  min-height: 0;
+  aspect-ratio: var(--aspect-portrait);
+}
+
+.mrc-media-frame--placeholder.mrc-media-frame--landscape {
+  min-height: 0;
+  aspect-ratio: var(--aspect-landscape);
+}
+
+.mrc-media-frame--placeholder.mrc-media-frame--round {
+  width: min(240px, 100%);
+  min-height: 0;
+  aspect-ratio: var(--aspect-square);
+  border-radius: var(--radius-full);
+  margin-inline: auto;
+}
+
+.mrc-media-frame__note {
+  font-size: var(--mrc-small-size);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mrc-text-soft);
+}
+
+.section-dark .mrc-media-frame--placeholder,
+.section-cta .mrc-media-frame--placeholder {
+  border-color: var(--border-color-on-dark);
+  background-color: rgb(250 246 240 / 6%);
+}

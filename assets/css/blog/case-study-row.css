@@ -1,0 +1,96 @@
+/**
+ * Case-study row (partials/case-study-row.hbs).
+ *
+ * A compact list item, not a card: thumb (optional) + tag + title. The same rule-above
+ * structure as the post card, so a list of five case studies does not become a shop.
+ */
+
+.mrc-case-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.mrc-case-row {
+  display: flex;
+  gap: var(--space-5);
+  align-items: start;
+  padding-block-start: var(--space-5);
+  border-top: var(--border-width-thick) var(--border-style) var(--border-color-accent);
+}
+
+.mrc-case-row__media {
+  flex: 0 0 5.5rem;
+  width: 5.5rem;
+}
+
+.mrc-case-row__media .mrc-media-frame,
+.mrc-case-row__media .mrc-media-frame--placeholder {
+  width: 5.5rem;
+  min-height: 0;
+  aspect-ratio: var(--aspect-square);
+}
+
+.mrc-case-row__media .mrc-media-frame__img {
+  aspect-ratio: var(--aspect-square);
+  border-radius: var(--radius-s);
+}
+
+.mrc-case-row__body {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.mrc-case-row__tag {
+  font-size: var(--mrc-small-size);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mrc-eyebrow);
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-case-row__title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h3-size);
+  font-weight: 600;
+  line-height: 1.25;
+  color: currentcolor;
+  margin: 0;
+}
+
+.mrc-case-row__title a {
+  color: currentcolor !important;
+  text-decoration: none;
+}
+
+.mrc-case-row__title a:hover {
+  color: var(--mrc-link) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.mrc-case-row__excerpt {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-soft);
+  margin: var(--space-2) 0 0;
+}
+
+.section-dark .mrc-case-row,
+.section-cta .mrc-case-row {
+  border-top-color: var(--mrc-mustard);
+}
+
+@media (max-width: 479px) {
+  .mrc-case-row {
+    flex-direction: column;
+  }
+
+  .mrc-case-row__media,
+  .mrc-case-row__media .mrc-media-frame,
+  .mrc-case-row__media .mrc-media-frame--placeholder {
+    width: 100%;
+    flex-basis: auto;
+  }
+}

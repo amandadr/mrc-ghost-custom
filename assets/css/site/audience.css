@@ -136,7 +136,7 @@
 .mrc-audience-hero .mrc-btn-primary {
   background-color: var(--mrc-maroon);
   color: var(--mrc-surface) !important;
-  border: 2px solid var(--mrc-maroon);
+  border: var(--border-width-thick) var(--border-style) var(--mrc-maroon);
   line-height: 1;
   padding-block: 0.7em;
   height: auto;
@@ -151,7 +151,7 @@
 .mrc-audience-hero .mrc-btn-secondary {
   background-color: transparent;
   color: var(--mrc-olive);
-  border: 2px solid var(--mrc-olive);
+  border: var(--border-width-thick) var(--border-style) var(--mrc-olive);
   line-height: 1;
   padding-block: 0.7em;
   height: auto;
@@ -169,9 +169,9 @@
   width: 100%;
   max-width: 22rem;
   background: var(--mrc-surface);
-  border: 1px solid rgb(42 38 26 / 14%);
-  border-left: 4px solid var(--mrc-olive);
-  border-radius: 6px;
+  border: var(--border-width) var(--border-style) var(--border-color-subtle);
+  border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
+  border-radius: var(--radius-l);
   padding: clamp(1.5rem, 3vw, 2rem);
   box-shadow: none;
 }
@@ -226,8 +226,8 @@
 
 .mrc-audience-challenge {
   background: var(--mrc-bg);
-  border: 1px solid rgb(42 38 26 / 10%);
-  border-radius: 4px;
+  border: var(--border-width) var(--border-style) var(--border-color-subtle);
+  border-radius: var(--radius-m);
   padding: var(--space-5);
 }
 
@@ -238,6 +238,11 @@
   letter-spacing: 0.06em;
   color: var(--mrc-maroon);
   margin-bottom: var(--space-2);
+}
+
+.mrc-audience-challenge__marker--icon {
+  width: 24px;
+  height: 24px;
 }
 
 .mrc-audience-challenge__title {
@@ -281,8 +286,8 @@
   padding: var(--space-5);
   background: var(--mrc-surface);
   border: 0;
-  border-left: 4px solid var(--mrc-mustard);
-  border-radius: 0 4px 4px 0;
+  border-left: var(--border-width-accent) var(--border-style) var(--mrc-mustard);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
 }
 
 .mrc-audience-callout p {
@@ -343,12 +348,12 @@
 
 .mrc-audience-projects .mrc-common-project-card {
   border-left: 0;
-  border: 1px solid rgb(42 38 26 / 14%);
+  border: var(--border-width) var(--border-style) var(--border-color-subtle);
   padding: clamp(1.5rem, 3vw, 2rem);
 }
 
 .mrc-audience-projects .mrc-common-project-card-title {
-  border-left: 4px solid var(--mrc-olive);
+  border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
   padding-left: 0.9rem;
   margin-bottom: var(--space-3);
 }
@@ -502,10 +507,16 @@
   gap: var(--space-4);
 }
 
+/* Proof cards hold a title plus one or two sentences, so let them size to their
+   copy. Stretching a short card to match a long neighbour leaves dead space. */
+.mrc-audience-proof .mrc-grid {
+  align-items: start;
+}
+
 .mrc-audience-proof-card {
   background: var(--mrc-surface);
-  border: 1px solid rgb(42 38 26 / 14%);
-  border-radius: 4px;
+  border: var(--border-width) var(--border-style) var(--border-color-subtle);
+  border-radius: var(--radius-m);
   padding: var(--space-5);
 }
 
@@ -524,16 +535,11 @@
   color: var(--mrc-text-muted);
 }
 
-/* ---------- CTA secondary link ---------- */
+/* ---------- CTA ---------- */
+/* Generic .mrc-cta-actions / .mrc-cta-secondary live with the rest of the CTA
+   component in home-deferred.css; only page-specific sizing belongs here. */
 .mrc-page-audience .mrc-cta-section {
   padding-block: var(--space-8);
-}
-
-.mrc-page-audience .mrc-cta-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
 }
 
 .mrc-page-audience .mrc-cta-btn {
@@ -544,27 +550,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.mrc-cta-actions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.mrc-cta-secondary {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--mrc-surface);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-  opacity: 0.95;
-}
-
-.mrc-cta-secondary:hover {
-  opacity: 1;
-  text-decoration-thickness: 2px;
 }
 
 /* ---------- Related audience nav ---------- */
@@ -604,8 +589,8 @@
   font-size: 0.95rem;
   color: var(--mrc-text);
   text-decoration: none;
-  border: 1px solid rgb(42 38 26 / 18%);
-  border-radius: 999px;
+  border: var(--border-width) var(--border-style) var(--border-color-subtle);
+  border-radius: var(--radius-full);
   background: var(--mrc-surface);
 }
 

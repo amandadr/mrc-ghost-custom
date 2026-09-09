@@ -1,37 +1,47 @@
 {{!< default}}
-{{! Contact page — slug "contact". Section layout; email and form action from theme settings. Copy in template. }}
+{{! Contact page — slug "contact".
+    Copy: assets/wireframes/raw copy/contact.md + Contact PNGs.
+    Keep Formspree form, ?audience= wiring, and Souris PEI. No map. Skip Relume Halifax/phone leftovers. }}
 
 <main class="site-main mrc-page mrc-page-contact">
-  {{! 1. Hero — Cream }}
-  <section class="mrc-contact-hero section-light gh-outer" aria-labelledby="mrc-contact-hero-title">
-    <div class="mrc-contact-hero-inner gh-inner mrc-stack mrc-stack--m">
-      <h1 id="mrc-contact-hero-title" class="mrc-contact-hero-title">Let's talk.</h1>
-      <p class="mrc-contact-hero-subtext">If you're navigating complexity, planning a system redesign, or exploring applied AI, I'm happy to start the conversation.</p>
-    </div>
-    <div class="mrc-contact-hero-divider"></div>
-  </section>
+  {{! 1. Hero }}
+  {{> "hero"
+    headline="Start with a conversation."
+    subtext="I work from Souris, Prince Edward Island, with businesses, organizations, and agencies across Atlantic Canada. Tell me what is getting in the way — I will tell you honestly whether I can help."
+    primary_href="/case-studies/"
+    primary_text="Work"
+    secondary_href="/services/"
+    secondary_text="Services"
+    ga_label_prefix="contact_hero"
+  }}
 
-  {{! 2. Contact options — Paper, two-column }}
+  {{! 2. Direct line }}
   <section class="mrc-contact-options section-surface gh-outer" aria-labelledby="mrc-contact-intro-title">
     <div class="mrc-contact-options-inner gh-inner mrc-split mrc-split--60-40">
       <div class="mrc-contact-intro">
-        <h2 id="mrc-contact-intro-title" class="mrc-contact-section-title">Start with context.</h2>
-        <p class="mrc-contact-p">Every engagement begins with a conversation. A short call helps clarify goals, constraints, and whether we're the right fit to work together.</p>
-        <p class="mrc-contact-p">You don't need a fully defined brief — just a sense of what's not working or what needs to evolve.</p>
+        {{> "section-header"
+          heading_id="mrc-contact-intro-title"
+          heading="A direct line"
+          intro="No account managers. No ticket queues. I read every message myself, and if I am not the right fit I will recommend someone who could be."
+        }}
       </div>
       <div class="mrc-contact-details">
         <p class="mrc-contact-detail-label">Email</p>
         <p class="mrc-contact-detail-value"><a href="mailto:{{@custom.contact_email}}?subject=Consulting%20inquiry">{{@custom.contact_email}}</a></p>
         <p class="mrc-contact-detail-label">Location</p>
-        <p class="mrc-contact-detail-value">Souris, Prince Edward Island<br>Working with teams across Canada and the U.S.</p>
+        <p class="mrc-contact-detail-value">Souris, Prince Edward Island<br>Working with teams across Atlantic Canada, and farther when the work fits.</p>
       </div>
     </div>
   </section>
 
-  {{! 3. Contact form — Cream }}
-  <section class="mrc-contact-form-section section-light gh-outer" aria-labelledby="mrc-contact-form-title">
+  {{! 3. Form }}
+  <section id="mrc-contact-form" class="mrc-contact-form-section section-light gh-outer" aria-labelledby="mrc-contact-form-title">
     <div class="mrc-contact-form-inner gh-inner">
-      <h2 id="mrc-contact-form-title" class="mrc-contact-section-title">Send a message</h2>
+      {{> "section-header"
+        heading_id="mrc-contact-form-title"
+        heading="What you are working on"
+        intro="Typical response time is 1-2 business days."
+      }}
       <p id="mrc-contact-audience-note" class="mrc-contact-audience-note" hidden></p>
       <form class="mrc-contact-form" data-ga-form="contact_form" action="{{#if @custom.contact_form_action}}{{@custom.contact_form_action}}{{else}}https://formspree.io/f/YOUR_FORM_ID{{/if}}" method="POST" novalidate>
         <input type="hidden" name="_subject" value="Contact form submission from mannyroy.com">
@@ -53,10 +63,11 @@
           <label for="mrc-contact-help">How can I help? <span class="mrc-form-optional">(optional)</span></label>
           <select id="mrc-contact-help" name="how_can_i_help" aria-label="How can I help?">
             <option value="">—</option>
-            <option value="Systems & Strategy">Systems & Strategy</option>
-            <option value="Custom Software">Custom Software</option>
-            <option value="Automation & AI">Automation & AI</option>
-            <option value="General Inquiry">General Inquiry</option>
+            <option value="Website or platform">Website or platform</option>
+            <option value="Systems and automation">Systems and automation</option>
+            <option value="Accessibility or audit">Accessibility or audit</option>
+            <option value="Agency overflow">Agency overflow</option>
+            <option value="General inquiry">General inquiry</option>
           </select>
         </div>
         <div class="mrc-form-field">
@@ -69,26 +80,44 @@
           data-ga-event="generate_lead"
           data-ga-category="conversion"
           data-ga-label="contact_form_submit"
-        >Send Message</button>
+        >Send message</button>
       </form>
     </div>
   </section>
 
-  {{! 4. What to expect — Olive }}
+  {{! 4. What happens next }}
   <section class="mrc-contact-expect section-dark gh-outer" aria-labelledby="mrc-contact-expect-title">
     <div class="mrc-contact-expect-inner gh-inner">
-      <h2 id="mrc-contact-expect-title" class="mrc-contact-expect-title">What to expect</h2>
-      <p class="mrc-contact-expect-p">You can expect a response within 1–2 business days.</p>
-      <p class="mrc-contact-expect-p">If it feels like a strong fit, we'll schedule a short discovery call to clarify scope and next steps.</p>
-      <p class="mrc-contact-expect-p mrc-contact-expect-accent">Clarity first. No pressure.</p>
+      {{> "section-header"
+        heading_id="mrc-contact-expect-title"
+        heading="What happens after you reach out"
+        intro="You will get a direct reply, not a sales sequence. If I am not the right fit, I will tell you — and I will still try to point you somewhere useful."
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" icon="users" title="A real conversation" body="We talk about your organization, your customers, and what is actually getting in the way. No pitch deck."}}
+        {{> "feature-item" icon="document" title="A clear recommendation" body="An honest look at what needs to change, what can wait, and what you can do yourself without spending a cent."}}
+        {{> "feature-item" icon="key" title="No pressure" body="If we work together, you will know the cost, the timeline, and who owns the work when it is done."}}
+      </div>
     </div>
   </section>
 
-  {{! 5. Reassurance — Cream }}
-  <section class="mrc-contact-reassurance section-light gh-outer" aria-labelledby="mrc-contact-reassurance-title">
+  {{! 5. Resources }}
+  <section class="mrc-contact-reassurance section-surface gh-outer" aria-labelledby="mrc-contact-reassurance-title">
     <div class="mrc-contact-reassurance-inner gh-inner">
-      <h2 id="mrc-contact-reassurance-title" class="mrc-contact-section-title">Not sure if it's the right time?</h2>
-      <p class="mrc-contact-p">If you're still exploring options or early in planning, that's fine. A brief conversation can help clarify direction — even if we don't work together.</p>
+      {{> "section-header"
+        layout="split"
+        eyebrow="Resources"
+        heading_id="mrc-contact-reassurance-title"
+        heading="Useful reading while you wait"
+        intro="Practical guides on websites, search, accessibility, and making technology work for your organization."
+        link_href="/resources/"
+        link_text="View all"
+      }}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
     </div>
   </section>
 </main>

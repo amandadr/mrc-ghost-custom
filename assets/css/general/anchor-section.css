@@ -1,0 +1,76 @@
+/**
+ * Anchor section — dark statement band (partials/anchor-section.hbs).
+ *
+ * Generalised from the About page's "Why This Work Exists" band, which was the only
+ * implementation. Narrow measure and generous leading so it reads as a held pause
+ * rather than another content section.
+ */
+
+.mrc-anchor {
+  padding-block: var(--mrc-section-padding-block);
+}
+
+.mrc-anchor-inner {
+  max-width: min(65ch, 100%);
+  margin-inline: auto;
+}
+
+.mrc-anchor-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  line-height: 1.2;
+  color: currentcolor;
+  margin: 0 0 var(--space-7);
+}
+
+.mrc-anchor-p {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--mrc-text-soft);
+  margin: 0 0 var(--space-4);
+}
+
+.mrc-anchor-p:last-child {
+  margin-bottom: 0;
+}
+
+/* The line the section exists to deliver. */
+.mrc-anchor-p--accent {
+  font-weight: 600;
+  color: currentcolor;
+  margin-block-start: var(--space-1);
+}
+
+.mrc-anchor-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-5) 0;
+}
+
+.mrc-anchor-list li {
+  position: relative;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--mrc-text-soft);
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-3);
+}
+
+.mrc-anchor-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--mrc-mustard);
+  opacity: 0.8;
+}
+
+.mrc-anchor-divider {
+  height: 2px;
+  max-width: 5rem;
+  border: 0;
+  background-color: var(--mrc-mustard);
+  opacity: 0.7;
+  /* Override the global hr margins in typography.css. */
+  margin: var(--space-7) 0 var(--space-6) !important;
+}

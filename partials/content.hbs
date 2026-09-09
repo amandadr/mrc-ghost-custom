@@ -54,9 +54,18 @@
         </header>
     {{/match}}
 
+    {{#is "post"}}
+    <div class="mrc-split mrc-split--40-60 gh-canvas">
+        {{> "post-toc" source=".single-content"}}
+        <div class="single-content gh-content">
+            {{content}}
+        </div>
+    </div>
+    {{else}}
     <div class="single-content gh-content gh-canvas">
         {{content}}
     </div>
+    {{/is}}
 
     {{#is "post"}}
     <div class="gh-canvas">

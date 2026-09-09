@@ -10,7 +10,7 @@ This guide establishes:
 
 The remaining audience pages should reuse the same component system while changing the audience problems, project examples, proof, and calls to action.
 
-The system should reflect the existing MRC brand: clear, practical, accessible, technically credible, and written for non-technical decision-makers. The established palette, IBM Plex typography, 17px body copy, readable line lengths, and AA-accessibility rules should remain the foundation. 
+The system should reflect the existing MRC brand: clear, practical, accessible, technically credible, and written for non-technical decision-makers. The established palette, IBM Plex typography, 16px body copy, readable line lengths, and AA-accessibility rules should remain the foundation. 
 
 ---
 
@@ -710,14 +710,15 @@ Suggested CSS:
 * Thin olive top or left border
 * Subtle ink border
 * Little or no box shadow
-* Maximum border radius: `6px`
+* Maximum border radius: `var(--radius-l)` (8px)
 * Use a real unordered list
 
 ```css
 .audience-fit-card {
-    background: var(--mrc-paper);
-    border: 1px solid rgb(42 38 26 / 14%);
-    border-left: 4px solid var(--mrc-olive);
+    background: var(--mrc-surface);
+    border: var(--border-width) var(--border-style) var(--border-color-subtle);
+    border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
+    border-radius: var(--radius-l);
     padding: clamp(1.5rem, 3vw, 2rem);
 }
 ```
@@ -780,13 +781,14 @@ This is the primary scanning section.
 
 ```css
 .project-card {
-    background: var(--mrc-paper);
-    border: 1px solid rgb(42 38 26 / 14%);
+    background: var(--mrc-surface);
+    border: var(--border-width) var(--border-style) var(--border-color-subtle);
+    border-radius: var(--radius-m);
     padding: clamp(1.5rem, 3vw, 2rem);
 }
 
 .project-card__title {
-    border-left: 4px solid var(--mrc-olive);
+    border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
     padding-left: 0.9rem;
 }
 ```
@@ -811,7 +813,7 @@ Use an olive background:
 ```css
 .audience-expectations {
     background: var(--mrc-olive);
-    color: var(--mrc-paper);
+    color: var(--mrc-surface);
 }
 ```
 
@@ -855,7 +857,7 @@ Use maroon or olive as the background. Maroon provides stronger visual distincti
 ```css
 .audience-cta {
     background: var(--mrc-maroon);
-    color: var(--mrc-paper);
+    color: var(--mrc-surface);
 }
 ```
 

@@ -1,11 +1,12 @@
 {{!< default}}
-{{! Tourism & Hospitality — mounted at /services/tourism-hospitality/ via routes.yaml (no Ghost Page). }}
-{{#contentFor "title"}}Websites & Digital Support for Tourism Businesses | Manny Roy Consulting{{/contentFor}}
+{{! Tourism & Hospitality — /services/tourism-hospitality/
+    Copy: assets/wireframes/raw copy/tourism-hospitality.md + Tourism PNGs. }}
+{{#contentFor "title"}}Digital Support for PEI Tourism Operators | Manny Roy Consulting{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-services-tourism-hospitality{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Websites, bookings, online ordering, listings, analytics, and practical technical support for tourism and hospitality businesses in PEI and Atlantic Canada.">
-    <meta property="og:title" content="Digital Support for Tourism &amp; Hospitality">
-    <meta property="og:description" content="Practical websites and digital systems built around busy seasons, visitor needs, and the realities of customer-facing work.">
+    <meta name="description" content="Practical websites, booking systems, and automations for PEI tourism operators facing labor shortages and OTA fees.">
+    <meta property="og:title" content="Digital support for PEI tourism operators">
+    <meta property="og:description" content="Stop losing direct bookings. Practical systems that automate admin work and turn searches into direct revenue.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{@site.url}}/services/tourism-hospitality/">
     <link rel="canonical" href="{{@site.url}}/services/tourism-hospitality/">
@@ -18,225 +19,136 @@
     </div>
   </div>
 
-  {{! 1. Audience hero — Cream }}
+  {{! 1. Hero }}
   <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
     <div class="mrc-audience-hero__inner gh-inner">
       <div class="mrc-audience-hero__content">
-        <p class="mrc-audience-hero__eyebrow">For Tourism &amp; Hospitality</p>
-        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Digital support built around the tourism season.</h1>
-        <p class="mrc-audience-hero__lead">Helping visitor-focused businesses get found, earn bookings, and stay manageable when the season gets busy.</p>
-        <p class="mrc-audience-hero__support">From websites and booking systems to online ordering, listings, and seasonal updates, I help make the digital side of your business easier for both visitors and staff.</p>
+        <p class="mrc-audience-hero__eyebrow">Tourism &amp; hospitality</p>
+        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">When you're short-staffed, your website needs to be your best employee.</h1>
+        <p class="mrc-audience-hero__lead">The PEI tourism landscape is changing. With labor shortages and rising operating costs, you can't afford a website that just looks pretty. You need systems that automate admin work, capture direct bookings, and clearly communicate with guests before they arrive.</p>
         <div class="mrc-audience-hero__actions mrc-cluster">
-          <a
-            href="{{@site.url}}/contact/?audience=tourism-hospitality"
-            class="button mrc-btn-primary"
-            data-ga-event="audience_primary_cta_click"
-            data-ga-category="engagement"
-            data-ga-label="Talk about your season"
-            data-ga-audience="tourism_hospitality"
-            data-ga-page-section="hero"
-          >Talk about your season</a>
-          <a
-            href="#common-projects"
-            class="button mrc-btn-secondary"
-            data-ga-event="audience_secondary_cta_click"
-            data-ga-category="engagement"
-            data-ga-label="See common projects"
-            data-ga-audience="tourism_hospitality"
-            data-ga-page-section="hero"
-          >See common projects</a>
+          <a href="{{@site.url}}/case-studies/" class="button mrc-btn-primary" data-ga-event="audience_primary_cta_click" data-ga-category="engagement" data-ga-label="work" data-ga-audience="tourism_hospitality" data-ga-page-section="hero">Work</a>
+          <a href="{{@site.url}}/contact/?audience=tourism-hospitality" class="button mrc-btn-secondary" data-ga-event="audience_secondary_cta_click" data-ga-category="engagement" data-ga-label="contact" data-ga-audience="tourism_hospitality" data-ga-page-section="hero">Contact</a>
         </div>
       </div>
       {{> "audience-fit-card"
-        heading="Good fit for"
-        item1="Restaurants, cafés, and breweries"
-        item2="Inns, cottages, hotels, and campgrounds"
-        item3="Attractions and experience providers"
-        item4="Festivals, markets, and seasonal events"
-        item5="Tourism organizations and destination partners"
+        heading="The new reality of tourism"
+        item1="Fewer seasonal staff to answer phones"
+        item2="Losing 20% of revenue to overhead fees"
+        item3="The struggle to extend into shoulder seasons"
       }}
     </div>
   </section>
 
-  {{! 2. Recognizable problems — Paper }}
-  <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-audience-challenges-title">
+  {{! 2. Tourism Today (Pain Points) }}
+  <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-tourism-reality">
     <div class="mrc-audience-challenges__inner gh-inner">
-      <h2 id="mrc-audience-challenges-title" class="mrc-audience-section-title">You may be here because…</h2>
-      <p class="mrc-audience-section-intro">Tourism businesses rarely have the luxury of fixing digital problems whenever they appear. The work has to fit around opening dates, staff capacity, visitor expectations, and a season that may account for much of the year’s revenue.</p>
+      {{> "section-header"
+        eyebrow="Tourism Today"
+        heading_id="mrc-tourism-reality"
+        heading="The industry has changed. Your tools need to catch up."
+        intro="The days of relying solely on volume are over. To thrive in Atlantic Canada's current tourism climate, you need to optimize your yield and reduce manual labor."
+      }}
       <div class="mrc-audience-challenge-grid">
-        {{> "audience-challenge" marker="01" title="Your season is approaching quickly." copy="The website, listings, menus, rates, or booking information still need attention before visitors begin planning and arriving."}}
-        {{> "audience-challenge" marker="02" title="Visitors cannot find clear, current information." copy="Hours, availability, policies, menus, directions, and contact details differ across your website, Google listing, social pages, and booking platforms."}}
-        {{> "audience-challenge" marker="03" title="Booking or ordering creates unnecessary friction." copy="The process is difficult on mobile, requires too much manual follow-up, or depends on several tools that do not work well together."}}
-        {{> "audience-challenge" marker="04" title="Nobody has time to troubleshoot during the rush." copy="Once the season is underway, staff need systems they can trust and updates they can make without calling a developer for every small change."}}
+        {{> "audience-challenge" icon="users" title="The labor crunch" copy="You don't have the staff to answer the same five questions on the phone all day, or to manually enter bookings from an email form."}}
+        {{> "audience-challenge" icon="chart" title="Third-party fees" copy="Booking platforms are convenient, but giving up 15 to 20 percent of your margin on every reservation hurts your bottom line."}}
+        {{> "audience-challenge" icon="calendar" title="The seasonal scramble" copy="Trying to capture shoulder season traffic is impossible if tourists show up to closed doors because your hours weren't updated everywhere."}}
+        {{> "audience-challenge" icon="smartphone" title="Mobile drop-offs" copy="Guests are trying to book from their phones while on the road, but a clunky checkout process makes them give up."}}
+        {{> "audience-challenge" icon="plug" title="Disconnected tools" copy="Your website, property management system, and point of sale don't talk to each other, forcing you to do the work twice."}}
+        {{> "audience-challenge" icon="compass" title="Invisible online" copy="Travelers are searching for local experiences, but competitors with worse offerings are showing up first on Google Maps."}}
       </div>
     </div>
   </section>
 
-  {{! 3. How I help — Cream }}
-  <section class="mrc-audience-introduction section-light gh-outer" aria-labelledby="mrc-audience-intro-title">
-    <div class="mrc-audience-introduction__inner gh-inner">
-      <div class="mrc-audience-introduction__content">
-        <h2 id="mrc-audience-intro-title" class="mrc-audience-section-title">Build for the season you actually have</h2>
-        <p class="mrc-audience-section-body">Tourism technology has to work under real operational pressure. Visitors are often making decisions from their phones, staff are balancing several responsibilities, and small inconsistencies can quickly become repeated phone calls, missed bookings, or frustrated customers.</p>
-        <p class="mrc-audience-section-body">I help you identify the parts of the customer journey that need attention, improve the systems behind them, and plan technical work around the rhythm of the business.</p>
-        <blockquote class="mrc-audience-callout">
-          <p>The goal is a smoother path from discovery to arrival—and fewer digital problems during the busiest part of the year.</p>
-        </blockquote>
-      </div>
-      <ol class="mrc-audience-stages">
-        <li class="mrc-audience-stages__item">
-          <h3 class="mrc-audience-stages__title">Prepare</h3>
-          <p class="mrc-audience-stages__copy">Update the website, listings, and customer information before the season begins.</p>
-        </li>
-        <li class="mrc-audience-stages__item">
-          <h3 class="mrc-audience-stages__title">Simplify</h3>
-          <p class="mrc-audience-stages__copy">Make booking, ordering, and inquiries easier for visitors and staff.</p>
-        </li>
-        <li class="mrc-audience-stages__item">
-          <h3 class="mrc-audience-stages__title">Support</h3>
-          <p class="mrc-audience-stages__copy">Keep critical information current without disrupting operations.</p>
-        </li>
-        <li class="mrc-audience-stages__item">
-          <h3 class="mrc-audience-stages__title">Review</h3>
-          <p class="mrc-audience-stages__copy">Use the quieter season to understand what worked and improve what did not.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  {{! 4. Common projects — Paper }}
-  <section id="common-projects" class="mrc-audience-projects section-surface gh-outer" aria-labelledby="mrc-audience-projects-title">
-    <div class="mrc-audience-projects__inner gh-inner">
-      <h2 id="mrc-audience-projects-title" class="mrc-audience-section-title">Common projects</h2>
-      <p class="mrc-audience-section-intro">Tourism projects often cross several platforms. The work may involve the website, booking tools, online listings, ordering systems, analytics, or the information staff use to serve visitors.</p>
-      <div class="mrc-audience-projects__grid">
-        {{> "common-project-card"
-          accent="olive"
-          title="Seasonal websites and visitor information"
-          intro="Give visitors the information they need before they contact, book, or arrive."
-          item1="New tourism and hospitality websites"
-          item2="Pre-season website refreshes"
-          item3="Menus, rates, packages, and policies"
-          item4="Hours, directions, maps, and visitor information"
-          item5="Mobile, accessibility, and performance improvements"
-        }}
-        {{> "common-project-card"
-          accent="maroon"
-          title="Bookings, ordering, and sales"
-          intro="Reduce friction between visitor interest and a confirmed purchase or reservation."
-          item1="Booking and reservation integrations"
-          item2="Online ordering and delivery systems"
-          item3="Ecommerce and gift cards"
-          item4="Inquiry and group-booking forms"
-          item5="Clearer booking and purchase journeys"
-        }}
-        {{> "common-project-card"
-          accent="olive"
-          title="Listings, visibility, and analytics"
-          intro="Help customers find accurate information wherever they encounter the business."
-          item1="Google Business Profile support"
-          item2="Tourism and directory listing consistency"
-          item3="Search visibility and local SEO"
-          item4="Campaign and booking analytics"
-          item5="Seasonal reporting and performance reviews"
-        }}
-        {{> "common-project-card"
-          accent="maroon"
-          title="Seasonal support and planning"
-          intro="Schedule improvements around opening dates, busy periods, and limited staff capacity."
-          item1="Pre-season readiness reviews"
-          item2="In-season website updates"
-          item3="Technical troubleshooting"
-          item4="Shoulder-season landing pages"
-          item5="Post-season planning and documentation"
-        }}
-      </div>
-      <div class="mrc-audience-projects__prompt">
-        <p class="mrc-audience-projects__prompt-body">Not sure what needs attention before the season begins? Start with the questions visitors ask most often.</p>
-        <a
-          href="{{@site.url}}/contact/?audience=tourism-hospitality"
-          class="mrc-audience-projects__prompt-link"
-          data-ga-event="audience_project_link_click"
-          data-ga-category="engagement"
-          data-ga-label="Talk about your season"
-          data-ga-audience="tourism_hospitality"
-          data-ga-page-section="common_projects"
-        >Talk about your season →</a>
+  {{! 3. What I do }}
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-tourism-services">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="What I do"
+        heading_id="mrc-tourism-services"
+        heading="Systems that do the heavy lifting"
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" icon="plug" title="Programming & Funding" body="Custom development to solve unique operational challenges, plus guidance on navigating provincial and federal digital grants."}}
+        {{> "feature-item" icon="smartphone" title="Direct Booking Optimization" body="Frictionless, mobile-first checkout flows that convince guests to book directly with you instead of a third-party site."}}
+        {{> "feature-item" icon="accessibility" title="Accessibility & Easy Admin" body="Websites built to meet modern accessibility standards for all guests, paired with a backend that makes daily management effortless."}}
+        {{> "feature-item" icon="compass" title="Local & Technical SEO" body="Capture highly-specific searches from off-season travelers and ensure your Google Business Profile is perfectly synced."}}
+        {{> "feature-item" icon="gear" title="Systems & Automation" body="Connect your website directly to your property management or point of sale systems. No more manual data entry."}}
+        {{> "feature-item" icon="document" title="Easy CMS Architecture" body="A backend so simple that your rotating seasonal staff can update rates and hours in 10 minutes, with zero coding knowledge."}}
       </div>
     </div>
   </section>
 
-  {{! 5. What you can expect — Olive }}
-  <section class="mrc-audience-expectations section-dark gh-outer" aria-labelledby="mrc-audience-expectations-title">
-    <div class="mrc-audience-expectations__inner gh-inner">
-      <h2 id="mrc-audience-expectations-title" class="mrc-audience-expectations__title">What you can expect</h2>
-      <p class="mrc-audience-expectations__intro">The work should respect the season, the staff doing the work, and the fact that every new tool creates something else the business must manage.</p>
-      <div class="mrc-audience-expectation-grid">
-        {{> "audience-expectation" title="Seasonal planning" copy="Important changes are scheduled around opening dates, campaign windows, and the periods when your team has the capacity to participate."}}
-        {{> "audience-expectation" title="Visitor-first decisions" copy="Mobile use, clear information, trust, booking confidence, and ease of contact shape the work."}}
-        {{> "audience-expectation" title="Practical operations" copy="Recommendations account for staffing, workflows, training, and what can realistically be maintained during peak season."}}
-        {{> "audience-expectation" title="Manageable handoff" copy="Staff receive the access, documentation, and guidance needed to keep information current."}}
-      </div>
-    </div>
-  </section>
-
-  {{! 6. Experience and proof — Cream }}
-  <section class="mrc-audience-proof section-light gh-outer" aria-labelledby="mrc-audience-proof-title">
-    <div class="mrc-audience-proof__inner gh-inner">
-      <div class="mrc-audience-proof__intro">
-        <h2 id="mrc-audience-proof-title" class="mrc-audience-section-title">Experience on both sides of the counter</h2>
-        <p class="mrc-audience-section-body">My tourism and small-business experience began long before I became a developer. As a teenager, I worked on my nan’s chip truck at local festivals, learning firsthand how customer-facing businesses operate when the line is long and every small problem becomes immediate.</p>
-        <p class="mrc-audience-section-body">Since then, I have supported restaurants, tourism operators, and regional organizations with websites, hosting, ecommerce, delivery systems, workshops, analytics, and public-facing digital products.</p>
-        <a
-          href="{{@site.url}}/work/"
-          class="mrc-audience-proof__link"
-          data-ga-event="audience_case_study_click"
-          data-ga-category="engagement"
-          data-ga-label="See selected work"
-          data-ga-audience="tourism_hospitality"
-          data-ga-page-section="proof"
-        >See selected work →</a>
-      </div>
-      <div class="mrc-audience-proof__grid">
-        {{> "audience-proof-card" title="Restaurant and hospitality systems" copy="Hosting and web infrastructure for a hotel restaurant, third-party takeout and delivery for a diner, online ordering, menus, ecommerce, and operational website support."}}
-        {{> "audience-proof-card" title="Tourism training and planning" copy="AI and tourism workshops, practical digital guidance, seasonal planning, and help translating technical possibilities into useful business decisions."}}
-        {{> "audience-proof-card" title="Regional visitor and investment information" copy="Public-facing dashboards, destination information, analytics, and digital tools designed to communicate regional value clearly."}}
-      </div>
-    </div>
-  </section>
-
-  {{! 7. Final CTA — Maroon }}
+  {{! 4. Mid-page CTA }}
   {{> "cta-section"
-    headline="Let’s make the busy season easier."
-    subtext="Whether you are preparing for opening day, improving the booking experience, or fixing something that became painful last season, we can start with a practical review of what matters most."
-    button_text="Talk about your season"
+    headline="Ready to modernize your online presence?"
+    subtext="Let's look at your current setup and find the friction points that are costing you direct revenue and staff time."
+    button_text="Get in touch"
+    href="/contact/"
+    ga_event="tourism_mid_cta_click"
+    ga_label="Get in touch"
+    ga_page_section="mid_cta"
+  }}
+
+  {{! 5. Work }}
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-tourism-work">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-tourism-work" heading="Work that brings guests" intro="Real projects for operators who wanted to take back control of their digital presence." link_href="/case-studies/" link_text="View all"}}
+      {{#get "posts" filter="tag:case-study" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  {{! 6. Process }}
+  <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-tourism-seasonal">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Process"
+        heading_id="mrc-tourism-seasonal"
+        heading="Built around your busiest months"
+        intro="Your revenue comes in waves. The work should follow the tide, not fight it."
+      }}
+      <div class="mrc-process-grid mrc-process-grid--numbered mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "process-step" title="Off-season heavy lifting" desc="We do the complex development in February and March so you're ready to capture the early birds."}}
+        {{> "process-step" title="Seasonal staff handover" desc="I provide clear documentation and training so your summer hires can manage the day-to-day updates."}}
+        {{> "process-step" title="In-season agility" desc="Fast troubleshooting and support when every hour counts and you don't have time to fix a broken link."}}
+        {{> "process-step" title="Post-season review" desc="We look at the booking data in November and plan smarter moves to extend your shoulder season."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 7. Resources }}
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-tourism-guides">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Guides" heading_id="mrc-tourism-guides" heading="Practical reading for hospitality" intro="Useful guides written for busy owners and operators." link_href="/resources/" link_text="View all"}}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  {{! 8. Final CTA }}
+  {{> "cta-section"
+    headline="Let's make your website work as hard as you do"
+    subtext="Start a conversation about your business. Or explore the work first if you prefer."
+    button_text="Contact"
     href="/contact/?audience=tourism-hospitality"
+    secondary_href="/case-studies/"
+    secondary_text="Work"
     ga_event="audience_primary_cta_click"
-    ga_label="Talk about your season"
+    ga_label="Contact"
     ga_audience="tourism_hospitality"
     ga_page_section="final_cta"
   }}
 
-  {{! 8. Related audience navigation }}
   <section class="mrc-audience-nav section-light gh-outer">
     <div class="mrc-audience-nav__inner gh-inner">
       {{> "audience-related-nav" omit="tourism-hospitality" audience="tourism_hospitality"}}
     </div>
   </section>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Websites & Digital Support for Tourism Businesses",
-    "description": "Websites, bookings, online ordering, listings, analytics, and practical technical support for tourism and hospitality businesses in PEI and Atlantic Canada.",
-    "provider": {
-      "@type": "ProfessionalService",
-      "name": "{{@site.title}}",
-      "url": "{{@site.url}}"
-    },
-    "areaServed": ["PEI", "Atlantic Canada", "Canada", "United States"],
-    "url": "{{@site.url}}/services/tourism-hospitality/"
-  }
-  </script>
 </main>

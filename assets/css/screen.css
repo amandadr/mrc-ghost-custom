@@ -1,13 +1,23 @@
 @import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
 @import "general/fonts.css";
 @import "general/basics.css";
+/* Page scaffolding (.gh-outer/.gh-inner) belongs to the base layer: components load
+   after it so they can constrain themselves inside the container. */
+@import "site/layout.css";
 @import "general/brand.css";
 @import "general/typography.css";
 @import "general/composition.css";
 @import "general/button.css";
 @import "general/form.css";
 @import "general/icons.css";
-@import "site/layout.css";
+@import "general/section-header.css";
+@import "general/media-frame.css";
+@import "general/anchor-section.css";
+@import "general/feature.css";
+@import "general/faq.css";
+@import "general/tabs.css";
+@import "general/carousel.css";
+@import "general/link-column.css";
 @import "site/header.css";
 @import "site/cover.css";
 @import "site/home.css";
@@ -18,7 +28,11 @@
 @import "site/error.css";
 @import "site/ghost.css";
 @import "site/resources.css";
+@import "site/component-library.css";
 @import "blog/feed.css";
+@import "blog/post-card.css";
+@import "blog/case-study-row.css";
+@import "blog/post-toc.css";
 @import "blog/featured.css";
 @import "blog/pagination.css";
 @import "blog/single.css";

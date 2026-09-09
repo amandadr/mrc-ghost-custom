@@ -122,10 +122,9 @@
   color: var(--mrc-maroon);
 }
 
-/* ---------- Final CTA: Maroon, Cream text, Mustard button + Ink ---------- */
+/* ---------- Final CTA: Maroon (or inherited bg), Cream text, Mustard button + Ink ---------- */
 .mrc-cta-section {
   padding-block: var(--mrc-section-padding-block);
-  background-color: var(--mrc-maroon);
   color: var(--mrc-surface);
 }
 
@@ -160,18 +159,42 @@
 .mrc-cta-section .mrc-cta-btn {
   background-color: var(--mrc-mustard);
   color: var(--mrc-text);
-  border: 2px solid var(--mrc-mustard);
+  border: var(--border-width-thick) var(--border-style) var(--mrc-mustard);
 }
 
 .mrc-cta-section .mrc-cta-btn:hover {
   opacity: 0.95;
 }
 
-/* ---------- Footer (unchanged: olive) ---------- */
+.mrc-cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* brand.css sets `a { color: var(--mrc-link) !important }`, and --mrc-link is
+   maroon — the same colour as the CTA band. Must win or the link is invisible. */
+.mrc-cta-secondary {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mrc-surface) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  opacity: 0.95;
+}
+
+.mrc-cta-secondary:hover {
+  color: var(--mrc-mustard) !important;
+  opacity: 1;
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Footer (olive) ---------- */
 .mrc-foot {
   background-color: var(--mrc-olive);
   color: var(--mrc-surface);
-  padding-block: var(--space-7) var(--space-6);
+  padding-block: var(--space-8) var(--space-6);
 }
 
 .mrc-foot-inner {
@@ -180,40 +203,60 @@
 }
 
 .mrc-foot-bio {
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.6;
-  margin: 0 0 var(--space-2);
-  max-width: 480px;
+  margin: 0 0 var(--space-7);
+  max-width: 42ch;
 }
 
-.mrc-foot-location {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin: 0 0 var(--space-6);
+.mrc-foot-navs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-7) var(--space-8);
+  padding-top: var(--space-6);
+  margin-bottom: var(--space-7);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Footer nav: uses Ghost navigation (Settings → Design → Navigation) */
-.mrc-foot-nav {
-  margin-bottom: var(--space-6);
+.mrc-foot-col + .mrc-foot-col {
+  padding-left: var(--space-6);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.mrc-foot-nav .nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4) var(--space-5);
+.mrc-foot-heading {
+  margin: 0 0 var(--space-5);
+  font-family: var(--font-sans);
+  font-size: var(--mrc-small-size);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mrc-mustard);
+}
+
+.mrc-foot-list {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
-.mrc-foot-nav a {
-  color: var(--mrc-surface) !important;
+.mrc-foot-list a {
+  color: var(--mrc-surface);
   text-decoration: none;
   font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
-.mrc-foot-nav a:hover {
+.mrc-foot-list a:hover {
   text-decoration: underline;
+}
+
+.mrc-foot-list a:focus-visible {
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-surface);
+  outline-offset: var(--focus-ring-offset);
 }
 
 .mrc-foot-bottom {
@@ -222,7 +265,7 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--space-4);
-  padding-top: var(--space-5);
+  padding-top: var(--space-6);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   font-size: 14px;
 }
@@ -231,38 +274,60 @@
   opacity: 0.9;
 }
 
-/* Footer: responsive on small screens; hide bio, shorten height */
+@media (max-width: 991px) {
+  .mrc-foot-navs {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+  }
+
+  .mrc-foot-col + .mrc-foot-col {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .mrc-foot-col:nth-child(even) {
+    padding-left: var(--space-6);
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+
 @media (max-width: 767px) {
   .mrc-foot {
-    padding-block: var(--space-5) var(--space-4);
+    padding-block: var(--space-7) var(--space-5);
   }
 
   .mrc-foot-inner {
     padding: 0;
-    --mrc-stack-gap: var(--space-3);
   }
 
   .mrc-foot-bio {
-    display: none;
+    max-width: none;
+    margin-bottom: var(--space-6);
   }
 
-  .mrc-foot-nav {
-    margin-bottom: var(--space-2);
+  .mrc-foot-navs {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-top: var(--space-6);
+    margin-bottom: var(--space-6);
   }
 
-  .mrc-foot-nav .nav {
-    gap: var(--space-3) var(--space-5);
+  .mrc-foot-col + .mrc-foot-col,
+  .mrc-foot-col:nth-child(even) {
+    padding-left: 0;
+    border-left: 0;
+    padding-top: var(--space-5);
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
   }
 
-  .mrc-foot-nav a {
-    font-size: 0.95rem;
+  .mrc-foot-list {
+    gap: var(--space-3);
   }
 
   .mrc-foot-bottom {
-    padding-top: var(--space-3);
+    padding-top: var(--space-5);
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-2);
   }
 }
 

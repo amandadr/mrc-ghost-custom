@@ -1,11 +1,12 @@
 {{!< default}}
-{{! Agencies & Development Teams — mounted at /services/agencies-development-teams/ via routes.yaml (no Ghost Page). }}
-{{#contentFor "title"}}Subcontract Web Development & Technical Support | Manny Roy Consulting{{/contentFor}}
+{{! Agencies & Development Teams — /services/agencies-development-teams/
+    Copy: assets/wireframes/raw copy/agencies-dev-teams.md (skip Relume lorem blocks). }}
+{{#contentFor "title"}}Overflow Capacity for Atlantic Canada Agencies | Manny Roy Consulting{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-services-agencies-development-teams{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Subcontract development, architecture, ecommerce, accessibility, analytics, automation, and technical delivery support for agencies and internal teams.">
-    <meta property="og:title" content="Experienced Technical Support for Agencies &amp; Development Teams">
-    <meta property="og:description" content="Flexible subcontract development and technical leadership that fits into your existing team and delivery process.">
+    <meta name="description" content="Senior engineering overflow for agencies and in-house development teams in Atlantic Canada. You keep the client. I ship maintainable work inside your process.">
+    <meta property="og:title" content="Overflow capacity for Atlantic Canada agencies">
+    <meta property="og:description" content="Clear the backlog without another full-time hire. Hands-on development, accessibility, and architecture that slots into your sprint.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{@site.url}}/services/agencies-development-teams/">
     <link rel="canonical" href="{{@site.url}}/services/agencies-development-teams/">
@@ -18,238 +19,168 @@
     </div>
   </div>
 
-  {{! 1. Audience hero — Cream }}
+  {{! 1. Hero }}
   <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
     <div class="mrc-audience-hero__inner gh-inner">
       <div class="mrc-audience-hero__content">
-        <p class="mrc-audience-hero__eyebrow">For Agencies &amp; Development Teams</p>
-        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Experienced technical support that fits into your team.</h1>
-        <p class="mrc-audience-hero__lead">Subcontract development, architecture, analytics, accessibility, and implementation support for teams that need dependable capacity without another full-time hire.</p>
-        <p class="mrc-audience-hero__support">I can own a defined workstream, support an existing delivery team, or step into a difficult project that needs technical clarity and forward movement.</p>
+        <p class="mrc-audience-hero__eyebrow">Agencies &amp; development teams</p>
+        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Clear the backlog without another full-time hire.</h1>
+        <p class="mrc-audience-hero__lead">Charlottetown shops, Halifax agencies, and in-house product teams across Atlantic Canada are shipping with a thin senior bench. I drop into your tools, write code your team can maintain, and stay off the client relationship.</p>
         <div class="mrc-audience-hero__actions mrc-cluster">
-          <a
-            href="{{@site.url}}/contact/?audience=agencies-development-teams"
-            class="button mrc-btn-primary"
-            data-ga-event="audience_primary_cta_click"
-            data-ga-category="engagement"
-            data-ga-label="Discuss capacity"
-            data-ga-audience="agencies_development_teams"
-            data-ga-page-section="hero"
-          >Discuss capacity</a>
-          <a
-            href="#core-capabilities"
-            class="button mrc-btn-secondary"
-            data-ga-event="audience_secondary_cta_click"
-            data-ga-category="engagement"
-            data-ga-label="View capabilities"
-            data-ga-audience="agencies_development_teams"
-            data-ga-page-section="hero"
-          >View capabilities</a>
+          <a href="{{@site.url}}/case-studies/" class="button mrc-btn-primary" data-ga-event="audience_primary_cta_click" data-ga-category="engagement" data-ga-label="Work" data-ga-audience="agencies_development_teams" data-ga-page-section="hero">Work</a>
+          <a href="{{@site.url}}/contact/?audience=agencies-development-teams" class="button mrc-btn-secondary" data-ga-event="audience_secondary_cta_click" data-ga-category="engagement" data-ga-label="Contact" data-ga-audience="agencies_development_teams" data-ga-page-section="hero">Contact</a>
         </div>
       </div>
       {{> "audience-fit-card"
-        heading="Good fit for"
-        item1="Agencies with overflow development work"
-        item2="Teams missing a specific technical capability"
-        item3="Complex WordPress and ecommerce projects"
-        item4="Projects needing architecture, QA, or rescue"
-        item5="Client-facing or white-label delivery arrangements"
+        heading="How I partner"
+        item1="You keep the client and the process"
+        item2="I work in your repo, board, and timezone"
+        item3="Handoff with notes your team can actually use"
       }}
     </div>
   </section>
 
-  {{! 2. Recognizable problems — Paper }}
-  <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-audience-challenges-title">
+  {{! 2. Agency Reality (Pain Points) }}
+  <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-agency-reality">
     <div class="mrc-audience-challenges__inner gh-inner">
-      <h2 id="mrc-audience-challenges-title" class="mrc-audience-section-title">You may be here because…</h2>
-      <p class="mrc-audience-section-intro">The project is already moving. You do not need another broad discovery process—you need someone who can understand the context, take ownership, and integrate with the way your team delivers work.</p>
+      {{> "section-header"
+        eyebrow="Agency Reality"
+        heading_id="mrc-agency-reality"
+        heading="The work is there. The senior people are not."
+        intro="Members of the PEI Information Technology Alliance and small shops from Summerside to Halifax know this already: the talent pool is thin, the pipeline is not, and a messy freelancer can cost you the client."
+      }}
       <div class="mrc-audience-challenge-grid">
-        {{> "audience-challenge" marker="01" title="The project exceeds current capacity." copy="The work is sold, deadlines are approaching, and the internal team needs experienced implementation support."}}
-        {{> "audience-challenge" marker="02" title="A specialist problem is blocking delivery." copy="Ecommerce, integrations, accessibility, analytics, performance, hosting, or architecture require deeper attention than the core team can currently provide."}}
-        {{> "audience-challenge" marker="03" title="The build has become fragile or difficult to launch." copy="Scope, infrastructure, ownership, or technical debt is creating risk near the point where the project needs to ship."}}
-        {{> "audience-challenge" marker="04" title="You need someone who can work without creating more management." copy="The contractor must communicate clearly, respect existing relationships, document the work, and escalate risks before they become surprises."}}
+        {{> "audience-challenge" icon="users" title="Thin senior bench" copy="You can hire juniors. Finding a senior engineer, accessibility specialist, or technical search person on the Island is another story."}}
+        {{> "audience-challenge" icon="calendar" title="Wave work, not a year-round seat" copy="Tourism launches, grant deadlines, and government projects arrive in bunches. A full-time senior hire sits idle between them."}}
+        {{> "audience-challenge" icon="plug" title="Freelancer roulette" copy="One person, no cover, and they go quiet mid-sprint. Your project manager is left explaining the gap to the client."}}
+        {{> "audience-challenge" icon="key" title="Client risk" copy="One sloppy white-label handoff can damage a relationship you spent years building. You need someone who stays in the background."}}
+        {{> "audience-challenge" icon="accessibility" title="Standards debt" copy="Accessibility and technical search get deferred until a government, arts, or municipal client asks — and then the sprint blows up."}}
+        {{> "audience-challenge" icon="compass" title="Timezone lag" copy="Overnight offshore handoffs miss Atlantic Time standups, Canadian privacy requirements, and the context of Island clients."}}
       </div>
     </div>
   </section>
 
-  {{! 3. How I help — Cream }}
-  <section class="mrc-audience-introduction section-light gh-outer" aria-labelledby="mrc-audience-intro-title">
-    <div class="mrc-audience-introduction__inner gh-inner">
-      <div class="mrc-audience-introduction__content">
-        <h2 id="mrc-audience-intro-title" class="mrc-audience-section-title">Add capacity without adding chaos</h2>
-        <p class="mrc-audience-section-body">I work comfortably alongside designers, strategists, developers, marketers, project managers, and client stakeholders.</p>
-        <p class="mrc-audience-section-body">Depending on the engagement, I can take responsibility for a defined technical deliverable, embed within the project team, provide architecture and planning, or stabilize work that has become difficult to finish.</p>
-        <blockquote class="mrc-audience-callout">
-          <p>The goal is to move the project forward while making the surrounding team’s work easier—not create another layer to manage.</p>
-        </blockquote>
-      </div>
-      <ol class="mrc-audience-stages">
-        <li class="mrc-audience-stages__item">
-          <h3 class="mrc-audience-stages__title">Align</h3>
-          <p class="mrc-audience-stages__copy">Understand the scope, delivery model, responsibilities, and existing decisions.</p>
-        </li>
-        <li class="mrc-audience-stages__item">
-          <h3 class="mrc-audience-stages__title">Own</h3>
-          <p class="mrc-audience-stages__copy">Take clear responsibility for the assigned workstream.</p>
-        </li>
-        <li class="mrc-audience-stages__item">
-          <h3 class="mrc-audience-stages__title">Communicate</h3>
-          <p class="mrc-audience-stages__copy">Surface progress, dependencies, and risk without unnecessary noise.</p>
-        </li>
-        <li class="mrc-audience-stages__item">
-          <h3 class="mrc-audience-stages__title">Hand off</h3>
-          <p class="mrc-audience-stages__copy">Leave clean implementation notes, documentation, and next steps.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  {{! 4. Core capabilities — Paper }}
-  <section id="core-capabilities" class="mrc-audience-projects section-surface gh-outer" aria-labelledby="mrc-audience-projects-title">
-    <div class="mrc-audience-projects__inner gh-inner">
-      <h2 id="mrc-audience-projects-title" class="mrc-audience-section-title">Core capabilities</h2>
-      <p class="mrc-audience-section-intro">I can support a specific implementation need or work across the broader technical system when the project requires it.</p>
-      <div class="mrc-audience-projects__grid">
-        {{> "common-project-card"
-          accent="olive"
-          title="Web platforms and ecommerce"
-          item1="WordPress and WooCommerce"
-          item2="Ghost development"
-          item3="Custom themes and components"
-          item4="Ecommerce architecture"
-          item5="Checkout, shipping, and delivery integrations"
-          item6="Hosting and launch support"
-        }}
-        {{> "common-project-card"
-          accent="maroon"
-          title="Integrations and applications"
-          item1="APIs and third-party integrations"
-          item2="Forms and data workflows"
-          item3="Custom web applications"
-          item4="Automation"
-          item5="Applied AI tools"
-          item6="Internal utilities and prototypes"
-        }}
-        {{> "common-project-card"
-          accent="olive"
-          title="Quality and performance"
-          item1="Accessibility implementation"
-          item2="Core Web Vitals and performance"
-          item3="Analytics and measurement"
-          item4="Technical SEO"
-          item5="QA and launch readiness"
-          item6="Platform stabilization"
-        }}
-        {{> "common-project-card"
-          accent="maroon"
-          title="Strategy and technical leadership"
-          item1="Discovery and architecture"
-          item2="Technical estimation"
-          item3="System audits"
-          item4="Migration planning"
-          item5="Documentation and handoff"
-          item6="Vendor and implementation review"
-        }}
-      </div>
-      <div class="mrc-audience-projects__prompt">
-        <p class="mrc-audience-projects__prompt-body">Need something narrower? I am equally comfortable owning one difficult integration or supporting a full technical workstream.</p>
-        <a
-          href="{{@site.url}}/contact/?audience=agencies-development-teams"
-          class="mrc-audience-projects__prompt-link"
-          data-ga-event="audience_project_link_click"
-          data-ga-category="engagement"
-          data-ga-label="Discuss the scope"
-          data-ga-audience="agencies_development_teams"
-          data-ga-page-section="core_capabilities"
-        >Discuss the scope →</a>
+  {{! 3. What I do }}
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-agency-services">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="What I do"
+        heading_id="mrc-agency-services"
+        heading="Capacity that slots into your sprint"
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" icon="gear" title="Hands-on development" body="Front-end and back-end overflow in React, Next.js, WordPress, Ghost, and the rest of the stack your clients already run."}}
+        {{> "feature-item" icon="document" title="White-label delivery" body="Staging-ready builds under your brand. You own the relationship. I stay off the call unless you want me on it."}}
+        {{> "feature-item" icon="accessibility" title="Accessibility remediation" body="Fixes against the Web Content Accessibility Guidelines without a redesign, so government and community clients can actually launch."}}
+        {{> "feature-item" icon="chart" title="Technical search audits" body="A clear punch list for ranking, performance, and crawl issues — then the pull requests to close them."}}
+        {{> "feature-item" icon="compass" title="Architecture & second opinions" body="Stack decisions, migration risk, and rescue work before a bad call costs you a quarter."}}
+        {{> "feature-item" icon="desktop" title="Quality assurance & handoff" body="I test, document, and leave notes your developers can maintain. No mystery code, no hostage retainers."}}
       </div>
     </div>
   </section>
 
-  {{! 5. Engagement models — Olive }}
-  <section class="mrc-audience-expectations section-dark gh-outer" aria-labelledby="mrc-audience-expectations-title">
-    <div class="mrc-audience-expectations__inner gh-inner">
-      <h2 id="mrc-audience-expectations-title" class="mrc-audience-expectations__title">Ways I can support the team</h2>
-      <p class="mrc-audience-expectations__intro">The engagement can be structured around a deliverable, a period of capacity, or a technical problem that needs experienced ownership.</p>
-      <div class="mrc-audience-expectation-grid">
-        {{> "audience-expectation" title="Defined workstream" copy="Ownership of a specific build, integration, migration, platform, or technical deliverable."}}
-        {{> "audience-expectation" title="Embedded delivery support" copy="Additional hands-on capacity within an existing project team and workflow."}}
-        {{> "audience-expectation" title="Technical advisory" copy="Architecture, discovery, estimation, audits, risk review, or implementation planning."}}
-        {{> "audience-expectation" title="Rescue and stabilization" copy="Focused support when a project is fragile, delayed, under-documented, or difficult to launch."}}
+  {{! 4. Toolkit }}
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-agency-tech">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Toolkit"
+        heading_id="mrc-agency-tech"
+        heading="Technologies I work with"
+      }}
+      <div class="mrc-carousel-wrap" data-mrc-carousel>
+        <div class="mrc-carousel">
+          {{> "tech-card" simple_icon="wordpress" title="WordPress"}}
+          {{> "tech-card" simple_icon="react" simple_icon_2="nextdotjs" title="React / Next.js"}}
+          {{> "tech-card" simple_icon="cloudflare" title="Cloudflare"}}
+          {{> "tech-card" simple_icon="godaddy" title="GoDaddy"}}
+          {{> "tech-card" simple_icon="shopify" title="Shopify"}}
+          {{> "tech-card" simple_icon="gitlab" title="GitLab"}}
+          {{> "tech-card" simple_icon="webflow" title="Webflow"}}
+          {{> "tech-card" simple_icon="googleanalytics" title="Google Analytics 4"}}
+          {{> "tech-card" simple_icon="looker" title="Looker Studio"}}
+          {{> "tech-card" simple_icon="ghost" title="Ghost CMS"}}
+          {{> "tech-card" simple_icon="googlebigquery" title="BigQuery"}}
+          {{> "tech-card" simple_icon="supabase" title="Supabase"}}
+        </div>
+        <div class="mrc-carousel__controls">
+          <button type="button" class="mrc-carousel__btn" data-carousel-prev aria-label="Previous">{{> "icon" name="arrow-left"}}</button>
+          <button type="button" class="mrc-carousel__btn" data-carousel-next aria-label="Next">{{> "icon" name="arrow-right"}}</button>
+        </div>
       </div>
     </div>
   </section>
 
-  {{! 6. What teams can expect — Paper }}
-  <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-audience-team-expect-title">
-    <div class="mrc-audience-challenges__inner gh-inner">
-      <h2 id="mrc-audience-team-expect-title" class="mrc-audience-section-title">What teams can expect</h2>
-      <div class="mrc-audience-challenge-grid">
-        {{> "audience-challenge" title="Clear ownership" copy="Responsibilities, assumptions, dependencies, and deliverables are made explicit from the beginning."}}
-        {{> "audience-challenge" title="Direct communication" copy="Progress and risks are shared clearly, without waiting until a deadline is already in danger."}}
-        {{> "audience-challenge" title="Respect for relationships" copy="Agency, team, and client boundaries are handled professionally in white-label or visible delivery arrangements."}}
-        {{> "audience-challenge" title="Clean handoff" copy="Implementation notes, access, decisions, and outstanding work are documented for the people carrying the project forward."}}
-      </div>
-    </div>
-  </section>
-
-  {{! 7. Experience and proof — Cream }}
-  <section class="mrc-audience-proof section-light gh-outer" aria-labelledby="mrc-audience-proof-title">
-    <div class="mrc-audience-proof__inner gh-inner">
-      <div class="mrc-audience-proof__intro">
-        <h2 id="mrc-audience-proof-title" class="mrc-audience-section-title">Technical breadth with delivery experience</h2>
-        <p class="mrc-audience-section-body">My work spans client-facing websites, ecommerce, hosting, analytics, accessibility, performance, automation, data, and custom tools.</p>
-        <p class="mrc-audience-section-body">I have worked independently and within multidisciplinary teams, supporting designers, project managers, marketers, developers, and client stakeholders through complex builds and launches.</p>
-        <a
-          href="{{@site.url}}/work/"
-          class="mrc-audience-proof__link"
-          data-ga-event="audience_case_study_click"
-          data-ga-category="engagement"
-          data-ga-label="See selected work"
-          data-ga-audience="agencies_development_teams"
-          data-ga-page-section="proof"
-        >See selected work →</a>
-      </div>
-      <div class="mrc-audience-proof__grid">
-        {{> "audience-proof-card" title="Ecommerce and operational integrations" copy="WooCommerce architecture, payments, shipping, local delivery, product structures, transactional email, analytics, and launch coordination."}}
-        {{> "audience-proof-card" title="Platform and performance work" copy="WordPress, Ghost, custom implementations, Core Web Vitals, accessibility, technical SEO, hosting, migrations, and stabilization."}}
-        {{> "audience-proof-card" title="Architecture and handoff" copy="Technical planning, requirements translation, documentation, client training, and delivery systems designed for ongoing ownership."}}
-      </div>
-    </div>
-  </section>
-
-  {{! 8. Final CTA — Maroon }}
+  {{! 5. Mid-page CTA }}
   {{> "cta-section"
-    headline="Need technical capacity without adding another full-time role?"
-    subtext="Send the project context, likely scope, delivery timeline, and where the team needs support. I can help determine whether the work is a good fit."
-    button_text="Discuss the work"
+    headline="Need another pair of hands on a live project?"
+    subtext="Bring me into the sprint as overflow capacity. I work in your repo and your tools, then hand the work back to your team."
+    button_text="Get in touch"
     href="/contact/?audience=agencies-development-teams"
+    ga_event="agency_mid_cta_click"
+    ga_label="Get in touch"
+    ga_audience="agencies_development_teams"
+    ga_page_section="mid_cta"
+  }}
+
+  {{! 6. Work }}
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-agency-work">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-agency-work" heading="Selected collaborations with teams" intro="Projects where I worked inside someone else's process and left the code in good shape." link_href="/case-studies/" link_text="View all"}}
+      {{#get "posts" filter="tag:case-study" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  {{! 7. Process }}
+  <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-agency-process">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Process"
+        heading_id="mrc-agency-process"
+        heading="I work in your tools, not around them"
+        intro="Non-disclosure first. Then GitLab, GitHub, Jira, or whatever you already run. No parallel process for your project manager to babysit."
+      }}
+      <div class="mrc-process-grid mrc-process-grid--numbered mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "process-step" title="Align" desc="We start with the ticket, the decisions already made, and who talks to the client — usually not me."}}
+        {{> "process-step" title="Own" desc="I take a clear workstream: a defined build, embedded sprint capacity, an audit, or a rescue."}}
+        {{> "process-step" title="Deliver" desc="Pull requests, risk notes, and standup updates in Atlantic Time. You see the work as it lands."}}
+        {{> "process-step" title="Hand off" desc="Documentation, access, and next steps your team can run. Nothing hidden, nothing hostage."}}
+      </div>
+    </div>
+  </section>
+
+  {{! 8. Resources }}
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-agency-resources">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Resources" heading_id="mrc-agency-resources" heading="Useful reading for technical teams" intro="Practical guides and checklists you can use in the next sprint." link_href="/resources/" link_text="View all"}}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  {{! 9. Final CTA }}
+  {{> "cta-section"
+    headline="Let's see if we are a good fit."
+    subtext="Overflow, a defined build, an audit, or a second opinion on architecture. Start with a conversation and we will figure out the rest."
+    button_text="Contact"
+    href="/contact/?audience=agencies-development-teams"
+    secondary_href="/case-studies/"
+    secondary_text="Work"
     ga_event="audience_primary_cta_click"
-    ga_label="Discuss the work"
+    ga_label="Contact"
     ga_audience="agencies_development_teams"
     ga_page_section="final_cta"
   }}
 
-  {{! 9. Related audience navigation }}
   <section class="mrc-audience-nav section-light gh-outer">
     <div class="mrc-audience-nav__inner gh-inner">
       {{> "audience-related-nav" omit="agencies-development-teams" audience="agencies_development_teams"}}
     </div>
   </section>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Subcontract Web Development & Technical Support",
-    "description": "Subcontract development, architecture, ecommerce, accessibility, analytics, automation, and technical delivery support for agencies and internal teams.",
-    "provider": {
-      "@type": "ProfessionalService",
-      "name": "{{@site.title}}",
-      "url": "{{@site.url}}"
-    },
-    "areaServed": ["PEI", "Atlantic Canada", "Canada", "United States"],
-    "url": "{{@site.url}}/services/agencies-development-teams/"
-  }
-  </script>
 </main>

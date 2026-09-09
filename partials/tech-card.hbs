@@ -1,0 +1,13 @@
+<div class="mrc-tech-card" style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--mrc-bg); border: 1px solid var(--border-color-subtle); border-radius: var(--radius-s);">
+  {{#if simple_icon}}
+    <div class="mrc-tech-card__icons" style="display: flex; gap: 8px; align-items: center; flex-shrink: 0;">
+      <img src="https://cdn.simpleicons.org/{{simple_icon}}" alt="" style="width: 24px; height: 24px;" />
+      {{#if simple_icon_2}}
+        <img src="https://cdn.simpleicons.org/{{simple_icon_2}}" alt="" style="width: 24px; height: 24px;" />
+      {{/if}}
+    </div>
+  {{else if icon}}
+    <div class="mrc-tech-card__icon" style="color: var(--mrc-maroon); display: flex; align-items: center; flex-shrink: 0;">{{> "icon" name=icon}}</div>
+  {{/if}}
+  <h4 class="mrc-tech-card__title" style="margin: 0; font-size: 1.1rem; font-weight: 600;">{{title}}</h4>
+</div>

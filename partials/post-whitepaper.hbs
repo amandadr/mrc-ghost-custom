@@ -27,9 +27,12 @@
   </header>
 
   {{#if access}}
-    {{!-- Render post content normally; JS upgrades the first PDF link into an embedded viewer. --}}
-    <div class="gh-content gh-canvas" data-pdf-viewer>
-      {{content}}
+    <div class="mrc-split mrc-split--40-60 gh-canvas">
+      {{> "post-toc"}}
+      {{!-- Render post content normally; JS upgrades the first PDF link into an embedded viewer. --}}
+      <div class="gh-content" data-pdf-viewer>
+        {{content}}
+      </div>
     </div>
   {{else}}
     <div class="gh-canvas">

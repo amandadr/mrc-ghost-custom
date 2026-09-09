@@ -1,0 +1,24 @@
+{{!-- Icon by name — the one place that maps a name onto an icon partial.
+
+      Handlebars can resolve a partial dynamically ({{> (lookup . "name")}}) and Ghost
+      renders it fine, but gscan rejects it as invalid Handlebars, which would fail
+      theme validation. So the dispatch is explicit. Adding an icon means adding a
+      file to partials/icons/ and one line here.
+
+      Params:
+        name  one of the line icons below --}}
+{{#match name "chart"}}{{> "icons/chart"}}{{/match}}
+{{#match name "gear"}}{{> "icons/gear"}}{{/match}}
+{{#match name "users"}}{{> "icons/users"}}{{/match}}
+{{#match name "accessibility"}}{{> "icons/accessibility"}}{{/match}}
+{{#match name "calendar"}}{{> "icons/calendar"}}{{/match}}
+{{#match name "document"}}{{> "icons/document"}}{{/match}}
+{{#match name "plug"}}{{> "icons/plug"}}{{/match}}
+{{#match name "key"}}{{> "icons/key"}}{{/match}}
+{{#match name "compass"}}{{> "icons/compass"}}{{/match}}
+{{#match name "desktop"}}{{> "icons/desktop"}}{{/match}}
+{{#match name "smartphone"}}{{> "icons/smartphone"}}{{/match}}
+{{#match name "star"}}{{> "icons/star"}}{{/match}}
+{{#match name "search"}}{{> "icons/search"}}{{/match}}
+{{#match name "arrow-left"}}{{> "icons/arrow-left"}}{{/match}}
+{{#match name "arrow-right"}}{{> "icons/arrow-right"}}{{/match}}

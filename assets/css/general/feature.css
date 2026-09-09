@@ -1,0 +1,72 @@
+/**
+ * Feature grid — repeated icon/title/body cells (partials/feature-item.hbs).
+ *
+ * The wireframes use this shape constantly: 2, 3, or 4 up, sometimes with an icon,
+ * sometimes with a link. Columns come from the composition grid, so this file only
+ * describes the cell.
+ */
+
+.mrc-feature-grid {
+  --mrc-grid-min: 240px;
+}
+
+.mrc-feature__icon {
+  margin-bottom: var(--space-3);
+  color: var(--mrc-eyebrow);
+}
+
+.mrc-feature__title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h3-size);
+  font-weight: 600;
+  line-height: 1.25;
+  color: currentcolor;
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-feature__body {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-soft);
+  margin: 0;
+}
+
+.mrc-feature__link {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-weight: 600;
+}
+
+/* Pair — two large linked blocks side by side ("See the work" / "Not sure what you
+   need?"). A rule above each cell separates them without adding card chrome. */
+.mrc-feature-grid--pair {
+  --mrc-grid-min: 20rem;
+}
+
+.mrc-feature-grid--pair .mrc-feature {
+  padding-block-start: var(--space-5);
+  border-top: var(--border-width-thick) var(--border-style) var(--border-color-accent);
+}
+
+.mrc-feature-grid--pair .mrc-feature__title {
+  font-size: var(--mrc-h2-size);
+}
+
+.section-dark .mrc-feature-grid--pair .mrc-feature,
+.section-cta .mrc-feature-grid--pair .mrc-feature {
+  border-top-color: var(--mrc-mustard);
+}
+
+/* Numbered — a sequence rather than a set (process steps, "a clear path forward"). */
+.mrc-feature-grid--numbered {
+  counter-reset: mrc-feature;
+}
+
+.mrc-feature-grid--numbered .mrc-feature {
+  counter-increment: mrc-feature;
+}
+
+.mrc-feature-grid--numbered .mrc-feature__title::before {
+  content: counter(mrc-feature) ". ";
+  color: var(--mrc-eyebrow);
+}

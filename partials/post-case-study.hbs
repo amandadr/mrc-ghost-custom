@@ -5,6 +5,20 @@
       <div class="single-excerpt">{{custom_excerpt}}</div>
     {{/if}}
 
+    <div class="single-meta">
+      {{#primary_tag}}
+        <span class="single-meta-item single-meta-tag">
+          <a class="post-tag post-tag-{{slug}}" href="{{url}}">{{name}}</a>
+        </span>
+      {{/primary_tag}}
+      <span class="single-meta-item single-meta-date">
+        <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="DD MMM YYYY"}}</time>
+      </span>
+      {{#if reading_time}}
+        <span class="single-meta-item single-meta-length">{{reading_time}}</span>
+      {{/if}}
+    </div>
+
     {{#if feature_image}}
     {{#unless no_image}}
       <figure class="single-media kg-width-wide">
@@ -26,9 +40,11 @@
     {{/if}}
   </header>
 
-  {{!-- Render post content normally; JS upgrades the first PDF link into an embedded viewer. --}}
-  <div class="gh-content gh-canvas" data-pdf-viewer>
-    {{content}}
+  <div class="mrc-split mrc-split--40-60 gh-canvas">
+    {{> "post-toc"}}
+    {{!-- Render post content normally; JS upgrades the first PDF link into an embedded viewer. --}}
+    <div class="gh-content" data-pdf-viewer>
+      {{content}}
+    </div>
   </div>
 </article>
-

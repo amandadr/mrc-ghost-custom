@@ -37,7 +37,7 @@ All theme-specific settings are defined in `package.json` under `config.custom`.
 
 | Key | Type | Default | Description |
 | --- | --- | --- | --- |
-| `footer_bio` | text | "Independent technical consultant. Systems, automation, applied AI. Souris, PEI." | Footer bio text |
+| `footer_bio` | text | "Independent technical consultant. Souris, PEI." | Footer bio text |
 | `contact_email` | text | [manny@mannyroy.com](mailto:manny@mannyroy.com) | Contact email (e.g. for contact page) |
 | `contact_form_action` | text | `formspree.io/f/YOUR_FORM_ID` | Form submission URL (e.g. Formspree). Use the full HTTPS URL and replace `YOUR_FORM_ID`. |
 

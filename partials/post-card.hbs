@@ -1,0 +1,38 @@
+{{!-- Post card — text-first.
+
+      Reads the current post context, so it drops straight into {{#foreach posts}}.
+      Title, excerpt, and meta carry the card; the feature image is an opt-in slot, which
+      keeps the feed closer to the site's spare text list than to the wireframe's image
+      grid. `show_image=true` uses the image only when the post actually has one, so a
+      mixed feed never renders a hole.
+
+      Place inside a `.mrc-post-grid.mrc-grid`.
+
+      Params:
+        show_image   true → render the feature image above the text when present
+        heading      "h2" | "h3" (default h3) — match the surrounding outline --}}
+<article class="mrc-post-card {{post_class}}">
+  {{#if show_image}}
+    {{#if feature_image}}
+      <div class="mrc-post-card__media">
+        {{> "media-frame" img=feature_image img_alt=feature_image_alt shape="landscape"}}
+      </div>
+    {{/if}}
+  {{/if}}
+  <div class="mrc-post-card__body">
+    {{#if primary_tag}}<p class="mrc-post-card__tag">{{primary_tag.name}}</p>{{/if}}
+    {{#match heading "h2"}}
+      <h2 class="mrc-post-card__title"><a href="{{url}}">{{title}}</a></h2>
+    {{else}}
+      <h3 class="mrc-post-card__title"><a href="{{url}}">{{title}}</a></h3>
+    {{/match}}
+    {{#if excerpt}}
+      <p class="mrc-post-card__excerpt">{{excerpt words="24"}}</p>
+    {{/if}}
+    <p class="mrc-post-card__meta">
+      <time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="D MMM YYYY"}}</time>
+      <span class="mrc-post-card__meta-sep" aria-hidden="true">&middot;</span>
+      {{reading_time}}
+    </p>
+  </div>
+</article>

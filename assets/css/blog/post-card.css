@@ -1,0 +1,102 @@
+/**
+ * Post card (partials/post-card.hbs) and the grid it sits in.
+ *
+ * Text-first by decision: no card chrome, no shadow, no border box. A rule above each
+ * card gives the grid its structure, which matches the rest of the theme (feature pair,
+ * FAQ, responsibility rows) and keeps a feed of five posts from looking like a shop.
+ */
+
+.mrc-post-grid {
+  --mrc-grid-min: 18rem;
+}
+
+.mrc-post-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-block-start: var(--space-5);
+  border-top: var(--border-width-thick) var(--border-style) var(--border-color-accent);
+}
+
+.mrc-post-card__media {
+  order: -1;
+}
+
+.mrc-post-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.mrc-post-card__tag {
+  font-size: var(--mrc-small-size);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mrc-eyebrow);
+  margin: 0;
+}
+
+.mrc-post-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h3-size);
+  font-weight: 600;
+  line-height: 1.25;
+  color: currentcolor;
+  margin: 0;
+}
+
+/* The title is the only link on the card, so it should not read as body-copy maroon
+   until it is hovered. */
+.mrc-post-card__title a {
+  color: currentcolor !important;
+  text-decoration: none;
+}
+
+.mrc-post-card__title a:hover {
+  color: var(--mrc-link) !important;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.mrc-post-card__excerpt {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-soft);
+  margin: 0;
+}
+
+.mrc-post-card__meta {
+  font-size: var(--mrc-small-size);
+  color: var(--mrc-text-soft);
+  margin: 0;
+}
+
+.mrc-post-card__meta-sep {
+  margin-inline: 0.4em;
+}
+
+.section-dark .mrc-post-card,
+.section-cta .mrc-post-card {
+  border-top-color: var(--mrc-mustard);
+}
+
+/* ---- Featured split: one lead card beside a stack of the rest (Resources) ---- */
+@media (min-width: 900px) {
+  .mrc-post-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .mrc-post-split__lead .mrc-post-card__title {
+    font-size: var(--mrc-h2-size);
+  }
+
+  .mrc-post-split__rest {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+}

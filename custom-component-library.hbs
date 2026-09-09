@@ -1,0 +1,790 @@
+{{!< default}}
+{{! Public component library — live demos of theme partials + foundations.
+    Mounted at /component-library/ via routes.yaml (no Ghost Page required).
+    Keep out of primary nav; extend by adding a cl-frame block + TOC link. }}
+{{#contentFor "title"}}Component library | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "body_class"}} mrc-route-component-library{{/contentFor}}
+{{#contentFor "head"}}
+  <meta name="description" content="Live component library for the Manny Roy Consulting theme — foundations, section components, and edge-case fixtures.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{{@site.url}}/component-library/">
+{{/contentFor}}
+
+<main class="site-main mrc-page mrc-page-component-library">
+  <header class="mrc-cl-intro section-light gh-outer">
+    <div class="mrc-cl-intro__inner gh-inner">
+      <h1 class="mrc-cl-intro__title">Component library</h1>
+      <p class="mrc-cl-intro__lede">Live renders of theme partials and design foundations. Use this page to test short/long copy, missing pieces, and section rhythm before assembling pages.</p>
+      <p class="mrc-cl-intro__meta">Source of truth: <code>partials/*.hbs</code> + tokens in <code>brand.css</code> / <code>typography.css</code>. Add demos with <code>cl-frame-start</code> / <code>cl-frame-end</code> and a TOC link.</p>
+    </div>
+  </header>
+
+  <div class="mrc-cl-layout">
+    {{> "component-library/cl-nav"}}
+
+    <div class="mrc-cl-main">
+
+      {{! ========== Foundations ========== }}
+      {{> "component-library/cl-frame-start" id="cl-foundations" title="Foundations — colour, type, space" status="stable" notes="Token swatches from brand.css and typography.css. Not a partial — reference for visual QA."}}
+        <div class="section-light mrc-cl-pad">
+          <div class="mrc-cl-pad--narrow">
+            <h3 class="mrc-section-heading">Colour</h3>
+            <div class="mrc-cl-swatches" style="margin-bottom: var(--space-7);">
+              <div class="mrc-cl-swatch"><div class="mrc-cl-swatch__chip" style="background: var(--mrc-bg);"></div><p class="mrc-cl-swatch__name">Cream</p><p class="mrc-cl-swatch__token">--mrc-bg</p></div>
+              <div class="mrc-cl-swatch"><div class="mrc-cl-swatch__chip" style="background: var(--mrc-surface);"></div><p class="mrc-cl-swatch__name">Paper</p><p class="mrc-cl-swatch__token">--mrc-surface</p></div>
+              <div class="mrc-cl-swatch"><div class="mrc-cl-swatch__chip" style="background: var(--mrc-text);"></div><p class="mrc-cl-swatch__name">Ink</p><p class="mrc-cl-swatch__token">--mrc-text</p></div>
+              <div class="mrc-cl-swatch"><div class="mrc-cl-swatch__chip" style="background: var(--mrc-text-muted);"></div><p class="mrc-cl-swatch__name">Ink 2</p><p class="mrc-cl-swatch__token">--mrc-text-muted</p></div>
+              <div class="mrc-cl-swatch"><div class="mrc-cl-swatch__chip" style="background: var(--mrc-mustard);"></div><p class="mrc-cl-swatch__name">Mustard</p><p class="mrc-cl-swatch__token">--mrc-mustard</p></div>
+              <div class="mrc-cl-swatch"><div class="mrc-cl-swatch__chip" style="background: var(--mrc-olive);"></div><p class="mrc-cl-swatch__name">Olive</p><p class="mrc-cl-swatch__token">--mrc-olive</p></div>
+              <div class="mrc-cl-swatch"><div class="mrc-cl-swatch__chip" style="background: var(--mrc-maroon);"></div><p class="mrc-cl-swatch__name">Maroon</p><p class="mrc-cl-swatch__token">--mrc-maroon</p></div>
+            </div>
+
+            <h3 class="mrc-section-heading">Type scale</h3>
+            <div class="mrc-cl-type-sample"><p class="mrc-cl-type-sample__label">--mrc-h1-size</p><p class="mrc-hero-headline" style="margin:0;">Headline one</p></div>
+            <div class="mrc-cl-type-sample"><p class="mrc-cl-type-sample__label">--mrc-h2-size</p><h2 class="mrc-section-heading" style="margin:0;">Headline two</h2></div>
+            <div class="mrc-cl-type-sample"><p class="mrc-cl-type-sample__label">--mrc-h3-size / body / lede / small</p>
+              <h3 style="margin:0 0 var(--space-2);">Headline three</h3>
+              <p class="mrc-lede" style="margin:0 0 var(--space-2);">Lede size — slightly larger intro copy for sections.</p>
+              <p style="margin:0 0 var(--space-2);">Body 16px / 1.72 — the default reading size across the site.</p>
+              <p class="mrc-meta" style="margin:0;">Small / meta — captions and labels.</p>
+            </div>
+
+            <h3 class="mrc-section-heading">Spacing scale</h3>
+            <div class="mrc-cl-space-bar">
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-1);"></div><span class="mrc-cl-space-bar__label">1</span></div>
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-2);"></div><span class="mrc-cl-space-bar__label">2</span></div>
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-3);"></div><span class="mrc-cl-space-bar__label">3</span></div>
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-4);"></div><span class="mrc-cl-space-bar__label">4</span></div>
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-5);"></div><span class="mrc-cl-space-bar__label">5</span></div>
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-6);"></div><span class="mrc-cl-space-bar__label">6</span></div>
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-7);"></div><span class="mrc-cl-space-bar__label">7</span></div>
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-8);"></div><span class="mrc-cl-space-bar__label">8</span></div>
+              <div class="mrc-cl-space-bar__item"><div class="mrc-cl-space-bar__block" style="height: var(--space-9);"></div><span class="mrc-cl-space-bar__label">9</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-surface mrc-cl-pad">
+          <div class="mrc-cl-pad--narrow">
+            <h3 class="mrc-section-heading">Section tones</h3>
+            <p style="margin:0 0 var(--space-4); max-width: 60ch;">Rhythm classes: <code>.section-light</code> (cream), <code>.section-surface</code> (paper), <code>.section-dark</code> (olive), <code>.section-cta</code> (maroon).</p>
+          </div>
+        </div>
+        <div class="section-dark mrc-cl-pad">
+          <div class="mrc-cl-pad--narrow">
+            <p style="margin:0; color: var(--mrc-surface); max-width: 60ch;">Olive / dark section — paper text, mustard accents.</p>
+          </div>
+        </div>
+        <div class="section-cta mrc-cl-pad">
+          <div class="mrc-cl-pad--narrow">
+            <p style="margin:0; color: var(--mrc-surface); max-width: 60ch;">Maroon / CTA section tone.</p>
+          </div>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Buttons ========== }}
+      {{> "component-library/cl-frame-start" id="cl-buttons" title="Buttons" status="stable" notes="Primary / secondary on light and dark grounds. Focus rings should remain visible."}}
+        <div class="section-light mrc-cl-pad">
+          <div class="mrc-cluster mrc-cluster--m mrc-cl-pad--narrow" style="padding-inline:0;">
+            <a href="#cl-buttons" class="button mrc-btn-primary">Primary</a>
+            <a href="#cl-buttons" class="button mrc-btn-secondary">Secondary</a>
+          </div>
+        </div>
+        {{> "cta-section" headline="CTA button (mustard on maroon)" subtext="`.mrc-cta-btn` is scoped to `.mrc-cta-section`." button_text="Get in touch" href="#cl-buttons"}}
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Composition ========== }}
+      {{> "component-library/cl-frame-start" id="cl-composition" title="Composition primitives" status="stable" partial_name="(composition.css)" notes="Layout-only utilities from composition.css — stack, cluster, grid, split."}}
+        <div class="section-surface mrc-cl-pad">
+          <div class="mrc-cl-pad--narrow">
+            <p class="mrc-cl-variant__label" style="background:transparent;color:var(--mrc-text-muted);padding-inline:0;">Stack — vertical rhythm</p>
+            <div class="mrc-stack mrc-stack--l" style="margin-bottom: var(--space-7); max-width: 40ch;">
+              <p style="margin:0; background: var(--mrc-bg); padding: var(--space-3);">Item A</p>
+              <p style="margin:0; background: var(--mrc-bg); padding: var(--space-3);">Item B</p>
+              <p style="margin:0; background: var(--mrc-bg); padding: var(--space-3);">Item C</p>
+            </div>
+            <p class="mrc-cl-variant__label" style="background:transparent;color:var(--mrc-text-muted);padding-inline:0;">Cluster — wrapping row</p>
+            <div class="mrc-cluster mrc-cluster--m" style="margin-bottom: var(--space-7);">
+              <span style="background: var(--mrc-bg); padding: var(--space-2) var(--space-3);">One</span>
+              <span style="background: var(--mrc-bg); padding: var(--space-2) var(--space-3);">Two</span>
+              <span style="background: var(--mrc-bg); padding: var(--space-2) var(--space-3);">Three</span>
+              <span style="background: var(--mrc-bg); padding: var(--space-2) var(--space-3);">Four</span>
+            </div>
+            <p class="mrc-cl-variant__label" style="background:transparent;color:var(--mrc-text-muted);padding-inline:0;">Grid — auto-fit</p>
+            <div class="mrc-grid mrc-grid--auto mrc-grid--gap-m">
+              <div style="background: var(--mrc-bg); padding: var(--space-4); min-height: 4rem;">Cell</div>
+              <div style="background: var(--mrc-bg); padding: var(--space-4); min-height: 4rem;">Cell</div>
+              <div style="background: var(--mrc-bg); padding: var(--space-4); min-height: 4rem;">Cell</div>
+            </div>
+          </div>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Hero ========== }}
+      {{> "component-library/cl-frame-start" id="cl-hero" title="Page hero" status="stable" partial_name="hero" notes="Used on home. Variants: default, long headline, CTA omitted."}}
+        {{> "hero" heading_id="cl-hero-default" headline="Practical websites and digital systems for PEI businesses." subtext="Clear tools, honest advice, and work that stays manageable after the project ends." primary_text="Get in touch" secondary_text="Services" ga_label_prefix="cl_hero"}}
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Long headline</p>
+          {{> "hero" heading_id="cl-hero-long" headline="A very long heading that demonstrates what happens when somebody inevitably writes more words than the wireframe expected for this hero composition." subtext="Short supporting line." hide_secondary=true ga_label_prefix="cl_hero_long"}}
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">No CTAs</p>
+          {{> "hero" heading_id="cl-hero-empty" headline="Headline only — buttons missing." subtext="Use hide_cta when a page needs a quieter opening." hide_cta=true}}
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">With media — becomes a left-aligned split</p>
+          {{> "hero" heading_id="cl-hero-split" eyebrow="Tourism & hospitality" headline="A hero that carries a photo." subtext="Passing img or media_placeholder switches the hero from centred to split. Nothing else changes at the call site." media_placeholder=true primary_text="Get in touch" secondary_text="See the work" ga_label_prefix="cl_hero_split"}}
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Feature grid ========== }}
+      {{> "component-library/cl-frame-start" id="cl-feature" title="Feature grid" status="stable" partial_name="feature-item" notes="The most repeated wireframe shape. Icon is opt-in; columns come from .mrc-grid."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            {{> "section-header" heading="Three up, with icons"}}
+            <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+              {{> "feature-item" icon="chart" title="Measure what matters" body="Analytics wired to the handful of numbers that actually change a decision."}}
+              {{> "feature-item" icon="gear" title="Systems that keep running" body="Automation and integrations that survive staff turnover and busy seasons."}}
+              {{> "feature-item" icon="accessibility" title="Accessible by default" body="Contrast, keyboard paths, and semantics checked before launch, not after a complaint."}}
+            </div>
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Text-only, four up, with links — the default rendering</p>
+          <section class="mrc-section section-surface gh-outer">
+            <div class="gh-inner">
+              <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+                {{> "feature-item" title="Websites" body="Sites that load fast and are easy to update." href="#cl-feature"}}
+                {{> "feature-item" title="Booking & forms" body="Fewer clicks between an interested visitor and a confirmed booking." href="#cl-feature" link_text="See how"}}
+                {{> "feature-item" title="Content strategy" body="Deciding what to say before deciding where to put it." href="#cl-feature"}}
+                {{> "feature-item" title="Training" body="Handover so the site does not become someone else's mystery." href="#cl-feature"}}
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Pair — two large linked blocks (replaces a separate link-pair component)</p>
+          <section class="mrc-section section-dark gh-outer">
+            <div class="gh-inner">
+              <div class="mrc-feature-grid mrc-feature-grid--pair mrc-grid mrc-grid--auto mrc-grid--gap-xl">
+                {{> "feature-item" icon="compass" title="See the work" body="Case studies with the constraints, the decisions, and what happened afterwards." href="#cl-feature" link_text="Browse case studies"}}
+                {{> "feature-item" icon="users" title="Not sure what you need?" body="Start with a conversation. No pitch deck, no obligation." href="#cl-feature" link_text="Get in touch"}}
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Numbered — one item, and a long title with no body</p>
+          <section class="mrc-section section-light gh-outer">
+            <div class="gh-inner">
+              <div class="mrc-feature-grid mrc-feature-grid--numbered mrc-grid mrc-grid--auto mrc-grid--gap-l">
+                {{> "feature-item" title="A single numbered item that also happens to have an unreasonably long title"}}
+              </div>
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Tabs ========== }}
+      {{> "component-library/cl-frame-start" id="cl-tabs" title="Tab selector" status="stable" partial_name="tab-panel" notes="Progressive enhancement: a stack of headed sections without JS, an ARIA tablist with it. Disable JavaScript to see the baseline."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            {{> "section-header" eyebrow="Who I help" heading="Find where you fit" intro="Each panel is a real section with its own id, so it stays linkable and printable whether or not the tabs load."}}
+            <div class="mrc-tabs" data-mrc-tabs data-mrc-tabs-label="Audiences">
+              <div class="mrc-tabs__panels">
+                {{> "tab-panel" id="cl-tab-smb" label="Small business" title="Small & medium businesses" body="You need a site that earns its keep — quick to update, clear about what you sell, and cheap to run." href="#cl-tabs" link_text="Small & medium businesses"}}
+                {{> "tab-panel" id="cl-tab-tourism" label="Tourism" title="Tourism & hospitality" body="Seasonal traffic, booking engines, and visitors deciding on a phone in a parking lot." href="#cl-tabs" link_text="Tourism & hospitality"}}
+                {{> "tab-panel" id="cl-tab-arts" label="Arts & culture" title="Arts, culture & community" body="Small budgets, volunteer editors, and a calendar that has to be right." href="#cl-tabs" link_text="Arts, culture & community"}}
+                {{> "tab-panel" id="cl-tab-orgs" label="Organizations" title="Organizations & institutions" body="Procurement, accessibility obligations, and more stakeholders than the timeline allows for." href="#cl-tabs" link_text="Organizations & institutions"}}
+                {{> "tab-panel" id="cl-tab-agencies" label="Agencies" title="Agencies & development teams" body="Overflow capacity from someone who will not disappear mid-sprint." href="#cl-tabs" link_text="Agencies & development teams"}}
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Two panels on olive — the minimum that still earns tabs</p>
+          <section class="mrc-section section-dark gh-outer">
+            <div class="gh-inner">
+              <div class="mrc-tabs" data-mrc-tabs data-mrc-tabs-label="Engagement models">
+                <div class="mrc-tabs__panels">
+                  {{> "tab-panel" id="cl-tab-project" label="Project" title="A defined project" body="Fixed scope, a clear outcome, and a date it ends."}}
+                  {{> "tab-panel" id="cl-tab-ongoing" label="Ongoing" title="Ongoing support" body="A standing arrangement for the things that need attention every month."}}
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== FAQ ========== }}
+      {{> "component-library/cl-frame-start" id="cl-faq" title="FAQ accordion" status="stable" partial_name="faq-item" notes="Built on the details element: no JavaScript, keyboard accessible, and it prints open. Sharing a group name makes the set exclusive where supported."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            {{> "section-header" heading="Common questions"}}
+            <div class="mrc-faq">
+              {{> "faq-item" group="cl-faq-set" open=true question="How long does a project usually take?" answer="Most small business sites run four to eight weeks from kickoff to launch, and the biggest variable is how quickly content comes together — not the build."}}
+              {{> "faq-item" group="cl-faq-set" question="Do you work with organizations outside PEI?" answer="Yes. Most of the work happens remotely regardless, though being on the Island makes in-person sessions easy for local clients."}}
+              {{> "faq-item" group="cl-faq-set" question="What happens after launch — and who is responsible for keeping the thing running once the invoice is paid?" answer="You are, and that is deliberate. Handover includes documentation and a walkthrough so your team can make routine changes. Ongoing support is available if you would rather not."}}
+              {{> "faq-item" group="cl-faq-set" question="Short one?" answer="Yes."}}
+            </div>
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">On olive</p>
+          <section class="mrc-section section-dark gh-outer">
+            <div class="gh-inner">
+              <div class="mrc-faq">
+                {{> "faq-item" group="cl-faq-dark" question="Does the accordion work on a dark ground?" answer="Borders and the plus marker resolve from the section tone, so yes."}}
+                {{> "faq-item" group="cl-faq-dark" question="Does it need JavaScript?" answer="No. It is a details element."}}
+              </div>
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Service card ========== }}
+      {{> "component-library/cl-frame-start" id="cl-service-card" title="Service card" status="stable" partial_name="service-card" notes="Home pillars. Test short copy, long copy, and missing link."}}
+        <section class="mrc-section section-surface mrc-pillars-section gh-outer">
+          <div class="mrc-section-inner gh-inner">
+            <h3 class="mrc-section-title">What I do (fixture)</h3>
+            <div class="mrc-pillars mrc-grid mrc-grid--auto mrc-grid--gap-l">
+              {{> "service-card" title="Short title" description="Brief description." link_url="#cl-service-card" link_text="Learn more"}}
+              {{> "service-card" title="A longer service card title that wraps onto a second line under normal conditions" description="A longer description that stretches the card vertically so we can check alignment when one pillar has substantially more copy than its neighbours, including another sentence for good measure." link_url="#cl-service-card" link_text="Explore this longer path to the service detail"}}
+              {{> "service-card" title="Missing link" description="Card with title and body only — no CTA."}}
+            </div>
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Principle ========== }}
+      {{> "component-library/cl-frame-start" id="cl-principle" title="Principle item" status="stable" partial_name="principle-item" notes="Home “How I work” on olive. One vs four items."}}
+        <section class="mrc-section section-dark mrc-principles-section gh-outer">
+          <div class="mrc-section-inner gh-inner">
+            <h3 class="mrc-section-title">How I work (fixture)</h3>
+            <div class="mrc-principles mrc-grid mrc-grid--auto mrc-grid--gap-l">
+              {{> "principle-item" title="Practical" body="The right solution fits your business, your capacity, and the way you actually work."}}
+              {{> "principle-item" title="Thoughtful" body="You will understand what is happening, why it matters, and what comes next."}}
+              {{> "principle-item" title="Collaborative" body="We work through decisions together, with your knowledge of the business guiding the process."}}
+              {{> "principle-item" title="Built to Last — with an awkwardly long principle title that should still read cleanly" body="Your website and tools should remain useful, manageable, and understandable after the project ends, even when the supporting sentence runs longer than usual for layout stress-testing."}}
+            </div>
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== CTA ========== }}
+      {{> "component-library/cl-frame-start" id="cl-cta" title="CTA section" status="stable" partial_name="cta-section" notes="Final maroon band. Variants: primary only, + secondary, long headline."}}
+        {{> "cta-section" headline="Let's make tech work for you" subtext="Tell me what isn't working." button_text="Get in touch" href="#cl-cta"}}
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">With secondary link</p>
+          {{> "cta-section" headline="Ready when you are" subtext="Primary and secondary actions together." button_text="Get in touch" href="#cl-cta" secondary_href="#cl-cta" secondary_text="See related audiences"}}
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Long headline, no subtext</p>
+          {{> "cta-section" headline="A very long CTA heading that demonstrates what happens when somebody inevitably writes more words than the wireframe expected for this closing band" button_text="Continue" href="#cl-cta"}}
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Service section ========== }}
+      {{> "component-library/cl-frame-start" id="cl-service-section" title="Service section" status="stable" partial_name="service-section" notes="Services page capability block. One include vs five."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner mrc-stack mrc-stack--section">
+            {{> "service-section" slug="cl-websites" title="Websites & web support" intro="Short intro for the capability." tagline="Clear sites that help people choose you." include1="New sites and rebuilds" include2="Content and IA cleanup" ideal="Owner-operated businesses refreshing an outdated site."}}
+            {{> "service-section" slug="cl-systems" title="Digital systems with a longer title than usual for wrap testing" intro="A longer intro paragraph that explains the capability in more depth than a single sentence, so we can see how the block breathes when copy expands beyond the typical services-page length." tagline="Tools that reduce repetitive work." include1="Booking and forms" include2="Integrations" include3="Spreadsheets and light automation" include4="Repairs and cleanup" include5="Documentation handoff" ideal="Teams juggling too many disconnected tools and unclear ownership."}}
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">With media — alternates sides on the right-aligned block</p>
+          <section class="mrc-section section-surface gh-outer">
+            <div class="gh-inner mrc-stack mrc-stack--section">
+              {{> "service-section" slug="cl-media-a" title="Websites & web support" intro="Media sits to the right by default." tagline="Clear sites that help people choose you." include1="New sites and rebuilds" include2="Content and IA cleanup" ideal="Owner-operated businesses refreshing an outdated site." media_placeholder=true}}
+              {{> "service-section" align="right" slug="cl-media-b" title="Digital systems" intro="On a right-aligned block the media flips to the left, which is what gives the services page its A/B rhythm." tagline="Tools that reduce repetitive work." include1="Booking and forms" include2="Integrations" ideal="Teams juggling too many disconnected tools." media_placeholder=true}}
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Project card ========== }}
+      {{> "component-library/cl-frame-start" id="cl-project-card" title="Common project card" status="stable" partial_name="common-project-card" notes="Services + audience pages. Olive vs maroon accent; one item vs six."}}
+        <section class="mrc-section section-surface gh-outer">
+          <div class="gh-inner">
+            <div class="mrc-grid mrc-grid--auto mrc-grid--gap-l">
+              {{> "common-project-card" title="Websites" accent="olive" intro="Short intro." item1="Only one list item"}}
+              {{> "common-project-card" title="Operations & systems" accent="maroon" intro="Full list density." item1="Item one" item2="Item two" item3="Item three" item4="Item four" item5="Item five" item6="Item six — the long one that wraps to check list rhythm"}}
+              {{> "common-project-card" title="Title only — empty list stress" accent="olive"}}
+            </div>
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Engagement & process ========== }}
+      {{> "component-library/cl-frame-start" id="cl-engagement" title="Engagement & process" status="stable" partial_name="engagement-way / process-step" notes="Services middle sections."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            <h3 class="mrc-section-heading">Ways to engage</h3>
+            <div class="mrc-stack mrc-stack--l" style="margin-bottom: var(--space-8);">
+              {{> "engagement-way" title="Project" desc="A defined piece of work with a clear outcome."}}
+              {{> "engagement-way" title="Ongoing support — longer label" desc="A longer description that checks wrapping and spacing when the engagement option needs more explanation than a single short line usually provides."}}
+            </div>
+            <h3 class="mrc-section-heading">Process</h3>
+            <div class="mrc-grid mrc-grid--auto mrc-grid--gap-l">
+              {{> "process-step" title="Listen" desc="Understand the business and the friction."}}
+              {{> "process-step" title="Plan" desc="Choose the smallest useful next step."}}
+              {{> "process-step" title="Build" desc="Ship the change carefully."}}
+              {{> "process-step" title="Hand off with an awkwardly long step title" desc="Leave you with something you can run without me."}}
+            </div>
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Numbered — same partial, sequence rather than set</p>
+          <section class="mrc-section section-surface gh-outer">
+            <div class="gh-inner">
+              <h3 class="mrc-section-heading">A clear path forward</h3>
+              <div class="mrc-process-grid mrc-process-grid--numbered mrc-grid mrc-grid--auto mrc-grid--gap-l">
+                {{> "process-step" title="Talk it through" desc="A conversation about what is actually in the way."}}
+                {{> "process-step" title="Agree the scope" desc="Written down, with a price and a date."}}
+                {{> "process-step" title="Build and review" desc="You see it as it goes, not at the end."}}
+                {{> "process-step" title="Launch and hand over" desc="Documentation, a walkthrough, and the keys."}}
+              </div>
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Section header ========== }}
+      {{> "component-library/cl-frame-start" id="cl-section-header" title="Section header" status="stable" partial_name="section-header" notes="Eyebrow + heading + intro + actions. Replaces the per-page title/intro pairs."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            {{> "section-header"
+              eyebrow="Capabilities"
+              heading="Everything the header can carry"
+              intro="Eyebrow, heading, intro, and a pair of actions. The intro is capped at 65ch so it stays readable no matter how wide the section runs."
+              action_href="#cl-section-header"
+              action_text="Primary action"
+              action2_href="#cl-section-header"
+              action2_text="Secondary"
+            }}
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Split — heading left, plain link right (feed sections)</p>
+          <section class="mrc-section section-surface gh-outer">
+            <div class="gh-inner">
+              {{> "section-header" layout="split" eyebrow="Writing" heading="Latest from the blog" intro="The intro stays on the left and keeps its measure; the link holds the right edge." link_href="#cl-section-header" link_text="View all posts"}}
+            </div>
+          </section>
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Heading only — the common case</p>
+          <section class="mrc-section section-surface gh-outer">
+            <div class="gh-inner">
+              {{> "section-header" heading="What I do"}}
+            </div>
+          </section>
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Centred, with a long heading</p>
+          <section class="mrc-section section-light gh-outer">
+            <div class="gh-inner">
+              {{> "section-header"
+                align="center"
+                eyebrow="Approach"
+                heading="A centred heading long enough to wrap onto a second line"
+                intro="Centred headers keep their intro centred and constrained too, which is what the home page bands need."
+              }}
+            </div>
+          </section>
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">On olive — colours resolve from the section tone</p>
+          <section class="mrc-section section-dark gh-outer">
+            <div class="gh-inner">
+              {{> "section-header"
+                eyebrow="Outcomes"
+                heading="The same partial on a dark ground"
+                intro="No override needed: the heading inherits the section foreground and the eyebrow switches from olive to mustard."
+              }}
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Media frame ========== }}
+      {{> "component-library/cl-frame-start" id="cl-media-frame" title="Media frame" status="stable" partial_name="media-frame" notes="The theme-wide photo ⇄ text-only switch. Live pages are text-only; the placeholder is a library-only fixture."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            <p class="mrc-cl-note">With no <code>img</code> the partial renders nothing at all, and the calling component collapses to a single column — see the two-column frame below for the pair.</p>
+            <div class="mrc-grid mrc-grid--auto mrc-grid--gap-m">
+              <div>
+                <p class="mrc-eyebrow">Round — portraits</p>
+                {{> "media-frame" placeholder=true shape="round"}}
+              </div>
+              <div>
+                <p class="mrc-eyebrow">Landscape</p>
+                {{> "media-frame" placeholder=true shape="landscape"}}
+              </div>
+              <div>
+                <p class="mrc-eyebrow">Portrait</p>
+                {{> "media-frame" placeholder=true shape="portrait"}}
+              </div>
+            </div>
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Anchor section ========== }}
+      {{> "component-library/cl-frame-start" id="cl-anchor" title="Anchor section" status="stable" partial_name="anchor-section" notes="Dark statement band. Used for About's “Why This Work Exists”."}}
+        {{> "anchor-section"
+          section_class="dark"
+          heading_id="cl-anchor-heading"
+          heading="Why this work exists"
+          p1="A statement band carries conviction rather than information, so it stays narrow and quiet."
+          p2="Two or three sentences is the working range before it stops reading as a pause."
+          accent_1="This is the line the section exists to deliver."
+          divider=true
+          after_1="Copy below the divider picks the thought back up after the beat."
+          accent_2="And closes it."
+        }}
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">With a list, on maroon</p>
+          {{> "anchor-section"
+            section_class="cta"
+            heading_id="cl-anchor-list"
+            heading="The same band with a list"
+            p1="Lists use an em-dash marker in mustard rather than a bullet."
+            list=true
+            item_1="One item"
+            item_2="A second item that runs long enough to wrap onto another line and test the hanging indent"
+            item_3="A third item"
+          }}
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Icons ========== }}
+      {{> "component-library/cl-frame-start" id="cl-icons" title="Line icons" status="stable" partial_name="icons/*" notes="Optional accents for feature grids. Stroke-based, currentcolor, 28px."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            <div class="mrc-cl-icon-grid">
+              <div class="mrc-cl-icon">{{> "icons/chart"}}<span>chart</span></div>
+              <div class="mrc-cl-icon">{{> "icons/gear"}}<span>gear</span></div>
+              <div class="mrc-cl-icon">{{> "icons/users"}}<span>users</span></div>
+              <div class="mrc-cl-icon">{{> "icons/accessibility"}}<span>accessibility</span></div>
+              <div class="mrc-cl-icon">{{> "icons/calendar"}}<span>calendar</span></div>
+              <div class="mrc-cl-icon">{{> "icons/document"}}<span>document</span></div>
+              <div class="mrc-cl-icon">{{> "icons/plug"}}<span>plug</span></div>
+              <div class="mrc-cl-icon">{{> "icons/key"}}<span>key</span></div>
+              <div class="mrc-cl-icon">{{> "icons/compass"}}<span>compass</span></div>
+            </div>
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Two-column ========== }}
+      {{> "component-library/cl-frame-start" id="cl-two-col" title="Two-column section" status="stable" partial_name="two-column-section" notes="About intro. Image present vs placeholder vs text-only."}}
+        {{> "two-column-section"
+          section_class="light"
+          heading_id="cl-two-col-heading"
+          heading="About this practice"
+          p1="Short first paragraph."
+          p2="Second paragraph with a bit more detail for vertical rhythm."
+          right_placeholder=true
+        }}
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Long copy, no right column</p>
+          {{> "two-column-section"
+            section_class="surface"
+            heading_id="cl-two-col-long"
+            heading="A longer two-column heading that stretches past a comfortable single line"
+            p1="First paragraph of several, used to stress the left column when there is no image and the reader gets more narrative than the typical About intro."
+            p2="Second paragraph continues the story so spacing between blocks stays predictable."
+            p3="Third paragraph — still within the content width, still readable."
+          }}
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Audience ========== }}
+      {{> "component-library/cl-frame-start" id="cl-audience" title="Audience atoms" status="stable" notes="Shared across five audience service pages: breadcrumb, fit card, challenge, expectation, proof, related nav."}}
+        <div class="mrc-audience-breadcrumb-wrap section-light gh-outer">
+          <div class="gh-inner">
+            {{> "audience-breadcrumb" current_label="Component library (fixture)" path="/component-library/"}}
+          </div>
+        </div>
+
+        <section class="mrc-audience-hero section-light gh-outer">
+          <div class="mrc-audience-hero__inner gh-inner">
+            <div class="mrc-audience-hero__content">
+              <p class="mrc-audience-hero__eyebrow">For fixture audience</p>
+              <h3 class="mrc-audience-hero__title" style="font-size: var(--mrc-h2-size);">Audience hero shell (inline) + fit card partial</h3>
+              <p class="mrc-audience-hero__lead">Lead sentence for the audience opener.</p>
+              <p class="mrc-audience-hero__support">Supporting sentence with a little more context for layout.</p>
+              <div class="mrc-audience-hero__actions mrc-cluster">
+                <a href="#cl-audience" class="button mrc-btn-primary">Primary</a>
+                <a href="#cl-audience" class="button mrc-btn-secondary">Secondary</a>
+              </div>
+            </div>
+            {{> "audience-fit-card" heading="Good fit for" heading_id="cl-fit" item1="One item only"}}
+          </div>
+        </section>
+
+        <section class="mrc-audience-challenges section-surface gh-outer">
+          <div class="mrc-audience-challenges__inner gh-inner">
+            <h3 class="mrc-audience-section-title">Challenges — one vs four</h3>
+            <div class="mrc-audience-challenge-grid">
+              {{> "audience-challenge" marker="01" title="Single card" copy="One challenge alone."}}
+              {{> "audience-challenge" marker="02" title="A longer challenge title that wraps" copy="Longer copy to check card height when neighbours differ: customers struggle to take the next step because information is scattered, forms are unclear, or booking takes too many clicks."}}
+              {{> "audience-challenge" marker="03" title="Third" copy="Mid-length copy."}}
+              {{> "audience-challenge" marker="04" title="Fourth" copy="Closes the 2×2 grid."}}
+            </div>
+          </div>
+        </section>
+
+        <section class="mrc-audience-expectations section-dark gh-outer">
+          <div class="gh-inner">
+            <h3 class="mrc-audience-section-title" style="color: var(--mrc-surface);">Expectations</h3>
+            <div class="mrc-grid mrc-grid--auto mrc-grid--gap-m">
+              {{> "audience-expectation" title="Clear next step" copy="You will know what happens after we talk."}}
+              {{> "audience-expectation" title="Longer expectation title for wrap testing" copy="A longer expectation body that stretches the cell so we can see olive-on-dark typography hold up under denser copy."}}
+            </div>
+          </div>
+        </section>
+
+        <section class="mrc-audience-proof section-light gh-outer">
+          <div class="gh-inner">
+            <h3 class="mrc-audience-section-title">Proof cards</h3>
+            <div class="mrc-grid mrc-grid--auto mrc-grid--gap-m">
+              {{> "audience-proof-card" title="Short proof" copy="One sentence."}}
+              {{> "audience-proof-card" title="Longer proof title" copy="A longer proof statement used as a layout fixture until real case-study excerpts replace placeholder copy on audience pages."}}
+            </div>
+          </div>
+        </section>
+
+        <section class="mrc-audience-nav section-light gh-outer">
+          <div class="mrc-audience-nav__inner gh-inner">
+            {{> "audience-related-nav" omit="small-business" audience="small_business" heading="Related audiences"}}
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Ghost application ========== }}
+      {{> "component-library/cl-frame-start" id="cl-highlight-cards" title="Highlight cards & responsibility row" status="stable" partial_name="highlight-card / responsibility-row" notes="Docs / Feature highlights."}}
+        <section class="mrc-section section-dark mrc-ghost-highlights gh-outer">
+          <div class="gh-inner">
+            <div class="mrc-ghost-highlights-grid mrc-grid mrc-grid--auto mrc-grid--gap-m">
+              {{> "highlight-card" title="Short highlight" description="Brief description." doc_href="#cl-highlight-cards" link_label="Open docs"}}
+              {{> "highlight-card" title="Longer highlight title for wrapping" description="A longer description that fills the olive card so link placement and contrast stay clear." doc_href="#cl-highlight-cards"}}
+              {{> "highlight-card" title="Missing link" description="No documentation URL — card body only."}}
+            </div>
+          </div>
+        </section>
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner mrc-stack mrc-stack--l">
+            {{> "responsibility-row" heading="Theme ownership" proof="Custom templates and CSS stay in the theme repo." doc_url="#cl-highlight-cards" doc_label="Theme docs"}}
+            {{> "responsibility-row" heading="Content ownership with a longer heading" proof="Editors own page copy in Ghost Admin; the theme owns structure and presentation tokens."}}
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Post card ========== }}
+      {{> "component-library/cl-frame-start" id="cl-post-card" title="Post card & grid" status="stable" partial_name="post-card" notes="Rendered against real posts via the get helper. Text-first by decision: the feature image is opt-in and only appears when the post has one."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            {{> "section-header" layout="split" heading="Latest writing" link_href="#cl-post-card" link_text="View all"}}
+            {{#get "posts" limit="3" include="tags"}}
+              {{#if posts}}
+                <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+                  {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+                </div>
+              {{else}}
+                <p class="mrc-cl-note">No published posts in this install — nothing to render.</p>
+              {{/if}}
+            {{/get}}
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">With images — posts that have no feature image simply stay text-only</p>
+          <section class="mrc-section section-surface gh-outer">
+            <div class="gh-inner">
+              {{#get "posts" limit="3" include="tags"}}
+                <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+                  {{#foreach posts}}{{> "post-card" show_image=true}}{{/foreach}}
+                </div>
+              {{/get}}
+            </div>
+          </section>
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Featured split — one lead beside a stack</p>
+          <section class="mrc-section section-light gh-outer">
+            <div class="gh-inner">
+              {{#get "posts" limit="4" include="tags"}}
+                <div class="mrc-post-split">
+                  <div class="mrc-post-split__lead">
+                    {{#foreach posts limit="1"}}{{> "post-card" heading="h2"}}{{/foreach}}
+                  </div>
+                  <div class="mrc-post-split__rest">
+                    {{#foreach posts from="2"}}{{> "post-card"}}{{/foreach}}
+                  </div>
+                </div>
+              {{/get}}
+            </div>
+          </section>
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">On olive</p>
+          <section class="mrc-section section-dark gh-outer">
+            <div class="gh-inner">
+              {{#get "posts" limit="2" include="tags"}}
+                <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+                  {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+                </div>
+              {{/get}}
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Carousel ========== }}
+      {{> "component-library/cl-frame-start" id="cl-carousel" title="Post carousel" status="stable" partial_name="post-card" notes="Scroll-snap track with a mask fade. Prev/next buttons appear only when the track overflows, via assets/js/lib/carousel.js. Disable JavaScript and it is still a swipeable scroller."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            {{> "section-header" layout="split" heading="From the resources" link_href="#cl-carousel" link_text="View all"}}
+            {{#get "posts" limit="6" include="tags"}}
+              {{#if posts}}
+                <div class="mrc-carousel-wrap" data-mrc-carousel>
+                  <div class="mrc-carousel">
+                    {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+                  </div>
+                  <div class="mrc-carousel__controls">
+                    <button type="button" class="mrc-carousel__btn" data-carousel-prev aria-label="Previous">{{> "icon" name="arrow-left"}}</button>
+                    <button type="button" class="mrc-carousel__btn" data-carousel-next aria-label="Next">{{> "icon" name="arrow-right"}}</button>
+                  </div>
+                </div>
+              {{else}}
+                <p class="mrc-cl-note">No published posts in this install — nothing to scroll.</p>
+              {{/if}}
+            {{/get}}
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Case-study list ========== }}
+      {{> "component-library/cl-frame-start" id="cl-case-list" title="Case-study list" status="stable" partial_name="case-study-row" notes="Compact linked rows. Thumb is opt-in. Works from explicit params or from a post loop."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            {{> "section-header" heading="Selected work"}}
+            <div class="mrc-case-list">
+              {{> "case-study-row" href="#cl-case-list" title="A booking flow that stopped losing weekend traffic" tag="Tourism" excerpt="A three-step form replaced a five-page maze. Same season, more confirmed stays."}}
+              {{> "case-study-row" href="#cl-case-list" title="An institutional site the comms team could actually update" tag="Organizations" excerpt="Templates, a style guide, and a handover so the next editor is not starting from zero."}}
+              {{> "case-study-row" href="#cl-case-list" title="Short title, no excerpt" tag="Small business"}}
+            </div>
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">With thumbs — library placeholders; live pages stay text-only until a photo is passed</p>
+          <section class="mrc-section section-surface gh-outer">
+            <div class="gh-inner">
+              <div class="mrc-case-list">
+                {{> "case-study-row" href="#cl-case-list" title="A booking flow that stopped losing weekend traffic" tag="Tourism" excerpt="Same copy, now with a square thumb." placeholder=true}}
+                {{> "case-study-row" href="#cl-case-list" title="An institutional site the comms team could actually update" tag="Organizations" placeholder=true}}
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">From real posts, on olive</p>
+          <section class="mrc-section section-dark gh-outer">
+            <div class="gh-inner">
+              {{#get "posts" limit="3" include="tags"}}
+                <div class="mrc-case-list">
+                  {{#foreach posts}}{{> "case-study-row"}}{{/foreach}}
+                </div>
+              {{/get}}
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Link columns ========== }}
+      {{> "component-library/cl-frame-start" id="cl-link-columns" title="Link columns" status="stable" partial_name="link-column" notes="The text-only reading of the Relume portfolio block: a category, then the related work. No card chrome."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner">
+            {{> "section-header" eyebrow="Portfolio" heading="Work, grouped by the problem it solved" intro="Three columns because the work clusters that way, not because a grid needed filling."}}
+            <div class="mrc-grid mrc-grid--auto mrc-grid--gap-l">
+              {{> "link-column"
+                heading="Online presence"
+                intro="Sites that explain the business and are easy to keep current."
+                href1="#cl-link-columns" text1="New sites and rebuilds"
+                href2="#cl-link-columns" text2="Content and information architecture"
+                href3="#cl-link-columns" text3="Accessible templates"
+              }}
+              {{> "link-column"
+                heading="Bookings"
+                intro="Fewer clicks between an interested visitor and a confirmed booking."
+                href1="#cl-link-columns" text1="Forms and booking engines"
+                href2="#cl-link-columns" text2="Seasonal flows"
+              }}
+              {{> "link-column"
+                heading="Operations"
+                intro="The tools behind the site: automation, training, and handover."
+                href1="#cl-link-columns" text1="Integrations"
+                href2="#cl-link-columns" text2="Documentation"
+                href3="#cl-link-columns" text3="Staff walkthroughs"
+                href4="#cl-link-columns" text4="A longer link label that wraps onto a second line under a narrow column"
+              }}
+            </div>
+          </div>
+        </section>
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">One column, on olive</p>
+          <section class="mrc-section section-dark gh-outer">
+            <div class="gh-inner">
+              {{> "link-column" heading="Writing" href1="#cl-link-columns" text1="Resources" href2="#cl-link-columns" text2="Case studies"}}
+            </div>
+          </section>
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Table of contents ========== }}
+      {{> "component-library/cl-frame-start" id="cl-toc" title="Table of contents" status="stable" partial_name="post-toc" notes="Authored links here. On a real article, leave the list empty and toc.js will build it from the headings. Sticky from 900px; a details drawer below that."}}
+        <section class="mrc-section section-light gh-outer">
+          <div class="gh-inner mrc-split mrc-split--40-60">
+            {{> "post-toc"
+              source="#cl-toc-article"
+              item1_href="#cl-toc-brief" item1_text="The brief"
+              item2_href="#cl-toc-constraints" item2_text="Constraints"
+              item3_href="#cl-toc-what-we-did" item3_text="What we did"
+              item4_href="#cl-toc-after" item4_text="What happened afterwards"
+            }}
+            <div id="cl-toc-article" class="mrc-stack mrc-stack--l">
+              <h2 id="cl-toc-brief">The brief</h2>
+              <p>A fixture article so the TOC has something to point at. On a case-study template this would be the post body.</p>
+              <h2 id="cl-toc-constraints">Constraints</h2>
+              <p>Seasonal staff, a booking engine that could not be replaced, and a launch date that was already on a brochure.</p>
+              <h3 id="cl-toc-what-we-did">What we did</h3>
+              <p>Cut the form to three steps, wrote the error messages in plain language, and trained the front desk on the new flow.</p>
+              <h2 id="cl-toc-after">What happened afterwards</h2>
+              <p>The same season, more confirmed stays, and a comms team that could change dates without a developer.</p>
+            </div>
+          </div>
+        </section>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Edge cases ========== }}
+      {{> "component-library/cl-frame-start" id="cl-edge" title="Edge cases — adjacent repeats & inverse grounds" status="draft" notes="Wireframe checklist: repeated adjacent components, inverse backgrounds, awkward density."}}
+        <section class="mrc-section section-surface gh-outer">
+          <div class="gh-inner">
+            <h3 class="mrc-section-heading">Repeated adjacent project cards</h3>
+            <div class="mrc-grid mrc-grid--auto mrc-grid--gap-l">
+              {{> "common-project-card" title="Card A" accent="olive" item1="One" item2="Two"}}
+              {{> "common-project-card" title="Card B" accent="maroon" item1="One" item2="Two"}}
+              {{> "common-project-card" title="Card C" accent="olive" item1="One" item2="Two"}}
+              {{> "common-project-card" title="Card D" accent="maroon" item1="One" item2="Two"}}
+            </div>
+          </div>
+        </section>
+        {{> "cta-section" headline="CTA immediately after a dense grid" subtext="Checks section rhythm when maroon follows paper without a quiet band." button_text="Get in touch" href="#cl-edge"}}
+        {{> "cta-section" bg_class="section-dark" headline="Second CTA in a row (should feel loud)" button_text="Still here" href="#cl-edge"}}
+      {{> "component-library/cl-frame-end"}}
+
+    </div>
+  </div>
+</main>

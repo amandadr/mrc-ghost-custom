@@ -36,7 +36,7 @@
 
 .mrc-error-card {
   background: var(--mrc-surface);
-  border: 1px solid var(--light-gray-color);
+  border: var(--border-width) var(--border-style) var(--border-color);
   border-radius: var(--radius-m);
   padding: var(--space-6);
   text-align: left;

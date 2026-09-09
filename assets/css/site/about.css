@@ -14,7 +14,7 @@
 
 /* ---------- Section spacing (design correction: more space between sections) ---------- */
 .mrc-page-about .mrc-two-col,
-.mrc-page-about .mrc-about-why-anchor,
+.mrc-page-about .mrc-anchor,
 .mrc-page-about .mrc-about-experience,
 .mrc-page-about .mrc-about-beyond {
   padding-block: var(--mrc-about-section-padding-block);
@@ -22,7 +22,7 @@
 
 @media (max-width: 767px) {
   .mrc-page-about .mrc-two-col,
-  .mrc-page-about .mrc-about-why-anchor,
+  .mrc-page-about .mrc-anchor,
   .mrc-page-about .mrc-about-experience,
   .mrc-page-about .mrc-about-beyond {
     padding-block: var(--mrc-about-section-padding-block-mobile);
@@ -67,7 +67,13 @@
   display: block;
 }
 
-/* ---------- Intro (Paper, 60/40 when right column or placeholder; left max 60ch) ---------- */
+/* ---------- Two-column section (partials/two-column-section.hbs) ----------
+   Page-agnostic: the partial is reused outside About (component library, etc.),
+   so structure and rhythm stay unscoped. About-only tone is scoped below. */
+.mrc-two-col {
+  padding-block: var(--mrc-section-padding-block);
+}
+
 .mrc-page-about .mrc-two-col {
   background-color: var(--mrc-surface);
   border-top: 1px solid rgba(42, 38, 26, 0.06);
@@ -91,19 +97,16 @@
   max-width: none;
 }
 
-.mrc-two-col-placeholder {
-  min-height: 240px;
-}
-
+/* The photo slot is scaffolding, not content — drop it on small screens rather than
+   pushing the copy down. Media itself is handled by media-frame.css. */
 @media (max-width: 767px) {
-  .mrc-two-col-placeholder {
-    min-height: 0;
+  .mrc-two-col-right .mrc-media-frame--placeholder {
     display: none;
   }
 }
 
-/* H2: significant margin above (avoid stacking without spacing contrast) */
-.mrc-page-about .mrc-two-col-title {
+/* H2: clear separation from the body copy that follows */
+.mrc-two-col-title {
   font-family: var(--font-serif);
   font-size: var(--mrc-h2-size);
   font-weight: 600;
@@ -111,108 +114,27 @@
   margin: 0 0 var(--mrc-heading-margin-below);
 }
 
-.mrc-page-about .mrc-two-col-p {
+.mrc-two-col-p {
   font-size: 1rem;
   line-height: var(--mrc-body-line);
   color: var(--mrc-text);
   margin: 0 0 var(--mrc-paragraph-margin);
 }
 
-.mrc-page-about .mrc-two-col-p:last-child {
+.mrc-two-col-p:last-child {
   margin-bottom: 0;
 }
 
-.mrc-two-col-img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-  opacity: 0.95;
-}
-
-.mrc-page-about .mrc-two-col-right {
+.mrc-two-col-right {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-}
-
-.mrc-two-col-img--headshot {
-  margin-top: var(--space-6);
-  width: min(240px, 100%);
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 999px;
-  opacity: 1;
-  box-shadow: 0 12px 28px rgba(21, 23, 26, 0.12);
+  padding-block-start: var(--space-6);
 }
 
 /* ---------- Why This Exists (Olive anchor, 65ch, stacked statements, more white space) ---------- */
-.mrc-about-why-anchor {
-  background-color: var(--mrc-olive);
-  color: var(--mrc-surface);
-}
-
-.mrc-about-why-inner {
-  max-width: min(65ch, 100%);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mrc-about-why-title {
-  font-family: var(--font-serif);
-  font-size: var(--mrc-h2-size);
-  font-weight: 600;
-  color: var(--mrc-surface);
-  margin: 0 0 var(--space-7);
-}
-
-.mrc-about-statement {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: var(--mrc-surface);
-  opacity: 0.95;
-  margin: 0 0 var(--space-4);
-}
-
-.mrc-about-statement-accent {
-  font-weight: 600;
-  opacity: 1;
-  margin-top: var(--space-1);
-  margin-bottom: var(--space-4);
-}
-
-.mrc-about-why-list {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-5) 0 var(--space-5);
-}
-
-.mrc-about-why-list li {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: var(--mrc-surface);
-  opacity: 0.95;
-  margin-bottom: var(--space-3);
-  padding-left: var(--space-5);
-  position: relative;
-}
-
-.mrc-about-why-list li::before {
-  content: "—";
-  position: absolute;
-  left: 0;
-  color: var(--mrc-mustard);
-  opacity: 0.8;
-}
-
-.mrc-about-why-divider {
-  height: 2px;
-  background-color: var(--mrc-mustard);
-  opacity: 0.7;
-  margin: var(--space-7) 0 var(--space-6);
-  max-width: 5rem;
-  border: 0;
-}
+/* "Why This Work Exists" now uses the shared anchor-section component
+   (general/anchor-section.css); only the About-specific padding is scoped here. */
 
 /* ---------- Experience (Cream, two-column equal cards) ---------- */
 .mrc-about-experience {
@@ -241,8 +163,8 @@
 .mrc-about-card {
   padding: var(--space-6);
   background-color: var(--mrc-surface);
-  border-radius: 4px;
-  border-left: 4px solid var(--mrc-olive);
+  border-radius: var(--radius-m);
+  border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
 }
 
 .mrc-about-card-title {
@@ -331,8 +253,7 @@
 }
 
 /* ---------- H2 spacing contrast (margin above) sitewide on About ---------- */
-.mrc-page-about .mrc-about-section-title,
-.mrc-page-about .mrc-about-why-title {
+.mrc-page-about .mrc-about-section-title {
   margin-top: 0;
 }
 

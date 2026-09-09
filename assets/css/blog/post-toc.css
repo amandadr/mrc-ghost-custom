@@ -1,0 +1,99 @@
+/**
+ * Article table of contents (partials/post-toc.hbs).
+ *
+ * Mobile: a <details> drawer. From 900px the summary is hidden, the list stays open,
+ * and the nav sticks beside the article. Current-heading highlighting is a JS extra
+ * (assets/js/lib/toc.js); without it the list is still a working set of links.
+ */
+
+.mrc-toc {
+  font-size: 1rem;
+}
+
+.mrc-toc__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h3-size);
+  font-weight: 600;
+  color: currentcolor;
+  padding-block: var(--space-3);
+}
+
+.mrc-toc__summary::-webkit-details-marker {
+  display: none;
+}
+
+.mrc-toc__summary::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--mrc-eyebrow);
+  border-bottom: 2px solid var(--mrc-eyebrow);
+  transform: rotate(45deg);
+  transition: transform var(--duration-fast, 150ms) var(--ease-standard, ease);
+}
+
+.mrc-toc__drawer[open] .mrc-toc__summary::after {
+  transform: rotate(-135deg);
+}
+
+.mrc-toc__summary:focus-visible {
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-focus);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.mrc-toc__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: var(--border-width) var(--border-style) var(--border-color-subtle);
+}
+
+.mrc-toc__list a {
+  display: block;
+  padding-block: var(--space-3);
+  color: var(--mrc-text-soft) !important;
+  text-decoration: none;
+  border-bottom: var(--border-width) var(--border-style) var(--border-color-subtle);
+}
+
+.mrc-toc__list a:hover,
+.mrc-toc__list a[aria-current="location"] {
+  color: currentcolor !important;
+}
+
+.mrc-toc__list a[aria-current="location"] {
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--mrc-eyebrow);
+  padding-inline-start: var(--space-3);
+}
+
+.section-dark .mrc-toc__list,
+.section-dark .mrc-toc__list a,
+.section-cta .mrc-toc__list,
+.section-cta .mrc-toc__list a {
+  border-color: var(--border-color-on-dark);
+}
+
+@media (min-width: 900px) {
+  .mrc-toc {
+    position: sticky;
+    top: var(--space-6);
+  }
+
+  .mrc-toc__summary {
+    display: none;
+  }
+
+  /* details[open] is the default in the partial; if a visitor closed it on a
+     narrow viewport and then widened, keep the list visible anyway. */
+  .mrc-toc__list {
+    display: block;
+  }
+}

@@ -1,0 +1,138 @@
+/**
+ * Tab selector (partials/tab-panel.hbs + assets/js/lib/tabs.js).
+ *
+ * Two valid renderings. Without JS the panels are a plain stack of headed sections —
+ * styled deliberately, not as a broken widget. With JS, `.mrc-tabs--enhanced` turns
+ * the stack into a vertical rail of tabs beside one visible panel.
+ */
+
+/* ---- Baseline: stacked sections, no JS ---- */
+.mrc-tabs__panel + .mrc-tabs__panel {
+  margin-block-start: var(--space-6);
+  padding-block-start: var(--space-6);
+  border-top: var(--border-width) var(--border-style) var(--border-color-subtle);
+}
+
+.mrc-tabs__panel-title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h3-size);
+  font-weight: 600;
+  color: currentcolor;
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-tabs__panel-body {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-soft);
+  margin: 0;
+  max-width: 60ch;
+}
+
+.mrc-tabs__panel-link {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-weight: 600;
+}
+
+/* ---- Enhanced: rail of tabs + one panel ---- */
+.mrc-tabs--enhanced .mrc-tabs__panel + .mrc-tabs__panel {
+  margin-block-start: 0;
+  padding-block-start: 0;
+  border-top: 0;
+}
+
+.mrc-tabs__list {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-2);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  margin-block-end: var(--space-5);
+
+  /* Fade the trailing edge so it reads as scrollable rather than truncated —
+     the same cue the component-library TOC uses. */
+  mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 2rem), transparent 100%);
+}
+
+.mrc-tabs__tab {
+  flex: 0 0 auto;
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  border-bottom: var(--border-width-thick) var(--border-style) transparent;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--mrc-text-soft);
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.mrc-tabs__tab:hover {
+  color: currentcolor;
+}
+
+.mrc-tabs__tab[aria-selected="true"] {
+  color: currentcolor;
+  border-bottom-color: var(--mrc-eyebrow);
+}
+
+.mrc-tabs__tab:focus-visible {
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-focus);
+  outline-offset: calc(var(--focus-ring-offset) * -1);
+}
+
+.mrc-tabs__panel:focus-visible {
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-focus);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Wide screens: the wireframes put the options in a left rail beside the panel. */
+@media (min-width: 900px) {
+  .mrc-tabs--enhanced {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .mrc-tabs__list {
+    flex-direction: column;
+    gap: 0;
+    overflow-x: visible;
+    margin-block-end: 0;
+    mask-image: none;
+    border-left: var(--border-width) var(--border-style) var(--border-color-subtle);
+  }
+
+  .mrc-tabs__tab {
+    width: 100%;
+    border-bottom: 0;
+    border-left: var(--border-width-thick) var(--border-style) transparent;
+    margin-left: calc(var(--border-width) * -1);
+  }
+
+  .mrc-tabs__tab[aria-selected="true"] {
+    border-left-color: var(--mrc-eyebrow);
+  }
+
+  .section-dark .mrc-tabs__list,
+  .section-cta .mrc-tabs__list {
+    border-left-color: var(--border-color-on-dark);
+  }
+}
+
+.section-dark .mrc-tabs__panel + .mrc-tabs__panel,
+.section-cta .mrc-tabs__panel + .mrc-tabs__panel {
+  border-top-color: var(--border-color-on-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mrc-tabs__tab {
+    transition: none;
+  }
+}

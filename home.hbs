@@ -1,56 +1,160 @@
 {{!< default}}
-{{! Homepage: colurs.md rhythm Cream → Paper → Olive → Maroon (work section deferred) }}
+{{! Homepage — conductor page from wireframe.
+    Copy: assets/wireframes/raw copy/home.md (skip testimonials). }}
 
 <main class="site-main mrc-home">
-  {{! 1. Cream }}
-  <section class="mrc-hero section-light gh-outer" aria-labelledby="mrc-hero-heading">
-    <div class="mrc-hero-inner gh-inner mrc-stack mrc-stack--l">
-      <h1 id="mrc-hero-heading" class="mrc-hero-headline">{{@custom.hero_headline}}</h1>
-      <p class="mrc-hero-subtext">{{@custom.hero_subtext}}</p>
-      <div class="mrc-hero-cta mrc-cluster mrc-cluster--center">
-        <a
-          href="/contact/"
-          class="button mrc-btn-primary"
-          data-ga-event="cta_click"
-          data-ga-category="engagement"
-          data-ga-label="home_hero_get_in_touch"
-        >Get in touch</a>
-        <a
-          href="/services/"
-          class="button mrc-btn-secondary"
-          data-ga-event="cta_click"
-          data-ga-category="engagement"
-          data-ga-label="home_hero_services"
-        >Services</a>
+  {{> "hero"
+    headline="Technology should work for your business, not the other way around"
+    subtext="I help Atlantic Canadian businesses, tourism operators, and community groups build websites and digital tools that actually make sense. No jargon, no bloated software—just practical, reliable systems that make your daily work easier."
+    primary_href="/case-studies/"
+    primary_text="Work"
+    secondary_href="/about/"
+    secondary_text="About"
+    ga_label_prefix="home_hero"
+  }}
+
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-home-audiences" id="audiences">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Audiences"
+        heading_id="mrc-home-audiences"
+        heading="Find where you fit"
+        intro="Every sector has its own digital realities. Find your space below to see how we can tackle your specific technical challenges."
+      }}
+      <div class="mrc-tabs" data-mrc-tabs data-mrc-tabs-label="Audiences">
+        <div class="mrc-tabs__panels">
+          {{> "tab-panel" id="home-tab-smb" label="Small businesses" title="For small businesses" body="Lean operations relying on interconnected tools for e-commerce, inventory, and customer communication without dedicated IT staff." href="/services/small-businesses/" link_text="Read more"}}
+          {{> "tab-panel" id="home-tab-tourism" label="Tourism" title="Tourism and hospitality" body="High-traffic operations dependent on real-time booking engines, property management systems, and third-party API integrations." href="/services/tourism-hospitality/" link_text="Read more"}}
+          {{> "tab-panel" id="home-tab-arts" label="Arts & community" title="Arts and community" body="Resource-constrained organizations managing complex stakeholder data, event ticketing, and donor management systems." href="/services/arts-culture-community/" link_text="Read more"}}
+          {{> "tab-panel" id="home-tab-orgs" label="Organizations" title="Organizations and institutions" body="Complex environments requiring strict accessibility compliance, robust data governance, and secure integration with legacy infrastructure." href="/services/organizations-institutions/" link_text="Read more"}}
+          {{> "tab-panel" id="home-tab-agencies" label="Agencies" title="Agencies and development teams" body="Technical teams managing complex deployments, requiring specialized architectural consultation, rigorous QA, or scalable engineering capacity." href="/services/agencies-development-teams/" link_text="Read more"}}
+        </div>
       </div>
     </div>
   </section>
 
-  {{! 2. Paper — What I do }}
-  <section class="mrc-section section-surface mrc-pillars-section gh-outer" aria-labelledby="mrc-pillars-title">
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-pillars-title">
     <div class="mrc-section-inner gh-inner">
-      <h2 id="mrc-pillars-title" class="mrc-section-title">What I do</h2>
+      {{> "section-header" heading_id="mrc-pillars-title" heading="What I do"}}
       <div class="mrc-pillars mrc-grid mrc-grid--auto mrc-grid--gap-l">
-        {{> "service-card" title="Websites that help people choose you" description="Clear, useful websites that make it easier for customers to understand your business, find what they need, and take the next step." link_url="https://mannyroy.com" link_text="Explore websites and web support"}}
-        {{> "service-card" title="Digital tools that make work easier" description="Booking systems, forms, spreadsheets, integrations, and practical improvements that reduce repetitive work and everyday frustration." link_url="https://mannyroy.com" link_text="Explore digital systems and technical support"}}
-        {{> "service-card" title="Clear advice when things feel complicated" description="Audits, planning, troubleshooting, and plain-language guidance to help you understand what is working, what is not, and what to do next." link_url="https://mannyroy.com" link_text="Explore consulting and strategy"}}
+        {{> "service-card" title="Websites built for real people" description="Fast, accessible, and clear websites that help your community find what they need and take the next step without friction." link_url="/services/#development" link_text="Explore websites and web support"}}
+        {{> "service-card" title="Systems that streamline your day" description="Smart integrations, booking platforms, and custom workflows that eliminate repetitive manual tasks and let you focus on your actual job." link_url="/services/#automation" link_text="Explore digital systems and technical support"}}
+        {{> "service-card" title="Honest, plain-spoken strategy" description="Technical audits, roadmaps, and straightforward advice to help you cut through the noise and figure out exactly what your business needs to grow." link_url="/services/#strategy" link_text="Explore consulting and strategy"}}
       </div>
     </div>
   </section>
 
-  {{! 3. Olive — How I work }}
-  <section class="mrc-section section-dark mrc-principles-section gh-outer" aria-labelledby="mrc-principles-title">
-    <div class="mrc-section-inner gh-inner">
-      <h2 id="mrc-principles-title" class="mrc-section-title">How I work</h2>
-      <div class="mrc-principles mrc-grid mrc-grid--auto mrc-grid--gap-l">
-        {{> "principle-item" title="Practical" body="The right solution fits your business, your capacity, and the way you actually work."}}
-        {{> "principle-item" title="Thoughtful" body="You will understand what is happening, why it matters, and what comes next."}}
-        {{> "principle-item" title="Collaborative" body="We work through decisions together, with your knowledge of the business guiding the process."}}
-        {{> "principle-item" title="Built to Last" body="Your website and tools should remain useful, manageable, and understandable after the project ends."}}
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-home-tech">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Toolkit"
+        heading_id="mrc-home-tech"
+        heading="Technologies I work with"
+        intro="I don't force a single platform on everyone. We choose the right tool for your specific business needs and budget."
+      }}
+      <div class="mrc-carousel-wrap" data-mrc-carousel>
+        <div class="mrc-carousel">
+          {{> "tech-card" simple_icon="wordpress" title="WordPress"}}
+          {{> "tech-card" simple_icon="react" simple_icon_2="nextdotjs" title="React / Next.js"}}
+          {{> "tech-card" simple_icon="cloudflare" title="Cloudflare"}}
+          {{> "tech-card" simple_icon="godaddy" title="GoDaddy"}}
+          {{> "tech-card" simple_icon="shopify" title="Shopify"}}
+          {{> "tech-card" simple_icon="gitlab" title="GitLab"}}
+          {{> "tech-card" simple_icon="webflow" title="Webflow"}}
+          {{> "tech-card" simple_icon="googleanalytics" title="Google Analytics 4"}}
+          {{> "tech-card" simple_icon="looker" title="Looker Studio"}}
+          {{> "tech-card" simple_icon="ghost" title="Ghost CMS"}}
+          {{> "tech-card" simple_icon="googlebigquery" title="BigQuery"}}
+          {{> "tech-card" simple_icon="supabase" title="Supabase"}}
+        </div>
+        <div class="mrc-carousel__controls">
+          <button type="button" class="mrc-carousel__btn" data-carousel-prev aria-label="Previous">{{> "icon" name="arrow-left"}}</button>
+          <button type="button" class="mrc-carousel__btn" data-carousel-next aria-label="Next">{{> "icon" name="arrow-right"}}</button>
+        </div>
       </div>
     </div>
   </section>
 
-  {{! 4. Maroon — Final CTA }}
-  {{> "cta-section" headline="Let's make tech work for you" subtext="Tell me what isn't working, what you're trying to improve, or what you've been putting off. We’ll figure out your next step together." button_text="Get in touch"}}
+  <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-home-outcomes">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Outcomes"
+        heading_id="mrc-home-outcomes"
+        heading="The impact of getting it right"
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" icon="chart" title="Insights that answer real questions" body="Your reports will highlight the exact metrics that drive your business forward."}}
+        {{> "feature-item" icon="accessibility" title="Welcoming to every visitor" body="Strip away unnecessary complexity and ensure your digital presence is usable by everyone."}}
+        {{> "feature-item" icon="key" title="Systems you control entirely" body="Empower your team to manage and update the site without relying on outside help."}}
+        {{> "feature-item" icon="gear" title="Fewer obstacles, better results" body="Eliminate the frustrating technical hurdles that quietly cost your business time and money."}}
+      </div>
+    </div>
+  </section>
+
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-home-about">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="About"
+        heading_id="mrc-home-about"
+        heading="A local partner for your digital growing pains"
+        intro="I'm Manny Roy. I partner with folks across Atlantic Canada to untangle their web presence. I believe local businesses deserve enterprise-grade reliability without the enterprise-level headaches. My job is to leave you with digital systems that are practical, resilient, and entirely yours."
+        action_href="/about/"
+        action_text="About"
+        action2_href="/contact/"
+        action2_text="Contact"
+      }}
+    </div>
+  </section>
+
+  {{> "cta-section"
+    headline="Not sure where to start?"
+    subtext="Reach out about the tool that's driving you crazy, and we'll figure out a plan to fix it."
+    button_text="Contact"
+    href="/contact/"
+  }}
+
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-home-work">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-home-work" heading="Stories from the local ecosystem" intro="Real, on-the-ground problems solved with practical tech and zero drama." link_href="/case-studies/" link_text="View all"}}
+      {{#get "posts" filter="tag:case-study" limit="1" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-home-resources">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Resources" heading_id="mrc-home-resources" heading="Field notes & guides" intro="Practical advice and technical insights to help you make informed decisions about your digital tools." link_href="/resources/" link_text="View all"}}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="1" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-home-partnership">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Partnership"
+        heading_id="mrc-home-partnership"
+        heading="You shouldn't need a computer science degree to run your business."
+        intro="I translate the technical details into plain English. You retain full ownership of your platforms, your data, and your budget. We only build what you can confidently manage."
+      }}
+      <div class="mrc-faq">
+        {{> "faq-item" group="home-partnership" open=true question="Plain explanations" answer="No jargon, no gatekeeping. You'll understand exactly how your systems work and be an active participant in choosing the tech that runs your business."}}
+        {{> "faq-item" group="home-partnership" question="Your keys" answer="You own the accounts, the code, and the content. I set it up, hand over the keys, and make sure you know how to drive."}}
+        {{> "faq-item" group="home-partnership" question="No lock-in" answer="I build things to last, not to keep you dependent on a retainer. You'll never be trapped by proprietary code only I can fix."}}
+      </div>
+    </div>
+  </section>
+
+  {{> "cta-section"
+    headline="Let's figure it out together"
+    subtext="Tell me what's slowing you down. If I can't fix it, I'll point you to someone local who can."
+    button_text="Contact"
+    href="/contact/"
+  }}
 </main>

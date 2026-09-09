@@ -4,7 +4,7 @@
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.02em;
-  transition: opacity 0.2s ease, border-color 0.2s ease;
+  transition: opacity var(--duration-base) ease, border-color var(--duration-base) ease;
 }
 
 .gh-head-logo:hover {
@@ -25,8 +25,8 @@
 }
 
 .gh-head-logo:focus-visible {
-  outline: 2px solid var(--mrc-surface);
-  outline-offset: 3px;
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-surface);
+  outline-offset: var(--focus-ring-offset);
 }
 
 /* "Manny Roy" — heavier, tighter tracking (reads as mark) */
@@ -62,11 +62,11 @@
   height: 0.4rem;
   margin-left: 0.4em;
   margin-bottom: 0.15em;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
+  border-right: var(--border-width-thick) solid currentColor;
+  border-bottom: var(--border-width-thick) solid currentColor;
   transform: rotate(45deg);
   vertical-align: middle;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition: transform var(--duration-fast) ease, opacity var(--duration-fast) ease;
   opacity: 0.9;
 }
 
@@ -87,7 +87,7 @@
   padding: 0;
   margin: 0;
   border: 0;
-  border-radius: 3px;
+  border-radius: var(--radius-s);
   background: transparent;
   cursor: pointer;
   transform: translateY(calc(-50% - 1px));
@@ -105,8 +105,8 @@
 }
 
 .mrc-nav-services__toggle:focus-visible {
-  outline: 2px solid var(--mrc-mustard);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-mustard);
+  outline-offset: var(--focus-ring-offset);
 }
 
 .mrc-nav-services__toggle-label {
@@ -127,8 +127,8 @@
   padding: var(--space-2) 0;
   min-width: 16rem;
   background: var(--mrc-olive);
-  border: 1px solid rgb(250 246 240 / 18%);
-  border-radius: 4px;
+  border: var(--border-width) var(--border-style) var(--border-color-on-dark);
+  border-radius: var(--radius-m);
   box-shadow: 0 8px 24px rgb(42 38 26 / 22%);
   z-index: var(--z-dropdown);
 }

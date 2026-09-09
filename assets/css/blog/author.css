@@ -11,7 +11,7 @@
     width: 70px;
     margin-bottom: var(--space-6);
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
 }
 
 .author-name {
@@ -43,7 +43,7 @@
 .author-list .author-image-placeholder {
     width: 54px;
     margin: 0 calc(-1 * var(--space-1));
-    border: 2px solid var(--white-color);
+    border: var(--border-width-thick) var(--border-style) var(--white-color);
 }
 
 .author-list .author-image-placeholder:first-child {

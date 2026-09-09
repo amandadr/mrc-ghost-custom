@@ -1,4 +1,19 @@
-{{! Anchor section: dark background (Olive/Maroon), Cream text. Heading + body paragraphs or list. }}
+{{!-- Anchor section — a dark statement band (Olive/Maroon) carrying the page's
+      conviction rather than its information. Reads as a pause between content
+      sections, so it stays narrow, quiet, and text-only.
+
+      Params:
+        section_class  tone suffix: "dark" | "cta"
+        section_id     anchor id
+        heading        required
+        heading_id     required — target of aria-labelledby
+        p1–p4          statements
+        list           true → render the dashed item list
+        item_1–item_5  list items
+        accent_1       emphasised statement closing the first block
+        divider        true → mustard rule between the blocks
+        after_1–after_3  statements below the divider
+        accent_2       emphasised closing statement --}}
 <section class="mrc-anchor section-{{section_class}} gh-outer" {{#if section_id}}id="{{section_id}}"{{/if}} aria-labelledby="{{heading_id}}">
   <div class="mrc-anchor-inner gh-inner">
     <h2 id="{{heading_id}}" class="mrc-anchor-title">{{heading}}</h2>
@@ -6,7 +21,6 @@
     {{#if p2}}<p class="mrc-anchor-p">{{p2}}</p>{{/if}}
     {{#if p3}}<p class="mrc-anchor-p">{{p3}}</p>{{/if}}
     {{#if p4}}<p class="mrc-anchor-p">{{p4}}</p>{{/if}}
-    {{#if p5}}<p class="mrc-anchor-p">{{p5}}</p>{{/if}}
     {{#if list}}
     <ul class="mrc-anchor-list">
       {{#if item_1}}<li>{{item_1}}</li>{{/if}}
@@ -16,6 +30,11 @@
       {{#if item_5}}<li>{{item_5}}</li>{{/if}}
     </ul>
     {{/if}}
-    {{#if p_after_1}}<p class="mrc-anchor-p">{{p_after_1}}</p>{{/if}}
+    {{#if accent_1}}<p class="mrc-anchor-p mrc-anchor-p--accent">{{accent_1}}</p>{{/if}}
+    {{#if divider}}<hr class="mrc-anchor-divider" aria-hidden="true">{{/if}}
+    {{#if after_1}}<p class="mrc-anchor-p">{{after_1}}</p>{{/if}}
+    {{#if after_2}}<p class="mrc-anchor-p">{{after_2}}</p>{{/if}}
+    {{#if after_3}}<p class="mrc-anchor-p">{{after_3}}</p>{{/if}}
+    {{#if accent_2}}<p class="mrc-anchor-p mrc-anchor-p--accent">{{accent_2}}</p>{{/if}}
   </div>
 </section>

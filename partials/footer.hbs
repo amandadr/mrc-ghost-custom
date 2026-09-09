@@ -1,11 +1,44 @@
 <footer class="gh-foot mrc-foot gh-outer">
-  <div class="mrc-foot-inner gh-inner mrc-stack mrc-stack--l">
-    <nav class="mrc-foot-nav" aria-label="Footer">
-      {{navigation type="secondary"}}
-    </nav>
-    <div class="mrc-foot-main">
+  <div class="mrc-foot-inner gh-inner">
+    {{#if @custom.footer_bio}}
       <p class="mrc-foot-bio">{{@custom.footer_bio}}</p>
+    {{/if}}
+
+    <div class="mrc-foot-navs">
+      <nav class="mrc-foot-col" aria-labelledby="mrc-foot-explore">
+        <h2 id="mrc-foot-explore" class="mrc-foot-heading">Explore</h2>
+        <ul class="mrc-foot-list">
+          <li><a href="{{@site.url}}/about/">About</a></li>
+          <li><a href="{{@site.url}}/services/">Services</a></li>
+          <li><a href="{{@site.url}}/case-studies/">Work</a></li>
+          <li><a href="{{@site.url}}/resources/">Resources</a></li>
+          <li><a href="{{@site.url}}/contact/">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav class="mrc-foot-col" aria-labelledby="mrc-foot-audiences">
+        <h2 id="mrc-foot-audiences" class="mrc-foot-heading">Who I help</h2>
+        <ul class="mrc-foot-list">
+          <li><a href="{{@site.url}}/who-i-help/">Find your fit</a></li>
+          <li><a href="{{@site.url}}/services/small-businesses/">Small &amp; medium businesses</a></li>
+          <li><a href="{{@site.url}}/services/tourism-hospitality/">Tourism &amp; hospitality</a></li>
+          <li><a href="{{@site.url}}/services/arts-culture-community/">Arts, culture &amp; community</a></li>
+          <li><a href="{{@site.url}}/services/organizations-institutions/">Organizations &amp; institutions</a></li>
+          <li><a href="{{@site.url}}/services/agencies-development-teams/">Agencies &amp; development teams</a></li>
+        </ul>
+      </nav>
+
+      <nav class="mrc-foot-col" aria-labelledby="mrc-foot-library">
+        <h2 id="mrc-foot-library" class="mrc-foot-heading">Library</h2>
+        <ul class="mrc-foot-list">
+          <li><a href="{{@site.url}}/resources/">Resources</a></li>
+          <li><a href="{{@site.url}}/blog/">Writing</a></li>
+          <li><a href="{{@site.url}}/whitepapers/">Whitepapers</a></li>
+          <li><a href="{{@site.url}}/glossary/">Glossary</a></li>
+        </ul>
+      </nav>
     </div>
+
     <div class="mrc-foot-bottom">
       <span class="mrc-foot-copy">{{@site.title}} © {{date format="YYYY"}}</span>
     </div>

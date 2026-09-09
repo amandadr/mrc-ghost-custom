@@ -1,6 +1,6 @@
-{{! Final CTA — Maroon bg, Cream text, Mustard button + Ink (colurs.md) }}
-{{! Optional: href (defaults to /contact/), ga_event, ga_label, ga_audience, ga_page_section, secondary_href, secondary_text }}
-<section class="mrc-cta-section section-cta gh-outer">
+{{! Final CTA — Maroon bg (default) or Olive bg (if bg_class="section-dark"), Cream text, Mustard button + Ink }}
+{{! Optional: bg_class, href (defaults to /contact/), ga_event, ga_label, ga_audience, ga_page_section, secondary_href, secondary_text }}
+<section class="mrc-cta-section {{#if bg_class}}{{bg_class}}{{else}}section-cta{{/if}} gh-outer">
   <div class="mrc-cta-inner gh-inner mrc-stack mrc-stack--m">
     <h2 class="mrc-cta-headline">{{#if headline}}{{headline}}{{else}}Let's team up{{/if}}</h2>
     {{#if subtext}}

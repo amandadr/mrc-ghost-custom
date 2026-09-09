@@ -1,0 +1,39 @@
+{{!-- Media frame — the theme-wide photo ⇄ text-only switch.
+
+      The site is text-first: with no `img`, this renders nothing and the calling
+      component collapses to a single column. `placeholder` exists so the component
+      library can show the photo slot; it should never appear on a live page.
+
+      Params:
+        img             image URL — omit for the text-only rendering
+        theme_headshot  true → theme file assets/images/headshot.jpeg
+        img_alt         alt text; omitted means decorative (alt="" + aria-hidden)
+        shape           "round" | "portrait" | "landscape" | "square"
+        placeholder     true → bordered empty slot (component library only) --}}
+{{#if img}}
+  <figure class="mrc-media-frame{{#if shape}} mrc-media-frame--{{shape}}{{/if}}">
+    <img
+      class="mrc-media-frame__img"
+      src="{{img}}"
+      alt="{{#if img_alt}}{{img_alt}}{{/if}}"
+      {{#unless img_alt}}aria-hidden="true"{{/unless}}
+      loading="lazy"
+      decoding="async"
+    >
+  </figure>
+{{else if theme_headshot}}
+  <figure class="mrc-media-frame{{#if shape}} mrc-media-frame--{{shape}}{{/if}}">
+    <img
+      class="mrc-media-frame__img"
+      src="{{asset "images/headshot.jpeg"}}"
+      alt="{{#if img_alt}}{{img_alt}}{{/if}}"
+      {{#unless img_alt}}aria-hidden="true"{{/unless}}
+      loading="lazy"
+      decoding="async"
+    >
+  </figure>
+{{else if placeholder}}
+  <div class="mrc-media-frame mrc-media-frame--placeholder{{#if shape}} mrc-media-frame--{{shape}}{{/if}}" aria-hidden="true">
+    <span class="mrc-media-frame__note">Photo slot</span>
+  </div>
+{{/if}}

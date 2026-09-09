@@ -39,6 +39,8 @@ routes:
     data: page.core-web-vitals-collection
 
   # Audience service pages — route → HBS only (no Ghost Page / Admin template)
+  /who-i-help/:
+    template: who-i-help
   /services/small-businesses/:
     template: services-small-business
   /services/tourism-hospitality/:
@@ -49,6 +51,14 @@ routes:
     template: services-organizations-institutions
   /services/agencies-development-teams/:
     template: services-agencies-development-teams
+
+  # Resources hub — points at existing collections (blog, whitepapers, glossary, case studies)
+  /resources/:
+    template: page-resources
+
+  # Component library — live partial demos (not in primary nav; noindex)
+  /component-library/:
+    template: custom-component-library
 
 collections:
   /blog/:

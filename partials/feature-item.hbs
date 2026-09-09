@@ -1,0 +1,26 @@
+{{!-- Feature item — one cell of a feature grid: optional icon, title, body, optional link.
+      Text-first: the icon is opt-in so the default rendering stays typographic.
+
+      Place inside a `.mrc-feature-grid.mrc-grid` (see composition.css for column control).
+
+      Params:
+        icon       icon name, e.g. "chart" — see partials/icon.hbs; omit for text-only
+        title      required
+        body       supporting sentence
+        href       makes the item actionable
+        link_text  link label (defaults to "Learn more")
+        ga_label   analytics label for the link --}}
+<div class="mrc-feature">
+  {{#if icon}}
+    <div class="mrc-feature__icon">{{> "icon" name=icon}}</div>
+  {{/if}}
+  <h3 class="mrc-feature__title">{{title}}</h3>
+  {{#if body}}<p class="mrc-feature__body">{{body}}</p>{{/if}}
+  {{#if href}}
+    <a
+      class="mrc-feature__link"
+      href="{{href}}"
+      {{#if ga_label}}data-ga-event="nav_click" data-ga-category="engagement" data-ga-label="{{ga_label}}"{{/if}}
+    >{{#if link_text}}{{link_text}}{{else}}Learn more{{/if}}</a>
+  {{/if}}
+</div>

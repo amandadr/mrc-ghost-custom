@@ -23,7 +23,7 @@ html {
   --mrc-h2-size: clamp(1.75rem, 2.8vw + 0.9rem, 2.5rem);
   --mrc-h3-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.35rem);
   --mrc-lede-size: 1.125rem;
-  --mrc-small-size: 0.75rem;
+  --mrc-small-size: 0.875rem;  /* 14px — SOP floor for small / meta text */
 
   /* Spacing scale — SOP: 4, 8, 12, 16, 24, 32, 48, 64, 96 (no arbitrary values) */
   --space-1: 0.25rem;   /* 4px */
@@ -57,12 +57,38 @@ html {
   --bp-lg: 1024px;
   --bp-xl: 1280px;
 
-  /* Borders */
+  /* Borders — widths, radii, and semantic colours */
   --radius-s: 3px;
   --radius-m: 5px;
   --radius-l: 8px;
+  --radius-full: 999px;                              /* pills, avatars, circular chips */
   --border-width: 1px;
   --border-width-thick: 2px;
+  --border-width-accent: 4px;                        /* left-rail / callout accent */
+  --border-style: solid;
+  --border-color: var(--light-gray-color);           /* default UI borders / inputs */
+  --border-color-strong: var(--mid-gray-color);      /* emphasis / hover borders */
+  --border-color-subtle: rgb(42 38 26 / 14%);        /* soft card / divider edges on cream */
+  --border-color-on-dark: rgb(250 246 240 / 18%);    /* edges on Olive / Maroon surfaces */
+  --border-color-accent: var(--mrc-olive);           /* brand accent rule / left rail */
+
+  /* Media aspect ratios */
+  --aspect-square: 1 / 1;
+  --aspect-photo: 4 / 3;
+  --aspect-landscape: 16 / 9;
+  --aspect-portrait: 3 / 4;
+  --aspect-wide: 2 / 1;
+
+  /* Motion — durations + shared easing (basics.css also sets --animation-base) */
+  --duration-fast: 150ms;   /* hover colour / border / opacity */
+  --duration-base: 200ms;   /* transforms, menu, default UI */
+  --duration-slow: 300ms;   /* entrances / exits */
+  --ease-standard: ease-in-out;
+
+  /* Focus ring (colour via --mrc-focus in brand.css; override on dark sections) */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-style: solid;
 
   /* Z-index layers */
   --z-base: 0;
@@ -71,8 +97,8 @@ html {
   --z-modal: 300;
 
   /* Containers & gutters (SOP: fluid, generous) */
-  --mrc-container-width: 72ch;
-  --mrc-container-wide: 1100px;
+  --mrc-container-width: 72ch;                         /* alias of content/prose width */
+  --mrc-container-wide: 1100px;                        /* page / layout max width */
   --mrc-page-gutter: clamp(1.75rem, 5vw, 2.5rem);
 
 }
@@ -243,17 +269,30 @@ hr {
   line-height: var(--mrc-body-line);
 }
 
-/* Section heading — consistent style */
+/* Section heading — consistent style. Section-level H2, so it takes the same
+   space below as .mrc-engagement-title / .mrc-process-title, not the tighter
+   --mrc-heading-margin-below used for headings that sit directly on body copy. */
 .mrc-section-heading {
   font-family: var(--font-serif);
   font-size: var(--mrc-h2-size);
   font-weight: 600;
   line-height: 1.2;
   color: var(--mrc-text);
-  
+  margin: 0 0 var(--space-6);
 }
 
-/* Small / meta text — never below 14px */
+/* Inline code — shared theme sets an absolute `code { font-size: 15px }`, which
+   outsizes any small/meta sentence it sits in. Size and pad relative to context
+   so a code chip always matches the text around it. */
+code {
+  font-size: 0.9em;
+}
+
+:not(pre) > code {
+  padding: 0.15em 0.35em;
+}
+
+/* Small / meta text */
 .mrc-meta,
 small,
 .gh-content figcaption,

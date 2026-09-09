@@ -115,7 +115,7 @@
       },
       "footer_bio": {
         "type": "text",
-        "default": "Independent technical consultant. Systems, automation, applied AI. Souris, PEI."
+        "default": "Independent technical consultant. Souris, PEI."
       },
       "contact_email": {
         "type": "text",

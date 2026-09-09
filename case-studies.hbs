@@ -1,23 +1,66 @@
 {{!< default}}
+{{! Case Studies collection — /case-studies/
+    Copy: assets/wireframes/raw copy/case-studies.md }}
 
-<main class="site-main">
+<main class="site-main mrc-page mrc-page-case-studies">
+  {{! 1. Hero }}
+  {{> "hero"
+    headline="Work that made things work better"
+    subtext="Selected projects for Atlantic Canadian businesses, organizations, and agencies. Real constraints, practical builds, and systems the people who own them can actually run."
+    primary_href="/contact/"
+    primary_text="Contact"
+    secondary_href="/services/"
+    secondary_text="Services"
+    ga_label_prefix="case_studies_hero"
+  }}
 
-  <section class="mrc-archive mrc-archive--case-studies">
-    <div class="gh-canvas">
-      <header class="mrc-archive__header">
-        <h1 class="mrc-archive__title">Case studies</h1>
-        <p class="mrc-archive__subtitle">Read about real projects.<br>Browse the narrative first, then view the full PDF to learn more.</p>
-      </header>
+  {{! 2. Work }}
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-cs-list">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Work"
+        heading_id="mrc-cs-list"
+        heading="Selected projects and outcomes"
+        intro="Each write-up is a specific problem, the decision behind the build, and what improved afterward."
+      }}
+      {{#if posts}}
+        <div class="mrc-case-list">
+          {{#foreach posts}}
+            {{> "case-study-row"}}
+          {{/foreach}}
+        </div>
+      {{else}}
+        <p class="mrc-section-header__intro">Case studies will appear here as they are published.</p>
+      {{/if}}
+      {{pagination}}
     </div>
-
-    <div class="post-feed gh-feed gh-canvas">
-      {{#foreach posts}}
-        {{> "loop"}}
-      {{/foreach}}
-    </div>
-
-    {{pagination}}
   </section>
 
-</main>
+  {{! 3. Approach }}
+  <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-cs-approach">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Approach"
+        heading_id="mrc-cs-approach"
+        heading="What shows up in the work"
+        intro="These are not theoretical examples. The same principles run through every project, whether it was a tourism operator, a community organization, or an agency sprint."
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" icon="gear" title="Maintainability" body="Systems built to be understood and managed by the people who own them."}}
+        {{> "feature-item" icon="key" title="Independence" body="No unnecessary technology. You keep control of your platform and your data."}}
+        {{> "feature-item" icon="accessibility" title="Accessibility" body="Public-facing work that meets modern standards, not a retrofit after launch."}}
+        {{> "feature-item" icon="document" title="Clear handoff" body="Documentation and training so the next person on the team is not starting from zero."}}
+      </div>
+    </div>
+  </section>
 
+  {{! 4. Final CTA }}
+  {{> "cta-section"
+    headline="Have a similar problem in front of you?"
+    subtext="Start a conversation about your situation, or look at the services if you want to see how the work is scoped."
+    button_text="Contact"
+    href="/contact/"
+    secondary_href="/services/"
+    secondary_text="Services"
+  }}
+</main>

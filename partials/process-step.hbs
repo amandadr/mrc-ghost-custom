@@ -1,4 +1,6 @@
-{{! One process step: title + description, mustard line under }}
+{{! One process step: title + description, mustard line under.
+    Add `.mrc-process-grid--numbered` to the parent grid to number the sequence;
+    the numerals come from a CSS counter so the markup stays order-independent. }}
 <div class="mrc-process-step">
   <h3 class="mrc-process-step-title">{{title}}</h3>
   <p class="mrc-process-step-desc">{{desc}}</p>

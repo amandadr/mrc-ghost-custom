@@ -1,0 +1,45 @@
+{{!-- Section header — eyebrow + heading + intro + optional actions.
+      Renders an <h2>; nested headings should use their own markup.
+
+      Params:
+        eyebrow      small uppercase label above the heading
+        heading      required — the section title
+        heading_id   id for the section's aria-labelledby
+        intro        supporting paragraph below the heading
+        align        "center" to centre the block
+        width        "wide" to drop the 65ch measure
+        spacing      "tight" to reduce the gap below the header
+        layout       "split" to sit a link to the right of the heading (feed sections)
+        action_href / action_text            primary link, rendered as a button
+        action2_href / action2_text          secondary link, rendered as a button
+        link_href / link_text                plain text link — the "View all" case
+        ga_label     analytics label for the primary link --}}
+<div class="mrc-section-header{{#if align}} mrc-section-header--{{align}}{{/if}}{{#if width}} mrc-section-header--{{width}}{{/if}}{{#if spacing}} mrc-section-header--{{spacing}}{{/if}}{{#if layout}} mrc-section-header--{{layout}}{{/if}}">
+  <div class="mrc-section-header__text">
+    {{#if eyebrow}}<p class="mrc-eyebrow">{{eyebrow}}</p>{{/if}}
+    <h2{{#if heading_id}} id="{{heading_id}}"{{/if}} class="mrc-section-header__title">{{heading}}</h2>
+    {{#if intro}}<p class="mrc-section-header__intro">{{intro}}</p>{{/if}}
+  </div>
+  {{#if link_text}}
+    <p class="mrc-section-header__link">
+      <a
+        href="{{link_href}}"
+        {{#if ga_label}}data-ga-event="nav_click" data-ga-category="engagement" data-ga-label="{{ga_label}}"{{/if}}
+      >{{link_text}}</a>
+    </p>
+  {{/if}}
+  {{#if action_text}}
+    <div class="mrc-section-header__actions mrc-cluster">
+      <a
+        href="{{action_href}}"
+        class="button mrc-btn-primary"
+        data-ga-event="cta_click"
+        data-ga-category="engagement"
+        data-ga-label="{{#if ga_label}}{{ga_label}}{{else}}section_header_primary{{/if}}"
+      >{{action_text}}</a>
+      {{#if action2_text}}
+        <a href="{{action2_href}}" class="button mrc-btn-secondary">{{action2_text}}</a>
+      {{/if}}
+    </div>
+  {{/if}}
+</div>

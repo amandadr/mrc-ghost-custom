@@ -1,0 +1,87 @@
+/**
+ * Horizontal snap carousel — CSS-first.
+ *
+ * Trackpad, touch, and the native scrollbar all work with no JavaScript. A mask fade
+ * on the trailing edge is the same cue as the component-library TOC. assets/js/lib/
+ * carousel.js unhides prev/next buttons only when the track actually overflows.
+ */
+
+.mrc-carousel-wrap {
+  position: relative;
+}
+
+.mrc-carousel {
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding-block-end: var(--space-3);
+  mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 2rem), transparent 100%);
+}
+
+.mrc-carousel > * {
+  flex: 0 0 min(18rem, 85%);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .mrc-carousel > * {
+    flex-basis: calc((100% - (2 * var(--space-6))) / 3);
+  }
+}
+
+.mrc-carousel__controls {
+  display: none;
+  gap: var(--space-2);
+  margin-block-start: var(--space-4);
+}
+
+.mrc-carousel-wrap.is-scrollable .mrc-carousel__controls {
+  display: flex;
+}
+
+.mrc-carousel__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: var(--border-width-thick) var(--border-style) currentcolor;
+  background: transparent;
+  color: currentcolor;
+  cursor: pointer;
+}
+
+.mrc-carousel__btn:hover {
+  background-color: rgb(42 38 26 / 6%);
+}
+
+.mrc-carousel__btn:focus-visible {
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-focus);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.mrc-carousel__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.mrc-carousel__btn .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.section-dark .mrc-carousel__btn:hover,
+.section-cta .mrc-carousel__btn:hover {
+  background-color: rgb(250 246 240 / 10%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mrc-carousel {
+    scroll-snap-type: none;
+  }
+}

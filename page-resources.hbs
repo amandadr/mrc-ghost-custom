@@ -1,0 +1,115 @@
+{{!< default}}
+{{! Resources hub — /resources/ via routes.yaml (no Ghost Page).
+    Points at existing collections; does not replace them.
+    Copy: assets/wireframes/raw copy/resources.md + PEI strategy framing. }}
+{{#contentFor "title"}}Resources | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "body_class"}} mrc-route-resources{{/contentFor}}
+{{#contentFor "head"}}
+    <meta name="description" content="Practical guides, whitepapers, and writing for better digital work — a trusted local resource centre with strong technical depth.">
+    <meta property="og:title" content="Resources">
+    <meta property="og:description" content="Clear explanations and useful tools without the jargon.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{@site.url}}/resources/">
+    <link rel="canonical" href="{{@site.url}}/resources/">
+{{/contentFor}}
+
+<main class="site-main mrc-page mrc-page-resources">
+  {{> "hero"
+    headline="Practical guides for better work"
+    subtext="Clear explanations and useful tools without the jargon. A trusted local resource centre with strong technical depth behind it."
+    primary_href="/blog/"
+    primary_text="Writing"
+    secondary_href="/contact/"
+    secondary_text="Contact"
+    hide_secondary=false
+    ga_label_prefix="resources_hero"
+  }}
+
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-res-featured">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="Featured"
+        heading_id="mrc-res-featured"
+        heading="Start here"
+        intro="Latest writing and whitepapers. Pick what matches the question you have today."
+      }}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="4" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-split">
+            <div class="mrc-post-split__lead">
+              {{#foreach posts limit="1"}}{{> "post-card" heading="h2"}}{{/foreach}}
+            </div>
+            <div class="mrc-post-split__rest">
+              {{#foreach posts from="2"}}{{> "post-card"}}{{/foreach}}
+            </div>
+          </div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-res-latest">
+    <div class="gh-inner">
+      {{> "section-header" layout="split" eyebrow="Latest" heading_id="mrc-res-latest" heading="More from the library" link_href="/blog/" link_text="View all writing"}}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="6" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+            {{#foreach posts}}{{> "post-card"}}{{/foreach}}
+          </div>
+        {{/if}}
+      {{/get}}
+    </div>
+  </section>
+
+  <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-res-how">
+    <div class="gh-inner">
+      {{> "section-header"
+        eyebrow="How to use this"
+        heading_id="mrc-res-how"
+        heading="Start with the question, not the technology"
+        intro="These resources are organized around the problems you are trying to solve. Read what is useful. Ignore the rest."
+      }}
+      <div class="mrc-feature-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "feature-item" title="For owners" body="Start with the strategy and planning guides if you are not sure what you need."}}
+        {{> "feature-item" title="For teams" body="The checklists and templates work well for internal planning and vendor conversations."}}
+      </div>
+    </div>
+  </section>
+
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-res-collections">
+    <div class="gh-inner">
+      {{> "section-header"
+        heading_id="mrc-res-collections"
+        heading="Browse by collection"
+        intro="Existing libraries stay where they are. This hub points you to them."
+      }}
+      <div class="mrc-grid mrc-grid--auto mrc-grid--gap-l">
+        {{> "link-column"
+          heading="Writing"
+          intro="Articles and practical notes from the field."
+          href1="/blog/" text1="Blog archive"
+        }}
+        {{> "link-column"
+          heading="Whitepapers"
+          intro="Longer reads when you need more depth."
+          href1="/whitepapers/" text1="Whitepapers"
+        }}
+        {{> "link-column"
+          heading="Reference"
+          intro="Terms and case work when you want the definitions or the story."
+          href1="/glossary/" text1="Glossary"
+          href2="/case-studies/" text2="Case studies"
+        }}
+      </div>
+    </div>
+  </section>
+
+  {{> "cta-section"
+    headline="Have a question about your own website?"
+    subtext="I am happy to help point you in the right direction."
+    button_text="Contact"
+    href="/contact/"
+    secondary_href="/case-studies/"
+    secondary_text="Work"
+  }}
+</main>

@@ -1,6 +1,8 @@
 {{! Recognizable-problem card — lighter than project cards }}
 <article class="mrc-audience-challenge">
-  {{#if marker}}
+  {{#if icon}}
+    <span class="mrc-audience-challenge__marker mrc-audience-challenge__marker--icon" aria-hidden="true">{{> "icon" name=icon}}</span>
+  {{else if marker}}
     <span class="mrc-audience-challenge__marker" aria-hidden="true">{{marker}}</span>
   {{/if}}
   {{#if title}}

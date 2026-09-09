@@ -1,0 +1,44 @@
+/**
+ * Link column (partials/link-column.hbs) — a category heading and a stack of links.
+ * The text-only stand-in for Relume's bordered portfolio cards.
+ */
+
+.mrc-link-column {
+  padding-block-start: var(--space-5);
+  border-top: var(--border-width-thick) var(--border-style) var(--border-color-accent);
+}
+
+.mrc-link-column__title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h3-size);
+  font-weight: 600;
+  line-height: 1.25;
+  color: currentcolor;
+  margin: 0 0 var(--space-2);
+}
+
+.mrc-link-column__intro {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-soft);
+  margin: 0 0 var(--space-4);
+}
+
+.mrc-link-column__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mrc-link-column__list li + li {
+  margin-top: var(--space-2);
+}
+
+.mrc-link-column__list a {
+  font-weight: 600;
+}
+
+.section-dark .mrc-link-column,
+.section-cta .mrc-link-column {
+  border-top-color: var(--mrc-mustard);
+}

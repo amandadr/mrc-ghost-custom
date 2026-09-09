@@ -1,19 +1,29 @@
-{{! One service block: heading + olive accent, intro, "What this includes", "Ideal for" }}
+{{! One service block: heading + olive accent, intro, "What this includes", "Ideal for".
+    Params: slug, title, intro, tagline, include1–5, ideal, align,
+            img / img_alt / media_placeholder — media is optional and turns the block
+            into a split (see .mrc-service-section:has() in services.css). }}
 <section class="mrc-service-section{{#if align}} mrc-service-section-{{align}}{{/if}}" aria-labelledby="mrc-service-{{slug}}">
-  <h2 id="mrc-service-{{slug}}" class="mrc-service-section-title">{{title}}</h2>
-  <p class="mrc-service-section-intro">{{intro}}</p>
-  {{#if tagline}}
-    <p class="mrc-service-section-tagline">{{tagline}}</p>
-  {{/if}}
-  <div class="mrc-service-section-includes">
-    <h3 class="mrc-service-section-subhead">What this includes</h3>
-    <ul class="mrc-service-section-list">
-      {{#if include1}}<li>{{include1}}</li>{{/if}}
-      {{#if include2}}<li>{{include2}}</li>{{/if}}
-      {{#if include3}}<li>{{include3}}</li>{{/if}}
-      {{#if include4}}<li>{{include4}}</li>{{/if}}
-      {{#if include5}}<li>{{include5}}</li>{{/if}}
-    </ul>
+  <div class="mrc-service-section-body">
+    <h2 id="mrc-service-{{slug}}" class="mrc-service-section-title">{{title}}</h2>
+    <p class="mrc-service-section-intro">{{intro}}</p>
+    {{#if tagline}}
+      <p class="mrc-service-section-tagline">{{tagline}}</p>
+    {{/if}}
+    <div class="mrc-service-section-includes">
+      <h3 class="mrc-service-section-subhead">What this includes</h3>
+      <ul class="mrc-service-section-list">
+        {{#if include1}}<li>{{include1}}</li>{{/if}}
+        {{#if include2}}<li>{{include2}}</li>{{/if}}
+        {{#if include3}}<li>{{include3}}</li>{{/if}}
+        {{#if include4}}<li>{{include4}}</li>{{/if}}
+        {{#if include5}}<li>{{include5}}</li>{{/if}}
+      </ul>
+    </div>
+    <p class="mrc-service-section-ideal"><strong>Ideal for:</strong> {{ideal}}</p>
   </div>
-  <p class="mrc-service-section-ideal"><strong>Ideal for:</strong> {{ideal}}</p>
+  {{#if img}}
+    <div class="mrc-service-section-media">{{> "media-frame" img=img img_alt=img_alt shape="landscape"}}</div>
+  {{else if media_placeholder}}
+    <div class="mrc-service-section-media">{{> "media-frame" placeholder=true shape="landscape"}}</div>
+  {{/if}}
 </section>

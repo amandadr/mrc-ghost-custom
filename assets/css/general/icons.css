@@ -11,3 +11,12 @@ symbol {
     width: 26px;
     height: 26px;
 }
+
+/* Line icons (partials/icons/chart, gear, users, …) — stroke-based and sized to sit
+   above a heading in a feature grid, rather than inline at text size. */
+.icon-line {
+    width: 28px;
+    height: 28px;
+    stroke: currentcolor;
+    fill: none;
+}

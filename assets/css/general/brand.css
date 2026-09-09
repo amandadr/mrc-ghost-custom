@@ -29,13 +29,25 @@
 
   /* Interactive */
   --mrc-link: var(--mrc-maroon);
-  --mrc-focus: var(--mrc-maroon);
+  --mrc-link-hover: var(--mrc-text);
+  --mrc-focus: var(--mrc-maroon); /* focus ring colour; Paper on Olive/Maroon sections */
+
+  /* Tone-dependent text roles — components reference these instead of hard-coding
+     a colour, so the same component reads correctly on any section ground. */
+  --mrc-text-soft: var(--mrc-text-muted); /* secondary / intro copy */
+  --mrc-eyebrow: var(--mrc-olive);        /* small uppercase section labels */
 }
 
-/* Strong sections (footer, CTA): dark backgrounds */
-.theme-light .mrc-section-olive,
-.theme-light .mrc-section-maroon {
+/* Strong sections (footer, CTA): dark backgrounds need a Paper focus ring,
+   since the default maroon ring is invisible against olive and maroon. */
+.section-dark,
+.section-cta,
+.mrc-foot {
   --mrc-focus: var(--mrc-surface);
+  --mrc-text-soft: rgb(250 246 240 / 88%);
+  --mrc-eyebrow: var(--mrc-mustard);
+  --mrc-link: var(--mrc-surface);
+  --mrc-link-hover: var(--mrc-mustard);
 }
 
 /* Typography: IBM Plex Serif headlines, IBM Plex Sans body (docs/fonts.md) */
@@ -56,20 +68,23 @@ body {
   --ghost-accent-color: var(--mrc-maroon);
 }
 
-/* Links: maroon for contrast on cream/paper (WCAG AA) */
-a,
+/* Links: maroon for contrast on cream/paper (WCAG AA), re-pointed to Paper on the
+   dark tones above. Buttons are excluded — they own their own foreground, and the
+   maroon override was fighting every button variant. `:where()` keeps this at 0,0,1
+   so a component rule can still take the colour back. */
+a:where(:not(.button)),
 .gh-content a {
   color: var(--mrc-link) !important;
 }
 
-a:hover,
+a:where(:not(.button)):hover,
 .gh-content a:hover {
-  color: var(--mrc-text) !important;
+  color: var(--mrc-link-hover) !important;
 }
 
 a:focus-visible {
-  outline: 2px solid var(--mrc-focus);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid) var(--mrc-focus);
+  outline-offset: var(--focus-ring-offset, 2px);
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -1,0 +1,19 @@
+{{! Opens a component-library demo frame — pair with cl-frame-end }}
+<section class="mrc-cl-frame" id="{{id}}" data-cl-component="{{#if partial_name}}{{partial_name}}{{else}}{{id}}{{/if}}">
+  <header class="mrc-cl-frame__meta gh-outer">
+    <div class="mrc-cl-frame__meta-inner gh-inner">
+      <div class="mrc-cl-frame__heading-row">
+        <h2 class="mrc-cl-frame__title">{{title}}</h2>
+        {{#if status}}
+          <span class="mrc-cl-frame__status mrc-cl-frame__status--{{status}}">{{status}}</span>
+        {{/if}}
+      </div>
+      {{#if partial_name}}
+        <p class="mrc-cl-frame__partial"><code>partials/{{partial_name}}.hbs</code></p>
+      {{/if}}
+      {{#if notes}}
+        <p class="mrc-cl-frame__notes">{{notes}}</p>
+      {{/if}}
+    </div>
+  </header>
+  <div class="mrc-cl-frame__canvas">

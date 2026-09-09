@@ -59,6 +59,16 @@ Audience pages are **not** Ghost Pages and do **not** use the Admin template dro
 
 SEO title, description, and Open Graph tags live in the HBS `{{#contentFor}}` blocks. Upload the consolidated routes file ([routes-glossary.yaml](routes-glossary.yaml)) in **Settings → Labs → Routes**.
 
+### Component library (`/component-library/`)
+
+Live partial demos for design QA — mounted by the same routes file:
+
+| URL | Template |
+|-----|----------|
+| `/component-library/` | `custom-component-library.hbs` |
+
+Not in primary nav; page sets `noindex`. See `docs-site/docs/design-system/component-library.md` for adding demos.
+
 ---
 
 ## 3. Configure navigation
@@ -81,11 +91,9 @@ Services submenu is theme-built under the Services nav item (via `partials/navig
 
 Parent “Services” remains a direct link to `/services/`. Audience URLs other than Small & Medium Businesses will 404 until those pages are built.
 
-The header and footer both use this navigation (footer remains flat via `{{navigation}}`).
+The header uses this navigation. The footer is built in the theme (`partials/footer.hbs`) and lists Explore, Who I help (including audience URLs), and Library — it does not use Ghost’s secondary nav.
 
 ---
-
-## 4. Formspree setup (Contact form)
 
 The contact form submits to Formspree. Set it up once, then add your form URL to the theme settings.
 
@@ -135,7 +143,7 @@ In **Settings** → **Design** → **Theme settings**, configure:
 |------------------------|---------|
 | **Hero headline**      | Main headline on the homepage (e.g. “Untangle complex technical and operational problems.”) |
 | **Hero subtext**       | Subtext below the headline |
-| **Footer bio**         | Short bio in the footer (e.g. “Independent technical consultant. Systems, automation, applied AI. Souris, PEI.”) |
+| **Footer bio**         | Short bio in the footer (e.g. “Independent technical consultant. Souris, PEI.”) |
 | **Contact email**      | Email shown on the Contact page and used in the `mailto:` link |
 | **Contact form action**| Formspree URL (see step 5) |
 | **Navigation layout**  | Logo on the left (default), center, or stacked |

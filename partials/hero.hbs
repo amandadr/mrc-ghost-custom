@@ -1,28 +1,50 @@
-{{! Homepage hero: positioning clarity, small badge optional, CTAs }}
-<section class="mrc-hero gh-outer">
-  <div class="mrc-hero-inner gh-inner">
-    {{#if @custom.header_logo}}
-      <div class="mrc-hero-badge">
-        <img class="mrc-hero-badge-img" src="{{@custom.header_logo}}" alt="" aria-hidden="true">
-      </div>
-    {{/if}}
-    <h1 class="mrc-hero-headline">{{@custom.hero_headline}}</h1>
-    <p class="mrc-hero-subtext">{{@custom.hero_subtext}}</p>
-    <div class="mrc-hero-cta">
-      <a
-        href="/contact/"
-        class="button mrc-btn-primary"
-        data-ga-event="cta_click"
-        data-ga-category="engagement"
-        data-ga-label="hero_get_in_touch"
-      >Get in touch</a>
-      <a
-        href="/services/"
-        class="button button-secondary mrc-btn-secondary"
-        data-ga-event="cta_click"
-        data-ga-category="engagement"
-        data-ga-label="hero_services"
-      >Services</a>
+{{! Homepage / page hero — Cream section with headline, subtext, primary + optional secondary CTA }}
+{{! Params: eyebrow, headline, subtext, primary_href, primary_text, secondary_href, secondary_text, }}
+{{!         heading_id, show_badge, ga_label_prefix, hide_cta, hide_secondary, }}
+{{!         img, img_alt, media_placeholder — adding media switches the hero to a left-aligned split }}
+<section class="mrc-hero section-light gh-outer" aria-labelledby="{{#if heading_id}}{{heading_id}}{{else}}mrc-hero-heading{{/if}}">
+  <div class="mrc-hero-layout gh-inner">
+    <div class="mrc-hero-inner mrc-stack mrc-stack--l">
+      {{#if show_badge}}
+        {{#if @custom.header_logo}}
+          <div class="mrc-hero-badge">
+            <img class="mrc-hero-badge-img" src="{{@custom.header_logo}}" alt="" aria-hidden="true">
+          </div>
+        {{/if}}
+      {{/if}}
+      {{#if eyebrow}}<p class="mrc-eyebrow">{{eyebrow}}</p>{{/if}}
+      <h1 id="{{#if heading_id}}{{heading_id}}{{else}}mrc-hero-heading{{/if}}" class="mrc-hero-headline">{{#if headline}}{{headline}}{{else}}{{@custom.hero_headline}}{{/if}}</h1>
+      {{#if subtext}}
+        <p class="mrc-hero-subtext">{{subtext}}</p>
+      {{else if @custom.hero_subtext}}
+        <p class="mrc-hero-subtext">{{@custom.hero_subtext}}</p>
+      {{/if}}
+      {{#unless hide_cta}}
+        <div class="mrc-hero-cta mrc-cluster mrc-cluster--center">
+          <a
+            href="{{#if primary_href}}{{primary_href}}{{else}}{{@site.url}}/contact/{{/if}}"
+            class="button mrc-btn-primary"
+            data-ga-event="cta_click"
+            data-ga-category="engagement"
+            data-ga-label="{{#if ga_label_prefix}}{{ga_label_prefix}}_primary{{else}}hero_get_in_touch{{/if}}"
+          >{{#if primary_text}}{{primary_text}}{{else}}Get in touch{{/if}}</a>
+          {{#unless hide_secondary}}
+            <a
+              href="{{#if secondary_href}}{{secondary_href}}{{else}}{{@site.url}}/services/{{/if}}"
+              class="button mrc-btn-secondary"
+              data-ga-event="cta_click"
+              data-ga-category="engagement"
+              data-ga-label="{{#if ga_label_prefix}}{{ga_label_prefix}}_secondary{{else}}hero_services{{/if}}"
+            >{{#if secondary_text}}{{secondary_text}}{{else}}Services{{/if}}</a>
+          {{/unless}}
+        </div>
+      {{/unless}}
     </div>
+    {{! Media is optional. Its presence is what switches the layout — see .mrc-hero-layout:has(). }}
+    {{#if img}}
+      <div class="mrc-hero-media">{{> "media-frame" img=img img_alt=img_alt shape="landscape"}}</div>
+    {{else if media_placeholder}}
+      <div class="mrc-hero-media">{{> "media-frame" placeholder=true shape="landscape"}}</div>
+    {{/if}}
   </div>
 </section>

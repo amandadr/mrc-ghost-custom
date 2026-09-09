@@ -1,6 +1,6 @@
 /**
  * Contact page — calm, clear, low friction
- * Rhythm: Cream (Hero) → Paper (Options) → Cream (Form) → Olive (Expect) → Cream (Reassurance)
+ * Rhythm: Cream (Hero) → Paper (Direct line) → Cream (Form) → Olive (Expect) → Paper (Resources)
  */
 
 /* SOP: section padding (block only — horizontal from .gh-outer) */
@@ -113,8 +113,8 @@
   line-height: 1.45;
   color: var(--mrc-text);
   background: var(--mrc-surface);
-  border-left: 4px solid var(--mrc-olive);
-  border-radius: 0 4px 4px 0;
+  border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
 }
 
 .mrc-contact-form .mrc-form-field {
@@ -144,10 +144,10 @@
   font-family: var(--font-sans);
   color: var(--mrc-text);
   background-color: var(--mrc-surface);
-  border: 1px solid var(--light-gray-color);
-  border-radius: 4px;
+  border: var(--border-width) var(--border-style) var(--border-color);
+  border-radius: var(--radius-m);
   outline: none;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color var(--duration-fast) ease, box-shadow var(--duration-fast) ease;
 }
 
 @media (min-width: 768px) {
@@ -162,7 +162,7 @@
 .mrc-contact-form select:focus,
 .mrc-contact-form textarea:focus {
   border-color: var(--mrc-maroon);
-  box-shadow: 0 0 0 2px rgba(128, 64, 80, 0.25);
+  box-shadow: 0 0 0 var(--focus-ring-width) rgba(128, 64, 80, 0.25);
 }
 
 .mrc-contact-form input::placeholder,
@@ -194,10 +194,10 @@
   font-weight: 600;
   color: var(--mrc-surface);
   background-color: var(--mrc-maroon);
-  border: 2px solid var(--mrc-maroon);
-  border-radius: 4px;
+  border: var(--border-width-thick) var(--border-style) var(--mrc-maroon);
+  border-radius: var(--radius-m);
   cursor: pointer;
-  transition: opacity 0.15s ease;
+  transition: opacity var(--duration-fast) ease;
 }
 
 .mrc-contact-submit:hover {
@@ -205,8 +205,8 @@
 }
 
 .mrc-contact-submit:focus-visible {
-  outline: 2px solid var(--mrc-maroon);
-  outline-offset: 2px;
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-maroon);
+  outline-offset: var(--focus-ring-offset);
 }
 
 /* ---------- What to expect (Olive anchor) ---------- */
@@ -217,7 +217,7 @@
 }
 
 .mrc-contact-expect-inner {
-  max-width: min(65ch, 100%);
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -250,14 +250,13 @@
   margin-top: var(--space-2);
 }
 
-/* ---------- Reassurance (Cream) ---------- */
+/* ---------- Resources (Paper) ---------- */
 .mrc-contact-reassurance {
   padding-block: var(--mrc-contact-section-padding-block);
-  background-color: var(--mrc-bg);
 }
 
 .mrc-contact-reassurance-inner {
-  max-width: min(65ch, 100%);
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
 }

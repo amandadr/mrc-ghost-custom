@@ -52,7 +52,7 @@
   color: var(--mrc-text);
   margin: 0 0 var(--space-4);
   padding-left: var(--space-4);
-  border-left: 4px solid var(--mrc-olive);
+  border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
 }
 
 .mrc-service-section-intro {
@@ -127,6 +127,33 @@
   }
 }
 
+/* With media — the block becomes a split. The 10% inset above is a text-only
+   affordance, so it is dropped when a second column is doing that work. */
+@media (min-width: 900px) {
+  .mrc-service-section:has(.mrc-service-section-media) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .mrc-service-section-right:has(.mrc-service-section-media) :is(
+    .mrc-service-section-title,
+    .mrc-service-section-intro,
+    .mrc-service-section-tagline,
+    .mrc-service-section-includes,
+    .mrc-service-section-ideal
+  ) {
+    margin-left: 0;
+  }
+
+  /* Alternate the media to the other side on right-aligned blocks, which is what
+     gives the services page its A/B rhythm in the wireframes. */
+  .mrc-service-section-right:has(.mrc-service-section-media) .mrc-service-section-media {
+    order: -1;
+  }
+}
+
 /* ---------- Common projects (Cream, paper cards, 2×2) ---------- */
 .mrc-common-projects {
   padding-block: var(--mrc-section-padding-block);
@@ -174,8 +201,8 @@
   height: 100%;
   padding: var(--space-6);
   background-color: var(--mrc-surface);
-  border-radius: 4px;
-  border-left: 4px solid var(--mrc-olive);
+  border-radius: var(--radius-m);
+  border-left: var(--border-width-accent) var(--border-style) var(--border-color-accent);
 }
 
 .mrc-common-project-card-title {
@@ -278,7 +305,7 @@
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--mrc-surface);
+  color: currentcolor;
   margin: 0 0 var(--space-2);
 }
 
@@ -347,13 +374,33 @@
   font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--mrc-text);
+  color: currentcolor;
   margin: 0 0 var(--space-2);
 }
 
 .mrc-process-step-desc {
   font-size: 1rem;
-  color: var(--mrc-text-muted);
   line-height: 1.55;
   margin: 0;
+  opacity: 0.95;
+}
+
+/* Numbered variant — for "a clear path forward", where the steps are a sequence
+   rather than a set of parallel activities. */
+.mrc-process-grid--numbered {
+  counter-reset: mrc-step;
+}
+
+.mrc-process-grid--numbered .mrc-process-step {
+  counter-increment: mrc-step;
+}
+
+.mrc-process-grid--numbered .mrc-process-step::before {
+  content: counter(mrc-step, decimal-leading-zero);
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--mrc-eyebrow);
+  margin-bottom: var(--space-3);
 }

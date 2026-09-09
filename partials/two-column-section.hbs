@@ -1,6 +1,6 @@
 {{! Two-column section: left = heading + body (max 60ch); right = optional portrait/badge or placeholder for 60/40. }}
 <section class="mrc-two-col section-{{section_class}} gh-outer" {{#if section_id}}id="{{section_id}}"{{/if}} aria-labelledby="{{heading_id}}">
-  <div class="mrc-two-col-inner gh-inner{{#if right_img}} mrc-two-col-has-right mrc-split mrc-split--60-40{{/if}}{{#unless right_img}}{{#if right_placeholder}} mrc-two-col-has-right mrc-split mrc-split--60-40{{/if}}{{/unless}}">
+  <div class="mrc-two-col-inner gh-inner{{#if right_img}} mrc-two-col-has-right mrc-split mrc-split--60-40{{else if right_theme_headshot}} mrc-two-col-has-right mrc-split mrc-split--60-40{{else if right_placeholder}} mrc-two-col-has-right mrc-split mrc-split--60-40{{/if}}">
     <div class="mrc-two-col-left">
       <h2 id="{{heading_id}}" class="mrc-two-col-title">{{heading}}</h2>
       {{#if p1}}<p class="mrc-two-col-p">{{p1}}</p>{{/if}}
@@ -9,18 +9,19 @@
       {{#if p4}}<p class="mrc-two-col-p">{{p4}}</p>{{/if}}
       {{#if p5}}<p class="mrc-two-col-p">{{p5}}</p>{{/if}}
     </div>
+    {{! Right slot is a portrait slot by convention, so it always uses the round shape. }}
     {{#if right_img}}
     <div class="mrc-two-col-right">
-      {{#if right_img_alt}}
-        <img class="mrc-two-col-img mrc-two-col-img--headshot" src="{{right_img}}" alt="{{right_img_alt}}">
-      {{else}}
-        <img class="mrc-two-col-img mrc-two-col-img--headshot" src="{{right_img}}" alt="" aria-hidden="true">
-      {{/if}}
+      {{> "media-frame" img=right_img img_alt=right_img_alt shape="round"}}
     </div>
-    {{else}}
-    {{#if right_placeholder}}
-    <div class="mrc-two-col-right mrc-two-col-placeholder" aria-hidden="true"></div>
-    {{/if}}
+    {{else if right_theme_headshot}}
+    <div class="mrc-two-col-right">
+      {{> "media-frame" theme_headshot=true img_alt=right_img_alt shape="round"}}
+    </div>
+    {{else if right_placeholder}}
+    <div class="mrc-two-col-right">
+      {{> "media-frame" placeholder=true shape="round"}}
+    </div>
     {{/if}}
   </div>
 </section>

@@ -267,8 +267,17 @@
         }
 
         var help = document.getElementById('mrc-contact-help');
-        if (help && audience === 'small-business' && !help.value) {
-            help.value = 'General Inquiry';
+        if (help && !help.value) {
+            var helpDefaults = {
+                'small-business': 'Website or platform',
+                'tourism-hospitality': 'Systems and automation',
+                'arts-culture-community': 'Website or platform',
+                'organizations-institutions': 'Accessibility or audit',
+                'agencies-development-teams': 'Agency overflow'
+            };
+            if (helpDefaults[audience]) {
+                help.value = helpDefaults[audience];
+            }
         }
 
         track('contact_form_start', {

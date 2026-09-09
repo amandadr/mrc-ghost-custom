@@ -15,7 +15,7 @@
     color: var(--white-color);
     text-transform: uppercase;
     letter-spacing: 0.04rem;
-    border-radius: 3px;
+    border-radius: var(--radius-s);
 }
 
 .share-link .icon {

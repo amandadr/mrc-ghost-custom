@@ -1,0 +1,21 @@
+{{!-- Link column — a heading, optional intro, and a stack of links.
+
+      The text-only reading of the Relume portfolio block (Online presence / Bookings /
+      Operations): a category, then the related work. Place several inside a `.mrc-grid`.
+
+      Params:
+        heading    required
+        intro      optional supporting sentence
+        href1–6 / text1–6   each pair is one row; a href without text is skipped --}}
+<div class="mrc-link-column">
+  <h3 class="mrc-link-column__title">{{heading}}</h3>
+  {{#if intro}}<p class="mrc-link-column__intro">{{intro}}</p>{{/if}}
+  <ul class="mrc-link-column__list" role="list">
+    {{#if href1}}{{#if text1}}<li><a href="{{href1}}">{{text1}}</a></li>{{/if}}{{/if}}
+    {{#if href2}}{{#if text2}}<li><a href="{{href2}}">{{text2}}</a></li>{{/if}}{{/if}}
+    {{#if href3}}{{#if text3}}<li><a href="{{href3}}">{{text3}}</a></li>{{/if}}{{/if}}
+    {{#if href4}}{{#if text4}}<li><a href="{{href4}}">{{text4}}</a></li>{{/if}}{{/if}}
+    {{#if href5}}{{#if text5}}<li><a href="{{href5}}">{{text5}}</a></li>{{/if}}{{/if}}
+    {{#if href6}}{{#if text6}}<li><a href="{{href6}}">{{text6}}</a></li>{{/if}}{{/if}}
+  </ul>
+</div>

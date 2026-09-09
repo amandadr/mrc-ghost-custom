@@ -1,0 +1,22 @@
+{{!-- FAQ item — one question/answer pair.
+
+      Built on <details>, so it opens, closes, prints, and is keyboard accessible with
+      no JavaScript. Passing the same `group` to every item makes them mutually
+      exclusive in browsers that support it, and independent toggles everywhere else.
+
+      Place inside a `.mrc-faq` wrapper.
+
+      Params:
+        question  required
+        answer    required
+        group     shared name to make the set behave as one accordion
+        open      true to render this item expanded --}}
+<details class="mrc-faq__item"{{#if group}} name="{{group}}"{{/if}}{{#if open}} open{{/if}}>
+  <summary class="mrc-faq__question">
+    <span class="mrc-faq__question-text">{{question}}</span>
+    <span class="mrc-faq__marker" aria-hidden="true"></span>
+  </summary>
+  <div class="mrc-faq__answer">
+    <p>{{answer}}</p>
+  </div>
+</details>

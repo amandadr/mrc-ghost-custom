@@ -14,15 +14,26 @@ The theme builds in accessibility by default: contrast, focus, motion, and tap t
 
 ## Focus states
 
-- Visible focus outline on interactive elements (`.focus-visible` in `brand.css`).
-- On light backgrounds (Cream, Paper, Mustard): use Maroon for the ring.
-- On dark backgrounds (Olive, Maroon): use Paper (or Mustard on Olive) so the ring stays visible.
+Focus ring geometry is tokenised in `typography.css`; colour is `--mrc-focus` in `brand.css`.
 
-Never remove focus styles without replacing them with an equally visible treatment.
+| Token | Value |
+|-------|--------|
+| `--focus-ring-width` | 2px |
+| `--focus-ring-offset` | 2px |
+| `--focus-ring-style` | solid |
+| `--mrc-focus` | Maroon on light backgrounds; Paper on Olive/Maroon sections |
+
+Interactive elements use `:focus-visible` with these tokens (see `brand.css`, header, forms, CTAs). Never remove focus styles without replacing them with an equally visible treatment.
 
 ## Reduced motion
 
-The theme respects `prefers-reduced-motion` in `animations.css`: animations and transitions are shortened or disabled when the user prefers reduced motion. Use the same pattern for any new motion.
+`assets/css/misc/animations.css` applies a **sitewide** `prefers-reduced-motion: reduce` policy:
+
+- Animation and transition durations collapse to ~0ms
+- Animation iteration count is forced to 1
+- `scroll-behavior` becomes `auto`
+
+When the user prefers reduced motion, UI still changes state (colour, visibility) but without tweened motion. Use duration tokens (`--duration-fast` / `--base` / `--slow`) for new transitions so the global reduce rule covers them.
 
 ## Tap targets
 
@@ -30,21 +41,19 @@ Interactive elements (buttons, links, form controls) should have a minimum **44p
 
 ## Typography and zoom
 
-- Minimum 16px body text; content remains readable at **200% zoom**.
-- Line length is constrained (72ch) so text doesn’t stretch across wide viewports.
+- Minimum **16px** body text; content remains readable at **200% zoom**.
+- Line length is constrained (**72ch**) so text doesn’t stretch across wide viewports.
 - Form inputs are at least 16px to avoid iOS zoom on focus.
 
 ## Semantic HTML and ARIA
 
 - Use semantic elements (`<header>`, `<nav>`, `<main>`, `<article>`, `<footer>`) so structure is clear to assistive tech.
-- Add ARIA only when needed (e.g. live regions, expanded/collapsed for menus). Don’t overuse ARIA where native HTML is sufficient (e.g. buttons, links, headings).
-
-Accessibility is treated as part of design quality — it’s structural, not an add-on.
+- Add ARIA only when needed (e.g. live regions, expanded/collapsed for menus). Don’t overuse ARIA where native HTML is sufficient.
 
 ## Accessibility checklist (quick verification)
 
 - **Keyboard navigation:** Use `Tab`/`Shift+Tab` and confirm the focus ring is visible on the navbar links and the homepage hero CTA.
 - **Focus order:** The tab sequence should follow reading order (navbar first, then main content, then footer) without “focus traps”.
 - **Reduced motion:** Verify animations respect `prefers-reduced-motion` (no unexpected motion on load).
-- **Contrast:** Ensure text and interactive controls maintain readable contrast in both light and dark sections (see `Colours` for approved pairs).
+- **Contrast:** Ensure text and interactive controls maintain readable contrast in both light and dark sections (see [Colours](./colours)).
 - **Tap targets:** On mobile widths, check that primary buttons and links are at least ~44px and that adjacent actions don’t overlap.

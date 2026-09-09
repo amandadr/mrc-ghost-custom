@@ -1,0 +1,99 @@
+/**
+ * Section header — eyebrow + heading + intro + optional actions.
+ *
+ * Page-agnostic replacement for the per-page title/intro pairs that had grown up
+ * separately in home-critical, audience, about, contact, and services CSS. Colours
+ * resolve from the section tone (see .section-* in home-critical.css), so one header
+ * reads correctly on Cream, Paper, Olive, and Maroon without an override.
+ */
+
+/* Small uppercase label above a heading. Standalone so heroes and cards can use it
+   without the full header block. */
+.mrc-eyebrow {
+  margin: 0 0 var(--space-3);
+  font-size: var(--mrc-small-size);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--mrc-eyebrow);
+}
+
+.mrc-section-header {
+  max-width: 65ch;
+  margin-block-end: var(--space-7);
+}
+
+.mrc-section-header__title {
+  font-family: var(--font-serif);
+  font-size: var(--mrc-h2-size);
+  font-weight: 600;
+  line-height: 1.2;
+  color: currentcolor;
+  margin: 0;
+}
+
+.mrc-section-header__intro {
+  font-size: 1rem;
+  line-height: var(--mrc-body-line);
+  color: var(--mrc-text-soft);
+  margin: var(--mrc-heading-margin-below) 0 0;
+}
+
+.mrc-section-header__actions {
+  margin-block-start: var(--space-5);
+}
+
+.mrc-section-header__link {
+  margin: var(--space-4) 0 0;
+  font-weight: 600;
+}
+
+/* Split — heading left, a plain link right. The feed sections in the wireframes
+   ("Latest writing … View all") all take this shape; a button would shout. */
+.mrc-section-header--split {
+  max-width: none;
+}
+
+.mrc-section-header--split .mrc-section-header__text {
+  max-width: 65ch;
+}
+
+@media (min-width: 768px) {
+  .mrc-section-header--split {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .mrc-section-header--split .mrc-section-header__link {
+    margin: 0;
+    flex: 0 0 auto;
+  }
+}
+
+/* Centred — used by the home page bands. Constrains and centres the intro too. */
+.mrc-section-header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.mrc-section-header--center .mrc-section-header__actions {
+  justify-content: center;
+}
+
+/* Full-bleed header above a wide grid, where 65ch would look arbitrarily narrow. */
+.mrc-section-header--wide {
+  max-width: none;
+}
+
+/* Header sits directly on its content (cards immediately below). */
+.mrc-section-header--tight {
+  margin-block-end: var(--space-5);
+}
+
+@media (max-width: 767px) {
+  .mrc-section-header {
+    margin-block-end: var(--space-6);
+  }
+}

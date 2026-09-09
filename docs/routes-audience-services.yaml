@@ -8,6 +8,8 @@
 #
 
 routes:
+  /who-i-help/:
+    template: who-i-help
   /services/small-businesses/:
     template: services-small-business
   /services/tourism-hospitality/:
@@ -18,3 +20,5 @@ routes:
     template: services-organizations-institutions
   /services/agencies-development-teams/:
     template: services-agencies-development-teams
+  /resources/:
+    template: page-resources

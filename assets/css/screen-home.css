@@ -6,13 +6,16 @@
 @import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
 @import "general/fonts.css";
 @import "general/basics.css";
+/* Page scaffolding before components — see screen.css. */
+@import "site/layout.css";
 @import "general/brand.css";
 @import "general/typography.css";
 @import "general/composition.css";
 @import "general/button.css";
 @import "general/form.css";
 @import "general/icons.css";
-@import "site/layout.css";
+@import "general/section-header.css";
+@import "general/feature.css";
 @import "site/header.css";
 @import "site/home-critical.css";
 @import "misc/utils.css";
