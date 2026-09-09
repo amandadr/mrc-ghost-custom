@@ -76,16 +76,7 @@
   opacity: 0.6;
 }
 
-/* ---------- Section titles ---------- */
-.mrc-ghost-section-title {
-  font-family: var(--font-serif);
-  font-size: var(--mrc-h2-size, 1.5rem);
-  font-weight: 600;
-  color: var(--mrc-text);
-  margin: 0 0 var(--space-3);
-  text-align: center;
-}
-
+/* ---------- Section titles (prefer section-header; lede helpers remain for legacy spacing) ---------- */
 .mrc-ghost-matrix-lede,
 .mrc-ghost-links-lede {
   font-size: 1rem;
@@ -103,15 +94,6 @@
   margin: 0 auto var(--space-6);
   max-width: min(62ch, 100%);
   text-align: center;
-}
-
-.mrc-ghost-highlights .mrc-ghost-section-title,
-.section-dark .mrc-ghost-section-title {
-  color: var(--mrc-surface);
-}
-
-.mrc-ghost-highlights .mrc-ghost-section-title {
-  margin-bottom: var(--space-3);
 }
 
 /* ---------- Responsibility matrix (Paper) ---------- */

@@ -147,14 +147,6 @@
   margin-right: auto;
 }
 
-.mrc-about-section-title {
-  font-family: var(--font-serif);
-  font-size: var(--mrc-h2-size);
-  font-weight: 600;
-  color: var(--mrc-text);
-  margin: 0 0 var(--space-7);
-}
-
 /* .mrc-about-cards uses .mrc-grid .mrc-grid--auto (composition) */
 .mrc-about-cards {
   --mrc-grid-min: 280px;
@@ -226,10 +218,6 @@
   margin-right: auto;
 }
 
-.mrc-about-beyond .mrc-about-section-title {
-  margin: 0 0 var(--space-5);
-}
-
 .mrc-about-prose-p {
   font-size: 1rem;
   line-height: var(--mrc-body-line);
@@ -250,15 +238,6 @@
   .mrc-page-about .mrc-cta-section {
     padding-block: var(--mrc-about-cta-padding-block-mobile);
   }
-}
-
-/* ---------- H2 spacing contrast (margin above) sitewide on About ---------- */
-.mrc-page-about .mrc-about-section-title {
-  margin-top: 0;
-}
-
-.mrc-page-about .mrc-about-beyond .mrc-about-section-title {
-  margin-top: 0;
 }
 
 /* ---------- Page wrapper: no bottom padding so CTA meets footer ---------- */

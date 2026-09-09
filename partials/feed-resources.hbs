@@ -1,0 +1,29 @@
+{{!-- Shared resources / blog feed band (excludes case studies and glossary).
+      Params: section_class (default section-light), heading_id, heading, intro,
+              eyebrow, limit ("1" or "3"), link_href, link_text --}}
+<section class="mrc-section {{#if section_class}}{{section_class}}{{else}}section-light{{/if}} gh-outer" aria-labelledby="{{heading_id}}">
+  <div class="gh-inner">
+    {{> "section-header"
+      layout="split"
+      eyebrow=eyebrow
+      heading_id=heading_id
+      heading=heading
+      intro=intro
+      link_href=link_href
+      link_text=link_text
+    }}
+    {{#match limit "=" "1"}}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="1" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    {{else}}
+      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
+        {{#if posts}}
+          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
+        {{/if}}
+      {{/get}}
+    {{/match}}
+  </div>
+</section>

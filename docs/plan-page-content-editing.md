@@ -1,11 +1,13 @@
 # Plan: Page Content Editing System
 
+> **Status: Living** — decision record: section-based templates and the Ghost ~20 custom-setting limit.
+
 **Goal:** Make page text editable in the Ghost admin (web app) so that body content in Ghost controls what appears on the site, without redeploying the theme.
 
 **Status:** Section-based templates (copy in theme files)  
 **Last updated:** 2025-03-12
 
-**Implementation note:** The **section-based** approach is in use: About, Services, Contact, and Thanks use fixed section layout (hero, two-column, cards, Olive block, CTA) with copy **in the template files** (`.hbs`). Editing = edit the theme. We cannot use **theme custom settings** for every section because Ghost allows only **20** custom settings total; those are used for logo, nav, homepage, contact, Ghost application page. See [page-copy-for-editor.md](page-copy-for-editor.md).
+**Implementation note:** The **section-based** approach is in use: About, Services, Contact, Thanks, Who I Help, Resources, and audience pages use fixed section layout with copy **in the template files** (`.hbs`). Editing = edit the theme. We cannot use **theme custom settings** for every section because Ghost allows only **20** custom settings total; those are used for logo, nav, homepage, contact, Ghost application page. See [page-copy-for-editor.md](page-copy-for-editor.md).
 
 ---
 

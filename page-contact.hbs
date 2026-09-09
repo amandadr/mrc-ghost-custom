@@ -43,7 +43,7 @@
         intro="Typical response time is 1-2 business days."
       }}
       <p id="mrc-contact-audience-note" class="mrc-contact-audience-note" hidden></p>
-      <form class="mrc-contact-form" data-ga-form="contact_form" action="{{#if @custom.contact_form_action}}{{@custom.contact_form_action}}{{else}}https://formspree.io/f/YOUR_FORM_ID{{/if}}" method="POST" novalidate>
+      <form class="mrc-contact-form" data-ga-form="contact_form" action="{{#if @custom.contact_form_action}}{{@custom.contact_form_action}}{{else}}https://formspree.io/f/YOUR_FORM_ID{{/if}}" method="POST">
         <input type="hidden" name="_subject" value="Contact form submission from mannyroy.com">
         <input type="hidden" name="_next" value="{{@site.url}}/thanks/">
         <input type="hidden" name="audience" value="">
@@ -61,7 +61,7 @@
         </div>
         <div class="mrc-form-field">
           <label for="mrc-contact-help">How can I help? <span class="mrc-form-optional">(optional)</span></label>
-          <select id="mrc-contact-help" name="how_can_i_help" aria-label="How can I help?">
+          <select id="mrc-contact-help" name="how_can_i_help">
             <option value="">—</option>
             <option value="Website or platform">Website or platform</option>
             <option value="Systems and automation">Systems and automation</option>

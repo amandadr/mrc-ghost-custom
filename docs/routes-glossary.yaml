@@ -1,5 +1,7 @@
 # Routes: custom homepage (/) + blog archive at /blog/ + resources collections + glossary + audience services
 #
+# Status: Living — production Labs routes (upload this file).
+#
 # Apply in Ghost Admin:
 # Settings → Labs → Routes → Upload this YAML
 #

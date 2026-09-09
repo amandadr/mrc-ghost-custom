@@ -1,5 +1,7 @@
 # Setting up this theme on Ghost.org
 
+> **Status: Setup** — update when production Ghost.org procedures or routes change.
+
 This guide walks through configuring the Manny Roy Consulting theme on a Ghost.org hosted site. Follow these steps after signing up and creating your Ghost site.
 
 ---

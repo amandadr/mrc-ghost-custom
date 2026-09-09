@@ -53,5 +53,6 @@ Push to the connected branch; Netlify will build and publish automatically. The 
 
 ## Content
 
-- Edit docs in `docs/`. Sidebar order follows `sidebar_position` and folder structure; categories use `_category_.json`.
-- Stub sections: Architecture, Performance, Operations, AI assistant, Reference. Replace placeholders with real content from the repo `docs/` (e.g. cube-css-structure, site-opportunities-improvement) as needed.
+- Edit docs in **`docs-site/docs/`** (not the repo-root `docs/` folder). Root `docs/` is CMS/ops and living theme notes; see [`docs/README.md`](../docs/README.md).
+- Sidebar is defined in [`sidebars.ts`](sidebars.ts). Nested design-system and templates pages are listed there explicitly.
+- When you rename a partial or change a route, update architecture anatomy and Ghost setup docs in the same change.

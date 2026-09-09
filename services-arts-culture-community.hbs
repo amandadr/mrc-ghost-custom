@@ -20,25 +20,22 @@
   </div>
 
   {{! 1. Hero }}
-  <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
-    <div class="mrc-audience-hero__inner gh-inner">
-      <div class="mrc-audience-hero__content">
-        <p class="mrc-audience-hero__eyebrow">Arts, culture &amp; community</p>
-        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Spend less time chasing funding, and more time creating impact.</h1>
-        <p class="mrc-audience-hero__lead">The funding landscape in Atlantic Canada is tougher than ever. You need a platform that drives independent revenue, proves your impact to grant juries, and is easy enough for your volunteers to run.</p>
-        <div class="mrc-audience-hero__actions mrc-cluster">
-          <a href="{{@site.url}}/case-studies/" class="button mrc-btn-primary" data-ga-event="audience_primary_cta_click" data-ga-category="engagement" data-ga-label="Work" data-ga-audience="arts_culture_community" data-ga-page-section="hero">Work</a>
-          <a href="{{@site.url}}/contact/?audience=arts-culture-community" class="button mrc-btn-secondary" data-ga-event="audience_secondary_cta_click" data-ga-category="engagement" data-ga-label="Contact" data-ga-audience="arts_culture_community" data-ga-page-section="hero">Contact</a>
-        </div>
-      </div>
-      {{> "audience-fit-card"
-        heading="The new reality for non-profits"
-        item1="Fierce competition for limited provincial grants"
-        item2="Relying on a rotating cast of volunteers"
-        item3="The need to diversify revenue through tickets and donors"
-      }}
-    </div>
-  </section>
+  {{> "audience-hero"
+    eyebrow="Arts, culture &amp; community"
+    title="Spend less time chasing funding, and more time creating impact."
+    lead="The funding landscape in Atlantic Canada is tougher than ever. You need a platform that drives independent revenue, proves your impact to grant juries, and is easy enough for your volunteers to run."
+    primary_href="/case-studies/"
+    primary_text="Work"
+    secondary_href="/contact/?audience=arts-culture-community"
+    secondary_text="Contact"
+    ga_audience="arts_culture_community"
+    ga_label_primary="Work"
+    ga_label_secondary="Contact"
+    fit_heading="The new reality for non-profits"
+    fit_item1="Fierce competition for limited provincial grants"
+    fit_item2="Relying on a rotating cast of volunteers"
+    fit_item3="The need to diversify revenue through tickets and donors"
+  }}
 
   {{! 2. Arts & Culture Today (Pain Points) }}
   <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-arts-reality">
@@ -91,16 +88,16 @@
   }}
 
   {{! 5. Work }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-arts-work">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-arts-work" heading="Proof in the community" intro="Real projects for organizations that needed their digital presence to do more." link_href="/case-studies/" link_text="View all"}}
-      {{#get "posts" filter="tag:case-study" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-work"
+    section_class="section-surface"
+    heading_id="mrc-arts-work"
+    eyebrow="Work"
+    heading="Proof in the community"
+    intro="Real projects for organizations that needed their digital presence to do more."
+    link_href="/case-studies/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 6. Process }}
   <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-arts-process">
@@ -121,16 +118,16 @@
   </section>
 
   {{! 7. Resources }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-arts-resources">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Guides" heading_id="mrc-arts-resources" heading="Practical reading for non-profits" intro="Useful guides written for busy executive directors and board members." link_href="/resources/" link_text="View all"}}
-      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-resources"
+    section_class="section-surface"
+    heading_id="mrc-arts-resources"
+    eyebrow="Guides"
+    heading="Practical reading for non-profits"
+    intro="Useful guides written for busy executive directors and board members."
+    link_href="/resources/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 8. Final CTA }}
   {{> "cta-section"
@@ -146,9 +143,9 @@
     ga_page_section="final_cta"
   }}
 
-  <section class="mrc-audience-nav section-light gh-outer">
+  <div class="mrc-audience-nav section-light gh-outer">
     <div class="mrc-audience-nav__inner gh-inner">
       {{> "audience-related-nav" omit="arts-culture-community" audience="arts_culture_community"}}
     </div>
-  </section>
+  </div>
 </main>

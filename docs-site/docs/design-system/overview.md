@@ -8,7 +8,7 @@ The theme uses a **design system** so layout, colour, typography, and spacing st
 
 - **Design tokens** — Spacing, typography, colours, breakpoints, and z-index live as CSS custom properties. Use them everywhere; avoid magic numbers.
 - **CUBE CSS** — Layers are applied in order: Global → Composition → Utilities → Blocks → Exceptions. This keeps specificity predictable and styles reusable.
-- **Design SOPs** — Written standards for spacing, responsiveness, and accessibility (see the repo `docs/` for the full SOPs). The theme implements them in code.
+- **Design SOPs** — Written standards for spacing, responsiveness, and accessibility live in this design-system section. Historical SOP drafts sit in repo `docs/archive/`. The theme implements them in code.
 
 ## Principles (from the design SOP)
 
@@ -30,5 +30,6 @@ The theme uses a **design system** so layout, colour, typography, and spacing st
 | [Responsiveness](./responsiveness) | Breakpoints, mobile-first, fluid sizing, testing. |
 | [Accessibility](./accessibility) | Contrast, focus rings, reduced motion, tap targets. |
 | [Component library](./component-library) | Live `/component-library/` harness for partials and edge-case fixtures. |
+| [Component API glossary](./component-api) | Param names, landmark/`heading_id` contract, media and heading rules. |
 
 These docs describe how UI stays coherent and accessible as the theme evolves. For **tone and copy** (brand voice, messaging, do's and don'ts), see the repo `docs/brand-voice.md`.

@@ -45,15 +45,7 @@
   font-weight: 500;
 }
 
-/* ---------- Shared section typography ---------- */
-.mrc-audience-section-title {
-  font-family: var(--font-serif);
-  font-size: var(--mrc-h2-size);
-  font-weight: 600;
-  color: var(--mrc-text);
-  margin: 0 0 var(--space-4);
-}
-
+/* ---------- Shared section intro helpers (titles via section-header) ---------- */
 .mrc-audience-section-intro,
 .mrc-audience-section-body {
   font-size: 1rem;

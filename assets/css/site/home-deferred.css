@@ -9,7 +9,7 @@
   color: var(--mrc-surface);
 }
 
-.mrc-principles-section .mrc-section-title {
+.mrc-principles-section .mrc-section-header {
   color: var(--mrc-surface);
   margin-bottom: var(--space-7);
 }
@@ -60,10 +60,6 @@
 .mrc-work-preview {
   padding-block: var(--mrc-section-padding-block);
   background-color: var(--mrc-bg);
-}
-
-.mrc-work-preview .mrc-section-title {
-  color: var(--mrc-text);
 }
 
 .mrc-work-grid {

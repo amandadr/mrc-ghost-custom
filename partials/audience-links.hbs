@@ -1,0 +1,30 @@
+{{!-- Shared audience service links for nav panel and footer.
+      variant="nav-panel" — mega-menu items + View all
+      variant="footer" — who-i-help + audience list (lowercase labels) --}}
+{{#match variant "=" "nav-panel"}}
+  <li>
+    <a href="{{@site.url}}/services/small-businesses/">Small &amp; Medium Businesses</a>
+  </li>
+  <li>
+    <a href="{{@site.url}}/services/tourism-hospitality/">Tourism &amp; Hospitality</a>
+  </li>
+  <li>
+    <a href="{{@site.url}}/services/arts-culture-community/">Arts, Culture &amp; Community</a>
+  </li>
+  <li>
+    <a href="{{@site.url}}/services/organizations-institutions/">Organizations &amp; Institutions</a>
+  </li>
+  <li>
+    <a href="{{@site.url}}/services/agencies-development-teams/">Agencies &amp; Development Teams</a>
+  </li>
+  <li class="mrc-nav-services__separator">
+    <a href="{{@site.url}}/services/">View All Services →</a>
+  </li>
+{{else}}
+  <li><a href="{{@site.url}}/who-i-help/">Find your fit</a></li>
+  <li><a href="{{@site.url}}/services/small-businesses/">Small &amp; medium businesses</a></li>
+  <li><a href="{{@site.url}}/services/tourism-hospitality/">Tourism &amp; hospitality</a></li>
+  <li><a href="{{@site.url}}/services/arts-culture-community/">Arts, culture &amp; community</a></li>
+  <li><a href="{{@site.url}}/services/organizations-institutions/">Organizations &amp; institutions</a></li>
+  <li><a href="{{@site.url}}/services/agencies-development-teams/">Agencies &amp; development teams</a></li>
+{{/match}}

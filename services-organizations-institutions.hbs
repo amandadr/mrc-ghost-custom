@@ -20,25 +20,22 @@
   </div>
 
   {{! 1. Hero }}
-  <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
-    <div class="mrc-audience-hero__inner gh-inner">
-      <div class="mrc-audience-hero__content">
-        <p class="mrc-audience-hero__eyebrow">Organizations &amp; institutions</p>
-        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Secure, accessible systems for the public you serve.</h1>
-        <p class="mrc-audience-hero__lead">Industry associations, non-governmental organizations (NGOs), and municipalities in Atlantic Canada face unique digital pressures. You need secure, accessible systems that serve your members, protect your data, and survive staff turnover.</p>
-        <div class="mrc-audience-hero__actions mrc-cluster">
-          <a href="{{@site.url}}/case-studies/" class="button mrc-btn-primary" data-ga-event="audience_primary_cta_click" data-ga-category="engagement" data-ga-label="Work" data-ga-audience="organizations_institutions" data-ga-page-section="hero">Work</a>
-          <a href="{{@site.url}}/contact/?audience=organizations-institutions" class="button mrc-btn-secondary" data-ga-event="audience_secondary_cta_click" data-ga-category="engagement" data-ga-label="Contact" data-ga-audience="organizations_institutions" data-ga-page-section="hero">Contact</a>
-        </div>
-      </div>
-      {{> "audience-fit-card"
-        heading="The reality of institutional work"
-        item1="Managing complex stakeholder and member needs"
-        item2="Strict accessibility and public-facing compliance"
-        item3="High stakes for data security and governance"
-      }}
-    </div>
-  </section>
+  {{> "audience-hero"
+    eyebrow="Organizations &amp; institutions"
+    title="Secure, accessible systems for the public you serve."
+    lead="Industry associations, non-governmental organizations (NGOs), and municipalities in Atlantic Canada face unique digital pressures. You need secure, accessible systems that serve your members, protect your data, and survive staff turnover."
+    primary_href="/case-studies/"
+    primary_text="Work"
+    secondary_href="/contact/?audience=organizations-institutions"
+    secondary_text="Contact"
+    ga_audience="organizations_institutions"
+    ga_label_primary="Work"
+    ga_label_secondary="Contact"
+    fit_heading="The reality of institutional work"
+    fit_item1="Managing complex stakeholder and member needs"
+    fit_item2="Strict accessibility and public-facing compliance"
+    fit_item3="High stakes for data security and governance"
+  }}
 
   {{! 2. Institutional Challenges (Pain Points) }}
   <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-org-complexity">
@@ -91,16 +88,16 @@
   }}
 
   {{! 5. Work }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-org-work">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-org-work" heading="A system built to be handed over" intro="Selected institutional work. Real projects that survived staff turnover and board changes." link_href="/case-studies/" link_text="View all"}}
-      {{#get "posts" filter="tag:case-study" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-work"
+    section_class="section-surface"
+    heading_id="mrc-org-work"
+    eyebrow="Work"
+    heading="A system built to be handed over"
+    intro="Selected institutional work. Real projects that survived staff turnover and board changes."
+    link_href="/case-studies/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 6. Process }}
   <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-org-process">
@@ -121,16 +118,16 @@
   </section>
 
   {{! 7. Resources }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-org-resources">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Resources" heading_id="mrc-org-resources" heading="Useful reading for institutions" intro="Guides and checklists to help your organization make better digital decisions." link_href="/resources/" link_text="View all"}}
-      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-resources"
+    section_class="section-surface"
+    heading_id="mrc-org-resources"
+    eyebrow="Resources"
+    heading="Useful reading for institutions"
+    intro="Guides and checklists to help your organization make better digital decisions."
+    link_href="/resources/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 8. Final CTA }}
   {{> "cta-section"
@@ -146,9 +143,9 @@
     ga_page_section="final_cta"
   }}
 
-  <section class="mrc-audience-nav section-light gh-outer">
+  <div class="mrc-audience-nav section-light gh-outer">
     <div class="mrc-audience-nav__inner gh-inner">
       {{> "audience-related-nav" omit="organizations-institutions" audience="organizations_institutions"}}
     </div>
-  </section>
+  </div>
 </main>

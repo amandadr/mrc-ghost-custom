@@ -1,6 +1,8 @@
 # Page copy: section-based templates (edit in theme files)
 
-About, Services, Contact, and Thanks use **section-based templates**: each page has a fixed layout (hero, two-column, cards, Olive block, CTA) with copy **inside the template files** (`.hbs`). The page body in the Ghost editor is **not** used for these pages.
+> **Status: Living** — where to edit Relume-era and section-based page copy.
+
+About, Services, Contact, Thanks, Who I Help, Resources, and the five audience service pages use **section-based templates**: each page has a fixed layout with copy **inside the template files** (`.hbs`). The page body in the Ghost editor is **not** used for these pages.
 
 ---
 
@@ -18,23 +20,33 @@ The original approach was **theme custom settings**: each section (e.g. “About
 
 ## How it works now (copy in templates)
 
-Copy for About, Services, Contact, and Thanks lives **in the theme**:
+Copy for marketing pages lives **in the theme**:
 
-| Page     | Template file        | Where to edit copy                          |
-|----------|----------------------|---------------------------------------------|
-| About    | `page-about.hbs`     | Edit the template; copy is in the markup.  |
-| Services | `page-services.hbs`  | Same.                                       |
-| Contact  | `page-contact.hbs`   | Same (email and form action come from Settings). |
-| Thanks   | `page-thanks.hbs`    | Same.                                       |
+| Page | Template file | Where to edit copy |
+|------|---------------|--------------------|
+| About | `page-about.hbs` | Edit the template; copy is in the markup. |
+| Services | `page-services.hbs` | Same. |
+| Contact | `page-contact.hbs` | Same (email and form action come from Settings). |
+| Thanks | `page-thanks.hbs` | Same. |
+| Who I Help | `who-i-help.hbs` | Same (route via Labs routes). |
+| Resources | `page-resources.hbs` | Same. |
+| Small & Medium Businesses | `services-small-business.hbs` | Same. |
+| Tourism & Hospitality | `services-tourism-hospitality.hbs` | Same. |
+| Organizations & Institutions | `services-organizations-institutions.hbs` | Same. |
+| Arts, Culture & Community | `services-arts-culture-community.hbs` | Same. |
+| Agencies & Dev Teams | `services-agencies-development-teams.hbs` | Same. |
+| Component library | `custom-component-library.hbs` | Dev harness; not public marketing copy. |
 
 After you change a template, save, run `yarn zip` (or your build), and re-upload/activate the theme in Ghost (or use your local theme symlink so changes appear on refresh).
+
+Draft / long-form audience content still lives in [services-pages.md](services-pages.md) until fully reflected in the templates above.
 
 ---
 
 ## What is still editable in Ghost Admin
 
 - **Settings → Design → Theme:** Homepage hero (headline, subtext), featured posts title, footer bio, contact email, contact form action URL, Ghost application page (hero title/subtext, CTA headline/button, posts heading). Navigation, logo, fonts, color scheme.
-- **Pages (editor):** Only pages that use the **default** template (e.g. generic “Page” or Work) use the page body; About, Services, Contact, Thanks ignore the page body.
+- **Pages (editor):** Only pages that use the **default** template (e.g. generic “Page” or Work) use the page body; About, Services, Contact, Thanks, Who I Help, Resources, and audience service templates ignore the page body.
 
 ---
 

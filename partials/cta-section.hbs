@@ -1,8 +1,12 @@
 {{! Final CTA — Maroon bg (default) or Olive bg (if bg_class="section-dark"), Cream text, Mustard button + Ink }}
-{{! Optional: bg_class, href (defaults to /contact/), ga_event, ga_label, ga_audience, ga_page_section, secondary_href, secondary_text }}
-<section class="mrc-cta-section {{#if bg_class}}{{bg_class}}{{else}}section-cta{{/if}} gh-outer">
+{{! Optional: bg_class, href (defaults to /contact/), heading_id (unique when multiple CTAs on a page),
+    ga_event, ga_label, ga_audience, ga_page_section, secondary_href, secondary_text }}
+<section
+  class="mrc-cta-section {{#if bg_class}}{{bg_class}}{{else}}section-cta{{/if}} gh-outer"
+  {{#if heading_id}}aria-labelledby="{{heading_id}}"{{else}}aria-label="{{#if headline}}{{headline}}{{else}}Let's team up{{/if}}"{{/if}}
+>
   <div class="mrc-cta-inner gh-inner mrc-stack mrc-stack--m">
-    <h2 class="mrc-cta-headline">{{#if headline}}{{headline}}{{else}}Let's team up{{/if}}</h2>
+    <h2{{#if heading_id}} id="{{heading_id}}"{{/if}} class="mrc-cta-headline">{{#if headline}}{{headline}}{{else}}Let's team up{{/if}}</h2>
     {{#if subtext}}
       <p class="mrc-cta-subtext">{{subtext}}</p>
     {{/if}}

@@ -1,0 +1,55 @@
+{{!-- Audience page hero — split copy + optional fit-card.
+      Keeps audience GA attrs; do not force through generic hero.hbs.
+
+      Params:
+        eyebrow, title, lead
+        heading_id          defaults to mrc-audience-hero-title
+        primary_href / primary_text
+        secondary_href / secondary_text
+        ga_audience         data-ga-audience value
+        ga_label_primary / ga_label_secondary
+        fit_heading, fit_item1–5 — if fit_heading is set, renders audience-fit-card
+--}}
+<section class="mrc-audience-hero section-light gh-outer" aria-labelledby="{{#if heading_id}}{{heading_id}}{{else}}mrc-audience-hero-title{{/if}}">
+  <div class="mrc-audience-hero__inner gh-inner">
+    <div class="mrc-audience-hero__content">
+      {{#if eyebrow}}<p class="mrc-audience-hero__eyebrow">{{{eyebrow}}}</p>{{/if}}
+      <h1 id="{{#if heading_id}}{{heading_id}}{{else}}mrc-audience-hero-title{{/if}}" class="mrc-audience-hero__title">{{title}}</h1>
+      {{#if lead}}<p class="mrc-audience-hero__lead">{{lead}}</p>{{/if}}
+      <div class="mrc-audience-hero__actions mrc-cluster">
+        {{#if primary_text}}
+          <a
+            href="{{primary_href}}"
+            class="button mrc-btn-primary"
+            data-ga-event="audience_primary_cta_click"
+            data-ga-category="engagement"
+            data-ga-label="{{#if ga_label_primary}}{{ga_label_primary}}{{else}}{{primary_text}}{{/if}}"
+            {{#if ga_audience}}data-ga-audience="{{ga_audience}}"{{/if}}
+            data-ga-page-section="hero"
+          >{{primary_text}}</a>
+        {{/if}}
+        {{#if secondary_text}}
+          <a
+            href="{{secondary_href}}"
+            class="button mrc-btn-secondary"
+            data-ga-event="audience_secondary_cta_click"
+            data-ga-category="engagement"
+            data-ga-label="{{#if ga_label_secondary}}{{ga_label_secondary}}{{else}}{{secondary_text}}{{/if}}"
+            {{#if ga_audience}}data-ga-audience="{{ga_audience}}"{{/if}}
+            data-ga-page-section="hero"
+          >{{secondary_text}}</a>
+        {{/if}}
+      </div>
+    </div>
+    {{#if fit_heading}}
+      {{> "audience-fit-card"
+        heading=fit_heading
+        item1=fit_item1
+        item2=fit_item2
+        item3=fit_item3
+        item4=fit_item4
+        item5=fit_item5
+      }}
+    {{/if}}
+  </div>
+</section>

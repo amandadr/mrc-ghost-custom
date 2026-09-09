@@ -32,6 +32,7 @@
 </head>
 
 <body class='{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}'>
+<a class="mrc-skip-link" href="#main-content">Skip to content</a>
 <div class="site">
 
     <header id="gh-head" class="gh-head mrc-head gh-outer">
@@ -49,10 +50,16 @@
                         {{/if}}
                     </a>
                 </div>
-                <button class="gh-burger" aria-label="Toggle menu"></button>
+                <button
+                    class="gh-burger"
+                    type="button"
+                    aria-label="Toggle menu"
+                    aria-expanded="false"
+                    aria-controls="gh-head-menu"
+                ></button>
             </div>
 
-            <nav class="gh-head-menu">
+            <nav id="gh-head-menu" class="gh-head-menu">
                 {{navigation}}
             </nav>
 
@@ -71,7 +78,7 @@
         {{/is}}
     {{/is}}
 
-    <div class="site-content">
+    <div class="site-content" id="main-content">
         {{{body}}}
     </div>
 

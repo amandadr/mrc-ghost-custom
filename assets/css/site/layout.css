@@ -19,6 +19,30 @@ body {
     padding: var(--space-8) 0;
 }
 
+/* Skip link — first focusable control; visible on keyboard focus only */
+.mrc-skip-link {
+    position: absolute;
+    left: var(--space-4);
+    top: var(--space-4);
+    z-index: 10000;
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--mrc-surface);
+    text-decoration: none;
+    background-color: var(--mrc-maroon);
+    border-radius: var(--radius-s);
+    transform: translateY(-200%);
+}
+
+.mrc-skip-link:focus,
+.mrc-skip-link:focus-visible {
+    outline: var(--focus-ring-width) var(--focus-ring-style) var(--mrc-focus);
+    outline-offset: var(--focus-ring-offset);
+    transform: translateY(0);
+}
+
 /* Global container + gutters: keep content inset from viewport edges */
 .gh-outer {
     padding-left: max(var(--mrc-page-gutter), var(--space-4));

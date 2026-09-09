@@ -37,9 +37,9 @@
     <div class="mrc-section-inner gh-inner">
       {{> "section-header" heading_id="mrc-pillars-title" heading="What I do"}}
       <div class="mrc-pillars mrc-grid mrc-grid--auto mrc-grid--gap-l">
-        {{> "service-card" title="Websites built for real people" description="Fast, accessible, and clear websites that help your community find what they need and take the next step without friction." link_url="/services/#development" link_text="Explore websites and web support"}}
-        {{> "service-card" title="Systems that streamline your day" description="Smart integrations, booking platforms, and custom workflows that eliminate repetitive manual tasks and let you focus on your actual job." link_url="/services/#automation" link_text="Explore digital systems and technical support"}}
-        {{> "service-card" title="Honest, plain-spoken strategy" description="Technical audits, roadmaps, and straightforward advice to help you cut through the noise and figure out exactly what your business needs to grow." link_url="/services/#strategy" link_text="Explore consulting and strategy"}}
+        {{> "feature-item" title="Websites built for real people" body="Fast, accessible, and clear websites that help your community find what they need and take the next step without friction." href="/services/#mrc-service-websites-platforms" link_text="Explore websites and web support"}}
+        {{> "feature-item" title="Systems that streamline your day" body="Smart integrations, booking platforms, and custom workflows that eliminate repetitive manual tasks and let you focus on your actual job." href="/services/#mrc-service-systems-automation" link_text="Explore digital systems and technical support"}}
+        {{> "feature-item" title="Honest, plain-spoken strategy" body="Technical audits, roadmaps, and straightforward advice to help you cut through the noise and figure out exactly what your business needs to grow." href="/services/#mrc-service-strategy-advisory" link_text="Explore consulting and strategy"}}
       </div>
     </div>
   </section>
@@ -52,26 +52,7 @@
         heading="Technologies I work with"
         intro="I don't force a single platform on everyone. We choose the right tool for your specific business needs and budget."
       }}
-      <div class="mrc-carousel-wrap" data-mrc-carousel>
-        <div class="mrc-carousel">
-          {{> "tech-card" simple_icon="wordpress" title="WordPress"}}
-          {{> "tech-card" simple_icon="react" simple_icon_2="nextdotjs" title="React / Next.js"}}
-          {{> "tech-card" simple_icon="cloudflare" title="Cloudflare"}}
-          {{> "tech-card" simple_icon="godaddy" title="GoDaddy"}}
-          {{> "tech-card" simple_icon="shopify" title="Shopify"}}
-          {{> "tech-card" simple_icon="gitlab" title="GitLab"}}
-          {{> "tech-card" simple_icon="webflow" title="Webflow"}}
-          {{> "tech-card" simple_icon="googleanalytics" title="Google Analytics 4"}}
-          {{> "tech-card" simple_icon="looker" title="Looker Studio"}}
-          {{> "tech-card" simple_icon="ghost" title="Ghost CMS"}}
-          {{> "tech-card" simple_icon="googlebigquery" title="BigQuery"}}
-          {{> "tech-card" simple_icon="supabase" title="Supabase"}}
-        </div>
-        <div class="mrc-carousel__controls">
-          <button type="button" class="mrc-carousel__btn" data-carousel-prev aria-label="Previous">{{> "icon" name="arrow-left"}}</button>
-          <button type="button" class="mrc-carousel__btn" data-carousel-next aria-label="Next">{{> "icon" name="arrow-right"}}</button>
-        </div>
-      </div>
+      {{> "tech-carousel"}}
     </div>
   </section>
 
@@ -113,27 +94,27 @@
     href="/contact/"
   }}
 
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-home-work">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-home-work" heading="Stories from the local ecosystem" intro="Real, on-the-ground problems solved with practical tech and zero drama." link_href="/case-studies/" link_text="View all"}}
-      {{#get "posts" filter="tag:case-study" limit="1" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-work"
+    section_class="section-surface"
+    heading_id="mrc-home-work"
+    eyebrow="Work"
+    heading="Stories from the local ecosystem"
+    intro="Real, on-the-ground problems solved with practical tech and zero drama."
+    link_href="/case-studies/"
+    link_text="View all"
+    limit="1"
+  }}
 
-  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-home-resources">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Resources" heading_id="mrc-home-resources" heading="Field notes & guides" intro="Practical advice and technical insights to help you make informed decisions about your digital tools." link_href="/resources/" link_text="View all"}}
-      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="1" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-resources"
+    section_class="section-light"
+    heading_id="mrc-home-resources"
+    eyebrow="Resources"
+    heading="Field notes & guides"
+    intro="Practical advice and technical insights to help you make informed decisions about your digital tools."
+    link_href="/resources/"
+    link_text="View all"
+    limit="1"
+  }}
 
   <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-home-partnership">
     <div class="gh-inner">

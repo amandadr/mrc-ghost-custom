@@ -49,12 +49,13 @@ function css(done) {
 
 ## What the theme JS does
 
-The concatenated and minified bundle in `assets/built/main.min.js` is built from `assets/js/*.js` (Gulp: concat + uglify). It typically includes:
+The concatenated and minified bundles in `assets/built/main.min.js` and `main-lite.min.js` are built from Ghost shared assets, sorted `assets/js/lib/*.js`, and `assets/js/main.js` (Gulp: concat + uglify). They include:
 
-- **Burger menu** — Toggle mobile navigation.
-- **Featured posts** — Carousel or scroll behaviour for the featured section on the blog index. Ideally this uses CSS scroll-snap or a minimal vanilla implementation instead of jQuery and Owl Carousel to keep weight down and improve LCP.
+- **Burger menu** — Toggle mobile navigation (`ghost-main-lite.js` / shared).
+- **Tabs / carousel / TOC** — Progressive enhancement in `assets/js/lib/tabs.js`, `carousel.js`, `toc.js` (CSS scroll-snap and native details work without JS).
+- **Theme behaviours** — Analytics hooks, services mega-menu, contact `?audience=` prefill, PDF viewer upgrade (`main.js`).
 
-If jQuery or Owl are still present in the repo, the strategy is to remove or replace them: use vanilla JS for the burger and a lightweight or CSS-based solution for the featured feed.
+jQuery and Owl Carousel are **not** part of the current theme bundle. Do not reintroduce them for a single feature.
 
 ## Critical path (above-the-fold)
 

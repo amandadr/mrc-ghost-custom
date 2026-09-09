@@ -15,8 +15,8 @@
     ga_label_prefix="services_hero"
   }}
 
-  {{! 2. Core Services }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-svc-core">
+  {{! 2. Core Services — each service-section is its own labelled landmark }}
+  <div class="mrc-section section-surface gh-outer">
     <div class="gh-inner mrc-stack mrc-stack--section">
       {{> "service-section"
         slug="websites-platforms"
@@ -55,7 +55,7 @@
         ideal="Board members, owners, and PMs who need a clear, unbiased technical plan."
       }}
     </div>
-  </section>
+  </div>
 
   {{! 3. Audiences }}
   <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-svc-audiences" id="audiences">
@@ -86,26 +86,7 @@
         heading_id="mrc-svc-tech"
         heading="Technologies I work with"
       }}
-      <div class="mrc-carousel-wrap" data-mrc-carousel>
-        <div class="mrc-carousel">
-          {{> "tech-card" simple_icon="wordpress" title="WordPress"}}
-          {{> "tech-card" simple_icon="react" simple_icon_2="nextdotjs" title="React / Next.js"}}
-          {{> "tech-card" simple_icon="cloudflare" title="Cloudflare"}}
-          {{> "tech-card" simple_icon="godaddy" title="GoDaddy"}}
-          {{> "tech-card" simple_icon="shopify" title="Shopify"}}
-          {{> "tech-card" simple_icon="gitlab" title="GitLab"}}
-          {{> "tech-card" simple_icon="webflow" title="Webflow"}}
-          {{> "tech-card" simple_icon="googleanalytics" title="Google Analytics 4"}}
-          {{> "tech-card" simple_icon="looker" title="Looker Studio"}}
-          {{> "tech-card" simple_icon="ghost" title="Ghost CMS"}}
-          {{> "tech-card" simple_icon="googlebigquery" title="BigQuery"}}
-          {{> "tech-card" simple_icon="supabase" title="Supabase"}}
-        </div>
-        <div class="mrc-carousel__controls">
-          <button type="button" class="mrc-carousel__btn" data-carousel-prev aria-label="Previous">{{> "icon" name="arrow-left"}}</button>
-          <button type="button" class="mrc-carousel__btn" data-carousel-next aria-label="Next">{{> "icon" name="arrow-right"}}</button>
-        </div>
-      </div>
+      {{> "tech-carousel"}}
     </div>
   </section>
 
@@ -137,28 +118,26 @@
   </section>
 
   {{! 7. Work }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-svc-work">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-svc-work" heading="Proof in the work" link_href="/case-studies/" link_text="View all"}}
-      {{#get "posts" filter="tag:case-study" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-work"
+    section_class="section-surface"
+    heading_id="mrc-svc-work"
+    eyebrow="Work"
+    heading="Proof in the work"
+    link_href="/case-studies/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 8. Resources }}
-  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-svc-resources">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Resources" heading_id="mrc-svc-resources" heading="Essential resources" link_href="/resources/" link_text="View all"}}
-      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-resources"
+    section_class="section-light"
+    heading_id="mrc-svc-resources"
+    eyebrow="Resources"
+    heading="Essential resources"
+    link_href="/resources/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 9. Final CTA }}
   {{> "cta-section"

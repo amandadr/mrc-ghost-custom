@@ -4,38 +4,33 @@ sidebar_position: 1
 
 # Roadmap and future improvements
 
-This page summarizes **planned work** and **v2 ideas** so priorities and future scope are visible. It aligns with the repo’s site overhaul and opportunities docs and should be updated as work ships.
+This page summarizes **shipped work**, **active priorities**, and **v2 ideas**. Update it when work lands so it stays honest.
 
-## Priority order (from opportunities doc)
+## Shipped (do not re-plan as “open”)
+
+| Area | Notes |
+| --- | --- |
+| **Ghost application landing page** | `page-ghost-application.hbs` + `highlight-card` / `responsibility-row` |
+| **Docs system** | Docusaurus at docs.mannyroy.com (`docs-site/`) |
+| **Restrained JS** | No jQuery/Owl in the theme bundle; CSS scroll-snap + vanilla `assets/js/lib/*` |
+| **Relume-era marketing pages** | Home, services, who-i-help, audiences, resources, component library |
+| **DocsGPT / Botty** | Documented under AI assistant; ops runbooks exist |
+
+## Active / next
 
 | Priority | Area | Rationale |
 | --- | --- | --- |
-| 1 | **Ghost application landing page** | Core deliverable; role-to-feature story and links to docs/blog. |
-| 2 | **Docs system** (hub, IA, nav, first docs) | Unblocks AI assistant scope and public narrative. |
-| 3 | **Performance: scripts** (jQuery/Owl, defer) | High impact on Core Web Vitals; restrained JS. |
-| 4 | **Navigation** (Blog, Docs, Ghost in nav) | Clear information hierarchy. |
-| 5 | **Font/asset optimization** (woff2, preload) | Better LCP and font loading strategy. |
-| 6 | **Metadata and images** (lazy load, meta) | Polish, sharing, LCP/CLS. |
-| 7 | **Release workflow and observability** | Deployment and monitoring docs; operational maturity. |
-| 8 | **AI assistant** (after 1–2) | Depends on docs and application page content. |
-
-## Expected outcomes (size) and status
-
-- **1. Ghost application landing page** — Outcome: medium — Status: planned.
-- **2. Docs system (hub, IA, nav, first docs)** — Outcome: medium — Status: planned.
-- **3. Performance: scripts (jQuery/Owl, defer)** — Outcome: small — Status: planned.
-- **4. Navigation (Blog, Docs, Ghost in nav)** — Outcome: small — Status: planned.
-- **5. Font/asset optimization (woff2, preload)** — Outcome: medium — Status: planned.
-- **6. Metadata and images (lazy load, meta)** — Outcome: small — Status: planned.
-- **7. Release workflow and observability** — Outcome: medium — Status: planned.
-- **8. AI assistant enhancements** — Outcome: medium — Status: blocked until docs system + application content are ready.
+| 1 | **Docs taxonomy + theme modularism** | Living vs archive docs; section-header API; audience shells; a11y landmarks |
+| 2 | **Font/asset optimization** | Prefer self-hosted woff2 where practical; keep LCP in mind |
+| 3 | **Metadata and images** | Lazy load below-the-fold; consistent alt/srcset |
+| 4 | **Release workflow and observability** | Keep deploy and monitoring docs accurate |
+| 5 | **AI assistant enhancements** | Broader content surface once docs stay current |
 
 ## Future / v2 ideas
 
 - **Critical CSS** — Inline or separate above-the-fold CSS for home and post to improve LCP; document before/after.
-- **Additional docs** — Deeper dives (e.g. component patterns, migration notes) as the theme evolves.
-- **AI assistant enhancements** — Broader content surface, chat UI, and safeguards once the assistant is scoped and implemented.
-- **Observability** — Health checks, optional client-side error tracking, broken-link checks in CI; document in ops.
+- **Feed card migration** — Finish moving archives onto `post-card` / `case-study-row`.
+- **Self-hosted tech icons** — Replace Simple Icons CDN in `tech-card` when ready.
 - **Asset budget** — Define and enforce max CSS/JS size (e.g. in CI) so regressions are caught.
 
 Update this list as items are completed or deprioritized so the roadmap stays accurate.

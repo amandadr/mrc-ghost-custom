@@ -6,56 +6,113 @@ sidebar_position: 3
 
 Ghost chooses a **root template** based on route and context. Each template can include **partials** (reusable blocks). This page lists what exists and where it’s used.
 
+When you **rename a partial or change a Labs route**, update this page and the repo `docs/ghost-org-setup.md` in the same change.
+
 ## Root templates (when Ghost uses them)
 
 | Template | When used |
 |----------|-----------|
 | `default.hbs` | Base layout only; not used alone. All other templates extend it with `{{!< default}}`. |
 | `home.hbs` | When the site’s “homepage” is set to a custom page (e.g. “Home” page). |
-| `index.hbs` | Blog/archive (e.g. `/` or `/blog/` depending on routes). |
+| `index.hbs` | Blog/archive (e.g. `/blog/` via Labs routes). |
 | `post.hbs` | Single post. |
 | `page.hbs` | Generic page (no custom template selected). |
 | `author.hbs` | Author archive. |
 | `tag.hbs` | Tag archive. |
-| `page-about.hbs` | Page with template “About” (slug typically `about`). |
-| `page-services.hbs` | Page with template “Services” (slug typically `services`). |
+| `page-about.hbs` | Page with template “About”. |
+| `page-services.hbs` | Page with template “Services”. |
 | `page-contact.hbs` | Page with template “Contact”. |
-| `page-ghost-application.hbs` | Page with template “Ghost application” and slug `ghost-application`. |
+| `page-resources.hbs` | Page with template “Resources” (or slug `resources`). |
+| `page-ghost-application.hbs` | Page with template “Ghost application”, slug `ghost-application`. |
 | `page-thanks.hbs` | Thanks page (e.g. after form submit). |
 | `page-work.hbs` | Work/portfolio-style page. |
+| `who-i-help.hbs` | Labs route `/who-i-help/` (theme HBS; no Admin template dropdown). |
+| `services-small-business.hbs` | Labs route `/services/small-businesses/`. |
+| `services-tourism-hospitality.hbs` | Labs route `/services/tourism-hospitality/`. |
+| `services-organizations-institutions.hbs` | Labs route `/services/organizations-institutions/`. |
+| `services-arts-culture-community.hbs` | Labs route `/services/arts-culture-community/`. |
+| `services-agencies-development-teams.hbs` | Labs route `/services/agencies-development-teams/`. |
+| `case-studies.hbs` / `whitepapers.hbs` | Collection templates via Labs routes. |
+| `glossary.hbs` / `glossary-collection*.hbs` | Glossary index and collection pages. |
+| `custom-component-library.hbs` | Labs route `/component-library/` (dev harness, `noindex`). |
 | `custom-case-study.hbs` | Post with template “Case study”. |
 | `custom-full-feature-image.hbs` | Post with full-width feature image. |
 | `custom-narrow-feature-image.hbs` | Post with narrow feature image. |
 | `custom-no-feature-image.hbs` | Post with no feature image. |
 
-Ghost matches custom page templates by **template name** (shown in Admin when editing a page) and custom post templates when the user selects that template for a post.
+Ghost matches custom **page** templates by template name in Admin. Audience and who-i-help routes are **Labs routes → theme HBS** (see repo `docs/routes-glossary.yaml`).
 
 ## Partials (used in templates)
 
+### Layout / chrome
+
 | Partial | Purpose | Used in |
 |---------|---------|--------|
-| `cover` | Blog cover / member CTA (when index and not home) | `default.hbs` |
-| `featured-posts` | Featured posts carousel on blog index | `default.hbs` |
+| `navigation` | Primary nav + services mega-menu | `default.hbs` |
 | `footer` | Site footer | `default.hbs` |
-| `pswp` | PhotoSwipe (lightbox) for post/page | `default.hbs` |
-| `hero` | (If used) Hero block | — |
-| `content` | Post/page body with optional width and srcset images | `post.hbs`, `page.hbs`, custom post templates |
-| `content-cta` | In-content CTA block | — |
-| `cta-section` | Full-width CTA section (headline, button) | `home.hbs`, `page-about.hbs`, `page-ghost-application.hbs`, `page-services.hbs` |
-| `loop` | Single post card in a feed | `index.hbs`, `author.hbs`, `tag.hbs`, `related-posts` |
-| `related-posts` | Related posts block | `post.hbs`, custom post templates |
-| `comments` | Comments block | `post.hbs`, custom post templates |
-| `pagination` | (Handled by Ghost `{{pagination}}` in index) | — |
-| `service-card` | Service pillar card | `home.hbs` |
-| `service-section` | Full service section (title, intro, list) | `page-services.hbs` |
-| `principle-item` | Principle/pillar item | `home.hbs` |
-| `process-step` | Process step block | `page-services.hbs` |
-| `two-column-section` | Two-column content block | `page-about.hbs` |
-| `ghost-responsibility-row` | Responsibility → proof row | `page-ghost-application.hbs` |
-| `ghost-highlight-card` | Highlight card (theme, docs, performance, AI) | `page-ghost-application.hbs` |
-| `project-card` | (If used) Project card | — |
-| `anchor-section` | (If used) Anchor section | — |
-| `srcset` | Responsive image srcset snippet | `content.hbs`, `featured-posts.hbs`, `tag.hbs` |
-| `icons/*` | Arrow, chevron, star, social icons | Various |
+| `cover` | Blog cover / member CTA | `default.hbs` |
+| `featured-posts` | Featured posts on blog index | `default.hbs` |
+| `ga4` | Analytics loader | `default.hbs` |
+| `pswp` | PhotoSwipe lightbox | `default.hbs` |
 
-Templates compose these partials with theme settings (`@custom.*`) and Ghost data (`posts`, `post`, `page`, etc.). For per-template behaviour and theme settings, see [Templates & pages](/docs/templates/overview).
+### Section composers
+
+| Partial | Purpose | Used in |
+|---------|---------|--------|
+| `hero` | Marketing hero (optional media) | `home.hbs`, `page-services.hbs`, … |
+| `section-header` | Eyebrow + h2 + intro + optional actions | Most marketing sections |
+| `cta-section` | Full-width CTA band | Marketing pages |
+| `two-column-section` | Two-column content + optional media | `page-about.hbs`, … |
+| `anchor-section` | Dark statement band | Selected pages |
+| `service-section` | Capability block with include list | `page-services.hbs` |
+
+### Atoms
+
+| Partial | Purpose | Used in |
+|---------|---------|--------|
+| `feature-item` | Icon + title + body cell | Home, audiences, services |
+| `faq-item` | Native `<details>` FAQ row | Home, services |
+| `tab-panel` | Progressive-enhancement tab panel | Home, who-i-help, services |
+| `process-step` | Process grid step | Audiences, services |
+| `media-frame` | Shared photo ⇄ text-only media contract | Hero, two-column, … |
+| `icon` + `icons/*` | Line SVG icons (gscan-safe dispatch) | Feature items, challenges, … |
+| `highlight-card` | Ghost application highlight card | `page-ghost-application.hbs` |
+| `responsibility-row` | Ghost application matrix row | `page-ghost-application.hbs` |
+| `tech-card` | Tech stack chip in carousel | `tech-carousel` |
+| `tech-carousel` | Shared toolkit carousel | Home, services, about, agencies |
+| `audience-hero` | Audience split hero + fit-card | `services-*.hbs` |
+| `feed-work` / `feed-resources` | Shared case-study / resources bands | Marketing pages |
+| `audience-links` | Audience URL list (nav + footer) | `navigation`, `footer` |
+
+### Audience
+
+| Partial | Purpose | Used in |
+|---------|---------|--------|
+| `audience-breadcrumb` | Breadcrumb trail | `services-*.hbs` |
+| `audience-fit-card` | “Sound familiar?” list | Audience heroes |
+| `audience-challenge` | Challenge grid cell | Audience pages |
+| `audience-expectation` | Outcome / expectation band | Some audiences |
+| `audience-proof-card` | Proof card | Some audiences |
+| `audience-related-nav` | Related audience links | Audience pages |
+
+### Feed / article
+
+| Partial | Purpose | Used in |
+|---------|---------|--------|
+| `post-card` | Resource / blog card | Resources, audiences |
+| `case-study-row` | Case study list row | Case studies, audiences |
+| `post-toc` | Table of contents | Long-form posts |
+| `loop` | Legacy feed card | `index.hbs`, archives |
+| `content` | Post/page body | `post.hbs`, `page.hbs`, customs |
+| `post-case-study` / `post-whitepaper` | Custom post bodies | Custom templates |
+
+### Component library chrome
+
+| Partial | Purpose |
+|---------|---------|
+| `component-library/cl-frame-start` / `cl-frame-end` | Demo frame |
+| `component-library/cl-nav` | Sticky TOC |
+
+Legacy atoms still in the tree for the library or older pages: `service-card`, `principle-item`, `common-project-card`, `engagement-way`. Prefer `feature-item` / `process-step` on new live pages.
+
+For param names and landmark contracts, see [Component API glossary](/docs/design-system/component-api). For per-template behaviour and theme settings, see [Templates overview](/docs/templates/overview).

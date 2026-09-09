@@ -1,5 +1,7 @@
 # CUBE CSS Structure (SOP Implementation)
 
+> **Status: Living** — layer map next to `assets/css/screen.css`. Public expansion: docs-site design system.
+
 This theme follows the CUBE CSS methodology and the responsiveness SOP. Quick reference:
 
 ## Layers (Order of Application)

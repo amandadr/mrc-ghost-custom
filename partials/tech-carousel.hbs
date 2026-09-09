@@ -1,0 +1,27 @@
+{{!-- Tech stack carousel — shared toolkit strip used on home, services, about, agencies.
+      Optional aria_label for the region (defaults to “Technologies I work with”). --}}
+<div
+  class="mrc-carousel-wrap"
+  data-mrc-carousel
+  role="region"
+  aria-label="{{#if aria_label}}{{aria_label}}{{else}}Technologies I work with{{/if}}"
+>
+  <div class="mrc-carousel">
+    {{> "tech-card" simple_icon="wordpress" title="WordPress"}}
+    {{> "tech-card" simple_icon="react" simple_icon_2="nextdotjs" title="React / Next.js"}}
+    {{> "tech-card" simple_icon="cloudflare" title="Cloudflare"}}
+    {{> "tech-card" simple_icon="godaddy" title="GoDaddy"}}
+    {{> "tech-card" simple_icon="shopify" title="Shopify"}}
+    {{> "tech-card" simple_icon="gitlab" title="GitLab"}}
+    {{> "tech-card" simple_icon="webflow" title="Webflow"}}
+    {{> "tech-card" simple_icon="googleanalytics" title="Google Analytics 4"}}
+    {{> "tech-card" simple_icon="looker" title="Looker Studio"}}
+    {{> "tech-card" simple_icon="ghost" title="Ghost CMS"}}
+    {{> "tech-card" simple_icon="googlebigquery" title="BigQuery"}}
+    {{> "tech-card" simple_icon="supabase" title="Supabase"}}
+  </div>
+  <div class="mrc-carousel__controls">
+    <button type="button" class="mrc-carousel__btn" data-carousel-prev aria-label="Previous">{{> "icon" name="arrow-left"}}</button>
+    <button type="button" class="mrc-carousel__btn" data-carousel-next aria-label="Next">{{> "icon" name="arrow-right"}}</button>
+  </div>
+</div>

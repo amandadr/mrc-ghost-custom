@@ -1,8 +1,10 @@
 # Brand voice
 
+> **Status: Living** — keep in sync with site and docs-site tone.
+
 How Manny Roy Consulting sounds in copy, docs, and UI. Use this when writing for the main site (Ghost), the docs site (Docusaurus), and any client-facing or internal content that represents the brand.
 
-**Related:** [Brand foundation & positioning](brand-brainstorming.md), [Colours](colurs.md), [Fonts](fonts.md).
+**Related:** [Brand foundation (archive)](archive/brand-brainstorming.md), [Colours (docs-site)](../docs-site/docs/design-system/colours.md), [Typography (docs-site)](../docs-site/docs/design-system/typography.md).
 
 ---
 

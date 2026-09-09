@@ -435,21 +435,12 @@
   box-sizing: border-box;
 }
 
-.mrc-section-title {
-  font-family: var(--font-serif);
-  font-size: var(--mrc-h2-size);
-  font-weight: 600;
-  margin: 0 0 var(--space-7);
-  text-align: center;
-}
-
 /* ---------- What I do: Paper, mustard divider above heading, olive accent on cards ---------- */
 .mrc-pillars-section {
   background-color: var(--mrc-surface);
 }
 
-.mrc-pillars-section .mrc-section-title {
-  color: var(--mrc-text);
+.mrc-pillars-section .mrc-section-header {
   border-top: 2px solid var(--mrc-mustard);
   padding-top: var(--space-6);
   margin-top: 0;

@@ -37,6 +37,7 @@ This page is the starting point for contributing to the docs-site and theme repo
 2. Theme validates with `yarn test` (GScan).
 3. Docs page renders correctly in the local docs site.
 4. Links and headings match the new sidebar structure.
+5. If you renamed a partial or Labs route, Theme anatomy + `docs/ghost-org-setup.md` were updated in the same PR.
 
 ## Related
 

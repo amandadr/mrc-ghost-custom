@@ -1,5 +1,7 @@
 # MRC Audience Service Pages — Dev Guide v1
 
+> **Status: Living** — content bible for `/services/{audience}/` until copy fully lives in `.hbs`.
+
 ## Scope
 
 This guide establishes:

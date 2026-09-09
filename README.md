@@ -60,15 +60,15 @@ Then in Ghost Admin → Design, activate the theme **manny-roy**.
 
 The theme supports a **custom homepage** at `/` (using `home.hbs`) and a **blog archive** at `/blog/` (post listing, cover, and featured posts). The homepage stays as-is; all posts live at `/blog/` and `/blog/{slug}/`.
 
-To enable this structure:
+To enable this structure (and audiences, resources, glossary, component library):
 
 1. In Ghost Admin go to **Settings → Labs**.
-2. Under **Routes**, upload or paste the contents of **[docs/routes-blog-archive.yaml](docs/routes-blog-archive.yaml)** (back up your current routes first if you have custom ones).
+2. Under **Routes**, upload or paste the contents of **[docs/routes-glossary.yaml](docs/routes-glossary.yaml)** (back up your current routes first if you have custom ones).
 3. Add **Blog** (or “Writing”) to your nav in **Settings → Design → Navigation** pointing to `/blog/`.
 
-Result: `/` = custom home, `/blog/` = post listing, `/blog/{slug}/` = posts, `/blog/tag/...` and `/blog/author/...` = archives.
+Result: `/` = custom home, `/blog/` = post listing, `/blog/{slug}/` = posts, plus audience and resource routes from the glossary file.
 
-**If the blog page doesn’t work on production (404 or wrong page):** Apply the same routes in **production** Ghost. In the live site’s Ghost Admin go to **Settings → Labs → Routes**, upload or paste **[docs/routes-blog-archive.yaml](docs/routes-blog-archive.yaml)** (back up current routes first), then save. Ensure **Navigation** includes a link to `/blog/`. See **[docs/troubleshooting-blog.md](docs/troubleshooting-blog.md)** for more.
+**If the blog page doesn’t work on production (404 or wrong page):** Apply the same routes in **production** Ghost. In the live site’s Ghost Admin go to **Settings → Labs → Routes**, upload or paste **[docs/routes-glossary.yaml](docs/routes-glossary.yaml)** (back up current routes first), then save. Ensure **Navigation** includes a link to `/blog/`. See **[docs/troubleshooting-blog.md](docs/troubleshooting-blog.md)** for more.
 
 ---
 
@@ -81,19 +81,19 @@ The theme includes a dedicated **Ghost Application** landing page at `/ghost-app
 3. Create a tag **Ghost Application** (slug `ghost-application`) and add it to any post you want listed on that page.
 4. Edit hero, CTA, and posts heading under **Settings → Design → Theme** in the **ghost** group.
 
-Full plan and content model: **[docs/plan-ghost-application-page.md](docs/plan-ghost-application-page.md)**.
+Public docs: **[docs.mannyroy.com](https://docs.mannyroy.com)** (Ghost application template page). Historical plan: **[docs/archive/plan-ghost-application-page.md](docs/archive/plan-ghost-application-page.md)**.
 
 ---
 
 ## Project docs
 
-- [Brand foundation & positioning](docs/brand-brainstorming.md)
+- **[docs/README.md](docs/README.md)** — source-of-truth hierarchy and living docs index
+- **[docs.mannyroy.com](https://docs.mannyroy.com)** — public docs site (`docs-site/`)
 - [Brand voice](docs/brand-voice.md) — Tone, personality, and copy guidelines
-- [Development plan (site architecture, layout)](docs/dev-plan-1.md)
-- [Accessible color palette](docs/colurs.md)
 - [Local Ghost setup](docs/local-ghost-setup.md)
-- [Ghost Application page plan](docs/plan-ghost-application-page.md)
-- [Routes for /blog/ archive](docs/routes-blog-archive.yaml) (Settings → Labs → Routes)
+- [Ghost.org setup](docs/ghost-org-setup.md)
+- [Routes (production)](docs/routes-glossary.yaml) (Settings → Labs → Routes)
+- [Archived plans and SOPs](docs/archive/README.md)
 
 ---
 

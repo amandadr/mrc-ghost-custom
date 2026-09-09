@@ -246,7 +246,7 @@
       {{> "component-library/cl-frame-start" id="cl-service-card" title="Service card" status="stable" partial_name="service-card" notes="Home pillars. Test short copy, long copy, and missing link."}}
         <section class="mrc-section section-surface mrc-pillars-section gh-outer">
           <div class="mrc-section-inner gh-inner">
-            <h3 class="mrc-section-title">What I do (fixture)</h3>
+            {{> "section-header" heading="What I do (fixture)" spacing="tight"}}
             <div class="mrc-pillars mrc-grid mrc-grid--auto mrc-grid--gap-l">
               {{> "service-card" title="Short title" description="Brief description." link_url="#cl-service-card" link_text="Learn more"}}
               {{> "service-card" title="A longer service card title that wraps onto a second line under normal conditions" description="A longer description that stretches the card vertically so we can check alignment when one pillar has substantially more copy than its neighbours, including another sentence for good measure." link_url="#cl-service-card" link_text="Explore this longer path to the service detail"}}
@@ -260,7 +260,7 @@
       {{> "component-library/cl-frame-start" id="cl-principle" title="Principle item" status="stable" partial_name="principle-item" notes="Home “How I work” on olive. One vs four items."}}
         <section class="mrc-section section-dark mrc-principles-section gh-outer">
           <div class="mrc-section-inner gh-inner">
-            <h3 class="mrc-section-title">How I work (fixture)</h3>
+            {{> "section-header" heading="How I work (fixture)" spacing="tight"}}
             <div class="mrc-principles mrc-grid mrc-grid--auto mrc-grid--gap-l">
               {{> "principle-item" title="Practical" body="The right solution fits your business, your capacity, and the way you actually work."}}
               {{> "principle-item" title="Thoughtful" body="You will understand what is happening, why it matters, and what comes next."}}
@@ -527,7 +527,7 @@
 
         <section class="mrc-audience-challenges section-surface gh-outer">
           <div class="mrc-audience-challenges__inner gh-inner">
-            <h3 class="mrc-audience-section-title">Challenges — one vs four</h3>
+            {{> "section-header" heading="Challenges — one vs four" spacing="tight"}}
             <div class="mrc-audience-challenge-grid">
               {{> "audience-challenge" marker="01" title="Single card" copy="One challenge alone."}}
               {{> "audience-challenge" marker="02" title="A longer challenge title that wraps" copy="Longer copy to check card height when neighbours differ: customers struggle to take the next step because information is scattered, forms are unclear, or booking takes too many clicks."}}
@@ -539,7 +539,7 @@
 
         <section class="mrc-audience-expectations section-dark gh-outer">
           <div class="gh-inner">
-            <h3 class="mrc-audience-section-title" style="color: var(--mrc-surface);">Expectations</h3>
+            {{> "section-header" heading="Expectations" spacing="tight"}}
             <div class="mrc-grid mrc-grid--auto mrc-grid--gap-m">
               {{> "audience-expectation" title="Clear next step" copy="You will know what happens after we talk."}}
               {{> "audience-expectation" title="Longer expectation title for wrap testing" copy="A longer expectation body that stretches the cell so we can see olive-on-dark typography hold up under denser copy."}}
@@ -549,7 +549,7 @@
 
         <section class="mrc-audience-proof section-light gh-outer">
           <div class="gh-inner">
-            <h3 class="mrc-audience-section-title">Proof cards</h3>
+            {{> "section-header" heading="Proof cards" spacing="tight"}}
             <div class="mrc-grid mrc-grid--auto mrc-grid--gap-m">
               {{> "audience-proof-card" title="Short proof" copy="One sentence."}}
               {{> "audience-proof-card" title="Longer proof title" copy="A longer proof statement used as a layout fixture until real case-study excerpts replace placeholder copy on audience pages."}}

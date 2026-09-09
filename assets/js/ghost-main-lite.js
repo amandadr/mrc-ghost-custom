@@ -7,12 +7,20 @@
     var burger = document.querySelector('.gh-burger');
     if (!burger) return;
 
+    function syncExpanded() {
+        var open = document.body.classList.contains('is-head-open');
+        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    syncExpanded();
+
     burger.addEventListener('click', function () {
         if (!document.body.classList.contains('is-head-open')) {
             document.body.classList.add('is-head-open');
         } else {
             document.body.classList.remove('is-head-open');
         }
+        syncExpanded();
     });
 })();
 

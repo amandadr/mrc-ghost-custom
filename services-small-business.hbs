@@ -20,47 +20,29 @@
   </div>
 
   {{! 1. Hero }}
-  <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
-    <div class="mrc-audience-hero__inner gh-inner">
-      <div class="mrc-audience-hero__content">
-        <p class="mrc-audience-hero__eyebrow">Small &amp; medium businesses</p>
-        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">Your website should work as hard as you do</h1>
-        <p class="mrc-audience-hero__lead">You run the business. I help make the technology work for you, not the other way around. No jargon, no bloated retainers—just practical digital systems.</p>
-        <div class="mrc-audience-hero__actions mrc-cluster">
-          <a
-            href="{{@site.url}}/case-studies/"
-            class="button mrc-btn-primary"
-            data-ga-event="audience_primary_cta_click"
-            data-ga-category="engagement"
-            data-ga-label="Work"
-            data-ga-audience="small_business"
-            data-ga-page-section="hero"
-          >Work</a>
-          <a
-            href="{{@site.url}}/services/"
-            class="button mrc-btn-secondary"
-            data-ga-event="audience_secondary_cta_click"
-            data-ga-category="engagement"
-            data-ga-label="Services"
-            data-ga-audience="small_business"
-            data-ga-page-section="hero"
-          >Services</a>
-        </div>
-      </div>
-      {{> "audience-fit-card"
-        heading="Sound familiar?"
-        item1="The website no longer reflects the business you've built"
-        item2="Customers struggle to find what they need or take the next step"
-        item3="Routine work is scattered across too many tools and logins"
-      }}
-    </div>
-  </section>
+  {{> "audience-hero"
+    eyebrow="Small &amp; medium businesses"
+    title="Your website should work as hard as you do"
+    lead="You run the business. I help make the technology work for you, not the other way around. No jargon, no bloated retainers—just practical digital systems."
+    primary_href="/case-studies/"
+    primary_text="Work"
+    secondary_href="/services/"
+    secondary_text="Services"
+    ga_audience="small_business"
+    ga_label_primary="Work"
+    ga_label_secondary="Services"
+    fit_heading="Sound familiar?"
+    fit_item1="The website no longer reflects the business you've built"
+    fit_item2="Customers struggle to find what they need or take the next step"
+    fit_item3="Routine work is scattered across too many tools and logins"
+  }}
 
   {{! 2. Recognition }}
   <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-audience-challenges-title">
     <div class="mrc-audience-challenges__inner gh-inner">
       {{> "section-header"
         eyebrow="Recognition"
+        heading_id="mrc-audience-challenges-title"
         heading="You're here because something isn't working"
         intro="The business has grown, but the digital tools haven't kept up. The work is scattered and the next step is unclear."
       }}
@@ -76,7 +58,7 @@
   </section>
 
   {{! 3. Capabilities }}
-  <section id="common-projects" class="mrc-section section-light gh-outer" aria-labelledby="mrc-smb-capabilities">
+  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-smb-capabilities">
     <div class="gh-inner">
       {{> "section-header"
         eyebrow="Capabilities"
@@ -94,26 +76,16 @@
   </section>
 
   {{! 4. Selected work }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-smb-work">
-    <div class="gh-inner">
-      {{> "section-header"
-        layout="split"
-        eyebrow="Work"
-        heading_id="mrc-smb-work"
-        heading="Real problems, solved well"
-        intro="Stories from businesses that needed their websites to work harder."
-        link_href="/case-studies/"
-        link_text="View all"
-      }}
-      {{#get "posts" filter="tag:case-study" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-case-list">
-            {{#foreach posts}}{{> "case-study-row"}}{{/foreach}}
-          </div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-work"
+    section_class="section-surface"
+    heading_id="mrc-smb-work"
+    eyebrow="Work"
+    heading="Real problems, solved well"
+    intro="Stories from businesses that needed their websites to work harder."
+    link_href="/case-studies/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 5. Mid-page CTA }}
   {{> "cta-section"
@@ -129,26 +101,16 @@
   }}
 
   {{! 6. Resources }}
-  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-smb-resources">
-    <div class="gh-inner">
-      {{> "section-header"
-        layout="split"
-        eyebrow="Resources"
-        heading_id="mrc-smb-resources"
-        heading="Practical guides for busy owners"
-        intro="Clear, useful reading that helps you make better decisions."
-        link_href="/resources/"
-        link_text="View all"
-      }}
-      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
-            {{#foreach posts}}{{> "post-card"}}{{/foreach}}
-          </div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-resources"
+    section_class="section-light"
+    heading_id="mrc-smb-resources"
+    eyebrow="Resources"
+    heading="Practical guides for busy owners"
+    intro="Clear, useful reading that helps you make better decisions."
+    link_href="/resources/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 7. Process }}
   <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-smb-process">
@@ -185,11 +147,11 @@
   }}
 
   {{! 9. Related audiences }}
-  <section class="mrc-audience-nav section-light gh-outer">
+  <div class="mrc-audience-nav section-light gh-outer">
     <div class="mrc-audience-nav__inner gh-inner">
       {{> "audience-related-nav" omit="small-business" audience="small_business"}}
     </div>
-  </section>
+  </div>
 
   <script type="application/ld+json">
   {

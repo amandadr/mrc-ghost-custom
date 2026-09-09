@@ -20,25 +20,22 @@
   </div>
 
   {{! 1. Hero }}
-  <section class="mrc-audience-hero section-light gh-outer" aria-labelledby="mrc-audience-hero-title">
-    <div class="mrc-audience-hero__inner gh-inner">
-      <div class="mrc-audience-hero__content">
-        <p class="mrc-audience-hero__eyebrow">Tourism &amp; hospitality</p>
-        <h1 id="mrc-audience-hero-title" class="mrc-audience-hero__title">When you're short-staffed, your website needs to be your best employee.</h1>
-        <p class="mrc-audience-hero__lead">The PEI tourism landscape is changing. With labor shortages and rising operating costs, you can't afford a website that just looks pretty. You need systems that automate admin work, capture direct bookings, and clearly communicate with guests before they arrive.</p>
-        <div class="mrc-audience-hero__actions mrc-cluster">
-          <a href="{{@site.url}}/case-studies/" class="button mrc-btn-primary" data-ga-event="audience_primary_cta_click" data-ga-category="engagement" data-ga-label="work" data-ga-audience="tourism_hospitality" data-ga-page-section="hero">Work</a>
-          <a href="{{@site.url}}/contact/?audience=tourism-hospitality" class="button mrc-btn-secondary" data-ga-event="audience_secondary_cta_click" data-ga-category="engagement" data-ga-label="contact" data-ga-audience="tourism_hospitality" data-ga-page-section="hero">Contact</a>
-        </div>
-      </div>
-      {{> "audience-fit-card"
-        heading="The new reality of tourism"
-        item1="Fewer seasonal staff to answer phones"
-        item2="Losing 20% of revenue to overhead fees"
-        item3="The struggle to extend into shoulder seasons"
-      }}
-    </div>
-  </section>
+  {{> "audience-hero"
+    eyebrow="Tourism &amp; hospitality"
+    title="When you're short-staffed, your website needs to be your best employee."
+    lead="The PEI tourism landscape is changing. With labor shortages and rising operating costs, you can't afford a website that just looks pretty. You need systems that automate admin work, capture direct bookings, and clearly communicate with guests before they arrive."
+    primary_href="/case-studies/"
+    primary_text="Work"
+    secondary_href="/contact/?audience=tourism-hospitality"
+    secondary_text="Contact"
+    ga_audience="tourism_hospitality"
+    ga_label_primary="work"
+    ga_label_secondary="contact"
+    fit_heading="The new reality of tourism"
+    fit_item1="Fewer seasonal staff to answer phones"
+    fit_item2="Losing 20% of revenue to overhead fees"
+    fit_item3="The struggle to extend into shoulder seasons"
+  }}
 
   {{! 2. Tourism Today (Pain Points) }}
   <section class="mrc-audience-challenges section-surface gh-outer" aria-labelledby="mrc-tourism-reality">
@@ -91,16 +88,16 @@
   }}
 
   {{! 5. Work }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-tourism-work">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Work" heading_id="mrc-tourism-work" heading="Work that brings guests" intro="Real projects for operators who wanted to take back control of their digital presence." link_href="/case-studies/" link_text="View all"}}
-      {{#get "posts" filter="tag:case-study" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-case-list">{{#foreach posts}}{{> "case-study-row"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-work"
+    section_class="section-surface"
+    heading_id="mrc-tourism-work"
+    eyebrow="Work"
+    heading="Work that brings guests"
+    intro="Real projects for operators who wanted to take back control of their digital presence."
+    link_href="/case-studies/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 6. Process }}
   <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-tourism-seasonal">
@@ -121,16 +118,16 @@
   </section>
 
   {{! 7. Resources }}
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-tourism-guides">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Guides" heading_id="mrc-tourism-guides" heading="Practical reading for hospitality" intro="Useful guides written for busy owners and operators." link_href="/resources/" link_text="View all"}}
-      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-resources"
+    section_class="section-surface"
+    heading_id="mrc-tourism-guides"
+    eyebrow="Guides"
+    heading="Practical reading for hospitality"
+    intro="Useful guides written for busy owners and operators."
+    link_href="/resources/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{! 8. Final CTA }}
   {{> "cta-section"
@@ -146,9 +143,9 @@
     ga_page_section="final_cta"
   }}
 
-  <section class="mrc-audience-nav section-light gh-outer">
+  <div class="mrc-audience-nav section-light gh-outer">
     <div class="mrc-audience-nav__inner gh-inner">
       {{> "audience-related-nav" omit="tourism-hospitality" audience="tourism_hospitality"}}
     </div>
-  </section>
+  </div>
 </main>

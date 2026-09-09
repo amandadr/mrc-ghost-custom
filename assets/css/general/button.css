@@ -39,8 +39,8 @@ a.button.mrc-btn-primary,
 
 a.button.mrc-btn-primary:hover,
 .button.mrc-btn-primary:hover {
-    opacity: 0.95;
-    color: var(--mrc-text) !important;
+    opacity: 0.92;
+    color: var(--mrc-surface) !important;
 }
 
 a.button.mrc-btn-secondary,

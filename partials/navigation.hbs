@@ -19,24 +19,7 @@
           <span class="mrc-nav-services__toggle-label">Services submenu</span>
         </button>
         <ul class="mrc-nav-services__panel" id="mrc-nav-services-panel" hidden>
-          <li>
-            <a href="{{@site.url}}/services/small-businesses/">Small &amp; Medium Businesses</a>
-          </li>
-          <li>
-            <a href="{{@site.url}}/services/tourism-hospitality/">Tourism &amp; Hospitality</a>
-          </li>
-          <li>
-            <a href="{{@site.url}}/services/arts-culture-community/">Arts, Culture &amp; Community</a>
-          </li>
-          <li>
-            <a href="{{@site.url}}/services/organizations-institutions/">Organizations &amp; Institutions</a>
-          </li>
-          <li>
-            <a href="{{@site.url}}/services/agencies-development-teams/">Agencies &amp; Development Teams</a>
-          </li>
-          <li class="mrc-nav-services__separator">
-            <a href="{{@site.url}}/services/">View All Services →</a>
-          </li>
+          {{> "audience-links" variant="nav-panel"}}
         </ul>
       </li>
     {{else}}

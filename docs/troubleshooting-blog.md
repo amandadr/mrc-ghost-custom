@@ -1,5 +1,7 @@
 # Blog page not working on production
 
+> **Status: Setup** — update when Labs routes or troubleshooting steps change.
+
 If the blog page 404s, shows the wrong content, or fails only in production, use this checklist.
 
 ## 1. Apply custom routes in production
@@ -11,7 +13,7 @@ The theme expects the **blog archive** at `/blog/` and the **homepage** at `/`. 
 1. Log in to **production** Ghost Admin (the live site).
 2. Go to **Settings → Labs**.
 3. Under **Routes**, download your current routes (backup).
-4. Upload or paste the contents of **[routes-blog-archive.yaml](routes-blog-archive.yaml)** from this repo (same file used for local/dev).
+4. Upload or paste the contents of **[routes-glossary.yaml](routes-glossary.yaml)** from this repo (production consolidated routes; includes `/blog/` plus audiences, resources, glossary, and component library).
 5. Save.
 
 After saving, `/blog/` should show the post listing (index) and `/` should show the custom homepage.
@@ -40,6 +42,6 @@ That ensures `built/screen.css` and `built/main.min.js` are present in the theme
 
 - **404 on `/blog/`** → Routes not applied or reverted (repeat step 1).
 - **Blank or partial page** → Check the browser console (F12) for errors; confirm the theme zip was built with `yarn zip` and re-upload.
-- **Wrong content on `/blog/`** → Confirm the Routes YAML matches [routes-blog-archive.yaml](routes-blog-archive.yaml) (collection at `/blog/` with template `index`).
+- **Wrong content on `/blog/`** → Confirm the Routes YAML matches [routes-glossary.yaml](routes-glossary.yaml) (collection at `/blog/` with template `index`).
 
-For the exact routes format and how they’re applied, see [routes-blog-archive.yaml](routes-blog-archive.yaml) and the comments in that file.
+For the exact routes format and how they’re applied, see [routes-glossary.yaml](routes-glossary.yaml) and the comments in that file.

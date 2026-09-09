@@ -64,26 +64,7 @@
         heading="Technologies I work with"
         intro="I don't force a single platform on everyone. I bring deep experience across modern stacks and legacy systems to choose the right tool for the job."
       }}
-      <div class="mrc-carousel-wrap" data-mrc-carousel>
-        <div class="mrc-carousel">
-          {{> "tech-card" simple_icon="wordpress" title="WordPress"}}
-          {{> "tech-card" simple_icon="react" simple_icon_2="nextdotjs" title="React / Next.js"}}
-          {{> "tech-card" simple_icon="cloudflare" title="Cloudflare"}}
-          {{> "tech-card" simple_icon="godaddy" title="GoDaddy"}}
-          {{> "tech-card" simple_icon="shopify" title="Shopify"}}
-          {{> "tech-card" simple_icon="gitlab" title="GitLab"}}
-          {{> "tech-card" simple_icon="webflow" title="Webflow"}}
-          {{> "tech-card" simple_icon="googleanalytics" title="Google Analytics 4"}}
-          {{> "tech-card" simple_icon="looker" title="Looker Studio"}}
-          {{> "tech-card" simple_icon="ghost" title="Ghost CMS"}}
-          {{> "tech-card" simple_icon="googlebigquery" title="BigQuery"}}
-          {{> "tech-card" simple_icon="supabase" title="Supabase"}}
-        </div>
-        <div class="mrc-carousel__controls">
-          <button type="button" class="mrc-carousel__btn" data-carousel-prev aria-label="Previous">{{> "icon" name="arrow-left"}}</button>
-          <button type="button" class="mrc-carousel__btn" data-carousel-next aria-label="Next">{{> "icon" name="arrow-right"}}</button>
-        </div>
-      </div>
+      {{> "tech-carousel"}}
     </div>
   </section>
 
@@ -116,7 +97,10 @@
 
   <section class="mrc-about-beyond section-surface gh-outer" aria-labelledby="mrc-about-beyond-title">
     <div class="mrc-about-prose-inner gh-inner">
-      <h2 id="mrc-about-beyond-title" class="mrc-about-section-title">Outside of Work</h2>
+      {{> "section-header"
+        heading_id="mrc-about-beyond-title"
+        heading="Outside of Work"
+      }}
       <p class="mrc-about-prose-p">Home is a 150-year-old farmhouse lovingly known as 'The Dynamite House' in Bear River, PEI. Here, we tell the time by the sun and the seasons by the potato fields, and holistic thinking comes naturally to most.</p>
       <p class="mrc-about-prose-p">I spend my days outside of work tending to the homestead with my fiancee, exploring this beautiful island with our golden retrievers, and picking up new hobbies like they're lucky pennies.</p>
       <p class="mrc-about-prose-p">When I am not at the desk, I am outside with the dogs or fixing something in the farmhouse. The same patience I bring to a slow-cooked meal goes into the systems I build for you.</p>
@@ -124,16 +108,15 @@
     </div>
   </section>
 
-  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-about-resources">
-    <div class="gh-inner">
-      {{> "section-header" layout="split" eyebrow="Resources" heading_id="mrc-about-resources" heading="Notes from the field" link_href="/resources/" link_text="View all"}}
-      {{#get "posts" filter="tag:-[case-study,glossary-term,hash-glossary-term]" limit="3" include="tags"}}
-        {{#if posts}}
-          <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">{{#foreach posts}}{{> "post-card"}}{{/foreach}}</div>
-        {{/if}}
-      {{/get}}
-    </div>
-  </section>
+  {{> "feed-resources"
+    section_class="section-light"
+    heading_id="mrc-about-resources"
+    eyebrow="Resources"
+    heading="Notes from the field"
+    link_href="/resources/"
+    link_text="View all"
+    limit="3"
+  }}
 
   {{> "cta-section"
     headline="Have a problem worth solving? Let us talk it through."

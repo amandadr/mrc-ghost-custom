@@ -1,5 +1,7 @@
 # Local Ghost + theme development setup
 
+> **Status: Setup** — update when the local Ghost + symlink workflow changes.
+
 Use this layout so you can run Ghost locally and work on this theme with live reload, without zipping and uploading.
 
 ## Recommended layout

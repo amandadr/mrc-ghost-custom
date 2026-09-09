@@ -15,8 +15,8 @@ The **Ghost application** page is a custom page template used as a **reviewer / 
 ## Structure (section rhythm)
 
 1. **Hero (Cream)** — Title and subtext from theme settings (`ghost_hero_title`, `ghost_hero_subtext`). Optional inline links to docs intro, blog, and about.
-2. **Capability matrix (Paper)** — Five rows (partial `ghost-responsibility-row`): heading, proof text, and optional **related documentation** links (`doc_url`, `doc_label`) to specific pages on `docs.mannyroy.com`.
-3. **Implementation highlights (Olive)** — Six cards (partial `ghost-highlight-card`): each card has a **title**, **description**, **`doc_href`** (external docs URL; do not use `url` — Ghost resolves that to the current page), and **link_label** for unique link text.
+2. **Capability matrix (Paper)** — Five rows (partial `responsibility-row`): heading, proof text, and optional **related documentation** links (`doc_url`, `doc_label`) to specific pages on `docs.mannyroy.com`.
+3. **Implementation highlights (Olive)** — Six cards (partial `highlight-card`): each card has a **title**, **description**, **`doc_href`** (external docs URL; do not use `url` — Ghost resolves that to the current page), and **link_label** for unique link text.
 4. **Explore + related posts (Paper)** — Buttons for Documentation, Blog, About, Contact; list of posts tagged **ghost-application** (up to 5). Heading from `ghost_posts_heading`.
 5. **CTA (Maroon)** — Single CTA (partial `cta-section`); headline and button from theme settings.
 

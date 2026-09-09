@@ -85,3 +85,41 @@
     scroll-snap-type: none;
   }
 }
+
+/* Tech stack chips inside the carousel */
+.mrc-tech-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--mrc-bg);
+  border: 1px solid var(--border-color-subtle);
+  border-radius: var(--radius-s);
+}
+
+.mrc-tech-card__icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.mrc-tech-card__icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.mrc-tech-card__icon {
+  color: var(--mrc-maroon);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.mrc-tech-card__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: inherit;
+}
