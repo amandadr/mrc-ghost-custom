@@ -1,4 +1,4 @@
-# Manny Roy
+# Manny Roy Consulting - Custom Ghost Theme
 
 Custom Ghost theme foundation for **Manny Roy Consulting**. Built for clarity, accessibility, and sustainable technical storytelling — systems-focused and reader-friendly.
 
