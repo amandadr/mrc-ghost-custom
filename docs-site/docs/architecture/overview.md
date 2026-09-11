@@ -40,7 +40,7 @@ ghost-custom/
 │   ├── built/         # Built screen.css, main.min.js (do not edit)
 │   ├── js/            # Source JS (concatenated and minified)
 │   └── fonts/         # IBM Plex (and any other webfonts)
-├── partials/         # Reusable Handlebars partials (hero, content, footer, etc.)
+├── partials/          # Live includes; component-library/ chrome; legacy/ library-only
 ├── default.hbs        # Root layout: head, header, body wrapper, footer, scripts
 ├── home.hbs           # Homepage
 ├── index.hbs          # Blog/archive
@@ -50,8 +50,11 @@ ghost-custom/
 ├── custom-*.hbs       # Custom post templates (optional)
 ├── package.json       # Theme config: image_sizes, custom settings, scripts
 ├── gulpfile.js        # Build and zip tasks
-└── docs/              # Planning and reference (not the Docusaurus docs-site)
+├── data/              # Ghost import drafts (not in theme zip)
+└── docs/              # Ops docs; archive/ is frozen (not the Docusaurus docs-site)
 ```
+
+Ghost only treats **root** `*.hbs` as templates. Do not nest live page files. Full map: repo `docs/theme-map.md`.
 
 </details>
 

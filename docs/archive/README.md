@@ -24,3 +24,5 @@
 | [routes-audience-services.yaml](routes-audience-services.yaml) | Fragment routes; merged into glossary |
 | [routes-whitepapers-case-studies.yaml](routes-whitepapers-case-studies.yaml) | Fragment routes; merged into glossary |
 | [wireframe-component-plan.md](wireframe-component-plan.md) | Relume → partials build checklist; status tables stale — living inventory is docs-site component library + architecture anatomy |
+| [theme/](theme/) | Retired templates: page-glossary, glossary-collection scaffold, glossary-terms, content-cta |
+| [perf/](perf/) | Lighthouse and PageSpeed JSON dumps |

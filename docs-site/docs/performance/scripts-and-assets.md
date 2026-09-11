@@ -9,7 +9,7 @@ This page describes how the theme loads JavaScript and manages the critical path
 ## Script loading
 
 - **Lite script (default):** `default.hbs` loads `{{asset "built/main-lite.min.js"}}` with **defer** on marketing pages, home, and collections (burger, dropdown, pagination, tabs, carousel — no PhotoSwipe).
-- **Full script:** Posts always load `main.min.js` (+ PhotoSwipe markup). Rare KG content pages opt in with `{{#contentFor "scripts"}}{{> "scripts-full"}}{{/contentFor}}` (`page.hbs`, `page-glossary.hbs`).
+- **Full script:** Posts always load `main.min.js` (+ PhotoSwipe markup). Rare KG content pages opt in with `{{#contentFor "scripts"}}{{> "scripts-full"}}{{/contentFor}}` (`page.hbs`).
 - **No inline blocking JS:** Critical behaviour (e.g. burger menu) should work with DOM-ready logic that is compatible with deferred execution.
 - **Ghost injection:** `{{ghost_foot}}` is output after the theme script so Ghost can inject its own assets (e.g. member scripts) without blocking our bundle.
 

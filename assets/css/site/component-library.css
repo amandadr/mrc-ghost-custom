@@ -178,6 +178,12 @@ body.mrc-route-component-library,
   color: var(--mrc-mustard);
 }
 
+.mrc-cl-frame__status--legacy {
+  color: var(--mrc-text-muted, var(--mrc-surface));
+  opacity: 0.75;
+  border-color: currentcolor;
+}
+
 .mrc-cl-frame__partial {
   margin: 0 0 var(--space-2);
   font-size: 0.85rem;

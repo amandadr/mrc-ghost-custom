@@ -1,15 +1,11 @@
 {{!< default}}
 
 {{!--
-  Generic glossary collection template.
+  ARCHIVED scaffold. Not loaded by Ghost.
 
-  Because Ghost routing can’t pass arbitrary variables into templates,
-  this file is intended to be COPIED into per-collection templates like:
-
-  - glossary-collection-core-web-vitals.hbs
-
-  ...where the `tag:COLLECTION_TAG` in the {{#get}} helper is replaced
-  with the collection’s public tag slug.
+  Copy this file to the theme root as glossary-collection-<slug>.hbs
+  and replace COLLECTION_TAG in the {{#get}} filter with the collection’s
+  public tag slug. See docs/archive/theme/README.md.
 --}}
 
 <main class="site-main">

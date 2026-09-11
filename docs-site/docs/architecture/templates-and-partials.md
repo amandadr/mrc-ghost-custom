@@ -31,7 +31,7 @@ When you **rename a partial or change a Labs route**, update this page and the r
 | `services-arts-culture-community.hbs` | Labs route `/services/arts-culture-community/`. |
 | `services-agencies-development-teams.hbs` | Labs route `/services/agencies-development-teams/`. |
 | `case-studies.hbs` / `whitepapers.hbs` | Collection templates via Labs routes. |
-| `glossary.hbs` / `glossary-collection*.hbs` | Glossary index and collection pages. |
+| `glossary.hbs` / `glossary-collection-core-web-vitals.hbs` | Glossary index and the Core Web Vitals collection page. |
 | `custom-component-library.hbs` | Labs route `/component-library/` (dev harness, `noindex`). |
 | `custom-case-study.hbs` | Post with template “Case study”. |
 | `custom-full-feature-image.hbs` | Post with full-width feature image. |
@@ -93,8 +93,6 @@ Ghost matches custom **page** templates by template name in Admin. Audience and 
 | `audience-breadcrumb` | Breadcrumb trail | `services-*.hbs` |
 | `audience-fit-card` | “Sound familiar?” list | Audience heroes |
 | `audience-challenge` | Challenge grid cell | Audience pages |
-| `audience-expectation` | Outcome / expectation band | Some audiences |
-| `audience-proof-card` | Proof card | Some audiences |
 | `audience-related-nav` | Related audience links | Audience pages |
 
 ### Feed / article
@@ -115,6 +113,6 @@ Ghost matches custom **page** templates by template name in Admin. Audience and 
 | `component-library/cl-frame-start` / `cl-frame-end` | Demo frame |
 | `component-library/cl-nav` | Sticky TOC |
 
-Legacy atoms still in the tree for the library or older pages: `service-card`, `principle-item`, `common-project-card`, `engagement-way`. Prefer `feature-item` / `process-step` on new live pages.
+Retired atoms live in `partials/legacy/` and are demoed only on `/component-library/`: `service-card`, `principle-item`, `common-project-card`, `engagement-way`, `audience-expectation`, `audience-proof-card`. Prefer `feature-item` / `process-step` on new live pages. Unused page templates (`page-glossary`, glossary-collection scaffold, `content-cta`) are in repo `docs/archive/theme/`.
 
 For param names and landmark contracts, see [Component API glossary](/docs/design-system/component-api). For per-template behaviour and theme settings, see [Templates overview](/docs/templates/overview).

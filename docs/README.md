@@ -23,6 +23,7 @@ Living docs in this folder start with one of:
 
 | File | Status | Role |
 |------|--------|------|
+| [theme-map.md](theme-map.md) | Living | Repo layout, what Ghost loads, what stays in git only |
 | [routes-glossary.yaml](routes-glossary.yaml) | Living | Production Labs routes (upload this file) |
 | [ghost-org-setup.md](ghost-org-setup.md) | Setup | Production Ghost.org checklist |
 | [local-ghost-setup.md](local-ghost-setup.md) | Setup | Local Ghost + theme symlink |

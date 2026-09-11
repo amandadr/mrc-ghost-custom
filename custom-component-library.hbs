@@ -244,29 +244,29 @@
       {{> "component-library/cl-frame-end"}}
 
       {{! ========== Service card ========== }}
-      {{> "component-library/cl-frame-start" id="cl-service-card" title="Service card" status="stable" partial_name="service-card" notes="Home pillars. Test short copy, long copy, and missing link."}}
+      {{> "component-library/cl-frame-start" id="cl-service-card" title="Service card" status="legacy" partial_name="legacy/service-card" notes="Not on live pages. Home pillars use feature-item. Kept here for visual QA."}}
         <section class="mrc-section section-surface mrc-pillars-section gh-outer">
           <div class="mrc-section-inner gh-inner">
             {{> "section-header" heading="What I do (fixture)" spacing="tight"}}
             <div class="mrc-pillars mrc-grid mrc-grid--auto mrc-grid--gap-l">
-              {{> "service-card" title="Short title" description="Brief description." link_url="#cl-service-card" link_text="Learn more"}}
-              {{> "service-card" title="A longer service card title that wraps onto a second line under normal conditions" description="A longer description that stretches the card vertically so we can check alignment when one pillar has substantially more copy than its neighbours, including another sentence for good measure." link_url="#cl-service-card" link_text="Explore this longer path to the service detail"}}
-              {{> "service-card" title="Missing link" description="Card with title and body only — no CTA."}}
+              {{> "legacy/service-card" title="Short title" description="Brief description." link_url="#cl-service-card" link_text="Learn more"}}
+              {{> "legacy/service-card" title="A longer service card title that wraps onto a second line under normal conditions" description="A longer description that stretches the card vertically so we can check alignment when one pillar has substantially more copy than its neighbours, including another sentence for good measure." link_url="#cl-service-card" link_text="Explore this longer path to the service detail"}}
+              {{> "legacy/service-card" title="Missing link" description="Card with title and body only — no CTA."}}
             </div>
           </div>
         </section>
       {{> "component-library/cl-frame-end"}}
 
       {{! ========== Principle ========== }}
-      {{> "component-library/cl-frame-start" id="cl-principle" title="Principle item" status="stable" partial_name="principle-item" notes="Home “How I work” on olive. One vs four items."}}
+      {{> "component-library/cl-frame-start" id="cl-principle" title="Principle item" status="legacy" partial_name="legacy/principle-item" notes="Not on live pages. Home no longer has a How I work band. Kept here for visual QA."}}
         <section class="mrc-section section-dark mrc-principles-section gh-outer">
           <div class="mrc-section-inner gh-inner">
             {{> "section-header" heading="How I work (fixture)" spacing="tight"}}
             <div class="mrc-principles mrc-grid mrc-grid--auto mrc-grid--gap-l">
-              {{> "principle-item" title="Practical" body="The right solution fits your business, your capacity, and the way you actually work."}}
-              {{> "principle-item" title="Thoughtful" body="You will understand what is happening, why it matters, and what comes next."}}
-              {{> "principle-item" title="Collaborative" body="We work through decisions together, with your knowledge of the business guiding the process."}}
-              {{> "principle-item" title="Built to Last — with an awkwardly long principle title that should still read cleanly" body="Your website and tools should remain useful, manageable, and understandable after the project ends, even when the supporting sentence runs longer than usual for layout stress-testing."}}
+              {{> "legacy/principle-item" title="Practical" body="The right solution fits your business, your capacity, and the way you actually work."}}
+              {{> "legacy/principle-item" title="Thoughtful" body="You will understand what is happening, why it matters, and what comes next."}}
+              {{> "legacy/principle-item" title="Collaborative" body="We work through decisions together, with your knowledge of the business guiding the process."}}
+              {{> "legacy/principle-item" title="Built to Last — with an awkwardly long principle title that should still read cleanly" body="Your website and tools should remain useful, manageable, and understandable after the project ends, even when the supporting sentence runs longer than usual for layout stress-testing."}}
             </div>
           </div>
         </section>
@@ -305,26 +305,26 @@
       {{> "component-library/cl-frame-end"}}
 
       {{! ========== Project card ========== }}
-      {{> "component-library/cl-frame-start" id="cl-project-card" title="Common project card" status="stable" partial_name="common-project-card" notes="Services + audience pages. Olive vs maroon accent; one item vs six."}}
+      {{> "component-library/cl-frame-start" id="cl-project-card" title="Common project card" status="legacy" partial_name="legacy/common-project-card" notes="Not on live pages. Services/audiences use feature-item. Kept here for visual QA."}}
         <section class="mrc-section section-surface gh-outer">
           <div class="gh-inner">
             <div class="mrc-grid mrc-grid--auto mrc-grid--gap-l">
-              {{> "common-project-card" title="Websites" accent="olive" intro="Short intro." item1="Only one list item"}}
-              {{> "common-project-card" title="Operations & systems" accent="maroon" intro="Full list density." item1="Item one" item2="Item two" item3="Item three" item4="Item four" item5="Item five" item6="Item six — the long one that wraps to check list rhythm"}}
-              {{> "common-project-card" title="Title only — empty list stress" accent="olive"}}
+              {{> "legacy/common-project-card" title="Websites" accent="olive" intro="Short intro." item1="Only one list item"}}
+              {{> "legacy/common-project-card" title="Operations & systems" accent="maroon" intro="Full list density." item1="Item one" item2="Item two" item3="Item three" item4="Item four" item5="Item five" item6="Item six — the long one that wraps to check list rhythm"}}
+              {{> "legacy/common-project-card" title="Title only — empty list stress" accent="olive"}}
             </div>
           </div>
         </section>
       {{> "component-library/cl-frame-end"}}
 
       {{! ========== Engagement & process ========== }}
-      {{> "component-library/cl-frame-start" id="cl-engagement" title="Engagement & process" status="stable" partial_name="engagement-way / process-step" notes="Services middle sections."}}
+      {{> "component-library/cl-frame-start" id="cl-engagement" title="Engagement & process" status="stable" partial_name="legacy/engagement-way + process-step" notes="process-step is live. engagement-way is legacy (services uses process-step)."}}
         <section class="mrc-section section-light gh-outer">
           <div class="gh-inner">
             <h3 class="mrc-section-heading">Ways to engage</h3>
             <div class="mrc-stack mrc-stack--l" style="margin-bottom: var(--space-8);">
-              {{> "engagement-way" title="Project" desc="A defined piece of work with a clear outcome."}}
-              {{> "engagement-way" title="Ongoing support — longer label" desc="A longer description that checks wrapping and spacing when the engagement option needs more explanation than a single short line usually provides."}}
+              {{> "legacy/engagement-way" title="Project" desc="A defined piece of work with a clear outcome."}}
+              {{> "legacy/engagement-way" title="Ongoing support — longer label" desc="A longer description that checks wrapping and spacing when the engagement option needs more explanation than a single short line usually provides."}}
             </div>
             <h3 class="mrc-section-heading">Process</h3>
             <div class="mrc-grid mrc-grid--auto mrc-grid--gap-l">
@@ -503,7 +503,7 @@
       {{> "component-library/cl-frame-end"}}
 
       {{! ========== Audience ========== }}
-      {{> "component-library/cl-frame-start" id="cl-audience" title="Audience atoms" status="stable" notes="Shared across five audience service pages: breadcrumb, fit card, challenge, expectation, proof, related nav."}}
+      {{> "component-library/cl-frame-start" id="cl-audience" title="Audience atoms" status="stable" notes="Live: breadcrumb, fit card, challenge, related nav. Legacy (partials/legacy): expectation, proof card."}}
         <div class="mrc-audience-breadcrumb-wrap section-light gh-outer">
           <div class="gh-inner">
             {{> "audience-breadcrumb" current_label="Component library (fixture)" path="/component-library/"}}
@@ -542,8 +542,8 @@
           <div class="gh-inner">
             {{> "section-header" heading="Expectations" spacing="tight"}}
             <div class="mrc-grid mrc-grid--auto mrc-grid--gap-m">
-              {{> "audience-expectation" title="Clear next step" copy="You will know what happens after we talk."}}
-              {{> "audience-expectation" title="Longer expectation title for wrap testing" copy="A longer expectation body that stretches the cell so we can see olive-on-dark typography hold up under denser copy."}}
+              {{> "legacy/audience-expectation" title="Clear next step" copy="You will know what happens after we talk."}}
+              {{> "legacy/audience-expectation" title="Longer expectation title for wrap testing" copy="A longer expectation body that stretches the cell so we can see olive-on-dark typography hold up under denser copy."}}
             </div>
           </div>
         </section>
@@ -552,8 +552,8 @@
           <div class="gh-inner">
             {{> "section-header" heading="Proof cards" spacing="tight"}}
             <div class="mrc-grid mrc-grid--auto mrc-grid--gap-m">
-              {{> "audience-proof-card" title="Short proof" copy="One sentence."}}
-              {{> "audience-proof-card" title="Longer proof title" copy="A longer proof statement used as a layout fixture until real case-study excerpts replace placeholder copy on audience pages."}}
+              {{> "legacy/audience-proof-card" title="Short proof" copy="One sentence."}}
+              {{> "legacy/audience-proof-card" title="Longer proof title" copy="A longer proof statement used as a layout fixture until real case-study excerpts replace placeholder copy on audience pages."}}
             </div>
           </div>
         </section>
@@ -756,10 +756,10 @@
           <div class="gh-inner">
             <h3 class="mrc-section-heading">Repeated adjacent project cards</h3>
             <div class="mrc-grid mrc-grid--auto mrc-grid--gap-l">
-              {{> "common-project-card" title="Card A" accent="olive" item1="One" item2="Two"}}
-              {{> "common-project-card" title="Card B" accent="maroon" item1="One" item2="Two"}}
-              {{> "common-project-card" title="Card C" accent="olive" item1="One" item2="Two"}}
-              {{> "common-project-card" title="Card D" accent="maroon" item1="One" item2="Two"}}
+              {{> "legacy/common-project-card" title="Card A" accent="olive" item1="One" item2="Two"}}
+              {{> "legacy/common-project-card" title="Card B" accent="maroon" item1="One" item2="Two"}}
+              {{> "legacy/common-project-card" title="Card C" accent="olive" item1="One" item2="Two"}}
+              {{> "legacy/common-project-card" title="Card D" accent="maroon" item1="One" item2="Two"}}
             </div>
           </div>
         </section>

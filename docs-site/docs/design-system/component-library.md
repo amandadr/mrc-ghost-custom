@@ -37,8 +37,9 @@ The page sets `<meta name="robots" content="noindex, follow">` and is **not link
 | `partials/component-library/cl-frame-end.hbs` | Demo chrome close |
 | `partials/component-library/cl-nav.hbs` | Sticky TOC |
 | `assets/css/site/component-library.css` | Library-only chrome (frames, swatches, nav) |
+| `partials/legacy/*.hbs` | Retired atoms; library fixtures only |
 
-All component visuals come from existing `site/*.css` and partials.
+All live component visuals come from existing `site/*.css` and partials. Legacy card styles remain in `home-critical.css`, `services.css`, and `audience.css` so the library still renders those fixtures.
 
 ## What's on the page today
 
@@ -46,10 +47,10 @@ All component visuals come from existing `site/*.css` and partials.
 2. **Buttons** — primary / secondary on light and dark
 3. **Composition** — stack, cluster, grid
 4. **Hero** — `partials/hero.hbs` (now shared with `home.hbs`)
-5. **Service card, principle item, CTA section**
-6. **Service section, common project card, engagement + process**
+5. **Service card, principle item** — `legacy` status; not on live pages (`partials/legacy/`)
+6. **Service section, process-step**; common project card and engagement-way are legacy
 7. **Two-column section**
-8. **Audience atoms** — breadcrumb, fit card, challenge, expectation, proof, related nav (+ inline hero shell)
+8. **Audience atoms** — live: breadcrumb, fit card, challenge, related nav. Legacy: expectation, proof
 9. **Edge cases** — repeated grids, back-to-back CTAs
 
 ## Adding a new component demo
@@ -78,7 +79,7 @@ All component visuals come from existing `site/*.css` and partials.
 |--------|---------|
 | `stable` | Used on production pages; API unlikely to change |
 | `draft` | In progress or fixture-only |
-| `experimental` | May change or be removed |
+| `legacy` | Not used on live pages; kept for visual QA |
 
 ## Workflow (from wireframe Phase 9)
 

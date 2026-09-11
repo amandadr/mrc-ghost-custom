@@ -35,7 +35,9 @@ routes:
   # How to add another collection:
   # 1) Create a Page with slug: <collection-page-slug> (e.g. "core-web-vitals-collection")
   # 2) Add a route entry like the one below
-  # 3) Create a matching template: glossary-collection-<collection-route-slug>.hbs
+  # 3) Copy docs/archive/theme/glossary-collection.hbs.txt to
+  #    glossary-collection-<collection-route-slug>.hbs at the theme root
+  #    and replace COLLECTION_TAG in the {{#get}} filter with the public tag slug.
   /core-web-vitals/:
     template: glossary-collection-core-web-vitals
     data: page.core-web-vitals-collection

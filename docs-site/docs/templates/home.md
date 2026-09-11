@@ -4,30 +4,37 @@ sidebar_position: 2
 
 # Homepage (home.hbs)
 
-The **homepage** is rendered by `home.hbs` when a static homepage is set in Ghost (Settings → General → Homepage). It follows the design system’s section rhythm: Cream → Paper → Olive → Maroon.
+The **homepage** is rendered by `home.hbs` when a static homepage is set in Ghost (Settings → General → Homepage).
 
 ## Structure
 
-1. **Hero (Cream)** — Headline and subtext from theme settings; primary and secondary CTA buttons.
-2. **What I do (Paper)** — Section heading plus three service cards (partial `service-card`) linking to /services/#systems, #software, #automation.
-3. **How I work (Olive)** — Section heading plus four principle items (partial `principle-item`): Sustainable, Measurable, Collaborative, Evidence-based.
-4. **Final CTA (Maroon)** — Single CTA section (partial `cta-section`) with “Let’s team up” and “Get in touch”.
+1. **Hero** — Headline, subtext, Work / About CTAs (`hero`).
+2. **Audiences** — Tab panels linking to the five `services-*.hbs` routes (`tab-panel`).
+3. **About split** — Short bio plus headshot (`section-header`, `media-frame`).
+4. **What I do** — Three pillars (`feature-item`).
+5. **Toolkit** — Technology carousel (`tech-carousel`).
+6. **Outcomes** — Dark band of results (`feature-item`).
+7. **Work / resources feeds** — Latest case studies and writing (`feed-work`, `feed-resources`).
+8. **Final CTA** — Contact band (`cta-section`).
 
-All section copy except the CTAs is hardcoded in the template. Hero headline and subtext are editable via theme settings.
+Hero copy is hardcoded in `home.hbs` (theme settings still exist for headline/subtext if you wire them back).
 
 ## Theme settings used (homepage group)
 
 | Key | Type | Default | Purpose |
 | --- | --- | --- | --- |
-| `hero_headline` | text | "Untangle complex technical and operational problems." | Hero H1 |
-| `hero_subtext` | text | "Sustainable systems rooted in data, collaboration, and measurable impact." | Hero subtext |
+| `hero_headline` | text | (see `package.json`) | Available for hero H1 if the template reads `@custom.hero_headline` |
+| `hero_subtext` | text | (see `package.json`) | Available for hero subtext |
+| `show_featured_posts` | boolean | true | Featured posts on the **blog** index, not the homepage |
 
 Edit these in **Settings → Design → Theme**, group **homepage**.
 
 ## Partials
 
-- `service-card` (×3) — title, description, url
-- `principle-item` (×4) — title, body
-- `cta-section` — headline, subtext, button_text
+- `hero`, `section-header`, `tab-panel`, `media-frame`
+- `feature-item` (pillars and outcomes)
+- `tech-carousel`, `feed-work`, `feed-resources`, `cta-section`
 
-No Ghost content (posts/pages) is queried in `home.hbs`; it’s fully driven by the template and theme settings.
+`service-card` and `principle-item` are **legacy** (`partials/legacy/`); they are not used on the live homepage.
+
+No Ghost post loop on `home.hbs` except the shared feed partials.

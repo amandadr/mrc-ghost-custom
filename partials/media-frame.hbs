@@ -6,7 +6,7 @@
 
       Params:
         img             image URL — omit for the text-only rendering
-        theme_headshot  true → theme file assets/images/headshot.webp (JPEG fallback)
+        theme_headshot  true → @custom.about_headshot if set, else assets/images/headshot.webp
         img_alt         alt text; omitted means decorative (alt="" + aria-hidden)
         shape           "round" | "portrait" | "landscape" | "square"
         placeholder     true → bordered empty slot (component library only) --}}
@@ -23,6 +23,16 @@
   </figure>
 {{else if theme_headshot}}
   <figure class="mrc-media-frame{{#if shape}} mrc-media-frame--{{shape}}{{/if}}">
+    {{#if @custom.about_headshot}}
+      <img
+        class="mrc-media-frame__img"
+        src="{{img_url @custom.about_headshot size="m"}}"
+        alt="{{#if img_alt}}{{img_alt}}{{/if}}"
+        {{#unless img_alt}}aria-hidden="true"{{/unless}}
+        loading="lazy"
+        decoding="async"
+      >
+    {{else}}
     <picture>
       <source srcset="{{asset "images/headshot.webp"}}" type="image/webp">
       <img
@@ -36,6 +46,7 @@
         decoding="async"
       >
     </picture>
+    {{/if}}
   </figure>
 {{else if placeholder}}
   <div class="mrc-media-frame mrc-media-frame--placeholder{{#if shape}} mrc-media-frame--{{shape}}{{/if}}" aria-hidden="true">

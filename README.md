@@ -74,6 +74,7 @@ Result: `/` = custom home, `/blog/` = post listing, `/blog/{slug}/` = posts, plu
 
 ## Project docs
 
+- **[docs/theme-map.md](docs/theme-map.md)** — what Ghost loads vs repo-only folders
 - **[docs/README.md](docs/README.md)** — source-of-truth hierarchy and living docs index
 - **[docs.mannyroy.com](https://docs.mannyroy.com)** — public docs site (`docs-site/`)
 - [Brand voice](docs/brand-voice.md) — Tone, personality, and copy guidelines
