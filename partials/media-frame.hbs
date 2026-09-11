@@ -6,7 +6,7 @@
 
       Params:
         img             image URL — omit for the text-only rendering
-        theme_headshot  true → theme file assets/images/headshot.jpeg
+        theme_headshot  true → theme file assets/images/headshot.webp (JPEG fallback)
         img_alt         alt text; omitted means decorative (alt="" + aria-hidden)
         shape           "round" | "portrait" | "landscape" | "square"
         placeholder     true → bordered empty slot (component library only) --}}
@@ -23,14 +23,19 @@
   </figure>
 {{else if theme_headshot}}
   <figure class="mrc-media-frame{{#if shape}} mrc-media-frame--{{shape}}{{/if}}">
-    <img
-      class="mrc-media-frame__img"
-      src="{{asset "images/headshot.jpeg"}}"
-      alt="{{#if img_alt}}{{img_alt}}{{/if}}"
-      {{#unless img_alt}}aria-hidden="true"{{/unless}}
-      loading="lazy"
-      decoding="async"
-    >
+    <picture>
+      <source srcset="{{asset "images/headshot.webp"}}" type="image/webp">
+      <img
+        class="mrc-media-frame__img"
+        src="{{asset "images/headshot.jpeg"}}"
+        alt="{{#if img_alt}}{{img_alt}}{{/if}}"
+        {{#unless img_alt}}aria-hidden="true"{{/unless}}
+        width="640"
+        height="640"
+        loading="lazy"
+        decoding="async"
+      >
+    </picture>
   </figure>
 {{else if placeholder}}
   <div class="mrc-media-frame mrc-media-frame--placeholder{{#if shape}} mrc-media-frame--{{shape}}{{/if}}" aria-hidden="true">

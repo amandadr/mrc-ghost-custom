@@ -10,14 +10,14 @@ This page covers **font loading** and **image sizing and delivery** so the theme
 
 ### Current setup
 
-- **Fonts:** IBM Plex Sans (body) and IBM Plex Serif (headings). Files live in `assets/fonts/` (e.g. `ibm-plex-sans/`). The theme uses TTF; `fonts.css` (or equivalent) defines `@font-face` with `font-display: swap` so text is visible while fonts load.
-- **Preload:** In `default.hbs`, the two critical above-the-fold fonts (IBM Plex Sans Regular and SemiBold) are preloaded with `<link rel="preload" href="..." as="font" type="font/ttf" crossorigin>`. That reduces the chance of a flash of unstyled text and helps LCP for the hero and nav.
+- **Fonts:** IBM Plex Sans (body, 400/600) and IBM Plex Serif (headings, 400/600), latin woff2 from `@fontsource`, copied by Gulp into `assets/fonts/`.
+- **`@font-face`:** Inlined in `partials/font-faces.hbs` with `{{asset}}` URLs and `font-display: swap`. Do not put `src: url("../fonts/...")` in CSS — Ghost’s `{{asset}}` helper adds `?v=`, and a relative path is a second download.
+- **Preload:** `default.hbs` preloads the two first-paint faces: Sans 400 (body / LCP text) and Serif 600 (logo + headlines). Same `{{asset}}` href as `@font-face`.
 
 ### Improvements (in scope or future)
 
-- **woff2:** Add woff2 versions of IBM Plex Sans and Serif and reference them in `@font-face` with fallback to TTF. Smaller payload and faster load.
-- **Preload woff2:** Once woff2 exists, preload the one or two critical woff2 files instead of (or in addition to) TTF as appropriate for browser support.
-- **Document strategy:** Keep this doc and the theme’s `fonts.css` in sync so font loading is clear for future changes.
+- **Subset further** if a unicode-range or variable-font cut beats the current latin files.
+- **Keep preload and `@font-face` URLs identical** when adding weights or files.
 
 ## Image sizes (Ghost)
 

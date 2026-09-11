@@ -10,7 +10,6 @@ This page summarizes **shipped work**, **active priorities**, and **v2 ideas**. 
 
 | Area | Notes |
 | --- | --- |
-| **Ghost application landing page** | `page-ghost-application.hbs` + `highlight-card` / `responsibility-row` |
 | **Docs system** | Docusaurus at docs.mannyroy.com (`docs-site/`) |
 | **Restrained JS** | No jQuery/Owl in the theme bundle; CSS scroll-snap + vanilla `assets/js/lib/*` |
 | **Relume-era marketing pages** | Home, services, who-i-help, audiences, resources, component library |

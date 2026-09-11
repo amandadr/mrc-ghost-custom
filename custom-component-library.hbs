@@ -8,6 +8,7 @@
   <meta name="description" content="Live component library for the Manny Roy Consulting theme — foundations, section components, and edge-case fixtures.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="{{@site.url}}/component-library/">
+  <link rel="stylesheet" href="{{asset "built/screen-cl.css"}}">
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-component-library">
@@ -564,25 +565,6 @@
         </section>
       {{> "component-library/cl-frame-end"}}
 
-      {{! ========== Ghost application ========== }}
-      {{> "component-library/cl-frame-start" id="cl-highlight-cards" title="Highlight cards & responsibility row" status="stable" partial_name="highlight-card / responsibility-row" notes="Docs / Feature highlights."}}
-        <section class="mrc-section section-dark mrc-ghost-highlights gh-outer">
-          <div class="gh-inner">
-            <div class="mrc-ghost-highlights-grid mrc-grid mrc-grid--auto mrc-grid--gap-m">
-              {{> "highlight-card" title="Short highlight" description="Brief description." doc_href="#cl-highlight-cards" link_label="Open docs"}}
-              {{> "highlight-card" title="Longer highlight title for wrapping" description="A longer description that fills the olive card so link placement and contrast stay clear." doc_href="#cl-highlight-cards"}}
-              {{> "highlight-card" title="Missing link" description="No documentation URL — card body only."}}
-            </div>
-          </div>
-        </section>
-        <section class="mrc-section section-light gh-outer">
-          <div class="gh-inner mrc-stack mrc-stack--l">
-            {{> "responsibility-row" heading="Theme ownership" proof="Custom templates and CSS stay in the theme repo." doc_url="#cl-highlight-cards" doc_label="Theme docs"}}
-            {{> "responsibility-row" heading="Content ownership with a longer heading" proof="Editors own page copy in Ghost Admin; the theme owns structure and presentation tokens."}}
-          </div>
-        </section>
-      {{> "component-library/cl-frame-end"}}
-
       {{! ========== Post card ========== }}
       {{> "component-library/cl-frame-start" id="cl-post-card" title="Post card & grid" status="stable" partial_name="post-card" notes="Rendered against real posts via the get helper. Text-first by decision: the feature image is opt-in and only appears when the post has one."}}
         <section class="mrc-section section-light gh-outer">
@@ -744,7 +726,7 @@
       {{> "component-library/cl-frame-end"}}
 
       {{! ========== Table of contents ========== }}
-      {{> "component-library/cl-frame-start" id="cl-toc" title="Table of contents" status="stable" partial_name="post-toc" notes="Authored links here. On a real article, leave the list empty and toc.js will build it from the headings. Sticky from 900px; a details drawer below that."}}
+      {{> "component-library/cl-frame-start" id="cl-toc" title="Table of contents" status="stable" partial_name="post-toc" notes="Authored links here; toc.js nests them under the heading they point at (h3 under the preceding h2). On a real article, leave the list empty and it will build the same outline from the headings. Sticky from 900px; a details drawer below that."}}
         <section class="mrc-section section-light gh-outer">
           <div class="gh-inner mrc-split mrc-split--40-60">
             {{> "post-toc"

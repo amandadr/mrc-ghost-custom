@@ -125,31 +125,6 @@
         "type": "text",
         "default": "https://formspree.io/f/YOUR_FORM_ID",
         "description": "Form submission URL (e.g. Formspree). Replace YOUR_FORM_ID with your form ID."
-      },
-      "ghost_hero_title": {
-        "type": "text",
-        "default": "A guided tour of how I build",
-        "group": "ghost"
-      },
-      "ghost_hero_subtext": {
-        "type": "text",
-        "default": "This page is for recruiters and technical reviewers: a single map from this live site to documentation, writing, and implementation detail—so you can judge depth and craft without hunting through menus.",
-        "group": "ghost"
-      },
-      "ghost_cta_headline": {
-        "type": "text",
-        "default": "Want to go deeper or start a conversation?",
-        "group": "ghost"
-      },
-      "ghost_cta_button": {
-        "type": "text",
-        "default": "Get in touch",
-        "group": "ghost"
-      },
-      "ghost_posts_heading": {
-        "type": "text",
-        "default": "Technical writing",
-        "group": "ghost"
       }
     }
   },

@@ -2,8 +2,10 @@
  * Article table of contents (partials/post-toc.hbs).
  *
  * Mobile: a <details> drawer. From 900px the summary is hidden, the list stays open,
- * and the nav sticks beside the article. Current-heading highlighting is a JS extra
- * (assets/js/lib/toc.js); without it the list is still a working set of links.
+ * and the nav sticks beside the article. Nested ol.mrc-toc__list--nested is the
+ * heading outline (h2 sections, h3/h4 subsections). Current-heading highlighting
+ * is a JS extra (assets/js/lib/toc.js); without it the list is still a working set
+ * of links.
  */
 
 .mrc-toc {
@@ -55,12 +57,38 @@
   border-top: var(--border-width) var(--border-style) var(--border-color-subtle);
 }
 
+.mrc-toc__list--nested {
+  border-top: 0;
+  margin: 0;
+  padding: 0 0 var(--space-2) var(--space-4);
+}
+
 .mrc-toc__list a {
   display: block;
   padding-block: var(--space-3);
   color: var(--mrc-text-soft) !important;
   text-decoration: none;
   border-bottom: var(--border-width) var(--border-style) var(--border-color-subtle);
+}
+
+.mrc-toc__item--h2 > a {
+  color: currentcolor !important;
+  font-weight: 600;
+}
+
+.mrc-toc__item--h3 > a,
+.mrc-toc__item--h4 > a {
+  padding-block: var(--space-2);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+.mrc-toc__item--h4 > a {
+  padding-inline-start: var(--space-3);
+}
+
+.mrc-toc__list--nested > .mrc-toc__item:last-child > a {
+  border-bottom: 0;
 }
 
 .mrc-toc__list a:hover,
@@ -72,6 +100,10 @@
   font-weight: 600;
   box-shadow: inset 3px 0 0 var(--mrc-eyebrow);
   padding-inline-start: var(--space-3);
+}
+
+.mrc-toc__item--h4 > a[aria-current="location"] {
+  padding-inline-start: calc(var(--space-3) + var(--space-3));
 }
 
 .section-dark .mrc-toc__list,

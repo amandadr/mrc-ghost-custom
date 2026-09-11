@@ -40,10 +40,10 @@ For each proposed change, we do a quick before/after loop:
 
 ## What the theme does today
 
-- **Scripts:** Main theme script is loaded with `defer` in `default.hbs` so it doesn’t block rendering.
-- **Fonts:** IBM Plex Sans/Serif load from Google Fonts in `default.hbs` (preconnect + stylesheet). Local `@fontsource` / gulp font copy remains an optional self-host path.
+- **Scripts:** Deferred `main-lite.min.js` on marketing/collections; full `main.min.js` + PhotoSwipe only on posts and opted-in KG pages (`scripts-full`). Unused `imagesloaded` omitted from both bundles.
+- **Fonts:** Self-hosted IBM Plex woff2. `@font-face` is inlined via `partials/font-faces.hbs` using `{{asset}}` so preload URLs match. `default.hbs` preloads Sans 400 and Serif 600 only.
 - **Images:** Post and page content use the `content` partial with srcset; Ghost image sizes (xs through xxl) are defined in `package.json`. Lazy loading can be added for images below the fold (feed, related posts, featured after first slide).
-- **CSS:** `screen.css` bundle plus a home critical/deferred split (`screen-home.css`). Asset budget and further critical CSS are documented as future improvements.
+- **CSS:** Home, About, and Services critical sheets (`screen-home.css`, `screen-about.css`, `screen-services.css`) use a shared-theme subset (no PhotoSwipe/blog chrome); FAQ/component-library CSS is route-scoped via `screen-cl.css`. Full `screen.css` loads async on those routes.
 
 ## In scope (strategy)
 

@@ -1,0 +1,12 @@
+/**
+ * Shared-theme subset for the home critical path.
+ * Omits PhotoSwipe, article/content cards, comments, and other blog chrome
+ * that marketing first-paint does not need (~9KB+ of unused CSS).
+ */
+@import "@tryghost/shared-theme-assets/assets/css/v1/vars.css";
+@import "@tryghost/shared-theme-assets/assets/css/v1/components/reset.css";
+@import "@tryghost/shared-theme-assets/assets/css/v1/components/global.css";
+@import "@tryghost/shared-theme-assets/assets/css/v1/components/layout.css";
+@import "@tryghost/shared-theme-assets/assets/css/v1/components/header.css";
+@import "@tryghost/shared-theme-assets/assets/css/v1/components/navigation.css";
+@import "@tryghost/shared-theme-assets/assets/css/v1/components/button.css";

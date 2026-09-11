@@ -14,7 +14,7 @@ The original approach was **theme custom settings**: each section (e.g. “About
 - No need to redeploy the theme to change copy  
 - Exact control over layout (two-column, cards, Olive block)  
 
-**Why we can’t use it for all pages:** Ghost allows **at most 20 custom settings** for the whole theme. We need those 20 for: logo, navigation, fonts, homepage hero, footer, contact email, form URL, and the Ghost application page (hero, CTA, posts heading). Adding separate fields for every About/Services/Contact/Thanks section would require dozens of keys, so Ghost shows a theme error.
+**Why we can’t use it for all pages:** Ghost allows **at most 20 custom settings** for the whole theme. We need those 20 for: logo, navigation, fonts, homepage hero, footer, contact email, and form URL. Adding separate fields for every About/Services/Contact/Thanks section would require dozens of keys, so Ghost shows a theme error.
 
 ---
 
@@ -45,11 +45,11 @@ Draft / long-form audience content still lives in [services-pages.md](services-p
 
 ## What is still editable in Ghost Admin
 
-- **Settings → Design → Theme:** Homepage hero (headline, subtext), featured posts title, footer bio, contact email, contact form action URL, Ghost application page (hero title/subtext, CTA headline/button, posts heading). Navigation, logo, fonts, color scheme.
-- **Pages (editor):** Only pages that use the **default** template (e.g. generic “Page” or Work) use the page body; About, Services, Contact, Thanks, Who I Help, Resources, and audience service templates ignore the page body.
+- **Settings → Design → Theme:** Homepage hero (headline, subtext), featured posts title, footer bio, contact email, contact form action URL. Navigation, logo, fonts, color scheme.
+- **Pages (editor):** Only pages that use the **default** template (generic “Page”) use the page body; About, Services, Contact, Thanks, Who I Help, Resources, and audience service templates ignore the page body.
 
 ---
 
 ## If you want some section editing in the UI again
 
-We could reserve a few of the 20 theme keys for one page (e.g. About): e.g. `about_hero_title`, `about_hero_subtext`, `about_cta_headline`, `about_cta_button`, and use those in the template. The rest of About would stay hardcoded. That would mean dropping or merging other keys (e.g. one fewer ghost setting). If you want to do that, we can pick which page and which sections to expose in Settings.
+We could reserve a few of the 20 theme keys for one page (e.g. About): e.g. `about_hero_title`, `about_hero_subtext`, `about_cta_headline`, `about_cta_button`, and use those in the template. The rest of About would stay hardcoded. That would mean dropping or merging other keys. If you want to do that, we can pick which page and which sections to expose in Settings.

@@ -71,11 +71,6 @@ const sidebars: SidebarsConfig = {
             {type: 'doc', id: 'templates/post-and-page', label: 'Post and page'},
             {
               type: 'doc',
-              id: 'templates/ghost-application-page',
-              label: 'Ghost application page',
-            },
-            {
-              type: 'doc',
               id: 'templates/resources-pdfs',
               label: 'Whitepapers + case studies',
             },

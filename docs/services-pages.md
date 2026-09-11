@@ -578,10 +578,8 @@ This section should use the olive background treatment currently associated with
 Destination:
 
 ```text
-/work/
+/case-studies/
 ```
-
-or the current case-study index.
 
 ### Proof-content rules
 

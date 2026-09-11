@@ -23,9 +23,7 @@ When you **rename a partial or change a Labs route**, update this page and the r
 | `page-services.hbs` | Page with template “Services”. |
 | `page-contact.hbs` | Page with template “Contact”. |
 | `page-resources.hbs` | Page with template “Resources” (or slug `resources`). |
-| `page-ghost-application.hbs` | Page with template “Ghost application”, slug `ghost-application`. |
 | `page-thanks.hbs` | Thanks page (e.g. after form submit). |
-| `page-work.hbs` | Work/portfolio-style page. |
 | `who-i-help.hbs` | Labs route `/who-i-help/` (theme HBS; no Admin template dropdown). |
 | `services-small-business.hbs` | Labs route `/services/small-businesses/`. |
 | `services-tourism-hospitality.hbs` | Labs route `/services/tourism-hospitality/`. |
@@ -53,7 +51,13 @@ Ghost matches custom **page** templates by template name in Admin. Audience and 
 | `cover` | Blog cover / member CTA | `default.hbs` |
 | `featured-posts` | Featured posts on blog index | `default.hbs` |
 | `ga4` | Analytics loader | `default.hbs` |
-| `pswp` | PhotoSwipe lightbox | `default.hbs` |
+| `font-faces` | Inline IBM Plex `@font-face` (`{{asset}}` URLs) | `default.hbs` |
+| `css-async-full` | Non-blocking `screen.css` after a critical sheet | Home and About |
+| `css-async-idle` | Full `screen.css` after load (no preload-scanner fetch) | Services |
+| `screen-services-inline` | Gulp-inlined Services critical CSS | `page-services.hbs` |
+| `site-head` | `ghost_head` with Portal/search deferred | `default.hbs` |
+| `pswp` | PhotoSwipe lightbox | `scripts-full` (posts + opted-in pages) |
+| `scripts-full` | Full JS + PhotoSwipe markup | `default.hbs` (posts); `contentFor "scripts"` opt-in |
 
 ### Section composers
 
@@ -76,8 +80,6 @@ Ghost matches custom **page** templates by template name in Admin. Audience and 
 | `process-step` | Process grid step | Audiences, services |
 | `media-frame` | Shared photo ⇄ text-only media contract | Hero, two-column, … |
 | `icon` + `icons/*` | Line SVG icons (gscan-safe dispatch) | Feature items, challenges, … |
-| `highlight-card` | Ghost application highlight card | `page-ghost-application.hbs` |
-| `responsibility-row` | Ghost application matrix row | `page-ghost-application.hbs` |
 | `tech-card` | Tech stack chip in carousel | `tech-carousel` |
 | `tech-carousel` | Shared toolkit carousel | Home, services, about, agencies |
 | `audience-hero` | Audience split hero + fit-card | `services-*.hbs` |
@@ -101,7 +103,7 @@ Ghost matches custom **page** templates by template name in Admin. Audience and 
 |---------|---------|--------|
 | `post-card` | Resource / blog card | Resources, audiences |
 | `case-study-row` | Case study list row | Case studies, audiences |
-| `post-toc` | Table of contents | Long-form posts |
+| `post-toc` | Nested table of contents (h2 sections, h3/h4 subsections) | Long-form posts |
 | `loop` | Legacy feed card | `index.hbs`, archives |
 | `content` | Post/page body | `post.hbs`, `page.hbs`, customs |
 | `post-case-study` / `post-whitepaper` | Custom post bodies | Custom templates |

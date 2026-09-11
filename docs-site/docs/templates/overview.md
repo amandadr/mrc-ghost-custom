@@ -26,9 +26,7 @@ All templates that extend the root layout start with `{{!< default}}` so `defaul
 | `services` | Services | `page-services.hbs` |
 | `contact` | Contact | `page-contact.hbs` |
 | `resources` | Resources | `page-resources.hbs` |
-| `ghost-application` | Ghost application | `page-ghost-application.hbs` |
 | `thanks` | Thanks | `page-thanks.hbs` |
-| `work` | Work | `page-work.hbs` |
 | `/who-i-help/` | Labs routes | `who-i-help.hbs` |
 | `/services/small-businesses/` | Labs routes | `services-small-business.hbs` |
 | `/services/tourism-hospitality/` | Labs routes | `services-tourism-hospitality.hbs` |
@@ -45,6 +43,5 @@ Theme settings (`@custom.*`) control a small set of copy and toggles; see [Theme
 - [Blog and index](./blog-and-index) — Blog archive, cover, featured posts
 - [Post and page](./post-and-page) — Single post/page, content partial, custom post templates
 - [Whitepapers + case studies (PDF-first)](./resources-pdfs) — Add a PDF resource to Ghost and serve it via your CDN
-- [Ghost application page](./ghost-application-page) — Role-to-proof page and ghost_* settings
 - [Theme settings](./theme-settings) — Full reference of `@custom.*` keys
 - [Theme anatomy](/docs/architecture/templates-and-partials) — Full template and partial inventory

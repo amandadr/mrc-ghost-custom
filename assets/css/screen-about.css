@@ -1,0 +1,18 @@
+/**
+ * First-paint bundle for the About template (see default.hbs).
+ * Header + hero + two-column intro (LCP paragraph). Full theme loads async
+ * via built/screen.css. Omits blog chrome, tabs/carousel, and other page CSS.
+ */
+@import "shared-home.css";
+@import "general/basics.css";
+/* Page scaffolding before components — see screen.css. */
+@import "site/layout.css";
+@import "general/brand.css";
+@import "general/typography.css";
+@import "general/composition.css";
+@import "general/button.css";
+@import "general/media-frame.css";
+@import "site/header.css";
+@import "site/first-paint.css";
+@import "site/about.css";
+@import "misc/utils.css";

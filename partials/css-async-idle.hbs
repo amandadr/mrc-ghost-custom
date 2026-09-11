@@ -1,0 +1,26 @@
+{{! Full theme CSS after load. A real link tag would be picked up by the
+    preload scanner and contend with the LCP font. Asset URL is a JS string. }}
+<script>
+(function () {
+  var href = "{{asset "built/screen.css"}}";
+  function loadCss() {
+    var l = document.createElement("link");
+    l.rel = "stylesheet";
+    l.href = href;
+    document.head.appendChild(l);
+  }
+  function whenIdle(fn) {
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(fn, { timeout: 2500 });
+    } else {
+      setTimeout(fn, 1);
+    }
+  }
+  if (document.readyState === "complete") {
+    whenIdle(loadCss);
+  } else {
+    window.addEventListener("load", function () { whenIdle(loadCss); }, { once: true });
+  }
+})();
+</script>
+<noscript><link rel="stylesheet" href="{{asset "built/screen.css"}}"></noscript>

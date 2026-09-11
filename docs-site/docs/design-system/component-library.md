@@ -50,8 +50,7 @@ All component visuals come from existing `site/*.css` and partials.
 6. **Service section, common project card, engagement + process**
 7. **Two-column section**
 8. **Audience atoms** — breadcrumb, fit card, challenge, expectation, proof, related nav (+ inline hero shell)
-9. **Ghost application** — highlight card, responsibility row
-10. **Edge cases** — repeated grids, back-to-back CTAs
+9. **Edge cases** — repeated grids, back-to-back CTAs
 
 ## Adding a new component demo
 

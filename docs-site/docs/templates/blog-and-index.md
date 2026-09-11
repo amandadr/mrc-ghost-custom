@@ -13,7 +13,8 @@ The **blog archive** (e.g. `/` or `/blog/` depending on our routes) uses `index.
 
 ## index.hbs content
 
-- Main: post feed (loop over `posts`) using partial `loop` for each post card.
+- Fallback meta description when Ghost has none (SEO).
+- Main: post feed using `post-card` with `heading="h2"` so the outline is h1 (“Writing”) then h2 titles, not a skipped h3.
 - Pagination: `{{pagination}}` (Ghost helper).
 
 No other content blocks; the feed is the only body content from this template.
@@ -31,6 +32,6 @@ Both are in **Settings → Design → Theme**, group **homepage**. The cover par
 
 - **cover** — Rendered by `default.hbs` when `{{#is "index"}}{{^is "home"}}` (blog index, not static home). Content depends on Ghost (members, etc.).
 - **featured-posts** — Carousel/section of featured posts; rendered when `show_featured_posts` is true.
-- **loop** — Single post card in the feed (used in index, author, tag, related-posts).
+- **post-card** — Archive cards on `/blog/` (`heading="h2"`). Author and tag archives still use `loop`.
 
 For the single post layout and content partial, see [Post and page](./post-and-page).

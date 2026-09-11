@@ -18,6 +18,10 @@
   border-radius: var(--radius-m);
 }
 
+.mrc-media-frame picture {
+  display: contents;
+}
+
 /* Shapes — crop to a predictable ratio so mixed source images stay on a grid. */
 .mrc-media-frame--square .mrc-media-frame__img,
 .mrc-media-frame--portrait .mrc-media-frame__img,

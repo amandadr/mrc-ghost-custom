@@ -23,17 +23,36 @@
       }}
       <div class="mrc-tabs" data-mrc-tabs data-mrc-tabs-label="Audiences">
         <div class="mrc-tabs__panels">
-          {{> "tab-panel" id="home-tab-smb" label="Small businesses" title="For small businesses" body="Lean operations relying on interconnected tools for e-commerce, inventory, and customer communication without dedicated IT staff." href="/services/small-businesses/" link_text="Read more"}}
-          {{> "tab-panel" id="home-tab-tourism" label="Tourism" title="Tourism and hospitality" body="High-traffic operations dependent on real-time booking engines, property management systems, and third-party API integrations." href="/services/tourism-hospitality/" link_text="Read more"}}
-          {{> "tab-panel" id="home-tab-arts" label="Arts & community" title="Arts and community" body="Resource-constrained organizations managing complex stakeholder data, event ticketing, and donor management systems." href="/services/arts-culture-community/" link_text="Read more"}}
-          {{> "tab-panel" id="home-tab-orgs" label="Organizations" title="Organizations and institutions" body="Complex environments requiring strict accessibility compliance, robust data governance, and secure integration with legacy infrastructure." href="/services/organizations-institutions/" link_text="Read more"}}
-          {{> "tab-panel" id="home-tab-agencies" label="Agencies" title="Agencies and development teams" body="Technical teams managing complex deployments, requiring specialized architectural consultation, rigorous QA, or scalable engineering capacity." href="/services/agencies-development-teams/" link_text="Read more"}}
+          {{> "tab-panel" id="home-tab-smb" label="Small businesses" title="For small businesses" body="Lean operations relying on interconnected tools for e-commerce, inventory, and customer communication without dedicated IT staff." href="/services/small-businesses/" link_text="Small business services"}}
+          {{> "tab-panel" id="home-tab-tourism" label="Tourism" title="Tourism and hospitality" body="High-traffic operations dependent on real-time booking engines, property management systems, and third-party API integrations." href="/services/tourism-hospitality/" link_text="Tourism and hospitality services"}}
+          {{> "tab-panel" id="home-tab-arts" label="Arts & community" title="Arts and community" body="Resource-constrained organizations managing complex stakeholder data, event ticketing, and donor management systems." href="/services/arts-culture-community/" link_text="Arts and community services"}}
+          {{> "tab-panel" id="home-tab-orgs" label="Organizations" title="Organizations and institutions" body="Complex environments requiring strict accessibility compliance, robust data governance, and secure integration with legacy infrastructure." href="/services/organizations-institutions/" link_text="Organizations and institutions"}}
+          {{> "tab-panel" id="home-tab-agencies" label="Agencies" title="Agencies and development teams" body="Technical teams managing complex deployments, requiring specialized architectural consultation, rigorous QA, or scalable engineering capacity." href="/services/agencies-development-teams/" link_text="Agencies and development teams"}}
         </div>
       </div>
     </div>
   </section>
 
-  <section class="mrc-section section-light gh-outer" aria-labelledby="mrc-pillars-title">
+  <section class="mrc-section mrc-home-about section-light gh-outer" aria-labelledby="mrc-home-about">
+    <div class="gh-inner mrc-split mrc-split--60-40">
+      {{> "section-header"
+        spacing="tight"
+        eyebrow="About"
+        heading_id="mrc-home-about"
+        heading="A local partner for your digital growing pains"
+        intro="I'm Manny Roy. I partner with folks across Atlantic Canada to untangle their web presence. I believe local businesses deserve enterprise-grade reliability without the enterprise-level headaches. My job is to leave you with digital systems that are practical, resilient, and entirely yours."
+        action_href="/about/"
+        action_text="About"
+        action2_href="/contact/"
+        action2_text="Contact"
+      }}
+      <div class="mrc-home-about-media">
+        {{> "media-frame" theme_headshot=true img_alt="Portrait of Manny Roy" shape="round"}}
+      </div>
+    </div>
+  </section>
+
+  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-pillars-title">
     <div class="mrc-section-inner gh-inner">
       {{> "section-header" heading_id="mrc-pillars-title" heading="What I do"}}
       <div class="mrc-pillars mrc-grid mrc-grid--auto mrc-grid--gap-l">
@@ -72,21 +91,6 @@
     </div>
   </section>
 
-  <section class="mrc-section section-surface gh-outer" aria-labelledby="mrc-home-about">
-    <div class="gh-inner">
-      {{> "section-header"
-        eyebrow="About"
-        heading_id="mrc-home-about"
-        heading="A local partner for your digital growing pains"
-        intro="I'm Manny Roy. I partner with folks across Atlantic Canada to untangle their web presence. I believe local businesses deserve enterprise-grade reliability without the enterprise-level headaches. My job is to leave you with digital systems that are practical, resilient, and entirely yours."
-        action_href="/about/"
-        action_text="About"
-        action2_href="/contact/"
-        action2_text="Contact"
-      }}
-    </div>
-  </section>
-
   {{> "cta-section"
     headline="Not sure where to start?"
     subtext="Reach out about the tool that's driving you crazy, and we'll figure out a plan to fix it."
@@ -99,7 +103,6 @@
     heading_id="mrc-home-work"
     eyebrow="Work"
     heading="Stories from the local ecosystem"
-    intro="Real, on-the-ground problems solved with practical tech and zero drama."
     link_href="/case-studies/"
     link_text="View all"
     limit="1"
@@ -110,27 +113,10 @@
     heading_id="mrc-home-resources"
     eyebrow="Resources"
     heading="Field notes & guides"
-    intro="Practical advice and technical insights to help you make informed decisions about your digital tools."
     link_href="/resources/"
     link_text="View all"
     limit="1"
   }}
-
-  <section class="mrc-section section-dark gh-outer" aria-labelledby="mrc-home-partnership">
-    <div class="gh-inner">
-      {{> "section-header"
-        eyebrow="Partnership"
-        heading_id="mrc-home-partnership"
-        heading="You shouldn't need a computer science degree to run your business."
-        intro="I translate the technical details into plain English. You retain full ownership of your platforms, your data, and your budget. We only build what you can confidently manage."
-      }}
-      <div class="mrc-faq">
-        {{> "faq-item" group="home-partnership" open=true question="Plain explanations" answer="No jargon, no gatekeeping. You'll understand exactly how your systems work and be an active participant in choosing the tech that runs your business."}}
-        {{> "faq-item" group="home-partnership" question="Your keys" answer="You own the accounts, the code, and the content. I set it up, hand over the keys, and make sure you know how to drive."}}
-        {{> "faq-item" group="home-partnership" question="No lock-in" answer="I build things to last, not to keep you dependent on a retainer. You'll never be trapped by proprietary code only I can fix."}}
-      </div>
-    </div>
-  </section>
 
   {{> "cta-section"
     headline="Let's figure it out together"

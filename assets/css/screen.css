@@ -1,5 +1,4 @@
 @import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
-@import "general/fonts.css";
 @import "general/basics.css";
 /* Page scaffolding (.gh-outer/.gh-inner) belongs to the base layer: components load
    after it so they can constrain themselves inside the container. */
@@ -14,7 +13,6 @@
 @import "general/media-frame.css";
 @import "general/anchor-section.css";
 @import "general/feature.css";
-@import "general/faq.css";
 @import "general/tabs.css";
 @import "general/carousel.css";
 @import "general/link-column.css";
@@ -26,9 +24,8 @@
 @import "site/about.css";
 @import "site/contact.css";
 @import "site/error.css";
-@import "site/ghost.css";
 @import "site/resources.css";
-@import "site/component-library.css";
+/* faq.css + component-library.css: screen-cl.css (component-library route only) */
 @import "blog/feed.css";
 @import "blog/post-card.css";
 @import "blog/case-study-row.css";

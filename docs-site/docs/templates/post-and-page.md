@@ -18,7 +18,7 @@ Theme settings (group **post**): `show_author`, `show_related_posts`. Toggle the
 
 - **Content:** `{{> "content" width="wide"}}` only. No related posts or comments.
 
-Pages that use a **custom page template** (About, Services, Contact, Ghost application, etc.) use the corresponding `page-*.hbs` file instead; see [Ghost application page](./ghost-application-page) and [Theme settings](./theme-settings).
+Pages that use a **custom page template** (About, Services, Contact, etc.) use the corresponding `page-*.hbs` file instead; see [Theme settings](./theme-settings).
 
 ## Content partial (content.hbs)
 
@@ -41,4 +41,4 @@ If the author selects a custom template when editing a post, Ghost uses the matc
 | Narrow feature image | `custom-narrow-feature-image.hbs` | narrow feature image |
 | No feature image | `custom-no-feature-image.hbs` | no feature image block |
 
-Each custom template composes the same building blocks (content partial, optional related-posts, optional comments) with different options. PhotoSwipe (pswp) is included by `default.hbs` for post/page so image lightbox works on all of them.
+Each custom template composes the same building blocks (content partial, optional related-posts, optional comments) with different options. PhotoSwipe ships with the full script bundle on posts (and KG pages that opt in via `scripts-full`); marketing pages use `main-lite.min.js` without lightbox.

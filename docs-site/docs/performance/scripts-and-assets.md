@@ -8,7 +8,8 @@ This page describes how the theme loads JavaScript and manages the critical path
 
 ## Script loading
 
-- **Main script:** `default.hbs` loads `{{asset "built/main.min.js"}}` with the **defer** attribute. The script runs after the DOM is parsed and does not block rendering.
+- **Lite script (default):** `default.hbs` loads `{{asset "built/main-lite.min.js"}}` with **defer** on marketing pages, home, and collections (burger, dropdown, pagination, tabs, carousel — no PhotoSwipe).
+- **Full script:** Posts always load `main.min.js` (+ PhotoSwipe markup). Rare KG content pages opt in with `{{#contentFor "scripts"}}{{> "scripts-full"}}{{/contentFor}}` (`page.hbs`, `page-glossary.hbs`).
 - **No inline blocking JS:** Critical behaviour (e.g. burger menu) should work with DOM-ready logic that is compatible with deferred execution.
 - **Ghost injection:** `{{ghost_foot}}` is output after the theme script so Ghost can inject its own assets (e.g. member scripts) without blocking our bundle.
 
@@ -19,7 +20,8 @@ This page describes how the theme loads JavaScript and manages the critical path
 ```text
 <link rel="stylesheet" href="{{asset "built/screen.css"}}">
 ...
-<script src="{{asset "built/main.min.js"}}" defer></script>
+{{!-- posts / opted-in pages: main.min.js + pswp; everyone else: main-lite.min.js --}}
+<script src="{{asset "built/main-lite.min.js"}}" defer></script>
 ```
 
 ### Theme build: CSS pipeline (`gulpfile.js`)
@@ -39,6 +41,7 @@ function css(done) {
 }
 ```
 
+Home, About, and Services critical CSS use `shared-home.css` (no PhotoSwipe). About first paint is `built/screen-about.css`; Services is `built/screen-services.css`. Component-library-only styles ship as `built/screen-cl.css`.
 ### Theme config: image sizes (`package.json`)
 
 ```json
@@ -49,22 +52,22 @@ function css(done) {
 
 ## What the theme JS does
 
-The concatenated and minified bundles in `assets/built/main.min.js` and `main-lite.min.js` are built from Ghost shared assets, sorted `assets/js/lib/*.js`, and `assets/js/main.js` (Gulp: concat + uglify). They include:
+The concatenated and minified bundles in `assets/built/main.min.js` and `main-lite.min.js` are built from Ghost shared assets, selected `assets/js/lib/*.js`, and `assets/js/main.js` (Gulp: concat + uglify). They include:
 
 - **Burger menu** — Toggle mobile navigation (`ghost-main-lite.js` / shared).
-- **Tabs / carousel / TOC** — Progressive enhancement in `assets/js/lib/tabs.js`, `carousel.js`, `toc.js` (CSS scroll-snap and native details work without JS).
+- **Tabs / carousel** — Progressive enhancement in `assets/js/lib/tabs.js` and `carousel.js` (both bundles). `toc.js` ships in the **full** bundle only.
+- **PhotoSwipe / reframe / lightbox** — Full bundle only (posts and opted-in KG pages).
 - **Theme behaviours** — Analytics hooks, services mega-menu, contact `?audience=` prefill, PDF viewer upgrade (`main.js`).
 
-jQuery and Owl Carousel are **not** part of the current theme bundle. Do not reintroduce them for a single feature.
+jQuery, Owl Carousel, and unused `imagesloaded` are **not** part of the current theme bundle.
 
 ## Critical path (above-the-fold)
 
-- **CSS:** The single stylesheet `built/screen.css` is loaded in `<head>` without `async`/`defer` so first paint is styled. For v1 we keep one bundle; critical CSS (inline or separate above-the-fold CSS) is a possible future step to improve LCP.
-- **Fonts:** Critical fonts used in the hero and nav are preloaded in `default.hbs`:
-  - `IBMPlexSans-Regular.ttf`
-  - `IBMPlexSans-SemiBold.ttf`
-  Preload uses `rel="preload"`, `as="font"`, `type="font/ttf"`, and `crossorigin` so the browser discovers them early. Adding woff2 and preloading those instead would reduce payload and improve load time.
-
+- **Home:** `built/screen-home.css` (blocking) + async `built/screen.css`. Home critical omits PhotoSwipe and blog chrome via `shared-home.css`, and includes tabs/carousel for first paint.
+- **About:** `built/screen-about.css` (blocking) + async `built/screen.css`. Header, hero, and the two-column intro (LCP) only.
+- **Services:** Inlined `screen-services.css` (header, hero, first service block) + full `screen.css` after load. Sans 600 / italic stay off the LCP path.
+- **Other routes:** `built/screen.css` blocking. Component-library FAQ/chrome CSS loads only as `built/screen-cl.css` on that route.
+- **Fonts:** Self-hosted IBM Plex woff2. `@font-face` is inlined in `partials/font-faces.hbs` with `{{asset}}` URLs so they match the two preloads (Sans 400, Serif 600).
 ## Asset budget (recommended)
 
 - Define a max size for CSS and for JS (e.g. after gzip) and check on each release.

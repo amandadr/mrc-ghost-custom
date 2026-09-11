@@ -1,13 +1,11 @@
-.animate__animated {
-    animation-duration: 1s;
-    animation-fill-mode: both;
-}
-
 /**
  * prefers-reduced-motion
  * - Disable non-essential animation/transition motion sitewide
  * - Keep instantaneous state changes (opacity/colour still apply; no tween)
  * - Restore auto scroll-behavior (theme may set smooth elsewhere)
+ *
+ * Unused Animate.css keyframes (bounceIn / zoomOut) were removed — no
+ * templates referenced them, and shared-theme JS does not either.
  */
 @media (prefers-reduced-motion: reduce) {
     html:focus-within {
@@ -22,61 +20,4 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
-
-    .animate__animated,
-    .animate__bounceIn,
-    .animate__zoomOut {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-    }
-}
-
-@keyframes bounceIn {
-    from,
-    20%,
-    40%,
-    60%,
-    80%,
-    to {
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-
-    0% {
-        opacity: 0;
-        transform: scale3d(0.7, 0.7, 0.7);
-    }
-
-    40% {
-        transform: scale3d(1.1, 1.1, 1.1);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale3d(1, 1, 1);
-    }
-}
-
-.animate__bounceIn {
-    animation-name: bounceIn;
-    animation-duration: var(--duration-slow);
-}
-
-@keyframes zoomOut {
-    from {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-        transform: scale3d(0.7, 0.7, 0.7);
-    }
-
-    to {
-        opacity: 0;
-    }
-}
-
-.animate__zoomOut {
-    animation-name: zoomOut;
-    animation-duration: var(--duration-slow);
 }

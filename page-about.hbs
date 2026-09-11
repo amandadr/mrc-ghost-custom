@@ -2,6 +2,15 @@
 {{! About page — slug "about".
     Copy: assets/wireframes/raw copy/about.md + About PNGs.
     Keep PEI voice (two-column intro, Why This Work Exists, Outside of Work). Skip testimonials. }}
+{{#contentFor "theme_css"}}
+  <link rel="stylesheet" href="{{asset "built/screen-about.css"}}">
+  {{> "css-async-full"}}
+{{/contentFor}}
+{{#contentFor "head"}}
+  {{#unless meta_description}}
+    <meta name="description" content="An independent technical partner for Atlantic Canadian businesses, community organizations, and creative agencies. Based in Souris, PEI.">
+  {{/unless}}
+{{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-about">
   {{> "hero"

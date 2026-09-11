@@ -1,13 +1,15 @@
 {{!--
-  GA4 base tag (theme-managed).
+  GA4 base tag (theme-managed). Loaded after first input so it stays off the
+  critical path. Calls are queued on dataLayer until the script arrives.
 
   Why this approach:
   - Ghost themes have a limited number of `config.custom` settings.
   - This theme already uses many custom settings, so we avoid adding another.
 
   How to configure:
-  - In Ghost Admin → Settings → Code injection → Site Header, add:
+  - In Ghost Admin → Settings → Code injection → Site Header, add only:
       <meta name="ga4-measurement-id" content="G-XXXXXXXXXX">
+    Do not paste the full gtag snippet there — that would load GA on first paint.
 --}}
 
 <script>
@@ -22,13 +24,23 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){window.dataLayer.push(arguments);}
     window.gtag = window.gtag || gtag;
-
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
-    document.head.appendChild(s);
-
     window.gtag('js', new Date());
     window.gtag('config', id);
+
+    var loaded = false;
+    function load() {
+      if (loaded) {
+        return;
+      }
+      loaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+      document.head.appendChild(s);
+    }
+
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (type) {
+      window.addEventListener(type, load, { once: true, passive: true });
+    });
   })();
 </script>

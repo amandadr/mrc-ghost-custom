@@ -4,24 +4,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    {{! Preload only the first-paint faces. href must match font-faces (same asset helper URLs). }}
+    <link rel="preload" href="{{asset "fonts/ibm-plex-sans/ibm-plex-sans-latin-400-normal.woff2"}}" as="font" type="font/woff2" crossorigin fetchpriority="high">
+    <link rel="preload" href="{{asset "fonts/ibm-plex-serif/ibm-plex-serif-latin-600-normal.woff2"}}" as="font" type="font/woff2" crossorigin>
+    {{> "font-faces"}}
     <title>{{#block "title"}}{{meta_title}}{{/block}}</title>
     {{#is "home"}}
         {{! First paint: header + hero + “What I do” / first service card; full theme loads async }}
         <link rel="stylesheet" href="{{asset "built/screen-home.css"}}">
-        <link rel="stylesheet" href="{{asset "built/screen.css"}}" media="print" onload="this.media='all'">
-        <noscript><link rel="stylesheet" href="{{asset "built/screen.css"}}"></noscript>
+        {{> "css-async-full"}}
     {{else}}
+        {{#block "theme_css"}}
         <link rel="stylesheet" href="{{asset "built/screen.css"}}">
+        {{/block}}
     {{/is}}
 
-    {{> "ga4"}}
-
-    {{! Note: some Ghost versions don't support ghost_head "exclude". Keep this compatible. }}
-    {{ghost_head}}
+    {{#is "post"}}
+        {{> "site-head"}}
+    {{else}}
+        {{#block "site_head"}}
+            {{> "site-head" skip_cards=true}}
+        {{/block}}
+    {{/is}}
     {{{block "head"}}}
+    {{> "ga4"}}
 
     {{! Favicon, og:image, twitter:image — only when Header logo is set (otherwise Ghost/defaults apply) }}
     {{#if @custom.header_logo}}
@@ -86,15 +92,15 @@
 
 </div>
 
-{{#is "post, page"}}
-    {{> "pswp"}}
-{{/is}}
-
-{{! Full bundle (lightbox, reframe, PhotoSwipe) only where .gh-content may have cards/embeds }}
-{{#is "post, page"}}
-    <script src="{{asset "built/main.min.js"}}" defer></script>
+{{! Full bundle (lightbox, reframe, PhotoSwipe, toc) for posts;
+    other templates opt in with contentFor "scripts" + scripts-full partial.
+    Marketing pages stay on main-lite to avoid PhotoSwipe weight. }}
+{{#is "post"}}
+    {{> "scripts-full"}}
 {{else}}
+    {{#block "scripts"}}
     <script src="{{asset "built/main-lite.min.js"}}" defer></script>
+    {{/block}}
 {{/is}}
 
 {{ghost_foot}}

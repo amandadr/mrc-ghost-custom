@@ -43,7 +43,7 @@ We focused on **self-hosted** deployment to own the full stack and showcase DevO
   - Local Ollama (CPU/GPU).
 - **Repos and URLs** — Access to:
   - Docs site URL: `https://docs.mannyroy.com` (or built docs output).
-  - Main site URL: `https://mannyroy.com` (and key paths, e.g. `/ghost-application/`, blog).
+  - Main site URL: `https://mannyroy.com` (and key paths, e.g. `/blog/`, `/about/`).
 - **Theme and Docusaurus access** — Ability to edit Ghost `default.hbs` and Docusaurus config or layout.
 
 ---
@@ -348,7 +348,7 @@ Ghost supports **Code Injection**, and we used it to add the widget site-wide wi
            apiKey: '',
            showSources: true,
            title: "Manny's Assistant",
-           description: 'Ask about our services, docs, and Ghost application.',
+           description: 'Ask about our services and docs.',
            heroTitle: 'Manny Roy Consulting',
            heroDescription: 'Answers are based on our documentation and site content. Check sources for details.',
            theme: 'light',
@@ -404,7 +404,7 @@ This keeps the docs site wiring consistent with the overall “one backend, many
 We validate the assistant with the same intent across the property:
 
 - **Backend:** In the DocsGPT UI, run chats that should be answerable from docs and main-site sources; confirm citations.
-- **Ghost:** Open multiple pages (home, blog, Ghost application page); ask 2–3 questions; confirm answers and sources.
+- **Ghost:** Open multiple pages (home, blog, about); ask 2–3 questions; confirm answers and sources.
 - **Docusaurus:** Open several doc pages; ask the same questions; confirm behaviour and sources match.
 - **Out-of-scope:** Ask something unrelated; confirm the assistant stays on topic or states it doesn’t know.
 - **Mobile:** Quick check that the widget remains usable on small screens.

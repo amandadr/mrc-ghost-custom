@@ -14,7 +14,7 @@
 | [brand-brainstorming.md](brand-brainstorming.md) | Brand foundation brainstorm; living tone is [brand-voice.md](../brand-voice.md) |
 | [plan-docs-docusaurus.md](plan-docs-docusaurus.md) | Docusaurus adoption plan; docs-site has shipped |
 | [map-docs-theme-repurposing.md](map-docs-theme-repurposing.md) | Migration map into docs-site; partially executed, then diverged |
-| [plan-ghost-application-page.md](plan-ghost-application-page.md) | Scout page plan; page and templates exist |
+| [plan-ghost-application-page.md](plan-ghost-application-page.md) | Historical scout-page plan; page and templates were later removed |
 | [sop-design.md](sop-design.md) | Absorbed into docs-site design system |
 | [sop-spacing.md](sop-spacing.md) | Absorbed into docs-site design system |
 | [sop-responsiveness.md](sop-responsiveness.md) | Absorbed into docs-site design system |

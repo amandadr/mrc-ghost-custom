@@ -1,10 +1,12 @@
 /**
  * First-paint bundle for the custom home template only (see default.hbs).
- * Omits blog, per-page site CSS, and the deferred half of home.css (principles, CTA, footer rules).
+ * Omits blog, per-page site CSS, PhotoSwipe, and the deferred half of home.css.
  * Full styles still load asynchronously via built/screen.css.
+ *
+ * tabs + carousel ship here so above-the-fold audiences/tech do not FOUC
+ * while screen.css is still print/async.
  */
-@import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
-@import "general/fonts.css";
+@import "shared-home.css";
 @import "general/basics.css";
 /* Page scaffolding before components — see screen.css. */
 @import "site/layout.css";
@@ -15,7 +17,10 @@
 @import "general/form.css";
 @import "general/icons.css";
 @import "general/section-header.css";
+@import "general/media-frame.css";
 @import "general/feature.css";
+@import "general/tabs.css";
+@import "general/carousel.css";
 @import "site/header.css";
 @import "site/home-critical.css";
 @import "misc/utils.css";

@@ -46,7 +46,7 @@ ghost-custom/
 ├── index.hbs          # Blog/archive
 ├── post.hbs, page.hbs # Single post, generic page
 ├── author.hbs, tag.hbs
-├── page-*.hbs         # Custom page templates (about, services, ghost-application, etc.)
+├── page-*.hbs         # Custom page templates (about, services, contact, etc.)
 ├── custom-*.hbs       # Custom post templates (optional)
 ├── package.json       # Theme config: image_sizes, custom settings, scripts
 ├── gulpfile.js        # Build and zip tasks
@@ -59,7 +59,7 @@ Theme assets are built into `assets/built/`. Ghost loads `built/screen.css` and 
 
 ## How the theme fits the application narrative
 
-The theme is the **front-end of the main site**: it defines the public pages (home, blog, about, services, contact, Ghost application page, etc.) and uses Ghost’s data (posts, pages, tags, settings). The **docs site** (Docusaurus) is a separate product that documents this theme, performance, operations, and the AI assistant. Together they form the “application” story: a live, well-documented, performant Ghost setup with a path to an AI assistant and clear deployment and observability practices.
+The theme is the **front-end of the main site**: it defines the public pages (home, blog, about, services, contact, etc.) and uses Ghost’s data (posts, pages, tags, settings). The **docs site** (Docusaurus) is a separate product that documents this theme, performance, operations, and the AI assistant. Together they form a live, well-documented, performant Ghost setup with a path to an AI assistant and clear deployment and observability practices.
 
 ## Next
 

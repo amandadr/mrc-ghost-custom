@@ -1,5 +1,10 @@
 {{!< default}}
 {{! Blog archive: used when collection is at /blog/ (see docs/routes-blog-archive.yaml) }}
+{{#contentFor "head"}}
+  {{#unless meta_description}}
+    <meta name="description" content="Practical notes and guides from the field.">
+  {{/unless}}
+{{/contentFor}}
 
 <main class="site-main" id="blog-archive">
   <section class="mrc-section section-light gh-outer" aria-labelledby="blog-archive-title">
@@ -13,7 +18,7 @@
       {{#if posts}}
         <div class="mrc-post-grid mrc-grid mrc-grid--auto mrc-grid--gap-l">
           {{#foreach posts}}
-            {{> "post-card"}}
+            {{> "post-card" heading="h2"}}
           {{/foreach}}
         </div>
       {{else}}

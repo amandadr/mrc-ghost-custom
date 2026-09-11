@@ -50,7 +50,7 @@ Both integrations point at the same `apiHost` and project/API key so there is **
 The assistant is deliberately scoped as a **documentation and site‑content assistant**, not a general chat bot. Answers are expected to stay close to:
 
 - Published documentation on this site.
-- Key Ghost pages (including the Ghost application landing page).
+- Key Ghost pages (home, about, services, contact, blog).
 - Selected blog posts and technical write‑ups.
 
 Out‑of‑scope questions are handled conservatively (for example, by acknowledging when the docs do not provide enough information to answer confidently). Rate limits, disclaimers in the widget hero text, and logging are configured at the platform level (DocsGPT and the hosting stack) and can be tightened further if usage patterns change.

@@ -12,6 +12,7 @@
 
   /* Brand accents */
   --mrc-mustard: #E8C868;
+  --mrc-mustard-on-dark: #F8EBC0; /* 4.75:1 on olive — mustard itself is 3.47:1 */
   --mrc-olive: #706830;
   --mrc-maroon: #804050;
 
@@ -44,8 +45,8 @@
 .section-cta,
 .mrc-foot {
   --mrc-focus: var(--mrc-surface);
-  --mrc-text-soft: rgb(250 246 240 / 88%);
-  --mrc-eyebrow: var(--mrc-mustard);
+  --mrc-text-soft: var(--mrc-surface); /* 5.26:1 on olive; 88% paper was 4.49:1 */
+  --mrc-eyebrow: var(--mrc-mustard-on-dark);
   --mrc-link: var(--mrc-surface);
   --mrc-link-hover: var(--mrc-mustard);
 }

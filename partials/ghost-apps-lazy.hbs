@@ -1,0 +1,74 @@
+{{! Load Portal + sodo-search after the first user input so marketing pages
+    are not paying ~700KB on first paint. Members buttons replay the click. }}
+<script>
+(function () {
+    var tpl = document.getElementById('mrc-ghost-apps');
+    if (!tpl || !tpl.content) {
+        return;
+    }
+
+    var injected = false;
+    var pending = null;
+
+    function matchingScripts() {
+        return tpl.content.querySelectorAll(
+            'script[src*="portal"], script[src*="sodo-search"]'
+        );
+    }
+
+    function inject() {
+        if (injected) {
+            return pending || Promise.resolve();
+        }
+        injected = true;
+        var nodes = matchingScripts();
+        if (!nodes.length) {
+            pending = Promise.resolve();
+            return pending;
+        }
+        pending = new Promise(function (resolve) {
+            var left = nodes.length;
+            function done() {
+                left -= 1;
+                if (left <= 0) {
+                    resolve();
+                }
+            }
+            Array.prototype.forEach.call(nodes, function (srcEl) {
+                var s = document.createElement('script');
+                Array.prototype.forEach.call(srcEl.attributes, function (attr) {
+                    s.setAttribute(attr.name, attr.value);
+                });
+                s.onload = done;
+                s.onerror = done;
+                document.body.appendChild(s);
+            });
+        });
+        return pending;
+    }
+
+    function onFirstInput() {
+        inject();
+    }
+
+    ['pointerdown', 'keydown', 'touchstart'].forEach(function (type) {
+        window.addEventListener(type, onFirstInput, { once: true, passive: true });
+    });
+
+    document.addEventListener('click', function (e) {
+        var target = e.target && e.target.closest && e.target.closest('[data-portal], [data-ghost-search]');
+        if (!target) {
+            return;
+        }
+        if (pending === null && !injected) {
+            e.preventDefault();
+            e.stopPropagation();
+            inject().then(function () {
+                setTimeout(function () {
+                    target.click();
+                }, 120);
+            });
+        }
+    }, true);
+})();
+</script>

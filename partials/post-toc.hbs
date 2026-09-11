@@ -1,8 +1,10 @@
 {{!-- Article table of contents.
 
       Without JavaScript this is a static list of links you pass in. assets/js/lib/toc.js
-      highlights the current heading as you scroll, and — if the list is empty — builds
-      it from h2/h3 inside `[data-mrc-toc-source]` (defaults to `.gh-content`).
+      highlights the current heading as you scroll, and builds a nested outline from
+      h2 / h3 / h4 in `[data-mrc-toc-source]` (defaults to `.gh-content`) when the list
+      is empty. Authored links are kept and nested to match the heading they point at
+      (h3/h4 sit under the preceding h2).
 
       On small screens it is a <details> drawer. From 900px up the summary is hidden and
       the list stays visible, sticky beside the article.

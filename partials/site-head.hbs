@@ -1,0 +1,12 @@
+{{! Ghost head without Portal / sodo-search (and optionally card CSS/JS).
+    Those apps live in the inert template so the preload scanner never fetches
+    ~700KB of jsDelivr; partials/ghost-apps-lazy.hbs injects them after input. }}
+{{#if skip_cards}}
+    {{ghost_head exclude="portal,search,card_assets"}}
+{{else}}
+    {{ghost_head exclude="portal,search"}}
+{{/if}}
+<template id="mrc-ghost-apps">
+{{ghost_head exclude="metadata,schema,social_data,card_assets,announcement,comment_counts,admin_toolbar,cta_styles"}}
+</template>
+{{> "ghost-apps-lazy"}}

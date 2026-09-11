@@ -8,7 +8,7 @@ The theme is built around **CUBE CSS** (Composition, Utility, Block, Exception),
 
 ## CUBE CSS layers (order of application)
 
-1. **Global** — Base elements (body, headings, p, a, form controls) in `typography.css`, `brand.css`, `basics.css`, `fonts.css`
+1. **Global** — Base elements (body, headings, p, a, form controls) in `typography.css`, `brand.css`, `basics.css`; IBM Plex `@font-face` is inlined in `font-faces.hbs`
 2. **Composition** — Layout primitives in `general/composition.css` (container, stack, cluster, grid, split, switcher)
 3. **Utilities** — Single-purpose helpers in `misc/utils.css` (e.g. visually-hidden, text alignment)
 4. **Blocks** — Components in `site/*.css` and `blog/*.css` (header, hero, cards, footer, feed, single post, etc.)
@@ -18,15 +18,15 @@ Keeping this order prevents specificity wars and keeps layout (composition) sepa
 
 ## CSS file roles (`assets/css/`)
 
-The single entry point is `screen.css`, which imports:
+The entry points are `screen.css` (full), `screen-home.css`, `screen-about.css`, and `screen-services.css` (route critical), and `screen-cl.css` (component library). `screen.css` imports:
 
 | Layer | Directory | Role |
 |-------|-----------|------|
 | Shared Ghost base | `@tryghost/shared-theme-assets` | Ghost v1 base styles |
-| Global | `general/fonts.css`, `basics.css`, `brand.css`, `typography.css` | Fonts, resets, colours, type scale, spacing tokens |
+| Global | `general/fonts.css` (pointer only), `basics.css`, `brand.css`, `typography.css` | `@font-face` is inlined in `font-faces.hbs`; this row is tokens, resets, type |
 | Composition | `general/composition.css` | Layout primitives only |
 | General UI | `general/button.css`, `form.css`, `icons.css` | Buttons, forms, icons |
-| Site | `site/layout.css`, `header.css`, `cover.css`, `home.css`, `services.css`, `about.css`, `contact.css`, `ghost.css` | Page-level and section blocks |
+| Site | `site/layout.css`, `header.css`, `first-paint.css`, `cover.css`, `home.css`, `services.css`, `about.css`, `contact.css` | Page-level and section blocks |
 | Blog | `blog/feed.css`, `featured.css`, `pagination.css`, `single.css`, `author.css`, `share.css`, `navigation.css`, `related.css`, `comment.css`, `tag.css` | Blog index, post, author, tag |
 | Misc | `misc/utils.css`, `animations.css`, `dark.css` | Utilities, motion, dark mode |
 
@@ -49,6 +49,6 @@ Use these tokens everywhere instead of magic numbers. See [Design system](/docs/
 - **Body class:** `body_class`, optional `block "body_class"`, and flags for nav layout and fonts (`is-head-left-logo`, `has-serif-title`, etc.)
 - **Structure:** `<div class="site">` → header (with `{{navigation}}`) → optional cover/featured (on index when not home) → `<div class="site-content">` with `{{{body}}}` → footer partial
 - **Scripts:** `built/main.min.js` loaded with `defer`; `{{ghost_foot}}` for Ghost injection
-- **Font preload:** Critical above-the-fold fonts preloaded in `<head>` for performance
+- **Font preload:** Sans 400 and Serif 600 woff2 preloaded in `<head>`; `@font-face` inlined via `font-faces` so URLs match
 
 Partials and page templates fill `{{{body}}}`; the design system and blocks then style them. For a full list of templates and partials, see [Templates and partials](./templates-and-partials).

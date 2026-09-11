@@ -1,8 +1,0 @@
-{{! Use doc_href — not "url" — or Ghost resolves href to page.url (current page). }}
-<div class="mrc-highlight-card">
-  <h3 class="mrc-highlight-card-title">{{title}}</h3>
-  <p class="mrc-highlight-card-desc">{{description}}</p>
-  {{#if doc_href}}
-    <a href="{{doc_href}}" class="mrc-highlight-card-link">{{#if link_label}}{{link_label}}{{else}}Open documentation: {{title}}{{/if}}</a>
-  {{/if}}
-</div>

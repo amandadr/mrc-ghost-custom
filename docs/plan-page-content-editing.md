@@ -7,7 +7,7 @@
 **Status:** Section-based templates (copy in theme files)  
 **Last updated:** 2025-03-12
 
-**Implementation note:** The **section-based** approach is in use: About, Services, Contact, Thanks, Who I Help, Resources, and audience pages use fixed section layout with copy **in the template files** (`.hbs`). Editing = edit the theme. We cannot use **theme custom settings** for every section because Ghost allows only **20** custom settings total; those are used for logo, nav, homepage, contact, Ghost application page. See [page-copy-for-editor.md](page-copy-for-editor.md).
+**Implementation note:** The **section-based** approach is in use: About, Services, Contact, Thanks, Who I Help, Resources, and audience pages use fixed section layout with copy **in the template files** (`.hbs`). Editing = edit the theme. We cannot use **theme custom settings** for every section because Ghost allows only **20** custom settings total; those are used for logo, nav, homepage, and contact. See [page-copy-for-editor.md](page-copy-for-editor.md).
 
 ---
 
@@ -16,7 +16,6 @@
 | Template | Content source | Editable in Ghost? |
 |----------|----------------|--------------------|
 | **page.hbs** | `{{> "content"}}` → `{{content}}` | ✅ Yes (generic pages) |
-| **page-work.hbs** | `{{> "content"}}` | ✅ Yes |
 | **home.hbs** | Hero: `@custom.hero_headline` / `hero_subtext`; rest hard-coded | Hero only via Settings; sections no |
 | **page-about.hbs** | Section layout; copy in template | Edit `page-about.hbs` |
 | **page-services.hbs** | Section layout; copy in template | Edit `page-services.hbs` |
@@ -90,11 +89,7 @@
 - **Target:** One Ghost Page (slug `thanks`) with template **Thanks** (page-thanks). Template outputs `{{title}}` and `{{content}}` so the thank-you message is editable.
 - **Migration:** Copy current “Thanks for reaching out…” text into the Thanks page body; use `{{title}}` for “Thanks for reaching out.” (or keep a fixed title in template if preferred).
 
-### 3.6 Work (page-work.hbs)
-
-- **No change needed.** Already uses `{{> "content"}}`; page body is editable.
-
-### 3.7 Generic pages (page.hbs)
+### 3.6 Generic pages (page.hbs)
 
 - **No change needed.** Already use `{{> "content"}}`; any page without a custom template shows full body.
 
@@ -108,8 +103,7 @@
   - **Services** — slug `services`, template “Services” (page-services).
   - **Contact** — slug `contact`, template “Contact” (page-contact).
   - **Thanks** — slug `thanks`, template “Thanks” (page-thanks).
-  - **Work** — slug `work`, template “Work” (page-work).
-- **Navigation:** Ensure nav links point to these slugs (e.g. `/about/`, `/services/`, `/contact/`, `/thanks/`, `/work/`).
+- **Navigation:** Ensure nav links point to these slugs (e.g. `/about/`, `/services/`, `/contact/`, `/thanks/`). Selected work is `/case-studies/`.
 - **Meta:** For each page, set **Meta title** and **Meta description** in Ghost (Settings → each page) for SEO.
 
 ---

@@ -40,12 +40,7 @@ Create the following pages in Ghost Admin (**Pages** → **New page**). For each
 - **Contact**: Contact form and details. Requires Formspree setup (step 5). Supports `?audience=small-business` to attribute inquiries.
 - **Thanks**: Shown after the contact form is submitted. Keep it simple — e.g. “Thanks for reaching out.” — or leave the default. **Important**: The form redirects to `/thanks/`; this page must exist.
 
-### Optional: Work / portfolio page
-
-If you want a portfolio page, create a page with:
-
-- **URL**: `work`
-- **Template**: **Work**
+Selected work lives at `/case-studies/` via Labs routes (`case-studies.hbs`). Do not create a `/work/` page.
 
 ### Audience service URLs (routes → HBS, no Ghost Page)
 

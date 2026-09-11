@@ -2,6 +2,11 @@
 {{! Contact page — slug "contact".
     Copy: assets/wireframes/raw copy/contact.md + Contact PNGs.
     Keep Formspree form, ?audience= wiring, and Souris PEI. No map. Skip Relume Halifax/phone leftovers. }}
+{{#contentFor "head"}}
+  {{#unless meta_description}}
+    <meta name="description" content="Start with a conversation. I work from Souris, Prince Edward Island, with businesses, organizations, and agencies across Atlantic Canada.">
+  {{/unless}}
+{{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-contact">
   {{! 1. Hero }}

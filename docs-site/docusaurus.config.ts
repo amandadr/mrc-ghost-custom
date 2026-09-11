@@ -69,11 +69,6 @@ const config: Config = {
           label: 'Main site',
           position: 'right',
         },
-        {
-          href: 'https://mannyroy.com/ghost-application/',
-          label: 'Ghost application',
-          position: 'right',
-        },
       ],
     },
     footer: {
@@ -83,8 +78,7 @@ const config: Config = {
           title: 'Site',
           items: [
             {label: 'Main site', href: 'https://mannyroy.com'},
-            {label: 'Ghost application', href: 'https://mannyroy.com/ghost-application/'},
-            {label: 'Blog', href: 'https://mannyroy.com/'},
+            {label: 'Blog', href: 'https://mannyroy.com/blog/'},
           ],
         },
         {

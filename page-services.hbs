@@ -1,6 +1,15 @@
 {{!< default}}
 {{! Services & Capabilities — Ghost Page slug "services".
     Copy: assets/wireframes/raw copy/services-capabilities.md }}
+{{#contentFor "theme_css"}}
+  {{> "screen-services-inline"}}
+  {{> "css-async-idle"}}
+{{/contentFor}}
+{{#contentFor "head"}}
+  {{#unless meta_description}}
+    <meta name="description" content="Websites, systems, and strategy for Atlantic Canadian businesses and organizations. Practical help with rebuilds, booking flows, accessibility, and extra engineering capacity.">
+  {{/unless}}
+{{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-services">
   {{! 1. Hero }}
@@ -68,11 +77,11 @@
       }}
       <div class="mrc-tabs" data-mrc-tabs data-mrc-tabs-label="Audiences">
         <div class="mrc-tabs__panels">
-          {{> "tab-panel" id="svc-tab-smb" label="Small businesses" title="For small businesses" body="Get a website that actively sells for you, connect your scattered tools, and take back control of your digital presence without needing an IT department." href="/services/small-businesses/" link_text="Read more ->"}}
-          {{> "tab-panel" id="svc-tab-tourism" label="Tourism" title="Tourism and hospitality" body="Fix broken booking flows, integrate your property management systems smoothly, and capture more reservations during your busiest seasons." href="/services/tourism-hospitality/" link_text="Read more ->"}}
-          {{> "tab-panel" id="svc-tab-arts" label="Arts & community" title="Arts and community" body="Simplify event ticketing, organize donor data, and build an accessible platform that your volunteers can confidently update." href="/services/arts-culture-community/" link_text="Read more ->"}}
-          {{> "tab-panel" id="svc-tab-orgs" label="Organizations" title="Organizations and institutions" body="Meet strict accessibility standards, modernize legacy infrastructure securely, and establish clear digital governance that outlasts any single employee." href="/services/organizations-institutions/" link_text="Read more ->"}}
-          {{> "tab-panel" id="svc-tab-agencies" label="Agencies" title="Agencies and development teams" body="Clear your backlog with reliable engineering capacity, rigorous QA, and architectural consulting that slots seamlessly into your existing sprints." href="/services/agencies-development-teams/" link_text="Read more ->"}}
+          {{> "tab-panel" id="svc-tab-smb" label="Small businesses" title="For small businesses" body="Get a website that actively sells for you, connect your scattered tools, and take back control of your digital presence without needing an IT department." href="/services/small-businesses/" link_text="Small business services"}}
+          {{> "tab-panel" id="svc-tab-tourism" label="Tourism" title="Tourism and hospitality" body="Fix broken booking flows, integrate your property management systems smoothly, and capture more reservations during your busiest seasons." href="/services/tourism-hospitality/" link_text="Tourism and hospitality services"}}
+          {{> "tab-panel" id="svc-tab-arts" label="Arts & community" title="Arts and community" body="Simplify event ticketing, organize donor data, and build an accessible platform that your volunteers can confidently update." href="/services/arts-culture-community/" link_text="Arts and community services"}}
+          {{> "tab-panel" id="svc-tab-orgs" label="Organizations" title="Organizations and institutions" body="Meet strict accessibility standards, modernize legacy infrastructure securely, and establish clear digital governance that outlasts any single employee." href="/services/organizations-institutions/" link_text="Organizations and institutions"}}
+          {{> "tab-panel" id="svc-tab-agencies" label="Agencies" title="Agencies and development teams" body="Clear your backlog with reliable engineering capacity, rigorous QA, and architectural consulting that slots seamlessly into your existing sprints." href="/services/agencies-development-teams/" link_text="Agencies and development teams"}}
         </div>
       </div>
     </div>

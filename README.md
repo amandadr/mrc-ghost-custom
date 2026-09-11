@@ -72,19 +72,6 @@ Result: `/` = custom home, `/blog/` = post listing, `/blog/{slug}/` = posts, plu
 
 ---
 
-## Ghost Application landing page
-
-The theme includes a dedicated **Ghost Application** landing page at `/ghost-application/` for the Senior Platform Engineer application. (Slug is `ghost-application` because `/ghost/` is the Ghost admin portal.) To use it:
-
-1. In Ghost Admin, create a **Page** with URL slug **ghost-application** and choose the **Ghost application** template in the page settings.
-2. Add a nav item **Ghost** (or “Application”) pointing to `/ghost-application/` in **Settings → Design → Navigation**.
-3. Create a tag **Ghost Application** (slug `ghost-application`) and add it to any post you want listed on that page.
-4. Edit hero, CTA, and posts heading under **Settings → Design → Theme** in the **ghost** group.
-
-Public docs: **[docs.mannyroy.com](https://docs.mannyroy.com)** (Ghost application template page). Historical plan: **[docs/archive/plan-ghost-application-page.md](docs/archive/plan-ghost-application-page.md)**.
-
----
-
 ## Project docs
 
 - **[docs/README.md](docs/README.md)** — source-of-truth hierarchy and living docs index

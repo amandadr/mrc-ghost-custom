@@ -1,9 +1,6 @@
 /*
- * IBM Plex families are loaded in default.hbs via Google Fonts (link + preconnect).
- * Self-hosted .woff2 under assets/fonts/ was correct in-repo, but some Ghost/host/CDN
- * paths still produced OTS decode errors in production; loading from fonts.googleapis.com
- * avoids theme binary delivery for fonts.
- *
- * Optional local files: run `gulp fonts` to refresh assets/fonts from @fontsource if you
- * later switch back to @font-face + url() here.
+ * @font-face rules live in partials/font-faces.hbs (inline in <head>) so the
+ * {{asset}} cache-bust query strings match the font preloads in default.hbs.
+ * Do not add src: url("../fonts/...") here — the browser treats that as a
+ * different file from the preloaded ?v= URL and downloads twice.
  */
