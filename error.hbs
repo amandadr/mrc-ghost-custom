@@ -1,4 +1,11 @@
 {{!< default}}
+{{#contentFor "title"}}{{#if message}}{{message}}{{else}}Something went wrong{{/if}} | {{@site.title}}{{/contentFor}}
+{{#contentFor "head"}}
+  {{> "seo-meta"
+    description="If this keeps happening, please reach out and include what you were trying to do."
+    noindex=true
+  }}
+{{/contentFor}}
 
 <main class="site-main mrc-page mrc-error-page">
   <section class="mrc-hero mrc-error section-light gh-outer" aria-labelledby="mrc-error-title">

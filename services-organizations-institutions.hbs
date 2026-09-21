@@ -1,15 +1,15 @@
 {{!< default}}
 {{! Organizations & Institutions — /services/organizations-institutions/
     Copy: assets/wireframes/raw copy/organizations-institutions.md }}
-{{#contentFor "title"}}Digital Infrastructure That Outlasts Your Board | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "title"}}Digital Infrastructure That Outlasts Your Board | {{@site.title}}{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-services-organizations-institutions{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Secure, accessible systems for NGOs, industry associations, and municipalities in Atlantic Canada. Build digital capacity that survives staff turnover.">
-    <meta property="og:title" content="Digital infrastructure that outlasts your board">
-    <meta property="og:description" content="Practical systems for institutions that need accessibility, security, and governance without adding permanent technical staff.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{@site.url}}/services/organizations-institutions/">
-    <link rel="canonical" href="{{@site.url}}/services/organizations-institutions/">
+    {{> "seo-meta"
+      description="Secure, accessible systems for NGOs, industry associations, and municipalities in Atlantic Canada. Build digital capacity that survives staff turnover."
+      og_title="Digital infrastructure that outlasts your board"
+      og_description="Practical systems for institutions that need accessibility, security, and governance without adding permanent technical staff."
+      path="/services/organizations-institutions/"
+    }}
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-audience mrc-page-audience--organizations-institutions">

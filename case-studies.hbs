@@ -1,6 +1,15 @@
 {{!< default}}
 {{! Case Studies collection — /case-studies/
     Copy: assets/wireframes/raw copy/case-studies.md }}
+{{#contentFor "title"}}Work | {{@site.title}}{{/contentFor}}
+{{#contentFor "head"}}
+  {{> "seo-meta"
+    description="Selected projects for Atlantic Canadian businesses, organizations, and agencies. Real constraints, practical builds, and systems the people who own them can actually run."
+    og_title="Work that made things work better"
+    og_description="Real problems, practical solutions, and the results that followed."
+    path="/case-studies/"
+  }}
+{{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-case-studies">
   {{! 1. Hero }}

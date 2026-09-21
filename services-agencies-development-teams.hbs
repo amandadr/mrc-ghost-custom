@@ -1,15 +1,15 @@
 {{!< default}}
 {{! Agencies & Development Teams — /services/agencies-development-teams/
     Copy: assets/wireframes/raw copy/agencies-dev-teams.md (skip Relume lorem blocks). }}
-{{#contentFor "title"}}Overflow Capacity for Atlantic Canada Agencies | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "title"}}Overflow Capacity for Atlantic Canada Agencies | {{@site.title}}{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-services-agencies-development-teams{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Senior engineering overflow for agencies and in-house development teams in Atlantic Canada. You keep the client. I ship maintainable work inside your process.">
-    <meta property="og:title" content="Overflow capacity for Atlantic Canada agencies">
-    <meta property="og:description" content="Clear the backlog without another full-time hire. Hands-on development, accessibility, and architecture that slots into your sprint.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{@site.url}}/services/agencies-development-teams/">
-    <link rel="canonical" href="{{@site.url}}/services/agencies-development-teams/">
+    {{> "seo-meta"
+      description="Senior engineering overflow for agencies and in-house development teams in Atlantic Canada. You keep the client. I ship maintainable work inside your process."
+      og_title="Overflow capacity for Atlantic Canada agencies"
+      og_description="Clear the backlog without another full-time hire. Hands-on development, accessibility, and architecture that slots into your sprint."
+      path="/services/agencies-development-teams/"
+    }}
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-audience mrc-page-audience--agencies-development-teams">

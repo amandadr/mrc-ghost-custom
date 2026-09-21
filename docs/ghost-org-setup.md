@@ -151,13 +151,31 @@ In **Settings** → **Design** → **Theme settings**, configure:
 
 **Do not set** Publication logo or Publication icon in **Settings** → **General** → **Branding**. The theme uses its own assets and settings to avoid Ghost overrides.
 
-- **Header logo** (theme setting): Upload your logo here. It appears in the header, hero badge, favicon, and social sharing (og:image, twitter:image). Leave empty to use the default theme asset (`assets/images/logo7.png`).
+- **Header logo** (theme setting): Upload your logo here. It appears in the header, hero badge, and favicon. It is also the social sharing image (`og:image`, `twitter:image`) when the current post, page, tag, or author has no feature/profile image. Leave empty to use the default theme asset (`assets/images/logo7.png`).
 - **Replace the default logo**: Edit or replace `assets/images/logo7.png` in the theme, then rebuild (`yarn zip`).
 - **White logo for dark mode**: Upload a light logo for dark theme (header only)
 
 ### Other optional settings
 
 - **Color scheme**: Auto, Light, or Dark
+
+### Article CTA (posts)
+
+Posts end with the same full-width maroon CTA band used on marketing pages (mustard button). Ghost has no custom post fields, so copy is chosen like this:
+
+1. **Post settings → Code injection → Site Header** (per article; wins when present):
+
+```html
+<meta name="mrc:cta-headline" content="Planning a grant-funded digital project?">
+<meta name="mrc:cta-text" content="Get the scope, maintenance requirements, and handoff plan clear before you commit the budget.">
+<meta name="mrc:cta-button" content="Start a conversation →">
+<meta name="mrc:cta-url" content="/contact/">
+```
+
+2. Known slugs have theme defaults (launch, grant trap, discovery-call articles).
+3. Other posts use the generic “Have a question about your own website?” copy.
+
+Hide the CTA on a post with the internal tag `#no-cta`.
 
 ---
 

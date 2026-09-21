@@ -1,0 +1,65 @@
+{{! SEO tags for every template.
+    Route-only / section-based pages: pass path, description, og_title, og_description.
+    Posts, generic pages, tags, and authors: omit path. Description is assigned from
+    Ghost variables in this order: meta_description (already in ghost_head) →
+    custom_excerpt → excerpt → bio → fallback → name → title.
+    noindex=true for confirmation, error, and harness pages. }}
+{{#if noindex}}
+<meta name="robots" content="noindex, follow">
+{{/if}}
+{{#if path}}
+    {{#if description}}
+<meta name="description" content="{{description}}">
+    {{else}}
+        {{#if custom_excerpt}}
+<meta name="description" content="{{custom_excerpt}}">
+        {{else}}
+            {{#if excerpt}}
+<meta name="description" content="{{excerpt words='30'}}">
+            {{else}}
+                {{#if fallback}}
+<meta name="description" content="{{fallback}}">
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    {{/if}}
+    {{#if og_title}}
+<meta property="og:title" content="{{og_title}}">
+    {{/if}}
+    {{#if og_description}}
+<meta property="og:description" content="{{og_description}}">
+    {{else}}
+        {{#if description}}
+<meta property="og:description" content="{{description}}">
+        {{/if}}
+    {{/if}}
+<meta property="og:type" content="{{#if og_type}}{{og_type}}{{else}}website{{/if}}">
+<meta property="og:url" content="{{@site.url}}{{path}}">
+<link rel="canonical" href="{{@site.url}}{{path}}">
+{{else}}
+    {{#unless meta_description}}
+        {{#if custom_excerpt}}
+<meta name="description" content="{{custom_excerpt}}">
+        {{else}}
+            {{#if excerpt}}
+<meta name="description" content="{{excerpt words='30'}}">
+            {{else}}
+                {{#if bio}}
+<meta name="description" content="{{bio}}">
+                {{else}}
+                    {{#if fallback}}
+<meta name="description" content="{{fallback}}">
+                    {{else}}
+                        {{#if name}}
+<meta name="description" content="{{name}} — {{@site.title}}">
+                        {{else}}
+                            {{#if title}}
+<meta name="description" content="{{title}} — {{@site.title}}">
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    {{/unless}}
+{{/if}}

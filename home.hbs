@@ -1,6 +1,14 @@
 {{!< default}}
 {{! Homepage — conductor page from wireframe.
     Copy: assets/wireframes/raw copy/home.md (skip testimonials). }}
+{{#contentFor "head"}}
+  {{> "seo-meta"
+    description="I help Atlantic Canadian businesses, tourism operators, and community groups build websites and digital tools that actually make sense."
+    og_title="Technology should work for your business, not the other way around"
+    og_description="Practical, reliable systems that make daily work easier — no jargon, no bloated software."
+    path="/"
+  }}
+{{/contentFor}}
 
 <main class="site-main mrc-home">
   {{> "hero"

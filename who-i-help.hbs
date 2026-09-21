@@ -1,15 +1,15 @@
 {{!< default}}
 {{! Who I Help — /who-i-help/ via routes.yaml (no Ghost Page).
     Copy: assets/wireframes/raw copy/who-i-help.md + Who I Help PNGs. }}
-{{#contentFor "title"}}Who I Help | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "title"}}Who I Help | {{@site.title}}{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-who-i-help{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Find where you fit — practical digital systems for small businesses, tourism, arts and community, institutions, and agencies.">
-    <meta property="og:title" content="Who I help">
-    <meta property="og:description" content="I work with organizations that need practical digital systems, clearer online experiences, and technology that fits how they actually work.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{@site.url}}/who-i-help/">
-    <link rel="canonical" href="{{@site.url}}/who-i-help/">
+    {{> "seo-meta"
+      description="Find where you fit — practical digital systems for small businesses, tourism, arts and community, institutions, and agencies."
+      og_title="Who I help"
+      og_description="I work with organizations that need practical digital systems, clearer online experiences, and technology that fits how they actually work."
+      path="/who-i-help/"
+    }}
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-who-i-help">

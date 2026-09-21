@@ -1,11 +1,22 @@
 {{!< default}}
-{{! Case study post template — assign in Post Settings when editing. }}
+{{! Case study post template — assign in Post Settings when editing.
+    Same chrome as a blog post: related, comments, article CTA. }}
 
-<main class="site-main mrc-case-study">
-  {{#post}}
-    {{> "post-case-study"}}
-  {{/post}}
-  {{#if @custom.show_related_posts}}
-    {{> "related-posts"}}
-  {{/if}}
+<main class="site-main">
+
+    {{#post}}
+        {{> "content" width="wide"}}
+    {{/post}}
+
+    {{#is "post"}}
+        {{#post}}
+            {{#if @custom.show_related_posts}}
+                {{> "related-posts"}}
+            {{/if}}
+
+            {{> "comments"}}
+            {{> "article-cta"}}
+        {{/post}}
+    {{/is}}
+
 </main>

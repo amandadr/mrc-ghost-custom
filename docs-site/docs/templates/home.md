@@ -17,7 +17,7 @@ The **homepage** is rendered by `home.hbs` when a static homepage is set in Ghos
 7. **Work / resources feeds** — Latest case studies and writing (`feed-work`, `feed-resources`).
 8. **Final CTA** — Contact band (`cta-section`).
 
-Hero copy is hardcoded in `home.hbs` (theme settings still exist for headline/subtext if you wire them back).
+Hero copy is hardcoded in `home.hbs` (theme settings still exist for headline/subtext if you wire them back). SEO title stays the site name; description, Open Graph, and canonical are set in `seo-meta`.
 
 ## Theme settings used (homepage group)
 

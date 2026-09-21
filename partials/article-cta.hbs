@@ -1,0 +1,92 @@
+{{! End-of-article CTA — same full-width maroon band + mustard button as cta-section.
+
+    Copy, in order:
+      1. Partial params (headline / text / button_text / href) — component library, tests
+      2. Slug-specific defaults for known posts
+      3. Generic fallback
+
+    Ghost has no custom post fields. Per-post overrides live in Post settings →
+    Code injection → Site Header:
+
+      <meta name="mrc:cta-headline" content="…">
+      <meta name="mrc:cta-text" content="…">
+      <meta name="mrc:cta-button" content="…">
+      <meta name="mrc:cta-url" content="/contact/">
+
+    Hide on a post with the internal tag #no-cta. }}
+{{#has tag="#no-cta"}}
+{{else}}
+{{#if headline}}
+  {{> "article-cta-block" headline=headline text=text button_text=button_text href=href heading_id=heading_id}}
+{{else}}
+  {{#match slug "=" "stop-tweaking-start-publishing-how-to-know-your-website-is-ready-to-launch"}}
+    {{> "article-cta-block"
+      headline="Still deciding what needs to happen before launch?"
+      text="I can help separate actual blockers from work that can safely wait."
+      button_text="Review your site with me →"}}
+  {{else}}
+    {{#match slug "=" "the-grant-trap-and-how-to-avoid-it"}}
+      {{> "article-cta-block"
+        headline="Planning a grant-funded digital project?"
+        text="Get the scope, maintenance requirements, and handoff plan clear before you commit the budget."
+        button_text="Start a conversation →"}}
+    {{else}}
+      {{#match slug "=" "what-to-send-before-booking-a-discovery-call"}}
+        {{> "article-cta-block"
+          headline="Have the ten-minute version ready?"
+          text="That's enough to start."
+          button_text="Tell me what's going on →"}}
+      {{else}}
+        {{> "article-cta-block"
+          headline="Have a question about your own website?"
+          text="Tell me what's getting in the way. We'll figure out what deserves attention first."
+          button_text="Start a conversation →"}}
+      {{/match}}
+    {{/match}}
+  {{/match}}
+{{/if}}
+<script>
+(function () {
+  function meta(name) {
+    var el = document.querySelector('meta[name="' + name + '"]');
+    return el ? (el.getAttribute('content') || '').trim() : '';
+  }
+  var hide = meta('mrc:cta-hide');
+  var asides = document.querySelectorAll('[data-mrc-article-cta]');
+  var i;
+  if (hide === 'true' || hide === '1') {
+    for (i = 0; i < asides.length; i++) {
+      asides[i].hidden = true;
+    }
+    return;
+  }
+  var headline = meta('mrc:cta-headline');
+  var text = meta('mrc:cta-text');
+  var button = meta('mrc:cta-button');
+  var href = meta('mrc:cta-url');
+  if (!headline && !text && !button && !href) {
+    return;
+  }
+  for (i = 0; i < asides.length; i++) {
+    var el = asides[i];
+    var heading = el.querySelector('.mrc-cta-headline');
+    var body = el.querySelector('.mrc-cta-subtext');
+    var link = el.querySelector('.mrc-cta-btn');
+    if (headline && heading) {
+      heading.textContent = headline;
+    }
+    if (text && body) {
+      body.textContent = text;
+    }
+    if (link) {
+      if (button) {
+        link.textContent = button;
+      }
+      if (href) {
+        link.setAttribute('href', href);
+      }
+    }
+  }
+})();
+</script>
+{{/has}}

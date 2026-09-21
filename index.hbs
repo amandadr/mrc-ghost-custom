@@ -1,9 +1,12 @@
 {{!< default}}
 {{! Blog archive: used when collection is at /blog/ (see docs/routes-blog-archive.yaml) }}
+{{#contentFor "title"}}Writing | {{@site.title}}{{/contentFor}}
 {{#contentFor "head"}}
-  {{#unless meta_description}}
-    <meta name="description" content="Practical notes and guides from the field.">
-  {{/unless}}
+  {{> "seo-meta"
+    description="Practical notes and guides from the field."
+    og_title="Writing"
+    path="/blog/"
+  }}
 {{/contentFor}}
 
 <main class="site-main" id="blog-archive">

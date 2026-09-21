@@ -68,6 +68,11 @@ body {
     padding-block: 0;
 }
 
+/* Posts: drop bottom padding so the article CTA band meets the footer */
+.post-template .site-content {
+    padding-bottom: 0;
+}
+
 /* Custom MRC routes (collections, who-i-help, etc.) are not .page-template */
 .site-content:has(.mrc-page) {
     padding-block: 0;

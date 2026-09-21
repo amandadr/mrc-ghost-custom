@@ -39,7 +39,7 @@
                         <img
                             class="u-object-fit"
                             srcset="{{> srcset}}"
-                            sizes="(min-width: 1200px) 920px, 92vw"
+                            sizes="(min-width: 768px) min(92vw, 52rem), 92vw"
                             src="{{img_url feature_image size="l"}}"
                             alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
                         >
@@ -55,9 +55,9 @@
     {{/match}}
 
     {{#is "post"}}
-    <div class="mrc-split mrc-split--40-60 gh-canvas">
+    <div class="single-body gh-canvas">
         {{> "post-toc" source=".single-content"}}
-        <div class="single-content gh-content">
+        <div class="single-content gh-content" data-pdf-viewer>
             {{content}}
         </div>
     </div>
@@ -83,18 +83,38 @@
 
         <div class="single-footer-middle">
         {{#if @custom.show_author}}
-            <div class="single-footer-top">
-                <h3 class="single-footer-title">Published by:</h3>
-                <div class="author-list">
-                    {{#foreach authors}}
-                    <div class="author-image-placeholder u-placeholder square">
-                        <a href="{{url}}" title="{{name}}">
-                            <img class="author-image u-object-fit" src="{{img_url profile_image size="xs"}}" alt="{{name}}" loading="lazy">
+            <div class="author-signoff">
+                {{#foreach authors}}
+                <div class="author-signoff__item">
+                    <div class="author-signoff__photo u-placeholder square">
+                        <img
+                            class="author-image u-object-fit"
+                            src="{{#if profile_image}}{{img_url profile_image size="xs"}}{{else}}{{asset "images/headshot.webp"}}{{/if}}"
+                            alt=""
+                            width="64"
+                            height="64"
+                            loading="lazy"
+                        >
+                    </div>
+                    <div class="author-signoff__copy">
+                        <p class="author-signoff__byline">Written by <span class="author-signoff__name">{{name}}</span></p>
+                        <a class="author-signoff__about" href="{{url}}">
+                            About <span class="author-signoff__first-name">{{name}}</span> →
                         </a>
                     </div>
-                    {{/foreach}}
                 </div>
+                {{/foreach}}
             </div>
+            <script>
+            (function () {
+                document.querySelectorAll('.author-signoff__first-name').forEach(function (el) {
+                    var first = (el.textContent || '').trim().split(/\s+/)[0];
+                    if (first) {
+                        el.textContent = first;
+                    }
+                });
+            })();
+            </script>
         {{/if}}
         </div>
 

@@ -13,7 +13,7 @@ The **blog archive** (e.g. `/` or `/blog/` depending on our routes) uses `index.
 
 ## index.hbs content
 
-- Fallback meta description when Ghost has none (SEO).
+- Fallback meta description when Ghost has none (SEO), plus title/OG/canonical via `seo-meta`.
 - Main: post feed using `post-card` with `heading="h2"` so the outline is h1 (“Writing”) then h2 titles, not a skipped h3.
 - Pagination: `{{pagination}}` (Ghost helper).
 

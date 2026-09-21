@@ -3,6 +3,11 @@
 {{#contentFor "site_head"}}
     {{> "site-head"}}
 {{/contentFor}}
+{{#contentFor "head"}}
+    {{#post}}
+        {{> "seo-meta"}}
+    {{/post}}
+{{/contentFor}}
 
 <main class="site-main">
 

@@ -1,5 +1,14 @@
 {{!< default}}
 {{! Thanks page — slug "thanks". Copy in template. }}
+{{#contentFor "title"}}Thanks | {{@site.title}}{{/contentFor}}
+{{#contentFor "head"}}
+  {{> "seo-meta"
+    description="Your message is in. I'll get back to you within 1–2 business days."
+    og_title="Thanks for reaching out"
+    path="/thanks/"
+    noindex=true
+  }}
+{{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-thanks">
   <section class="mrc-thanks section-light gh-outer" aria-labelledby="mrc-thanks-title">

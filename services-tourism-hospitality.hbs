@@ -1,15 +1,15 @@
 {{!< default}}
 {{! Tourism & Hospitality — /services/tourism-hospitality/
     Copy: assets/wireframes/raw copy/tourism-hospitality.md + Tourism PNGs. }}
-{{#contentFor "title"}}Digital Support for PEI Tourism Operators | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "title"}}Digital Support for PEI Tourism Operators | {{@site.title}}{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-services-tourism-hospitality{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Practical websites, booking systems, and automations for PEI tourism operators facing labor shortages and OTA fees.">
-    <meta property="og:title" content="Digital support for PEI tourism operators">
-    <meta property="og:description" content="Stop losing direct bookings. Practical systems that automate admin work and turn searches into direct revenue.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{@site.url}}/services/tourism-hospitality/">
-    <link rel="canonical" href="{{@site.url}}/services/tourism-hospitality/">
+    {{> "seo-meta"
+      description="Practical websites, booking systems, and automations for PEI tourism operators facing labor shortages and OTA fees."
+      og_title="Digital support for PEI tourism operators"
+      og_description="Stop losing direct bookings. Practical systems that automate admin work and turn searches into direct revenue."
+      path="/services/tourism-hospitality/"
+    }}
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-audience mrc-page-audience--tourism-hospitality">

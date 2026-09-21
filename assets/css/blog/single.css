@@ -3,8 +3,33 @@
     text-align: center;
 }
 
+.single-header.gh-canvas,
+.single-body.gh-canvas,
+.single .gh-canvas {
+    --content-width: var(--mrc-content-width);
+}
+
+@media (min-width: 900px) {
+    .single-body > .mrc-toc {
+        grid-column: full-start / main-start;
+        padding-inline-end: var(--space-5);
+    }
+
+    .single-body > .single-content {
+        grid-column: main;
+        width: 100%;
+        max-width: none;
+        margin-inline: 0;
+    }
+}
+
 .page-template .single-header {
     margin-top: var(--header-spacing);
+}
+
+.single-content {
+    width: 100%;
+    margin-inline: auto;
 }
 
 .single-meta {
@@ -62,6 +87,12 @@
     margin-top: var(--space-8);
 }
 
+.single-media:not(.kg-width-full) {
+    width: 100%;
+    max-width: min(var(--mrc-feature-width), 100%);
+    justify-self: center;
+}
+
 /*
   Feature image: show the full image (no cropping).
   We override the shared `.u-placeholder`/`.u-object-fit` utility pattern here only for the post's feature image.
@@ -105,7 +136,36 @@
 .single-footer {
     display: flex;
     align-items: center;
+    gap: var(--space-3);
     margin-top: var(--space-8);
+}
+
+/* Cream gap above the maroon band; internal padding matches About */
+.post-template .mrc-article-cta {
+    padding-top: var(--space-8);
+}
+
+/* Olive Keep Reading band meets the maroon CTA with no cream strip */
+.post-template:has(.related-wrapper) .mrc-article-cta {
+    padding-top: 0;
+}
+
+.post-template .mrc-article-cta .mrc-cta-section {
+    padding-block: var(--space-9);
+}
+
+@media (max-width: 767px) {
+    .post-template .mrc-article-cta {
+        padding-top: var(--space-7);
+    }
+
+    .post-template:has(.related-wrapper) .mrc-article-cta {
+        padding-top: 0;
+    }
+
+    .post-template .mrc-article-cta .mrc-cta-section {
+        padding-block: var(--space-8);
+    }
 }
 
 .single-footer-left,
@@ -121,17 +181,8 @@
 .single-footer-middle {
     display: flex;
     flex-direction: column;
-}
-
-.single-footer-top {
-    display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-.single-footer-title {
-    margin-bottom: var(--space-4);
-    font-size: var(--mrc-h3-size);
+    min-width: 0;
 }
 
 .single-footer-bottom {
@@ -153,5 +204,22 @@
 
     .single-media {
         margin-top: var(--space-7);
+    }
+}
+
+@media (max-width: 479px) {
+    .single-footer {
+        flex-wrap: wrap;
+        row-gap: var(--space-4);
+    }
+
+    .single-footer-middle {
+        flex: 1 0 100%;
+        order: -1;
+    }
+
+    .single-footer-left,
+    .single-footer-right {
+        flex: 1;
     }
 }

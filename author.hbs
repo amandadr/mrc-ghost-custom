@@ -1,4 +1,18 @@
 {{!< default}}
+{{#contentFor "head"}}
+    {{#author}}
+        {{#if profile_image}}
+            <meta property="og:image" content="{{img_url profile_image absolute="true"}}">
+            <meta name="twitter:image" content="{{img_url profile_image absolute="true"}}">
+        {{else}}
+            {{#if @custom.header_logo}}
+                <meta property="og:image" content="{{@custom.header_logo}}">
+                <meta name="twitter:image" content="{{@custom.header_logo}}">
+            {{/if}}
+        {{/if}}
+        {{> "seo-meta"}}
+    {{/author}}
+{{/contentFor}}
 
 <main class="site-main">
 

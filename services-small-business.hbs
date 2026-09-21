@@ -1,15 +1,15 @@
 {{!< default}}
 {{! Small & Medium Businesses — /services/small-businesses/ via routes.yaml.
     Copy: assets/wireframes/raw copy/small-medium-businesses.md + SMB PNGs. }}
-{{#contentFor "title"}}Your Website Should Work as Hard as You Do | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "title"}}Your Website Should Work as Hard as You Do | {{@site.title}}{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-services-small-business{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Practical websites and digital systems for small and medium businesses. Clear explanations, honest recommendations, and tools you can run yourself.">
-    <meta property="og:title" content="Your website should work as hard as you do">
-    <meta property="og:description" content="You run the business. I help make the technology work for you, not the other way around.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{@site.url}}/services/small-businesses/">
-    <link rel="canonical" href="{{@site.url}}/services/small-businesses/">
+    {{> "seo-meta"
+      description="Practical websites and digital systems for small and medium businesses. Clear explanations, honest recommendations, and tools you can run yourself."
+      og_title="Your website should work as hard as you do"
+      og_description="You run the business. I help make the technology work for you, not the other way around."
+      path="/services/small-businesses/"
+    }}
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-audience mrc-page-audience--small-business">

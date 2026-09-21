@@ -56,6 +56,7 @@ Ghost matches custom **page** templates by template name in Admin. Audience and 
 | `css-async-idle` | Full `screen.css` after load (no preload-scanner fetch) | Services |
 | `screen-services-inline` | Gulp-inlined Services critical CSS | `page-services.hbs` |
 | `site-head` | `ghost_head` with Portal/search deferred | `default.hbs` |
+| `seo-meta` | Page SEO tags, or auto from excerpt/title for posts | `default.hbs` (posts/tags); `author.hbs`; marketing templates via `contentFor "head"` |
 | `pswp` | PhotoSwipe lightbox | `scripts-full` (posts + opted-in pages) |
 | `scripts-full` | Full JS + PhotoSwipe markup | `default.hbs` (posts); `contentFor "scripts"` opt-in |
 
@@ -65,7 +66,8 @@ Ghost matches custom **page** templates by template name in Admin. Audience and 
 |---------|---------|--------|
 | `hero` | Marketing hero (optional media) | `home.hbs`, `page-services.hbs`, … |
 | `section-header` | Eyebrow + h2 + intro + optional actions | Most marketing sections |
-| `cta-section` | Full-width CTA band | Marketing pages |
+| `cta-section` | Full-width maroon CTA band | Marketing pages |
+| `article-cta` | Full-width maroon CTA band after related posts | `post.hbs` (and custom post templates) |
 | `two-column-section` | Two-column content + optional media | `page-about.hbs`, … |
 | `anchor-section` | Dark statement band | Selected pages |
 | `service-section` | Capability block with include list | `page-services.hbs` |
@@ -102,9 +104,10 @@ Ghost matches custom **page** templates by template name in Admin. Audience and 
 | `post-card` | Resource / blog card | Resources, audiences |
 | `case-study-row` | Case study list row | Case studies, audiences |
 | `post-toc` | Nested table of contents (h2 sections, h3/h4 subsections) | Long-form posts |
-| `loop` | Legacy feed card | `index.hbs`, archives |
+| `loop` | Legacy feed card | `index.hbs`, archives, Keep Reading |
+| `related-posts` | Full-width Keep Reading band | `post.hbs`, custom post templates |
 | `content` | Post/page body | `post.hbs`, `page.hbs`, customs |
-| `post-case-study` / `post-whitepaper` | Custom post bodies | Custom templates |
+| `post-case-study` / `post-whitepaper` | Case study uses the blog `content` layout; whitepaper stays PDF/members | Custom templates / tagged posts |
 
 ### Component library chrome
 

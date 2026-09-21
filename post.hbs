@@ -1,4 +1,6 @@
 {{!< default}}
+{{! SEO: default.hbs auto-assigns meta description from custom_excerpt / excerpt
+    when the Ghost meta_description field is empty. Custom post templates inherit the same. }}
 
 <main class="site-main">
 
@@ -6,18 +8,14 @@
         {{#has tag="whitepaper"}}
             {{> "post-whitepaper"}}
         {{else}}
-            {{#has tag="case-study"}}
-                {{> "post-case-study"}}
+            {{#has tag="glossary-term"}}
+                {{> "post-glossary-term"}}
             {{else}}
-                {{#has tag="glossary-term"}}
-                    {{> "post-glossary-term"}}
-                {{else}}
-                {{#has tag="#glossary-term"}}
-                    {{> "post-glossary-term"}}
-                {{else}}
-                    {{> "content" width="wide"}}
-                {{/has}}
-                {{/has}}
+            {{#has tag="#glossary-term"}}
+                {{> "post-glossary-term"}}
+            {{else}}
+                {{> "content" width="wide"}}
+            {{/has}}
             {{/has}}
         {{/has}}
     {{/post}}
@@ -36,6 +34,10 @@
 
     {{#post}}
         {{> "comments"}}
+        {{#has tag="whitepaper,glossary-term,#glossary-term"}}
+        {{else}}
+            {{> "article-cta"}}
+        {{/has}}
     {{/post}}
 
 </main>

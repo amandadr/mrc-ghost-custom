@@ -9,14 +9,17 @@ Single **posts** and **pages** use the content partial for the main body and opt
 ## post.hbs (default single post)
 
 - **Content:** `{{> "content" width="wide"}}` — Renders the post body with responsive images (srcset), optional feature image, and reading width “wide”.
-- **Related posts:** Rendered when `@custom.show_related_posts` is true (partial `related-posts`).
+- **Keep Reading:** Full-width related-posts band (`related-posts`) when `@custom.show_related_posts` is true. Sits between the author sign-off and the article CTA.
 - **Comments:** Partial `comments` (if enabled).
 
 Theme settings (group **post**): `show_author`, `show_related_posts`. Toggle these in Settings → Design → Theme.
 
+**SEO:** `default.hbs` auto-assigns a meta description from `custom_excerpt` or `excerpt` when the Ghost **Meta description** field is empty. Feature image wins over the header logo for `og:image`. Custom post templates inherit both. Set Meta title / Meta description in the post editor to override.
+
 ## page.hbs (default page)
 
 - **Content:** `{{> "content" width="wide"}}` only. No related posts or comments.
+- **SEO:** `seo-meta` auto-assigns a description from the page excerpt when Ghost has no meta description.
 
 Pages that use a **custom page template** (About, Services, Contact, etc.) use the corresponding `page-*.hbs` file instead; see [Theme settings](./theme-settings).
 
@@ -36,7 +39,7 @@ If the author selects a custom template when editing a post, Ghost uses the matc
 | Template name (in Admin) | File | Notes |
 |--------------------------|------|--------|
 | (default) | `post.hbs` | wide content, related, comments |
-| Case study | `custom-case-study.hbs` | wide content, related; no comments |
+| Case study | `custom-case-study.hbs` | Same layout as a blog post (header, TOC, sign-off, related, comments, article CTA). PDF links in the body still embed. |
 | Full feature image | `custom-full-feature-image.hbs` | full-width feature image |
 | Narrow feature image | `custom-narrow-feature-image.hbs` | narrow feature image |
 | No feature image | `custom-no-feature-image.hbs` | no feature image block |

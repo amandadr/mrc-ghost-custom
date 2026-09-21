@@ -17,6 +17,8 @@ Ghost picks a **root template** based on the current route and, for pages and po
 
 All templates that extend the root layout start with `{{!< default}}` so `default.hbs` wraps the content.
 
+Marketing and collection templates set title, description, Open Graph, and canonical through `partials/seo-meta.hbs`. Posts, tags, and authors get a meta description from Ghost variables when the SEO fields are empty.
+
 ## Slug → template mapping
 
 | Route / slug | How it is selected | Theme file |

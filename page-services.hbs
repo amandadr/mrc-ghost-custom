@@ -1,14 +1,18 @@
 {{!< default}}
 {{! Services & Capabilities — Ghost Page slug "services".
     Copy: assets/wireframes/raw copy/services-capabilities.md }}
+{{#contentFor "title"}}Services | {{@site.title}}{{/contentFor}}
 {{#contentFor "theme_css"}}
   {{> "screen-services-inline"}}
   {{> "css-async-idle"}}
 {{/contentFor}}
 {{#contentFor "head"}}
-  {{#unless meta_description}}
-    <meta name="description" content="Websites, systems, and strategy for Atlantic Canadian businesses and organizations. Practical help with rebuilds, booking flows, accessibility, and extra engineering capacity.">
-  {{/unless}}
+  {{> "seo-meta"
+    description="Websites, systems, and strategy for Atlantic Canadian businesses and organizations. Practical help with rebuilds, booking flows, accessibility, and extra engineering capacity."
+    og_title="Solutions for your digital growing pains"
+    og_description="You don't need to know the technical name for your problem. We'll figure it out together."
+    path="/services/"
+  }}
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-services">

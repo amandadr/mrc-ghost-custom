@@ -1,8 +1,9 @@
 /**
  * Article table of contents (partials/post-toc.hbs).
  *
- * Mobile: a <details> drawer. From 900px the summary is hidden, the list stays open,
- * and the nav sticks beside the article. Nested ol.mrc-toc__list--nested is the
+ * Mobile: a <details> drawer. From 900px the summary becomes a small eyebrow
+ * label, the list stays open, and the nav sticks beside the article. Nested
+ * ol.mrc-toc__list--nested is the
  * heading outline (h2 sections, h3/h4 subsections). Current-heading highlighting
  * is a JS extra (assets/js/lib/toc.js); without it the list is still a working set
  * of links.
@@ -119,7 +120,22 @@
     top: var(--space-6);
   }
 
+  /* Static eyebrow — list is always visible, so don't treat this as a toggle. */
   .mrc-toc__summary {
+    display: flex;
+    justify-content: flex-start;
+    font-family: var(--font-sans);
+    font-size: var(--mrc-small-size);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mrc-eyebrow);
+    padding-block: 0 var(--space-3);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .mrc-toc__summary::after {
     display: none;
   }
 

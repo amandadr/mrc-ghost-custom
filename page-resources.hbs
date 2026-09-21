@@ -2,15 +2,15 @@
 {{! Resources hub — /resources/ via routes.yaml (no Ghost Page).
     Points at existing collections; does not replace them.
     Copy: assets/wireframes/raw copy/resources.md + PEI strategy framing. }}
-{{#contentFor "title"}}Resources | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "title"}}Resources | {{@site.title}}{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-resources{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Practical guides, whitepapers, and writing for better digital work — a trusted local resource centre with strong technical depth.">
-    <meta property="og:title" content="Resources">
-    <meta property="og:description" content="Clear explanations and useful tools without the jargon.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{@site.url}}/resources/">
-    <link rel="canonical" href="{{@site.url}}/resources/">
+    {{> "seo-meta"
+      description="Practical guides, whitepapers, and writing for better digital work — a trusted local resource centre with strong technical depth."
+      og_title="Resources"
+      og_description="Clear explanations and useful tools without the jargon."
+      path="/resources/"
+    }}
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-resources">

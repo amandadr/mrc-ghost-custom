@@ -17,6 +17,7 @@ html {
 
   /* Reading width */
   --mrc-content-width: 72ch;
+  --mrc-feature-width: calc(var(--mrc-content-width) * 1.22);
 
   /* Type scale — fluid (clamp for mobile → desktop) */
   --mrc-h1-size: clamp(1.85rem, 4vw + 1rem, 2.75rem);
@@ -216,6 +217,11 @@ hr {
 .gh-content > blockquote {
   margin-block-start: var(--space-4);
   margin-block-end: var(--space-2);
+}
+
+.gh-content blockquote,
+.gh-content blockquote.kg-blockquote-alt {
+  color: var(--mrc-maroon);
 }
 
 /* Content spacing: tighten default stack spacing from shared content.css */

@@ -1,4 +1,12 @@
 {{!< default}}
+{{#contentFor "title"}}Glossary | {{@site.title}}{{/contentFor}}
+{{#contentFor "head"}}
+  {{> "seo-meta"
+    description="Short definitions with links to deeper explanations."
+    og_title="Glossary"
+    path="/glossary/"
+  }}
+{{/contentFor}}
 
 <main class="site-main">
   <section class="mrc-glossary gh-canvas" aria-labelledby="glossary-title">

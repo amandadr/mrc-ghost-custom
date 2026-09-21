@@ -1,40 +1,52 @@
+/**
+ * Keep Reading — full-width olive band (partials/related-posts.hbs).
+ * Same span as the article CTA; list is capped to the wide container.
+ */
+
 .related-wrapper {
-    padding: var(--space-7) 0 var(--space-6);
+    padding-block: var(--space-9);
     margin-top: var(--space-8);
-    background-color: var(--lighter-gray-color);
 }
 
-/* Use primary text token so headings stay readable when this band is dark (OS / theme dark). */
-.related-wrapper .related-title,
-.related-wrapper .feed-title {
-    color: var(--primary-text-color);
+.related-inner {
+    width: 100%;
+    max-width: min(var(--mrc-container-wide, 1100px), 100%);
+    margin-inline: auto;
 }
 
 .related-title {
-    margin-bottom: var(--space-5);
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-serif);
     font-size: var(--mrc-h2-size);
+    font-weight: 600;
+    color: inherit;
+}
+
+.related-wrapper .feed-title {
+    color: inherit;
 }
 
 .related-wrapper .feed-length,
 .related-wrapper .feed-icon {
-    color: var(--secondary-text-color);
+    color: var(--mrc-surface);
+    opacity: 0.85;
 }
 
-/* Dark band: brighter date accent + row dividers */
-@media (prefers-color-scheme: dark) {
-    html:not(.theme-light) .related-wrapper .feed-calendar {
-        color: var(--mrc-mustard);
-    }
-
-    html:not(.theme-light) .related-wrapper .feed + .feed {
-        border-top: 1px solid rgba(255, 255, 255, 0.14);
-    }
-}
-
-.theme-dark .related-wrapper .feed-calendar {
+.related-wrapper .feed-calendar {
     color: var(--mrc-mustard);
 }
 
-.theme-dark .related-wrapper .feed + .feed {
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
+.related-wrapper .feed + .feed {
+    border-top-color: var(--border-color-on-dark);
+}
+
+.related-wrapper .feed:hover .feed-title {
+    opacity: 0.9;
+}
+
+@media (max-width: 767px) {
+    .related-wrapper {
+        padding-block: var(--space-8);
+        margin-top: var(--space-7);
+    }
 }

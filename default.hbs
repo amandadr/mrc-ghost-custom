@@ -29,12 +29,54 @@
     {{{block "head"}}}
     {{> "ga4"}}
 
-    {{! Favicon, og:image, twitter:image — only when Header logo is set (otherwise Ghost/defaults apply) }}
+    {{! Favicon from the header logo. Social images: feature/profile image wins;
+        otherwise the logo is the site-wide fallback. }}
     {{#if @custom.header_logo}}
         <link rel="icon" type="image/png" href="{{@custom.header_logo}}">
-        <meta property="og:image" content="{{@custom.header_logo}}">
-        <meta name="twitter:image" content="{{@custom.header_logo}}">
     {{/if}}
+    {{#is "post, page"}}
+        {{#post}}
+            {{#if feature_image}}
+                <meta property="og:image" content="{{img_url feature_image absolute="true"}}">
+                <meta name="twitter:image" content="{{img_url feature_image absolute="true"}}">
+            {{else}}
+                {{#if @custom.header_logo}}
+                    <meta property="og:image" content="{{@custom.header_logo}}">
+                    <meta name="twitter:image" content="{{@custom.header_logo}}">
+                {{/if}}
+            {{/if}}
+            {{! Posts: meta description from excerpt when Ghost SEO fields are empty.
+                Custom post templates inherit this via default.hbs. }}
+            {{#is "post"}}
+                {{> "seo-meta"}}
+            {{/is}}
+        {{/post}}
+    {{else}}
+        {{#is "tag"}}
+            {{#tag}}
+                {{#if feature_image}}
+                    <meta property="og:image" content="{{img_url feature_image absolute="true"}}">
+                    <meta name="twitter:image" content="{{img_url feature_image absolute="true"}}">
+                {{else}}
+                    {{#if @custom.header_logo}}
+                        <meta property="og:image" content="{{@custom.header_logo}}">
+                        <meta name="twitter:image" content="{{@custom.header_logo}}">
+                    {{/if}}
+                {{/if}}
+                {{> "seo-meta"}}
+            {{/tag}}
+        {{else}}
+            {{#is "author"}}
+                {{! Author archive social image is set in author.hbs. Skip the logo
+                    here so it cannot overwrite the profile image. }}
+            {{else}}
+                {{#if @custom.header_logo}}
+                    <meta property="og:image" content="{{@custom.header_logo}}">
+                    <meta name="twitter:image" content="{{@custom.header_logo}}">
+                {{/if}}
+            {{/is}}
+        {{/is}}
+    {{/is}}
 </head>
 
 <body class='{{body_class}}{{{block "body_class"}}} is-head-{{#match @custom.navigation_layout "Logo on the left"}}left-logo{{else match @custom.navigation_layout "Logo in the middle"}}middle-logo{{else}}stacked{{/match}}{{#match @custom.title_font "=" "Elegant serif"}} has-serif-title{{/match}}{{#match @custom.body_font "=" "Elegant serif"}} has-serif-body{{/match}}'>

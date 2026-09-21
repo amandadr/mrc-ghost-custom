@@ -1,15 +1,15 @@
 {{!< default}}
 {{! Arts, Culture & Community — /services/arts-culture-community/
     Copy: assets/wireframes/raw copy/arts-culture-community.md }}
-{{#contentFor "title"}}A Digital Home for Work That Matters | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "title"}}A Digital Home for Work That Matters | {{@site.title}}{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-services-arts-culture-community{{/contentFor}}
 {{#contentFor "head"}}
-    <meta name="description" content="Clear, accessible websites for arts, culture, and community organizations. Built for small teams, diverse audiences, and ownership that lasts.">
-    <meta property="og:title" content="A digital home for work that matters">
-    <meta property="og:description" content="Your organization brings people together. A clear, accessible website makes sure everyone can find you, participate, and stay connected.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{@site.url}}/services/arts-culture-community/">
-    <link rel="canonical" href="{{@site.url}}/services/arts-culture-community/">
+    {{> "seo-meta"
+      description="Clear, accessible websites for arts, culture, and community organizations. Built for small teams, diverse audiences, and ownership that lasts."
+      og_title="A digital home for work that matters"
+      og_description="Your organization brings people together. A clear, accessible website makes sure everyone can find you, participate, and stay connected."
+      path="/services/arts-culture-community/"
+    }}
 {{/contentFor}}
 
 <main class="site-main mrc-page mrc-page-audience mrc-page-audience--arts-culture-community">

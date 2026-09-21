@@ -1,4 +1,11 @@
 {{!< default}}
+{{#contentFor "title"}}Page not found | {{@site.title}}{{/contentFor}}
+{{#contentFor "head"}}
+  {{> "seo-meta"
+    description="That URL doesn't map to anything here. If you followed a link from the site, it might be outdated."
+    noindex=true
+  }}
+{{/contentFor}}
 
 <main class="site-main mrc-page mrc-error-page">
   <section class="mrc-hero mrc-error section-light gh-outer" aria-labelledby="mrc-404-title">

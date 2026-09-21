@@ -2,12 +2,15 @@
 {{! Public component library — live demos of theme partials + foundations.
     Mounted at /component-library/ via routes.yaml (no Ghost Page required).
     Keep out of primary nav; extend by adding a cl-frame block + TOC link. }}
-{{#contentFor "title"}}Component library | Manny Roy Consulting{{/contentFor}}
+{{#contentFor "title"}}Component library | {{@site.title}}{{/contentFor}}
 {{#contentFor "body_class"}} mrc-route-component-library{{/contentFor}}
 {{#contentFor "head"}}
-  <meta name="description" content="Live component library for the Manny Roy Consulting theme — foundations, section components, and edge-case fixtures.">
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="{{@site.url}}/component-library/">
+  {{> "seo-meta"
+    description="Live component library for the Manny Roy Consulting theme — foundations, section components, and edge-case fixtures."
+    og_title="Component library"
+    path="/component-library/"
+    noindex=true
+  }}
   <link rel="stylesheet" href="{{asset "built/screen-cl.css"}}">
 {{/contentFor}}
 
@@ -282,6 +285,15 @@
         <div class="mrc-cl-variant">
           <p class="mrc-cl-variant__label">Long headline, no subtext</p>
           {{> "cta-section" headline="A very long CTA heading that demonstrates what happens when somebody inevitably writes more words than the wireframe expected for this closing band" button_text="Continue" href="#cl-cta"}}
+        </div>
+      {{> "component-library/cl-frame-end"}}
+
+      {{! ========== Article CTA ========== }}
+      {{> "component-library/cl-frame-start" id="cl-article-cta" title="Article CTA" status="stable" partial_name="article-cta" notes="Same full-width maroon band + mustard button as cta-section. Pass headline/text/button_text, or set per-post copy in Post settings → Code injection (mrc:cta-headline, mrc:cta-text, mrc:cta-button). Hide with internal tag #no-cta."}}
+        {{> "article-cta" heading_id="cl-article-cta-default" headline="Have a question about your own website?" text="Tell me what's getting in the way. We'll figure out what deserves attention first." button_text="Start a conversation →" href="#cl-article-cta"}}
+        <div class="mrc-cl-variant">
+          <p class="mrc-cl-variant__label">Grant-article copy</p>
+          {{> "article-cta" heading_id="cl-article-cta-grant" headline="Planning a grant-funded digital project?" text="Get the scope, maintenance requirements, and handoff plan clear before you commit the budget." button_text="Start a conversation →" href="#cl-article-cta"}}
         </div>
       {{> "component-library/cl-frame-end"}}
 
@@ -726,7 +738,7 @@
       {{> "component-library/cl-frame-end"}}
 
       {{! ========== Table of contents ========== }}
-      {{> "component-library/cl-frame-start" id="cl-toc" title="Table of contents" status="stable" partial_name="post-toc" notes="Authored links here; toc.js nests them under the heading they point at (h3 under the preceding h2). On a real article, leave the list empty and it will build the same outline from the headings. Sticky from 900px; a details drawer below that."}}
+      {{> "component-library/cl-frame-start" id="cl-toc" title="Table of contents" status="stable" partial_name="post-toc" notes="Authored links here; toc.js nests them under the heading they point at (h3 under the preceding h2). On a real article, leave the list empty and it will build the same outline from the headings. Sticky from 900px with a small “On this page” label; a details drawer below that."}}
         <section class="mrc-section section-light gh-outer">
           <div class="gh-inner mrc-split mrc-split--40-60">
             {{> "post-toc"

@@ -4,9 +4,10 @@ sidebar_position: 6
 
 # Whitepapers + case studies (PDF-first resources)
 
-Whitepapers and case studies are **PDF-first**: the PDF is the primary content shown to readers using **PDF.js**.
+**Whitepapers** are PDF-first: the PDF is the primary content shown to readers using **PDF.js**. **Case studies** use the same layout as blog posts; a PDF in the body is optional and embeds in place.
 
-In Ghost, each resource is still a **post**, but the post body is used only to store **one PDF link** (which the theme reads and then hides).
+In Ghost, each resource is still a **post**. For whitepapers, the post body is used to store **one PDF link** (which the theme reads and then embeds).
+
 
 ## Storage + URL requirements (your CDN)
 
@@ -63,26 +64,29 @@ Sanity check after publishing:
 
 ## Add a case study
 
-### 1) Upload the PDF to your storage/CDN
+Case studies render like **blog posts** (date, read time, and tag above the title; excerpt; feature image; article body; author sign-off; CTA). They are public.
 
-Same requirements as whitepapers.
+A PDF in the body is optional. If you include a `.pdf` link, the theme embeds it with PDF.js and leaves the rest of the article in place.
 
-### 2) Create a new post in Ghost
+### 1) Create a new post in Ghost
 
 - **Title**: the case study title
 - **Tag**: `case-study`
 - **Visibility**: **Public**
-- **Custom excerpt**: short summary (optional but recommended)
+- **Custom excerpt**: short summary (optional but recommended; it shows under the title)
+- **Feature image**: optional; same treatment as a blog post
 
-### 3) Add the PDF URL (the only required body content)
+### 2) Write the article
 
-Add **one** link/card to the PDF URL in the post body. The theme will hide it and render the PDF viewer.
+Use the Ghost editor as you would for a blog post. If you also have a PDF, upload it to your CDN and add **one** link/card to that URL in the body.
 
-### 4) Publish
+### 3) Publish
 
 Sanity check after publishing:
 
-- Signed out: you should still see the PDF viewer (case studies are public)
+- The header matches a blog post (meta above the title)
+- Signed out: the page is public
+- If you added a PDF link, the viewer embeds in the body
 
 ## Common troubleshooting
 

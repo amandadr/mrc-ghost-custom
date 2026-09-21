@@ -1,12 +1,14 @@
-{{#get "posts" limit="5" filter="tags:[{{post.tags}}]+id:-{{post.id}}" as |related|}}
-{{#if related}}
-    <section class="related-wrapper gh-canvas">
-        <h3 class="related-title">You might also like...</h3>
+{{!-- Keep Reading — full-width olive band between the author sign-off and the article CTA.
+    Include this partial from inside a post block so id/tags resolve. --}}
+<section class="related-wrapper section-dark gh-outer">
+    <div class="related-inner gh-inner">
+        <h2 class="related-title">Keep Reading</h2>
         <div class="related-feed">
-            {{#foreach posts}}
-                {{> "loop"}}
-            {{/foreach}}
+            {{#get "posts" limit="5" filter="id:-{{id}}" include="tags"}}
+                {{#foreach posts}}
+                    {{> "loop"}}
+                {{/foreach}}
+            {{/get}}
         </div>
-    </section>
-{{/if}}
-{{/get}}
+    </div>
+</section>

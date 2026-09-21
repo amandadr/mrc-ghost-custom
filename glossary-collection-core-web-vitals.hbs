@@ -1,4 +1,14 @@
 {{!< default}}
+{{#contentFor "title"}}{{#page}}{{title}}{{/page}} | {{@site.title}}{{/contentFor}}
+{{#contentFor "head"}}
+{{#page}}
+  {{> "seo-meta"
+    og_title=title
+    path="/core-web-vitals/"
+    fallback="Related glossary terms and short definitions."
+  }}
+{{/page}}
+{{/contentFor}}
 
 <main class="site-main">
   {{#page}}
